@@ -14,3 +14,4 @@ description: "This is a lab manual for learning how to use R for ecological data
 
 # Preface {-}
 
+Preface text
