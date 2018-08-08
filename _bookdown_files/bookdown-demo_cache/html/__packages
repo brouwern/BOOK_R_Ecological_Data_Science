@@ -1,0 +1,10 @@
+base
+MASS
+ggplot2
+magrittr
+ggpubr
+cowplot
+devtools
+wildlifeR
+bitops
+RCurl

@@ -1,0 +1,199 @@
+# Scatterplots in R using qplot()
+
+```{r , include=F, echo = F}
+knitr::opts_chunk$set(tidy = F, 
+                      warning = F,
+                      error = F,
+                      message = F,
+                      fig.margin = TRUE,
+                      results="hide",
+                      fig.width = 3,
+                      fig.height = 2)
+```
+
+
+## Scatterplots: 2 continuous variables
+
+In this lab we'll explore how to make scatterplots using the qplot() function in ggplot2.
+
+<br>
+
+### R Preliminaries
+
+* We'll use the qplot() function in the *ggplot* package
+* The *cowplot* package provides nice deafults for ggplot IMHO
+
+```{r}
+library(ggplot2)
+library(cowplot)
+```
+
+
+### Scatterplot of Iris data
+
+* Let's make a scatter plot, where we plot 2 continous, numeric variables against each other 
+* that is, both x and y variables are numbers; not categories
+
+I've forgotten the names of all the iris variables, so I'll use the **names()** command to see what they are
+
+```{r, results="hide"}
+names(iris)
+```
+
+<br>
+
+I'll plot the sepals against the petals
+```{r, fig.cap = "Sepals vs. Petals"}
+qplot(y = Sepal.Length,
+      x = Petal.Length, 
+      data = iris)
+```
+
+
+
+### Scatter plot of mammal brain data 
+
+Let's look at another dataset
+
+#### Preliminaries
+
+Get the data from the ggplot2 package
+
+```{r, results="hide"}
+data(msleep)
+```
+
+#### Look at the data
+```{r, results="hide"}
+#How much data is there?
+dim(msleep)
+
+#What does the data look like
+head(msleep)
+
+#Summary of the data
+summary(msleep)
+
+```
+
+
+There are a number of "categorical" varibles in this dataset
+
+* genus 
+* vore = carnivore, omnivore et
+* order = taxonomic order
+* conservation = conservation status (endangered, etc)
+
+For some reason they don't load as "factor" variables (better known as categorical or grouping variables, but called "Factors" in R-land)
+
+We can make these factors using the factor() command
+
+```{r, results="hide"}
+msleep$vore <- factor(msleep$vore)
+```
+
+
+Now see what happens when you call summary()
+```{r, results="hide"}
+summary(msleep)
+```
+
+
+Do the same for "order""
+
+```{r, results="hide"}
+msleep$order <- factor(msleep$order)
+
+summary(msleep)
+```
+
+
+And "conservation"
+
+```{r, results="hide"}
+msleep$conservation <- factor(msleep$conservation)
+
+summary(msleep)
+```
+
+### Make a basic scatterplot
+```{r, fig.cap = "Mammal sleep, raw data"}
+qplot(y = sleep_total,
+      x = brainwt, 
+      data = msleep)
+```
+
+That looks really really ugly.  It will work better if we "log transform the axes"
+
+<br>
+
+```{r, fig.cap = "Mammal sleep, logged data"}
+qplot(y = log(sleep_rem),
+      x = log(brainwt), 
+      data = msleep)
+```
+
+Things get logged all the time in stats.  We'll talk more about that later.
+
+
+<br>
+
+### Add color coding to scatterplot
+
+```{r, fig.cap = "Add colors with color = "}
+qplot(y = log(sleep_rem),
+      x = log(brainwt), 
+      data = msleep,
+      color = vore)
+```
+
+
+
+### Add color & shape coding to scatterplot
+
+```{r, fig.cap = "Add shapes with shape = "}
+qplot(y = log(sleep_rem),
+      x = log(brainwt), 
+      data = msleep,
+      color = vore,
+      shape = vore)
+```
+
+
+
+### Put diffetrent "vores" in seperate panels
+
+* Seperate panels can be made using the "facet" arguement withing qplot
+
+```{r, fig.cap = "Split into different panels w/ facets = "}
+qplot(y = log(sleep_rem),
+      x = log(brainwt), 
+      data = msleep,
+      color = vore,
+      shape = vore,
+      facets = vore ~ .)
+```
+
+
+### Add a "trend line"" to a scatterplot
+
+* Add the geom_smooth() function after the initial qplot() command
+* This works best if we remove the "color = vore" command, but you can see what happens if you leave it
+```{r, fig.cap = "Add trendline with + geom_smooth()"}
+qplot(y = log(sleep_rem),
+      x = log(brainwt), 
+      data = msleep) +
+  geom_smooth()
+```
+
+
+### Exercise: Modify mammal brain code to do the following things
+
+* Change the axes labels
+* Add a title
+* Use names(msleep) to see what other varibles are in the dataset
+* Use summary(msleep) to whether they are continous or categorical
+* Pick another continous variable and plot it instead of sleep_total
+* Try this with and without logging
+
+

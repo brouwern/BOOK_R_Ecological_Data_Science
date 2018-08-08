@@ -1,0 +1,88 @@
+# Loading data from the internet
+
+| **Nathan Brouwer, Phd**
+| brouwern@gmail.com
+| https://github.com/brouwern
+| @lobrowR
+
+# Introduction
+
+Its possible to download data directly from the internet, including
+
+* Spreadsheets directly posted online as .csv or .txt
+* Spreadsheets contained within a GitHub repository, including a package
+* Google Sheets
+* and many other formats
+
+In this short execise we'll download some data that is stored as a raw .csv file within the inner workings of the widlifeR package.  
+
+### Learning objectives
+
+
+### Learning goals
+
+  
+### Functions & Arguements
+
+* RCurl::getURL()
+* scatter.smooth
+
+### Packages 
+
+* RCurl
+install.packages()
+
+### Potential hangups
+
+
+
+
+## [ ] Downloading a .csv file using getURL()
+
+The package RCurl provides functions for accessing online material.  First we need the package
+
+```{r eval = FALSE}
+install.packages(RCurl, dependencies = TRUE) # [ ]
+```
+
+As always, once we install a package we need to **really** install it with library(). (You might see some red text as RCurl loads up some of its **dependencies**)
+```{r}
+library(RCurl) # [ ]
+```
+
+We then use the getURL() to prep the info we need for downloading that .csv we want.
+
+| The file we want is "eaglesWV.csv".  It is located at this rather long URL:
+| https://raw.githubusercontent.com/brouwern/wildlifeR/master/inst/extdata/eaglesWV.csv
+
+First, we'll use the "<-" assignment operator to store the shortened URL in an R object.  Be sure to put the URL in quotes.
+```{r}
+eaglesWV.url <- "https://raw.githubusercontent.com/brouwern/wildlifeR/master/inst/extdata/eaglesWV.csv" # [ ]
+```
+
+Next we'll use the getURL() function to set thigns up, storing the info in a new object "eaglesWV.url_2"  (note the "_2" on the end)
+```{r}
+eaglesWV.url_2 <- getURL(eaglesWV.url)
+```
+
+```{r}
+eaglesWV_2 <- read.csv(text = eaglesWV.url_2)
+```
+
+
+We can preview the downloaded dataset using summary() or any other command we want
+
+```{r}
+summary(eaglesWV_2)
+```
+
+
+**OPTIONAL:** Plotting West Virginia Eagle Data
+Thanksfully, eagles having been increasing exponentially in West Virginia since the 1980s.
+```{r}
+scatter.smooth(y = eaglesWV_2$WV,x = eaglesWV_2$year)
+```
+
+
+
+

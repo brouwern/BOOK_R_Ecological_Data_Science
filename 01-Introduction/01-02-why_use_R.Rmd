@@ -1,0 +1,71 @@
+# What is R and why use it?
+
+R is a powerful piece of software used for data science and data analysis.  In this chapter I will briefly introduce the advantages of using R for data science and data analysis, why you might want to learn it, and also indicate some alternatives and adjuncts you could consider.
+
+## How do we typically use software in science?
+
+### The well-funded scientists
+A well-funced scientists might use many types of software to do their work:
+
+* Data entry (pick 1)
+    + Excel
+    + increasingly Google Sheets
+* Data analysis (pick 1)
+    + Minitab
+    + SAS
+    + SPSS
+    + STATA
+* Making plots (pick 1)
+    + export data back to Excel
+    + SigmaPlot
+* Other work (as needed)
+    + GIS: ArcGIS
+    + Mark-recapture & related analysis: ProgramMARK, Distance, etc
+    + Modeling: MatLab, Python, RAMAS ecolab, Vortex, etc
+    + Multivariate ecological statistics
+
+### A typical scientist
+
+A typical scientist will rely on Excel for data entry and cleaning and a program such as SAS or SPSS for data analysis.  They will then send their stats output back to Excel for graphing.
+
+### The poorly funded scientists
+
+Since software can be expensive, some scientists will rely on Excel for all of their work.
+
+## What does R do?
+
+* Math
+* Statistics
+* Data cleaning & organization
+* It makes great-looking figures
+* GIS
+* You can write computer programs to automate these things
+* You can write word processor-like documents that integrate all of these thigns
+
+## Why use R
+
+R is...
+* free + for students, government, business, anyone
+* used by statisticians to develop new statistical techniques + new techniques often come out 1st in R
+* used by almost all ecological statisticians to develop new techniques (mark recapture, distance sampling)
+* can stats, graphics, and modeling, all for free
+
+
+## Who uses it?
+
+Some examples
+
+* Academics
+* Data scientists
+* Large companies: Facebook, John Deere, Monsanto
+* Journalists: eg New York Times
+* and many many more
+
+see http://blog.revolutionanalytics.com/2014/05/companies-using-r-in-2014.html
+
+
+## Free alternatives to R
+
+* Jamovi
+* JASP
+

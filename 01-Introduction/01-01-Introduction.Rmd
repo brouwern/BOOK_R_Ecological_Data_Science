@@ -1,0 +1,5 @@
+# (PART) Part I: Introduction {-} 
+
+# Introduction
+
+This book grew out of exercises used for the computer lab portion of ENS 495:Design & Analysis, an ecological statistics course I taught for two years as and adjunct with the Department of Department of Biological & Environmental Sciences at California University of Pennsylvania.  

@@ -1,0 +1,85 @@
+# Loading packages & data from GitHub
+
+| **Nathan Brouwer, Phd**
+| brouwern@gmail.com
+| https://github.com/brouwern
+| @lobrowR
+
+## Introduction
+
+**GitHub** is an online platform for hosting and sharing code.  More formally it is called a **software repository**.  It is very popular with software developers, especially those creating open-source applications, and has also been adopted whole-hearted by many data scientists and data analysts.  
+
+GitHub has many features and uses.  One of the most basic ones is to use GitHub like Dropbox to R backup copies of code on GitHub.  GitHu also can act like a kind of web server to host websites, online books like this one, and provide access to open source software.  Many people working on R packages use GitHub to host their package while its being developed or expanded.  When a package is finished, it often is then submitted to CRAN, and the version on GitHub is used as the **developement version** where new features are being developed and tested.
+
+You can access packages on GitHub to get the newest version before something has been submitted to CRAN, or packages that haven't or maybe will never end up on CRAN.  This book relies on a package I've written called **wildlifeR** for datasets and some functions.  In this short exercise we'll download a package from CRAN we need to interact with GitHub, and then download wildlifeR.  We'll also go to the wildlifeR website to learn more about the package.
+
+### Learning objectives
+
+
+### Learning goals
+
+  
+### Functions & Arguements
+
+* library
+* devtools::install_github
+* scatter.smooth
+* $
+  
+
+### Packages 
+
+* devtools
+* wildlifeR
+
+
+### Potential hangups
+
+* We'll use the "$" operator to tell scatter.smooth() what to plot, which is different than how ggpubr and ggplot2 work; sigh...
+
+
+
+
+
+
+
+## [ ] Accessing GitHub using devtools
+
+The devtools package is used by many people who write R packages and includes a function for downloading from GitHub
+
+```{r eval = FALSE}
+install.packages("devtools", dependencies = TRUE) # [ ]
+```
+
+devtools has a lot of dependencies so this might take a while.
+
+Once everything is downloaded, load the package explicitly with library()
+```{r}
+library(devtools)
+```
+
+## [ ] Downloading the wildlifeR package with install_github()
+
+My github site is at https://github.com/brouwern and the code for wildlifeR is https://github.com/brouwern/wildlifeR.  You can access the files directly if you want, but that isn't necessary.  We can download the package just like it was on CRAN using install_github().  You'll probably see some red text and a LOT of black text as install_github() talks with GitHub.
+
+```{r echo = TRUE}
+install_github("brouwern/wildlifeR")
+```
+
+Now we can put it all explicilty into memory
+```{r}
+library(wildlifeR) # [ ] 
+```
+
+**OPTIONAL:** Accessing data from wildlifeR
+One of the datasets in wildlifeR is called "eggs."  It has data from a paper by Stoddard et al. (2017) in Science called [Avian egg shape: Form, function, and evolution.] (http://science.sciencemag.org/content/356/6344/1249).  We can plot the relationship between egg asymmetry and ellipticity using the base R function scatter.smooth(), which draws a type of regression line through the data for us (Note that the syntax for scatter.smooth() is, saddly, different than plot() and other plotting functions...).
+```{r}
+scatter.smooth(eggs$asymmetry, eggs$ellipticity)
+```
+
+
+## [  ] The wildlifeR packge webiste
+
+Some packages have websites that summarize the package contents.  If you visit https://brouwern.github.io/wildlifeR/ you can find out information on each dataset and function under the "Reference" tab, and see how the datasets and functions are used under the "Articles" tab.
+
+

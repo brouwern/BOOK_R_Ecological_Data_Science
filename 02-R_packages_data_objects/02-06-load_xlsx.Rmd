@@ -1,0 +1,81 @@
+# Loading Excel spreadsheets into RStudio
+
+
+resave as .csv and load
+
+load directly
+
+ In this walk through we first re-save this data in an R-compatbile format, a "csv" file, called "Lab1_data_PA_eagles.csv".  
+ 
+ 
+ 
+
+
+### Prepping data in Excel
+
+#### Save data to your R working directory (WD)
+
+Find the file
+https://github.com/brouwern/wildlifeR/tree/master/inst/extdata
+
+Save the file "Lab1_data_PA_eagles.xlsx" to your computers desktop.  Today we will be using this as the "working directory"
+
+
+#### Re-Save The Excel file as a "csv" file
+
+In Excel, follow these steps
+
++ "File"
++ "Save As"
++ "Browse"
++ Select the working directory (your desktop)
++ Select "Save as type"
++ Select "CSV (Comma delimited)"
++ Click "Save"
+
+The data is now in a format that can be loaded into R.
+
+
+
+
+
+
+## Preparing a file for loading into R
+
+Things work best when your Excel file is "clean" & only has exactly what you want in it.  Any extra, accidental typing can cause problems or make things confusing.  A good practice is to always highlight cells to the right of and below your data, right click & select "Delete".  This will remove any accidental typing that occurred. 
+Do this to the cells below your data also.
+
+
+## Reload data
+
+ReLoad data; be sure to include the "csv" at the end.  Use this code "eaglesPA <- read.csv(file = "eaglesPA.xlsx")".  NOTE: I changed the name of the file to include "_w_2_states" so that I wouldn't overwrite the original file.  Don't use this code unless you changed the file name to the exact same thing
+
+```{r}
+#Use this code, w/o the "#" in front of it
+# eaglesPA <- read.csv(file = "eaglesPA.xlsx")
+
+#NOTE: I changed the name of the file to include "_w_2_states" so that I wouldn't overwrite the origina file.  Don't use this code unless you changed the file name to the exact smame thing
+#eaglesPA <- read.csv(file = "./data/Lab1_data_PA_eaglesPA_w_2_states.csv")
+
+```
+
+
+Type ls() to see what is now in your workspace
+```{r}
+ls()
+```
+
+
+
+Look at the re-loaded eaglesPA data object
+```{r eval = FALSE}
+summary(eaglesPA)
+dim(eaglesPA)
+head(eaglesPA)
+tail(eaglesPA)
+```
+
+
+
+
+

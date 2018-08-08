@@ -1,0 +1,21 @@
+# The diferent faces of R code: The console, scripts & RMarkdown
+
+
+## Scripts
+
+* File
+* New File
+* R script
+
+or just control + shift + N, which is similar how you make a new document in most programs.
+
+## RMarkdown
+
+* File
+* New File
+* R Markdown
+
+A pop up menu will appear with lots of options; just click "ok."
+
+
+
