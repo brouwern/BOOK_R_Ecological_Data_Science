@@ -2,4 +2,23 @@
 
 # Introduction
 
-This book grew out of exercises used for the computer lab portion of ENS 495:Design & Analysis, an ecological statistics course I taught for two years as and adjunct with the Department of Department of Biological & Environmental Sciences at California University of Pennsylvania.  
+Goal
+
+* Current statistical practice, with an emphasis on modeling
+* Data analysis, from t-tests to mixed models in R
+* Data visualzation, with an emphasis on ggplot2
+* Data science, from data management to data cleaning with dplyr
+* Computational reproducibility, from formatting scripts to using rmarkdown
+
+Approach
+
+* always explore and visualize data
+* step-by-step intructions
+* frequently refreshing and review
+* comprehensive and self-contained
+
+Requirements
+
+* R
+* RStudio
+* External packages loaded via RStudio

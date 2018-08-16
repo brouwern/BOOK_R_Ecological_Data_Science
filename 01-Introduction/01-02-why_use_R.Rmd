@@ -1,71 +1,44 @@
 # What is R and why use it?
 
-R is a powerful piece of software used for data science and data analysis.  In this chapter I will briefly introduce the advantages of using R for data science and data analysis, why you might want to learn it, and also indicate some alternatives and adjuncts you could consider.
+[these notes are from a lecture and have not been re-written much yet]
+
+R is a powerful piece of software used for data science and data analysis.  In this chapter I will briefly introduce the advantages of using R, why you might want to learn it, and also indicate some alternatives and adjuncts you could consider.
 
 ## How do we typically use software in science?
 
-### The well-funded scientists
-A well-funced scientists might use many types of software to do their work:
+Most scientists rely on both general and specialized pieces of software for various parts of their work.  For data entry they likely use spreadsheet software Excel, though increasingly Google Sheets.  For data analysis they might use one of many options, such as [GraphPad Prism](https://www.graphpad.com/), Minitab, SAS, SPSS, or STATA.  For making plots, many people will export their export their results back to Excel, while others use specialized software like SigmaPlot.  Many scientists also use specialized programs; in ecology many researchers do GIS in ArcGIS or QGIS, mark-recapture analysis in Program MARK or Distance, use RAMAS or Vortex for population viability analysis, or build custom mathematical programs in MatLab or Python.  If they do [multivariate statistics](https://en.wikipedia.org/wiki/Multivariate_statistics) like [ordination](https://en.wikipedia.org/wiki/Ordination_(statistics) the may use a specialized stats program like PC-ORD.
 
-* Data entry (pick 1)
-    + Excel
-    + increasingly Google Sheets
-* Data analysis (pick 1)
-    + Minitab
-    + SAS
-    + SPSS
-    + STATA
-* Making plots (pick 1)
-    + export data back to Excel
-    + SigmaPlot
-* Other work (as needed)
-    + GIS: ArcGIS
-    + Mark-recapture & related analysis: ProgramMARK, Distance, etc
-    + Modeling: MatLab, Python, RAMAS ecolab, Vortex, etc
-    + Multivariate ecological statistics
-
-### A typical scientist
-
-A typical scientist will rely on Excel for data entry and cleaning and a program such as SAS or SPSS for data analysis.  They will then send their stats output back to Excel for graphing.
-
-### The poorly funded scientists
-
-Since software can be expensive, some scientists will rely on Excel for all of their work.
+Since software can be expensive, some scientists will rely on Excel for all of their work.  Excel can do many things, but it can't do everything all the specialized types of software can do.  Moreover, its very limited in the range of statistics it can do and graphs it can make.
 
 ## What does R do?
 
-* Math
-* Statistics
-* Data cleaning & organization
-* It makes great-looking figures
-* GIS
-* You can write computer programs to automate these things
-* You can write word processor-like documents that integrate all of these thigns
+R is amazing because it has been explicitly developed to do several things very well, particularly statistics, math, making great-looking figures, and writing computer programs to automate these tasks.  Additionally, R has been extended by developers to be able to be a powerful tool for data cleaning and organization, to be used as a GIS, and as an integrated word processor and website make for publishing work.
 
 ## Why use R
 
-R is...
-* free + for students, government, business, anyone
-* used by statisticians to develop new statistical techniques + new techniques often come out 1st in R
-* used by almost all ecological statisticians to develop new techniques (mark recapture, distance sampling)
-* can stats, graphics, and modeling, all for free
+In addition to is many capabilities, R has the advantage this it is 
 
+* free anyone, always
+* used by statisticians to develop new statistical techniques, so new techniques often come out 1st in R
+* used by almost all ecological statisticians to develop new techniques (mark recapture, distance sampling)
 
 ## Who uses it?
 
-Some examples
+R continues to increase in popularity.  Among data scientists it is second only to Python.  Among academics it has eclipsed SAS in many fields.  It is also used by analyses in many large companies, such Facebook, and by journalists looking for stories in or reporting on large volumes of data
 
-* Academics
-* Data scientists
-* Large companies: Facebook, John Deere, Monsanto
-* Journalists: eg New York Times
-* and many many more
+see http://blog.revolutionanalytics.com/2014/05/companies-using-r-in-2014.html for further discussion.
 
-see http://blog.revolutionanalytics.com/2014/05/companies-using-r-in-2014.html
+## R and computational reproducibility
+
+One factor potentially contributing to R's popularity, or at least a major bonus for using it, is ease of use for making analyses reproducible.  All commands in R are typed out and the best way to do this is in a static **script file** from which you send commands to R to execute.  This creates a record of your analyses. This feature is shared by other programs such as SAS and Stats, and other programming languages such as Matlab and Python.  The advantage of R is that the script files are simply plain text files which anyone can open and - if they've downloaded R, which is free - they can run.  Developers have also created numerous tools for creating **reproducible analysis workflows** and which allow R to be used in all data-related aspects of a project, from **data cleaning** to **formatting journal submissions**.  What this means is that without become an expert programmer you can set up your work so that you can re-run all of your data cleaning, analyses, and graph building with a single command in R.  This makes what you've done auditable, transparent, and easy to re-use for future work. 
 
 
-## Free alternatives to R
+## Alternatives to R
 
-* Jamovi
-* JASP
+R has many advantages, but it has one critical issue: the learning curve.  R is a command-line driven analysis tool, which means you type out specific commands for almost everything single thing R does.  Excel is pretty user friendly, and several stats programs similarly use point-and-click interfaces, such as SPSS, JMP, and Stata  SAS also requires a lot of command writing, but is generally consider more user friendly than R.
+
+Recently, two free point-and-click statistical analysis programs have been release that are built on R but require no programming.  [JASP](https://jasp-stats.org/) ("Just another statistics program") has an emphasis on Bayesian statistics, particularly Bayesian hypothesis testing using [Bayes factors](https://en.wikipedia.org/wiki/Bayes_factor) (an approach increasing in popularity, especially in psychology, but which some Bayesians, like Andrew Gelman, [disavow](http://andrewgelman.com/2011/04/02/so-called_bayes/)).  While JASP is based on R, it does not currently allow access to the underlying R code.
+
+[Jamovi](https://www.jamovi.org/) has a similar spirit as JASP (indeed, it was founded by developers who had worked on JASP) but is more transparent about the underlying R code being used to run the analysis.
+
 

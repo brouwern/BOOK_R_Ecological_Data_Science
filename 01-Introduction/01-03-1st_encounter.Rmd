@@ -14,24 +14,43 @@ rm(list = ls())
 
 * R is a piece of sofware that does calculations and makes graphs.
 * RStudio is a GUI (graphical user interface) that acts as a front-end to R
-* Use can use R directly, but most people use a GUI of some kind
+* Your can use R directly, but most people use a GUI of some kind
 * RStudio has become the most popular GUI
+
+The following instructions will lead you click by click through downloading R and RStudio and starting an initial session.  If you have trouble with downloading either program go to YouTube and search for something like "Downloading R" or "Installing RStudio" and you should be able to find something helpful, such as ["How to Download R for Windows"](https://www.youtube.com/watch?v=GYdmkLgV9n8).
 
 ## Getting R onto your computer
 
+To get R on to your computer firt go to the [CRAN website](https://cran.r-project.org/) at https://cran.r-project.org/ (CRAN stands for "comprehensive R Archieve Network").  At the top of the screen are three bullet points; select the appropriate one (or click the link below)
+
+* [Download R for Linux](https://cran.r-project.org/bin/linux/)
+* [Download R for (Mac) OS X](https://cran.r-project.org/bin/macosx/)
+* [Download R for Windows](https://cran.r-project.org/bin/windows/)
+
+Each page is formatted slightly differently.  For a currnet Mac, click on the top linke, which as of 8/16/2018 was "[R-3.5.1.pkg](https://cran.r-project.org/bin/macosx/R-3.5.1.pkg)" or click this link.  If you have an older Mac you might have to scroll down to find your operating system under "Binaries for legacy OS X systems."
+
+For PC select "[base](https://cran.r-project.org/bin/windows/base/)" or click this link.
+
+When its downloaded, run the installer and accept the default.  
+
 ## Getting RStudio on to your computer
 
+[RStudio](www.rstudio.com/) is an R interface developed by a company of the same name.  RStudio has a number of commerical products, but much of their portfolio is freeware.  You can download RStudio from their website www.rstudio.com/ .  The [download page](https://www.rstudio.com/products/rstudio/download/) (www.rstudio.com/products/rstudio/download/) is a bit busy because it shows all of their commercial products; the free version is on the far left side of the table of products.  Click on the big green DOWNLOAD button under the column on the left that says "RStudio Desktop Open Source License" (or click on this [link](https://www.rstudio.com/products/rstudio/download/#download) ).  
 
+This will scroll you down to a list of downloads titled "Installers for Supported Platforms."  Windows users can select the top option [RStudio 1.1.456 - Windows Vista/7/8/10](https://download1.rstudio.org/RStudio-1.1.456.exe) and Mac the second option [RStudio 1.1.456 - Mac OS X 10.6+ (64-bit)](https://download1.rstudio.org/RStudio-1.1.456.dmg).  (Versions names are current of 8/16/2018).
 
+Run the installer after it downloads and accept the default.  RStudio will automatically link up with the most current version of R you have on your computer.  Find the RStudio icon on your desktop or search for "RStudio" from your taks bar and you'll be read to go.
 
+### Keep R and RStudio current
 
-## Introduction 
+Both R and RStudio undergo regular updates and you will occassionally have to re-download and install one or both of them.  In practice I probably do this about every 6 months.
 
-This  is a walk-through of a very basic R session. It assumes you have successfully installed R and RStudio onto your computer, and nothing else.
 
 ## Getting started with R itself (or not)
 
-Most people who use R do not actually use the program itself - they use a GUI (graphical user interface) "front end" that make R a bit easier to use.  You will probably run into the icon for the underlying R program on your desktop or elsewhere on your computer.  It usually looks like this:
+This  is a walk-through of a very basic R session. It assumes you have successfully installed R and RStudio onto your computer, and nothing else.
+
+Most people who use R do not actually use the program itself - they use a GUI (graphical user interface) "front end" that make R a bit easier to use.  However, you will probably run into the icon for the underlying R program on your desktop or elsewhere on your computer.  It usually looks like this:
 
 ```{r include=FALSE}
 knitr::include_graphics("images/R_logo_on_desktop.png")
@@ -43,19 +62,22 @@ If you are curious you can open it up and take a look - it actually looks a lot 
 
 ## Getting started with RStudio
 
+Now we'll get started with RStudio.  We'll get to know what it looks like and configure it a bit for out needs.
+
 ### RStudio at first glance
+
 The RStudio logo looks like this.
-```{r echo=FALSE}
+```{r echo=FALSE, fig.cap = "The RSTudio logo"}
 knitr::include_graphics("images/RStudio_logo.png")
 ```
 
-When you open up you'll be greated by a fairly busy array of menus and thingys.  A typical fresh starting point in RStudio is shown in Figure 1.
+When you open up you'll be greated by a fairly busy array of menus and thingys.  Don't panic!  A typical fresh starting point in RStudio is shown in Figure 2.
 
 ```{r echo=FALSE , fig.cap = "RStudio when first opened."}
 knitr::include_graphics("images/RStudio_1st_view-800x600.png")
 ```
 
-When referring to RStudio, there are two terms that need to be understood.  As shown in Figure 2, there is the **console** section of RStudio and the **script editor** or **source viewer**.  
+When referring to RStudio, there are two terms that need to be understood.  As shown in Figure 3, there is the **console** section of RStudio and the **script editor** or **source viewer**.  
 
 ```{r echo=FALSE, fig.cap = "RStudio's console & script editor."}
 knitr::include_graphics("images/RStudio_console_vs_script_editor-800x600")
