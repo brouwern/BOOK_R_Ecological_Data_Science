@@ -8,3 +8,7 @@ devtools
 wildlifeR
 bitops
 RCurl
+dplyr
+bindrcpp
+reshape2
+broom

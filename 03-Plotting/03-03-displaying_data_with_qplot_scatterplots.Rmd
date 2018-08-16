@@ -11,19 +11,46 @@ knitr::opts_chunk$set(tidy = F,
                       fig.height = 2)
 ```
 
+| **Nathan Brouwer, Phd**
+| brouwern@gmail.com
+| https://github.com/brouwern
+| @lobrowR
+
+## Introduction
+
+### Learning objectives
+
+
+### Learning goals
+
+  
+### Functions & Arguements
+  
+
+### Packages 
+
+### Files
+
+
+
+### Potential hangups
+
+
+### Outline
+
 
 ## Scatterplots: 2 continuous variables
 
 In this lab we'll explore how to make scatterplots using the qplot() function in ggplot2.
 
-<br>
+
 
 ### R Preliminaries
 
 * We'll use the qplot() function in the *ggplot* package
 * The *cowplot* package provides nice deafults for ggplot IMHO
 
-```{r}
+```{r echo = F}
 library(ggplot2)
 library(cowplot)
 ```
@@ -31,7 +58,7 @@ library(cowplot)
 
 ### Scatterplot of Iris data
 
-* Let's make a scatter plot, where we plot 2 continous, numeric variables against each other 
+* Let's make a scatter plot, where we plot two continous, numeric variables against each other 
 * that is, both x and y variables are numbers; not categories
 
 I've forgotten the names of all the iris variables, so I'll use the **names()** command to see what they are
@@ -40,7 +67,7 @@ I've forgotten the names of all the iris variables, so I'll use the **names()** 
 names(iris)
 ```
 
-<br>
+
 
 I'll plot the sepals against the petals
 ```{r, fig.cap = "Sepals vs. Petals"}
@@ -65,15 +92,11 @@ data(msleep)
 
 #### Look at the data
 ```{r, results="hide"}
-#How much data is there?
-dim(msleep)
+dim(msleep) #How much data is there?
 
-#What does the data look like
-head(msleep)
+head(msleep) #What does the data look like
 
-#Summary of the data
-summary(msleep)
-
+summary(msleep) #Summary of the data
 ```
 
 
@@ -125,7 +148,7 @@ qplot(y = sleep_total,
 
 That looks really really ugly.  It will work better if we "log transform the axes"
 
-<br>
+
 
 ```{r, fig.cap = "Mammal sleep, logged data"}
 qplot(y = log(sleep_rem),
@@ -136,7 +159,7 @@ qplot(y = log(sleep_rem),
 Things get logged all the time in stats.  We'll talk more about that later.
 
 
-<br>
+
 
 ### Add color coding to scatterplot
 

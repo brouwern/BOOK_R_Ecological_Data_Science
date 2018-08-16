@@ -1,4 +1,43 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Plotting continous data in R with ggplot2
+
+| **Nathan Brouwer, Phd**
+| brouwern@gmail.com
+| https://github.com/brouwern
+| @lobrowR
+
+## Introduction
+
+* We're going to  plot some data using the qplot() command
+* We'll need to have 2 packages loaded
+  + ggplot2, which has the function qplot()
+  + cowplot, which provides some nice defaults
+* We'll use the iris dataset that comes with R
+
+### Learning objectives
+
+
+### Learning goals
+
+  
+### Functions & Arguements
+  
+
+### Packages 
+
+### Files
+
+
+
+### Potential hangups
+
+
+### Outline
+
 
 
 ```{r , include=F, echo = F}
@@ -17,19 +56,12 @@ knitr::opts_chunk$set(tidy = F,
 
 ## Introduction to ggplot using qplot
 
-* We're going to  plot some data using the qplot command
-* We'll need to have 2 packages loaded
-  + ggplot2, which has the function qplot()
-  + cowplot, which provides some nice defaults
-* We'll use the iris dataset that comes with R
 
 ```{r, echo = F}
 data(iris)
 
 library(ggplot2)
 library(cowplot)
-
-          
 ```
 
 
@@ -54,7 +86,7 @@ qplot(y = Sepal.Length,
 * Forgetting the quotes will cause the code to fail.  
 * Note that units (mm) are included for the y axis.  
 
-<br>
+
 
 ```{r}
 qplot(y = Sepal.Length,
@@ -66,7 +98,7 @@ qplot(y = Sepal.Length,
 ```
 
 
-<br>
+
 
 
 ## Changing colors in R plots
@@ -86,7 +118,7 @@ qplot(y = Sepal.Length,
 
 ```
 
-<br>
+
 
 ### Changing colors in R plots part 2
 ```{r}
@@ -105,7 +137,7 @@ qplot(y = Sepal.Length,
 ## Tweaking plots: changing the point size
 
 Run the code below, Can you see what changed?
-<br>
+
 ```{r}
 #dopt w/color changes
 qplot(y = Sepal.Length,
@@ -132,7 +164,7 @@ qplot(y = Sepal.Length,
       geom = "boxplot") 
 ```
 
-<br>
+
 
 ## Basic boxplot with colors
 
@@ -146,7 +178,7 @@ qplot(y = Sepal.Length,
       color = Species) 
 ```
 
-<br>
+
 
 ## Basic boxplot lables
 
@@ -161,7 +193,7 @@ qplot(y = Sepal.Length,
   ylab ("Sepal Length (mm)")
 ```
 
-<br>
+
 
 
 ## Histograms using qplot
@@ -220,7 +252,7 @@ qplot(Petal.Length,
 ```
 
 
-<br> 
+ 
 Add a label to x-axis
 
 ```{r, fig.width = 4, fig.height = 5}
