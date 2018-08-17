@@ -14,4 +14,9 @@ description: "This is a lab manual for learning how to use R for ecological data
 
 # Preface {-}
 
-This book grew out of exercises used for the computer lab portion of ENS 495:Design & Analysis, an ecological statistics course I taught for two years as and adjunct with the Department of Department of Biological & Environmental Sciences at California University of Pennsylvania.  The goal is to walk students step by step through the process of working with data in R
+This book grew out of exercises used for the computer lab portion of ENS 495:Design & Analysis, an ecological statistics course I taught for two years as and adjunct with the Department of Department of Biological & Environmental Sciences at California University of Pennsylvania.  The goal is to walk students step by step through the process of working with data in R.  
+
+A major influence in how this book is written is th online book [Program MARK: a gentle introduction](http://www.phidot.org/software/mark/docs/book/), edited [Evan Cooch](http://canuck.dnr.cornell.edu/) and [Gary White](https://sites.warnercnr.colostate.edu/gwhite/).  *MARK* is one of the most important pieces of software ever written for ecologists and implements a vast number of [mark-recapture](https://en.wikipedia.org/wiki/Mark_and_recapture) and occupancy-type models for understanding population processes such as population size, survival, migration, occupancy, and meta-population dynamics.  The book patiently walks users through the basic of these models step by step, concept by concept, and click by click.  I have sought to adopt a similar thorough and holistic approach in this book.
+
+
+

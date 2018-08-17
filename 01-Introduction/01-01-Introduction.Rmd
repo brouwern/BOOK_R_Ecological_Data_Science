@@ -1,24 +1,71 @@
-# (PART) Part I: Introduction {-} 
+# (PART) Part I: Introduction {-}
 
-# Introduction
+In Part I of this book I'll introduce why the role of data science in ecology is important and lay out the scope of this book.  I'll also walk through the basic steps of getting R and RStudio up and running on your comptuer, walk through a basic R section, and discuss the various ways we'll interact with R using **code** and **script files**.  I'll also introduce **rmarkdown**, a way of integrating the R code of scripts with basic capabilities of word processing and web developement.  Scripts organized in rmarkdown are a handy way to organize and **annotate code**, store and disseminate your work, and structure your analyses and data presensations so that the computations behind them are fully **reproducible**. 
 
-Goal
 
-* Current statistical practice, with an emphasis on modeling
-* Data analysis, from t-tests to mixed models in R
-* Data visualization, with an emphasis on ggplot2
-* Data science, from data management to data cleaning with dplyr
-* Computational reproducibility, from formatting scripts to using rmarkdown
+# Introduction: What is Ecological Data Science & How Will this Book Teach It?
 
-Approach
+**[NOTE: This section is currently underdevelopment.  The paper by Touchon & McCoy (2016) and its references lay out many of the reasons for the statistical focus of this book.]**
+
+>"Ecological questions and data are becoming increasingly complex and as a result we are seeing the development and proliferation of sophisticated statistical approaches in the ecological literature. ... It is no longer sufficient to only ask 'whether' or 'which' experimental manipulations significantly deviate from null expectations. Instead, we are moving toward parameter estimation and asking **'how much'** and in **'what direction'** ecological processes are affected by different mechanisms" ([Touchon & McCoy 2016, Ecosphere](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1002/ecs2.1394), emphsis mine)
+
+>"Spreadsheets are often used as the basis of data collection and education; but this is potentially problematic since spreadsheets typically do not promote good data management practices.... The features of spreadsheets that make them desirable for the average researcher, such as extensibility, use of formatting for organization, embedding charts, make them undesirable for preparing data for long‐term archiving and reuse."([Strasser & Hampton 2012 Ecosphere](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/ES12-00139.1))
+
+## What is data science?
+
+>Data analysis include "procedures for analyzing data, techniques for interpreting the results..., ways of planning the gathering of data to make its analysis easier, more precise or more accurate, and  all the machinery and results of (mathematical) statistics which apply to analyzing data."  John Tukey, "The future of data analysis",  Annals of Mathematical Statistics, 1962.
+
+* People argue about what data science is
+* What Tukey calls "data analysis" is now termed "data science" by many.  
+* Some define data science as closely allied with computer science and want its use most closely associated with things like "big data", data mining, machine learning, and artificial intelligence.
+*  Others, such as RStudio's Hadley Whickham (creator of ggplot2, dplyr, and most of the infrasture of the tidyverse of R package) define it more broadly to involve all aspects of the life cycle of data.
+* (Wickham also defines a data scientists as "A data scientist is a statistician who is wearing a bow tie" https://twitter.com/hadleywickham/status/906146116412039169?lang=en)
+
+## Goals
+
+>"The rise of computer programming, computational power, and modern statistical approaches may..." allow "...scientists to ask new questions and to extract more information from data than ever before." ([Touchon & McCoy 2016, Ecosphere](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1002/ecs2.1394))
+
+* **Statistical computing** using R, RStudio, and rmarkdown
+* **Data analysis**, from t-tests to mixed models in R
+* **Current statistical practice**, with an emphasis on **statistical modeling** and **effect size estimation** instead of "statistical tests"
+* **Data visualization**, with an emphasis on ggplot2
+* **Data science**, from data management best practices to data cleaning with dplyr
+* **Computational reproducibility**, from formatting scripts to using rmarkdown to write reproducible reports
+* Dropping things that aren't needed, like classical rank-based nonparametric methods.
+
+## Approach
 
 * always explore and visualize data
 * step-by-step instructions
 * frequently refreshing and review
 * comprehensive and self-contained
 
-Requirements
+## Requirements
 
 * R
 * RStudio
 * External packages loaded via RStudio
+
+
+
+## Refereces
+
+Strasser & Hampton 2012.  The fractured lab notebook: undergraduates and ecological data management training in the United States.  EcoSphere. https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/ES12-00139.1
+
+Touchon & McCoy 2017.  The mismatch between current statistical practice and doctoral training in ecology.  EcoSphere. https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1002/ecs2.1394
+
+Tukey.  1962.  The future of data analysis.  Annals of Mathematical Statistics.  https://www.jstor.org/stable/2237638
+
+## Bibliography
+
+Relevant papers cited by Touchon & McOy 2017.
+
+Barraquand, F., T. H. G. Ezard, P. S. Jørgensen, N. Zimmerman, S. Chamberlain, R. Salguero‐Gómez, T. J. Curran, and T. Poisot. 2014. Lack of quantitative training among early‐career ecologists: a survey of the problem and potential solutions. PeerJ 2:e285.
+
+Butcher, J. A., J. E. Groce, C. M. Lituma, M. C. Cocimano, Y. Sánchez‐Johnson, A. J. Campomizzi, T. L. Pope, K. S. Reyna, and A. C. S. Knipps. 2007. Persistent controversy in statistical approaches in wildlife sciences: a perspective of students. Journal of Wildlife Management 71:2142–2144
+
+Ellison, A. M., and B. Dennis. 2009. Paths to statistical fluency for ecologists. Frontiers in Ecology and the Environment 8:362–370.
+
+Germano, J. D. 2000. Ecology, statistics, and the art of misdiagnosis: the need for a paradigm shift. Environmental Reviews 7:167–190.
+
+Quinn, J. F., and A. E. Dunham. 1983. On hypothesis testing in ecology and evolution. American Naturalist 122:602–617.
