@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE,warning = FALSE)
 
 ## Introduction 
 
-We will be working with data from Table 2 of [Medley and Clements (1998)](https://www.jstor.org/stable/2641255).  (This data is featured in the ecological stats book by Quinn and Keough (2002), though I'm not a fan of how they analyse it.)  The paper looks at how [diatoms](https://en.wikipedia.org/wiki/Diatom)(photosynthsizing microrganisms known for their silica shells) are impacted by water quality in mountain streams.
+We will be working with data from Table 2 of [Medley and Clements (1998)](https://www.jstor.org/stable/2641255).  (This data is featured in the ecological stats book by Quinn and Keough (2002), though I'm not a fan of how they analyse it.)  The paper looks at how [diatoms](https://en.wikipedia.org/wiki/Diatom)(photosynthesizing microorganisms known for their silica shells) are impacted by water quality in mountain streams.
 
 ### Learning goals
 
@@ -26,7 +26,7 @@ We will be working with data from Table 2 of [Medley and Clements (1998)](https:
 
 By the end of this lesson students will be able to
 
-* Download raw datafiles by hand from teh internet
+* Download raw data files by hand from the internet
 * Load .csv files using the R command read.csv()
 * Load .csv files using RStudio's point-and-click interface
 
@@ -62,11 +62,11 @@ Quinn & Keough. 2002. [Experimental design and data analysis for biologists.](ht
 
 ## Preliminary step: download a .csv file
 
-To load a .csv file into R we first need a .csv file to load.  The data we'll be working iwth can be downloaded from GitHub.  First, go to the following link (it happens to be an obscure subfolder of the wildlifeR package)
+To load a .csv file into R we first need a .csv file to load.  The data we'll be working with can be downloaded from GitHub.  First, go to the following link (it happens to be an obscure subfolder of the wildlifeR package)
 
 https://github.com/brouwern/wildlifeR/tree/master/inst/extdata
 
-Nesxt, locate the file Medley1998.csv
+Next, locate the file Medley1998.csv
 
 ```{r echo=FALSE , fig.cap = "A list of files stored on GitHub."}
 knitr::include_graphics(here::here("./images/Medley1998csv/Medley1998csv-800x1.png"))
@@ -106,7 +106,7 @@ Then save the file to a location you know you can find, such as
     
 Note that if you try to "Save as..." anything else but the white-screen **raw text file** you will run into problems.
 
-After you download the file, open up Excel or another spreadsheet program and open up the file to confirm that what you downloaded is just a set of numbers.  I you see long lines of text you might have accientally downloaded the HTML-formatted version of the file.  Make sure you are downloading the very plain version of the file from the totally blank white screen.
+After you download the file, open up Excel or another spreadsheet program and open up the file to confirm that what you downloaded is just a set of numbers.  I you see long lines of text you might have accidentally downloaded the HTML-formatted version of the file.  Make sure you are downloading the very plain version of the file from the totally blank white screen.
 
 
 ## Set the "working directory" ("WD") in RStudio
@@ -119,7 +119,7 @@ Follow these steps:
     - on the menu: "File, Edit, Code, View, Plots, **Session**, ..."
 * Click on "Set working directory"
 * Select "Choose Directory" 
-* Slect your computer's Documents folder or wherever else you chose to save the file.
+* Select your computer's Documents folder or wherever else you chose to save the file.
 * Select the directory & click  "Open"
 * Note that the command "setwd()" shows up in the console followed by the location of the directory you selected
 
@@ -142,7 +142,7 @@ Here, even though when set the working directory R originally just displayed "se
 
 ## Check for the file you downloaded with list.files()
 
-You can see what's in  your working directory using the command **list.files()**.  Depending on how many files you have this could be a very long list.  I have 40ish files and so won't display them.
+You can see what's in  your working directory using the command **list.files()**.  Depending on how many files you have this could be a very long list.  I have 40-ish files and so won't display them.
 ```{r eval = F}
 list.files() # [ ]
 ```
@@ -159,7 +159,7 @@ list.files(pattern = "xxxx")
 ```
 
 
-This means the file isnt' there and you need to redo the download to make sure either i)the file actually downloaded and ii)file is saved where you want it to be.  
+This means the file isn't' there and you need to redo the download to make sure either i)the file actually downloaded and ii)file is saved where you want it to be.  
 
 What we want to see is this
 ```{r echo = FALSE}
@@ -178,7 +178,7 @@ If you've just been using the console try this:
 * Click on the source viewer pane in RStudio
 * Type "getwd()" in the source viewer
 * Click on the "Run" button in the upper Right part of the pane
-* The getwd() command is  sent over to the consol and executed
+* The getwd() command is  sent over to the console and executed
 
 ------------------------
 
@@ -186,7 +186,7 @@ If you've just been using the console try this:
 
 Copy and paste the .csv file name from the console into the source viewer then Execute the command "read.csv(file = "Medley1998.csv")".  You can type it but you must be careful to have NO TYPOS.  R is unforgiving when it comes to typos.
 
-If you've done it corectly you'll see the data table printed out in the console (I show only some of the output).
+If you've done it correctly you'll see the data table printed out in the console (I show only some of the output).
 ```{r eval = FALSE}
 read.csv(file = "Medley1998.csv")
 ```
@@ -243,7 +243,7 @@ head(med98)
 
 You should see the entire dataset spit out in the console (I've just shown the top part).
 
-Now execute the list command **ls()**. You should now see "med98" shown in the conosle.
+Now execute the list command **ls()**. You should now see "med98" shown in the console.
 
 
 ```{r}
@@ -274,7 +274,7 @@ summary(med98)
 
 **OPTIONAL:**Plot the Mendley 1998 data
 
-As we'll discuss in depth in a later section on plotting , one reason why the **ggplot** and **ggpubr** packages are so powerful is because they can easily plot things in good color schemes.  We can make a basic scatterplot like this to show the positive correlation between Diatom species richness (the raw number of species identified in a given sample) on the x axis and species diversity on the y axis.
+As we'll discuss in depth in a later section on plotting , one reason why the **ggplot** and **ggpubr** packages are so powerful is because they can easily plot things in good color schemes.  We can make a basic scatter plot like this to show the positive correlation between Diatom species richness (the raw number of species identified in a given sample) on the x axis and species diversity on the y axis.
 
 First, load the ggpubr package using the library() command.  Note that you might get some output in red text telling you about the packages; it looks scary but its not.
 ```{r}
@@ -298,14 +298,14 @@ ggscatter(data = med98, y = "spp.div",x = "spp.rich", color = "pH")
 
 Frequently in code I will have things written up to load data using the **read.csv()** command.  However, there is a point-and-click way of loading spreadsheet data into RStudio too.
 
-There's on pane in RStudio that doesn't get used much by basic R users, the "Environmnet, History, Connections, Build, Git" pane (I think it might not have "Git" on it if you don't have certain packages loaded).
+There's on pane in RStudio that doesn't get used much by basic R users, the "Environment, History, Connections, Build, Git" pane (I think it might not have "Git" on it if you don't have certain packages loaded).
 
 
 ```{r echo=FALSE , fig.cap = "A list of files stored on GitHub."}
 knitr::include_graphics(here::here("images/Environment_tab_import_dataset_1.PNG"))
 ```
 
-If you click on the spreadsheet-looking icon "Import Dataset" and select "From text (base)" you can navigate to where your .csv file is located and select it.  A preview window will then pop up which will show you the raw (which should look like what you originally down loaded) and a preview of how RStudio will format the data.  (If the preview doesn't look right you can change some of the option in teh dropdown menus to see if things line up.) 
+If you click on the spreadsheet-looking icon "Import Dataset" and select "From text (base)" you can navigate to where your .csv file is located and select it.  A preview window will then pop up which will show you the raw (which should look like what you originally down loaded) and a preview of how RStudio will format the data.  (If the preview doesn't look right you can change some of the option in the drop down menus to see if things line up.) 
  
 ```{r echo=FALSE , fig.cap = "A list of files stored on GitHub."}
 knitr::include_graphics(here::here("images/Environment_tab_import_dataset_2.PNG"))
@@ -317,6 +317,6 @@ When you click "Import" RStudio will execute some code in the console (eg "Medle
 
 ## Challenge
 
-.csv files are the most common format for sharing data in R. "csv" stands for "comma sperated volume", and you will note that each value on a line is sperated by a comma (some thigns with computers do make sense on the firt try!).
+.csv files are the most common format for sharing data in R. "csv" stands for "comma seperate volume", and you will note that each value on a line is seperated by a comma (some things with computers do make sense on the first try!).
 
-Sometimes you will encounter .txt files which seperate data other ways, such as spaces, tabs, or by lining up everything explicitly in rows.  On the wildlifeR GitHub directory we used before (https://github.com/brouwern/wildlifeR/tree/master/inst/extdata) these is a file "Medley1998.txt".  Download this file and load it using RStudios Import Dataset function.  See if RStudio recognizes that its not .csv.
+Sometimes you will encounter .txt files which separate data other ways, such as spaces, tabs, or by lining up everything explicitly in rows.  On the wildlifeR GitHub directory we used before (https://github.com/brouwern/wildlifeR/tree/master/inst/extdata) these is a file "Medley1998.txt".  Download this file and load it using RStudio's Import Dataset function.  See if RStudio recognizes that its not .csv.

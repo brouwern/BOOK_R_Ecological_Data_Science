@@ -6,14 +6,14 @@ Goal
 
 * Current statistical practice, with an emphasis on modeling
 * Data analysis, from t-tests to mixed models in R
-* Data visualzation, with an emphasis on ggplot2
+* Data visualization, with an emphasis on ggplot2
 * Data science, from data management to data cleaning with dplyr
 * Computational reproducibility, from formatting scripts to using rmarkdown
 
 Approach
 
 * always explore and visualize data
-* step-by-step intructions
+* step-by-step instructions
 * frequently refreshing and review
 * comprehensive and self-contained
 

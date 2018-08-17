@@ -1,11 +1,11 @@
 # Loading Excel spreadsheets into RStudio
 
 
-resave as .csv and load
+re-save as .csv and load
 
 load directly
 
- In this walk through we first re-save this data in an R-compatbile format, a "csv" file, called "Lab1_data_PA_eagles.csv".  
+ In this walk through we first re-save this data in an R-compatible format, a "csv" file, called "Lab1_data_PA_eagles.csv".  
  
  
  
@@ -48,7 +48,7 @@ Do this to the cells below your data also.
 
 ## Reload data
 
-ReLoad data; be sure to include the "csv" at the end.  Use this code "eaglesPA <- read.csv(file = "eaglesPA.xlsx")".  NOTE: I changed the name of the file to include "_w_2_states" so that I wouldn't overwrite the original file.  Don't use this code unless you changed the file name to the exact same thing
+Reload data; be sure to include the "csv" at the end.  Use this code "eaglesPA <- read.csv(file = "eaglesPA.xlsx")".  NOTE: I changed the name of the file to include "_w_2_states" so that I wouldn't overwrite the original file.  Don't use this code unless you changed the file name to the exact same thing
 
 ```{r}
 #Use this code, w/o the "#" in front of it

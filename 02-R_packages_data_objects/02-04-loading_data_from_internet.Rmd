@@ -14,7 +14,7 @@ Its possible to download data directly from the internet, including
 * Google Sheets
 * and many other formats
 
-In this short execise we'll download some data that is stored as a raw .csv file within the inner workings of the widlifeR package.  
+In this short exercise we'll download some data that is stored as a raw .csv file within the inner workings of the widlifeR package.  
 
 ### Learning objectives
 
@@ -60,7 +60,7 @@ First, we'll use the "<-" assignment operator to store the shortened URL in an R
 eaglesWV.url <- "https://raw.githubusercontent.com/brouwern/wildlifeR/master/inst/extdata/eaglesWV.csv" # [ ]
 ```
 
-Next we'll use the getURL() function to set thigns up, storing the info in a new object "eaglesWV.url_2"  (note the "_2" on the end)
+Next we'll use the getURL() function to set things up, storing the info in a new object "eaglesWV.url_2"  (note the "_2" on the end)
 ```{r}
 eaglesWV.url_2 <- getURL(eaglesWV.url)
 ```
@@ -78,7 +78,7 @@ summary(eaglesWV_2)
 
 
 **OPTIONAL:** Plotting West Virginia Eagle Data
-Thanksfully, eagles having been increasing exponentially in West Virginia since the 1980s.
+Thankfully, eagles having been increasing exponentially in West Virginia since the 1980s.
 ```{r}
 scatter.smooth(y = eaglesWV_2$WV,x = eaglesWV_2$year)
 ```

@@ -3,7 +3,7 @@ output: html_document
 editor_options: 
   chunk_output_type: console
 ---
-# (PART) Section II: Plotting data in R with ggplot2 and friends {-}
+# (PART) Section II: Plotting data in R with ggplot2 & friends {-}
 
 In this section we'll focus on basic plotting skills.  The first chapter in this section is a basic review of the skills needed to get some data into R from a package.  Subsequent chapters will develop plotting skills.
 
@@ -98,12 +98,12 @@ You can check that it was loaded using the **ls()** command ("list").
 ls()
 ```
 
-You can get info about the nature of the daframe using commands like **dim()**
+You can get info about the nature of the dataframe using commands like **dim()**
 ```{r, results = "hide"}
 dim(iris)
 ```
 
-This tells us that the iris data is essentially a spreadhshett that has 150 rows and 5 columns.
+This tells us that the iris data is essentially a spreadsheet that has 150 rows and 5 columns.
 
 We can get the column names with names()
 ```{r}
@@ -130,7 +130,7 @@ is(iris)
 * Here, it tells us that the "object" called "iris" in your workspace is 1st and foremost a "data.frame"
 * A dataframe is essentially a spreadsheet of data loaded into R.
 
-You can get basic info about the data themseleves using commands like **summary()**.
+You can get basic info about the data themselves using commands like **summary()**.
 
 ```{r,results = "hide"}
 summary(iris)
@@ -147,7 +147,7 @@ summary(iris$Sepal.Width)
 
 That is, that name of the dataframe, a dollar sign ($), and the name of the column.
 
-What happens when you don't capitalize something?  Try these intentioanl  mistakes (but remove the "#" from in front of each one):
+What happens when you don't capitalize something?  Try these intentional  mistakes (but remove the "#" from in front of each one):
 
 ```{r, eval = F}
 #all lower case
@@ -197,7 +197,7 @@ What is in the mammals dataset?  Datasets actually usually have useful help file
 ?mammals
 ```
 
-The help screen will pop up either within RSTudio, or possibly in your web browser.  It tells us that mammals is 
+The help screen will pop up either within RStudio, or possibly in your web browser.  It tells us that mammals is 
 
 > "A data frame with average brain and body weights for 62 species of land mammals."  
 
@@ -206,7 +206,7 @@ Since this is someone else's data, the authors of the MASS package need to provi
 > Allison, T. and Cicchetti, D. V. (1976) Sleep in mammals: ecological and constitutional correlates. Science 194: 732-734.
 
 
-We can learn about the mammals data usig the usual commands
+We can learn about the mammals data using the usual commands
 ```{r eval = FALSE}
 dim(mammals)
 names(mammals)
@@ -230,14 +230,14 @@ RStudio makes it easy to find and load packages.  Follow these instructions.
 * RStudio will automatically bring up potential packages as you type.
 * Finish typing "cowplot"  or click on the name.
 * Click on the "Install" button.
-* In the source vieewr some misc. test should show up.  Most of the time this works.  If it doesn't, talk to the professor!
+* In the source viewer some misc. test should show up.  Most of the time this works.  If it doesn't, talk to the professor!
 
 
 
 If an R packages doesn't load properly, it could be for several reasons.  
 * 1st, your internet connection might be having problems.  
-* 2nd, the website where the package is stored might be down for mainteance.  
-* 3rd, the version of are you are using is probably newer than the version of R used to make the package.  This is a real pain - aks for help from an expert R user if think you have this problem.
+* 2nd, the website where the package is stored might be down for maintenance.  
+* 3rd, the version of are you are using is probably newer than the version of R used to make the package.  This is a real pain - ask for help from an expert R user if think you have this problem.
 
 
 
@@ -271,9 +271,9 @@ See above for reasons why a package might not load properly the 1st time you try
 
 ### Finding R help with Google
 
-There's lots of info about R on the web, and if you have a problem, then someone else has probably had it before and perhaps written somethign about it.
+There's lots of info about R on the web, and if you have a problem, then someone else has probably had it before and perhaps written something about it.
 
 
 
-The website **stackoverflow.com** has lots of info about R.  However, many people who use it are hard-core programmers, who can come accross as jerks sometimes when they answer questions if you don't follow the rules and protocols of stackoverflow.
+The website **stackoverflow.com** has lots of info about R.  However, many people who use it are hard-core programmers, who can come across as jerks sometimes when they answer questions if you don't follow the rules and protocols of stackoverflow.
 

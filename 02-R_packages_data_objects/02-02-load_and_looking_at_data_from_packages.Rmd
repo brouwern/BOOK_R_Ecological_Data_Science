@@ -41,9 +41,9 @@ While discussing these various routes for data to get into R we'll also talk a b
 
 ## Data pre-loaded in R
 
-R comes with a number of datasets ready to use.  A famous dataset frequently used in statistics is a set of measurements made on three species of irises and used to demonstate some statistical principles by genetistics and statistician R.A. Fisher.
+R comes with a number of datasets ready to use.  A famous dataset frequently used in statistics is a set of measurements made on three species of irises and used to demonstrate some statistical principles by geneticist and statistician R.A. Fisher.
 
-We can put the iris dataset into R's workig memoring using the data() command
+We can put the iris dataset into R's working memory using the data() command
 ```{r}
 data(iris)
 ```
@@ -57,7 +57,7 @@ head(iris)
 
 (You can all use the tail() command to see the last 6 rows if you want.)
 
-We can see that there are five rows of data. Three contain information about the length and width of the parts of the flower (Sepals and Petals) and teh last holds the names of the species.
+We can see that there are five rows of data. Three contain information about the length and width of the parts of the flower (Sepals and Petals) and the last holds the names of the species.
 
 
 We can get a sense for these numbers by using the summary() command on the data, which will give us the mean and other summary statistics
@@ -80,12 +80,12 @@ pander::pander(iris[1:10,])
 
 Note, however, that unlike a spreadsheet you cannot edit the data.
 
-If you want to know more about a package, you can look at its help file, eg "?iris."  These will often give you a fair bit of detail about what each column means, where the data are from, and may even have examples R functions applied to the data (though these can be rather obtuse, as is th case for the iris data).
+If you want to know more about a package, you can look at its help file, eg "?iris."  These will often give you a fair bit of detail about what each column means, where the data are from, and may even have examples R functions applied to the data (though these can be rather obtuse, as is the case for the iris data).
 
 
 ### Preview: Plotting boxplots
 
-Plotting will be covered in depth in a subsequent exercise, but here's a glimplse of how we plot things in R:
+Plotting will be covered in depth in a subsequent exercise, but here's a glimpse of how we plot things in R:
 
 ```{r}
 plot(Petal.Length ~ Species, data = iris)
@@ -96,17 +96,17 @@ This code creates a series of **boxplots** of the petal lengths of each species 
 
 ## Loading data from R packages
 
-Base R however is surrounded by a universe of extensions built by statistician, programmers, academics and businesses that use R for analyses.  Some of these are fairly standard and are downloaded along with base R and just need to be explicilty installed.  Other have to be downloaded from the internet and installed.  Most packages contain data in order to demonstate what they do.
+Base R however is surrounded by a universe of extensions built by statistician, programmers, academics and businesses that use R for analyses.  Some of these are fairly standard and are downloaded along with base R and just need to be explicitly installed.  Other have to be downloaded from the internet and installed.  Most packages contain data in order to demonstrate what they do.
 
 ### Loading a package contained in base R
 
-One package that is automatically downloaded but not automatically *installed* with base R is the "MASS" package, which stands for "Modern Applied Statistics in R"; S is the software that preceded R.  We can install this package and make it functinally using the library() command
+One package that is automatically downloaded but not automatically *installed* with base R is the "MASS" package, which stands for "Modern Applied Statistics in R"; S is the software that preceded R.  We can install this package and make it functionally using the library() command
 
 ```{r}
 library(MASS)
 ```
 
-The MASS package has a biological dataset called "crabs" that you can put into working memory using data(crabs).  We can then look at it using head(),Viwe(), tail(), summary(), etc.  We can find out more about the dataset using the help file, accssed via ?crabs
+The MASS package has a biological dataset called "crabs" that you can put into working memory using data(crabs).  We can then look at it using head(),View(), tail(), summary(), etc.  We can find out more about the dataset using the help file, accessed via ?crabs
 
 **Question**
 1.What does the "FL" column mean in the crabs dataset?
@@ -114,7 +114,7 @@ The MASS package has a biological dataset called "crabs" that you can put into w
 
 ### Preview: Plotting scatter plot
 
-We can plot the relationshp between the FL and RW variables using a scatterplot.
+We can plot the relationship between the FL and RW variables using a scatter plot.
 ```{r}
 plot(FL ~ RW, data = crabs)
 ```
@@ -123,7 +123,7 @@ plot(FL ~ RW, data = crabs)
 
 ## Learning about data in R
 
-When data is being worked with in R, it lives in a place called the **workspace.**  The workspace is not immediately transparent to you while working in R.  It lives behind the scenes in what is essentiall R's working memore.  We can see what's on R's mind using the ls() command
+When data is being worked with in R, it lives in a place called the **workspace.**  The workspace is not immediately transparent to you while working in R.  It lives behind the scenes in what is essentially R's working memory.  We can see what's on R's mind using the ls() command
 
 ```{r}
 ls()
@@ -150,18 +150,18 @@ We can see that we added my.mean.  We can see what my.mean is by typing its name
 my.mean
 ```
 
-We can also leanr more about is using the is() command
+We can also learn more about is using the is() command
 ```{r}
 is(my.mean)
 ```
 
 Here we get a big of R lingo: R tells use "numeric", which means it contain numeric data (numbers), and "vector", which is one of several types of R object
 
-R objects can be just about anyting.  We can assign letter to an R object like this
+R objects can be just about anything.  We can assign letter to an R object like this
 ```{r}
 my.abc <- c("a","b","c")
 ```
-Note that we have teh letter each surrounded by quotes, and all 3 of them within c(...)
+Note that we have the letter each surrounded by quotes, and all 3 of them within c(...)
 
 If you call up "my.abc" from the console, you will get back the three letter.  Now see what is(my.abc) says
 
@@ -182,7 +182,7 @@ If we call is() on one of the dataset what do we is?
 is(crabs)
 ```
 
-Several things get spit out, but the first one is importnat: "data.frame"  Dataframes are fundamental units of analysis in R.  Most of the data you will load into R and work within R will be in a dataframe.
+Several things get spit out, but the first one is important: "data.frame"  Dataframes are fundamental units of analysis in R.  Most of the data you will load into R and work within R will be in a dataframe.
 
 Another function that tells about something in the the workspace is str(), which stands for structure.  It provides info about what types of variables are in each column, and provides some sample output similar to head(), but oriented differently.
 
@@ -190,12 +190,12 @@ Another function that tells about something in the the workspace is str(), which
 str(crabs)
 ```
 
-Note that the varibles "sp", which stands for "Species", and "sex" are follwed by the word "Factor."  A **factor variable** is something that is or is summarized as discrete categories.  For the species factor, there are two levels: the "B" species and the "O" species.
+Note that the variables "sp", which stands for "Species", and "sex" are followed by the word "Factor."  A **factor variable** is something that is or is summarized as discrete categories.  For the species factor, there are two levels: the "B" species and the "O" species.
 
 
 ## Load data from an external R package
 
-Many packages have to be explicilty downloaded and installed in order to use their functions and datasets.  Note that this is a **two step process**:
+Many packages have to be explicitly downloaded and installed in order to use their functions and datasets.  Note that this is a **two step process**:
 1. Download package from internet
 1. Explicitly tell R to load it
 
@@ -203,33 +203,33 @@ Many packages have to be explicilty downloaded and installed in order to use the
 ### Step 1: Downloading packages
 There are a number of ways to install packages.  One of the easiest is to use install.packages().  Note that it might be better to call this "download.packages" since after you install it, you also have to load it!
 
-Well download a package used for plotting called ggplot2, which stands for "Grammer of graphics"
+Well download a package used for plotting called ggplot2, which stands for "Grammar of graphics"
 
 ```{r eval = FALSE}
 install.packages("ggplot2")
 ```
 
-Often when you download a package you'll see a fair bit of red text.  Usually there's nothign of interest hear, but sometimes you need to read over it for hints about why somethign didn't work.
+Often when you download a package you'll see a fair bit of red text.  Usually there's nothing of interest hear, but sometimes you need to read over it for hints about why something didn't work.
 
 ### Step 2: Explicitly loading a package
 
-THe install.packages() functions just saves teh package software to R; now you need to tell R "I want to work with the package".  This is done usig the library() function. (Its called library because another name for packages is libraries)
+The install.packages() functions just saves the package software to R; now you need to tell R "I want to work with the package".  This is done using the library() function. (Its called library because another name for packages is libraries)
 
 ```{r}
 library(ggplot2)
 ```
 
-ggplot2 has a dataset called "msleep" which has information on the relationship between the typical size of a species and its brain weight, among other thigns
+ggplot2 has a dataset called "msleep" which has information on the relationship between the typical size of a species and its brain weight, among other things
 
-We load the data actively into R's memore using data(), and can look at the colum names using names()
+We load the data actively into R's memory using data(), and can look at the column names using names()
 ```{r}
 data(msleep)
 names(msleep)
 ```
 
-We can now explore this data set as before using sumamry(), str(), etc.
+We can now explore this data set as before using summary(), str(), etc.
 
-Anoter useful command when you are working with a new dataset is dim().  THis tells you the dimension of the dataframe
+Another useful command when you are working with a new dataset is dim().  This tells you the dimension of the dataframe
 
 ```{r}
 dim(msleep)
@@ -238,15 +238,15 @@ dim(msleep)
 
 ### Preview: plotting with ggplot2
 
-ggplot2 is a powerful plotting tool that has become standard among scientsts, data scientists, and even journalists.  Here's a quick way to make a plot in ggplot2 using its qplot() function (qplot = quick plot, not to be confused with qqplot).  Note that the qplot() function only works if you have ggplot2 downloaded and installed.
+ggplot2 is a powerful plotting tool that has become standard among scientists, data scientists, and even journalists.  Here's a quick way to make a plot in ggplot2 using its qplot() function (qplot = quick plot, not to be confused with qqplot).  Note that the qplot() function only works if you have ggplot2 downloaded and installed.
 
-A powerful aspect of ggplot is the fact that it can easily be used to modify plots.  HEre, we use the **arguement** "color = " to color code the data points based on their IUCN red list status.
+A powerful aspect of ggplot is the fact that it can easily be used to modify plots.  Here, we use the **arguement** "color = " to color code the data points based on their IUCN red list status.
 
 ```{r}
 qplot(y = brainwt, x = bodywt, data = msleep, color = conservation)
 ```
 
-The animals in this data vary in size from mice to elephants and so a lot of the datapoints are scrunched together.  A trick to make this easier to see is to take teh log of the brainwt and bodywt variable.  In R, we can do this on the fly like this using the log() command
+The animals in this data vary in size from mice to elephants and so a lot of the data points are scrunched together.  A trick to make this easier to see is to take the log of the brainwt and bodywt variable.  In R, we can do this on the fly like this using the log() command
 
 ```{r}
 qplot(y = log(brainwt), x = log(bodywt), data = msleep, color = conservation)
@@ -255,11 +255,11 @@ qplot(y = log(brainwt), x = log(bodywt), data = msleep, color = conservation)
 
 ## Loading data from an R script
 
-So far we have only looked at dataset that are already formatted into **dataframe** by somebody for us.  Now we want to look at how to set up datasets ourselves.  When datasets are small its possible to enter them more or less directly into R by typing out all of the numbers in a script.  This only works well for when datasets are small; even when datasets are small its best to keep them seperate from your R code in a spreadsheet file.  However, its useful to know how to load data this way; even when an exercise in this book loads data from a package or spreadsheet I will also often include the code to load it directly just in case there is an issue with download the package or file.
+So far we have only looked at dataset that are already formatted into **dataframe** by somebody for us.  Now we want to look at how to set up datasets ourselves.  When datasets are small its possible to enter them more or less directly into R by typing out all of the numbers in a script.  This only works well for when datasets are small; even when datasets are small its best to keep them separate from your R code in a spreadsheet file.  However, its useful to know how to load data this way; even when an exercise in this book loads data from a package or spreadsheet I will also often include the code to load it directly just in case there is an issue with download the package or file.
 
 ### The eagles have landed - in your R workspace
 
-In a subsequent exercise we will practice using data on the number of eagles in Pennsylvania and other states in teh USA.  We can load this data into R by making R objects, and then turning these objects into a dataframe. 
+In a subsequent exercise we will practice using data on the number of eagles in Pennsylvania and other states in the USA.  We can load this data into R by making R objects, and then turning these objects into a dataframe. 
 
 #### Step one: Build R objects
 
@@ -286,7 +286,7 @@ eagles <-  c(3, NA, NA, NA, NA, NA, NA,NA,NA,NA,
 
 #### Step two: Build dataframe
 
-We can then turn these two seperate R objects into a dataframe
+We can then turn these two separate R objects into a dataframe
 ```{r}
 eagle.df <-data.frame(year, eagles)
 ```
@@ -316,7 +316,7 @@ Note that in the "eagles" columns it tells you the number of NAs (missing values
 
 We can plot the data in ggplot2 using qplot().  However, there is an excellent package that adds additional functionality to ggplot called ggpubr.  This is fairly common in R: you have packages that add functions to R, and packages that add functions to other packages.
 
-We can install ggpubr using install.pacakges().  Note that the name of the package, ggpubr, is in quotes.
+We can install ggpubr using install.packages().  Note that the name of the package, ggpubr, is in quotes.
 ```{r eval = FALSE}
 install.packages("ggpubr")
 ```
@@ -327,7 +327,7 @@ library(ggpubr)
 
 ggpubr requires *another package*, magrittr, which R tells you about in read text.  When a package requires another package, its called a **dependency** because one package relies on another.  ggpubr has magrittr as a dependency; ggpubr modifies ggplot2, so ggpubr has ggplot2 as a dependency.  
 
-Occassionally you might try to load a package and it won't automatically install or download the dependency, usually because its not yet downloaded.  If this happend with magrittr we would just have to download it using "install.packages("magrittr")".
+Occasionally you might try to load a package and it won't automatically install or download the dependency, usually because its not yet downloaded.  If this happens with magrittr we would just have to download it using "install.packages("magrittr")".
 
 Once we have ggpubr loaded we can plot the eagle data using the handy function 
 

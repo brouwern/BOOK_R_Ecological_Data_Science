@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # A first encounter with R & RStudio
 
 **Nathan Brouwer, Phd**
@@ -10,9 +15,30 @@ rm(list = ls())
 ```
 
 
+## Vocabulary {-}
+* console
+* script editor / source viewer
+* interactive programming
+* scripts / script files
+* .R files
+* text files / plain text files
+* command execution / execute a command from script editor
+* comments / code comments
+* commenting out / commenting out code
+* stackoverflow.com
+* #rstats
+
+## R commands {-}
+
+* c(...)
+* mean(...)
+* sd(...)
+* ?
+* read.csv(...)
+
 ## Getting started with R and RStudio
 
-* R is a piece of sofware that does calculations and makes graphs.
+* R is a piece of software that does calculations and makes graphs.
 * RStudio is a GUI (graphical user interface) that acts as a front-end to R
 * Your can use R directly, but most people use a GUI of some kind
 * RStudio has become the most popular GUI
@@ -21,13 +47,13 @@ The following instructions will lead you click by click through downloading R an
 
 ## Getting R onto your computer
 
-To get R on to your computer firt go to the [CRAN website](https://cran.r-project.org/) at https://cran.r-project.org/ (CRAN stands for "comprehensive R Archieve Network").  At the top of the screen are three bullet points; select the appropriate one (or click the link below)
+To get R on to your computer first go to the [CRAN website](https://cran.r-project.org/) at https://cran.r-project.org/ (CRAN stands for "comprehensive R Archive Network").  At the top of the screen are three bullet points; select the appropriate one (or click the link below)
 
 * [Download R for Linux](https://cran.r-project.org/bin/linux/)
 * [Download R for (Mac) OS X](https://cran.r-project.org/bin/macosx/)
 * [Download R for Windows](https://cran.r-project.org/bin/windows/)
 
-Each page is formatted slightly differently.  For a currnet Mac, click on the top linke, which as of 8/16/2018 was "[R-3.5.1.pkg](https://cran.r-project.org/bin/macosx/R-3.5.1.pkg)" or click this link.  If you have an older Mac you might have to scroll down to find your operating system under "Binaries for legacy OS X systems."
+Each page is formatted slightly differently.  For a current Mac, click on the top link, which as of 8/16/2018 was "[R-3.5.1.pkg](https://cran.r-project.org/bin/macosx/R-3.5.1.pkg)" or click this link.  If you have an older Mac you might have to scroll down to find your operating system under "Binaries for legacy OS X systems."
 
 For PC select "[base](https://cran.r-project.org/bin/windows/base/)" or click this link.
 
@@ -35,15 +61,15 @@ When its downloaded, run the installer and accept the default.
 
 ## Getting RStudio on to your computer
 
-[RStudio](www.rstudio.com/) is an R interface developed by a company of the same name.  RStudio has a number of commerical products, but much of their portfolio is freeware.  You can download RStudio from their website www.rstudio.com/ .  The [download page](https://www.rstudio.com/products/rstudio/download/) (www.rstudio.com/products/rstudio/download/) is a bit busy because it shows all of their commercial products; the free version is on the far left side of the table of products.  Click on the big green DOWNLOAD button under the column on the left that says "RStudio Desktop Open Source License" (or click on this [link](https://www.rstudio.com/products/rstudio/download/#download) ).  
+[RStudio](www.rstudio.com/) is an R interface developed by a company of the same name.  RStudio has a number of commercial products, but much of their portfolio is freeware.  You can download RStudio from their website www.rstudio.com/ .  The [download page](https://www.rstudio.com/products/rstudio/download/) (www.rstudio.com/products/rstudio/download/) is a bit busy because it shows all of their commercial products; the free version is on the far left side of the table of products.  Click on the big green DOWNLOAD button under the column on the left that says "RStudio Desktop Open Source License" (or click on this [link](https://www.rstudio.com/products/rstudio/download/#download) ).  
 
 This will scroll you down to a list of downloads titled "Installers for Supported Platforms."  Windows users can select the top option [RStudio 1.1.456 - Windows Vista/7/8/10](https://download1.rstudio.org/RStudio-1.1.456.exe) and Mac the second option [RStudio 1.1.456 - Mac OS X 10.6+ (64-bit)](https://download1.rstudio.org/RStudio-1.1.456.dmg).  (Versions names are current of 8/16/2018).
 
-Run the installer after it downloads and accept the default.  RStudio will automatically link up with the most current version of R you have on your computer.  Find the RStudio icon on your desktop or search for "RStudio" from your taks bar and you'll be read to go.
+Run the installer after it downloads and accept the default.  RStudio will automatically link up with the most current version of R you have on your computer.  Find the RStudio icon on your desktop or search for "RStudio" from your task bar and you'll be read to go.
 
 ### Keep R and RStudio current
 
-Both R and RStudio undergo regular updates and you will occassionally have to re-download and install one or both of them.  In practice I probably do this about every 6 months.
+Both R and RStudio undergo regular updates and you will occasionally have to re-download and install one or both of them.  In practice I probably do this about every 6 months.
 
 
 ## Getting started with R itself (or not)
@@ -58,7 +84,7 @@ knitr::include_graphics("images/R_logo_on_desktop.png")
 
 The long string of numbers have to do with the version and whether is 32 or 64 bit (not important for what we do).
 
-If you are curious you can open it up and take a look - it actually looks a lot like RStudio, where we will do all our work (or rather, RStudio looks like R).  Sometimes when people are getting started with R they will accidentlly open R instead of RStudio; if things don't seem to look or be working the way you think they should, you might be in R, not RStudio
+If you are curious you can open it up and take a look - it actually looks a lot like RStudio, where we will do all our work (or rather, RStudio looks like R).  Sometimes when people are getting started with R they will accidentally open R instead of RStudio; if things don't seem to look or be working the way you think they should, you might be in R, not RStudio
 
 ## Getting started with RStudio
 
@@ -71,7 +97,7 @@ The RStudio logo looks like this.
 knitr::include_graphics("images/RStudio_logo.png")
 ```
 
-When you open up you'll be greated by a fairly busy array of menus and thingys.  Don't panic!  A typical fresh starting point in RStudio is shown in Figure 2.
+When you open up you'll be greeted by a fairly busy array of menus and things.  Don't panic!  A typical fresh starting point in RStudio is shown in Figure 2.
 
 ```{r echo=FALSE , fig.cap = "RStudio when first opened."}
 knitr::include_graphics("images/RStudio_1st_view-800x600.png")
@@ -83,19 +109,19 @@ When referring to RStudio, there are two terms that need to be understood.  As s
 knitr::include_graphics("images/RStudio_console_vs_script_editor-800x600")
 ```
 
-An "cheat sheet" called the "RStudio IDE Cheat Sheet" details all of RStudios features and is available at https://www.rstudio.com/resources/cheatsheets/
+An "cheat sheet" called the "RStudio IDE Cheat Sheet" details all of RStudio's many features and is available at https://www.rstudio.com/resources/cheatsheets/
 
 
-### The RStudio console versus the script editor
+### The console versus the script editor
 
-You can type and enter text into both the console and the script editor.
+You can type and enter text into both the console and the script editor.  The console, however, respond like a calculator, while the script editor works more like a text editor.
 
 #### The R console
 
 The **console** in RStudio act exactly the same way as it does in R.  This is an **interactive programming** situation that is very similar to a scientific calculator.  If you click your mouse inside the console and type "1 + 1" then press enter you will see the following type of output
 
 ```{r}
-1+1
+1 + 1
 ```
 
 
@@ -110,7 +136,7 @@ One thing to note about R is that it's not particular about spacing.  All of the
 
 #### R's console as a scientific calculator
 
-You can interact with R's console similar to a scientific calculator.  For example, you can use parentheses to set up mathematical statemetns like
+You can interact with R's console similar to a scientific calculator.  For example, you can use parentheses to set up mathematical statements like
 
 ```{r}
 5*(1+1)
@@ -123,10 +149,12 @@ Note however that you have to be explicit about multiplication.  If you try the 
 ```
 
 
-R also has built in function that work similar to what you might have used in Excel.  For example, in Excel you can calculate the average of a set of numbers by typing "=(1,2,3)" into a cell.  R can do the same thing except
+R also has built-in functions that work similar to what you might have used in Excel.  For example, in Excel you can calculate the average of a set of numbers by typing "=average(1,2,3)" into a cell.  R can do the same thing except
+
 * The command is "mean"
 * You don't start with "="
 * You have to package up the numbers like what is shown below using "c(...)"
+
 ```{r}
 mean(c(1,2,3))
 ```
@@ -139,25 +167,41 @@ If you just do the following R will give you an answer, but its the wrong one
 mean(1,2,3)
 ```
 
-This is a common issue with R -- and many programs, really -- it won't always tell you when somethind didn't go as planned.  This is because it doesn't know something didn't go as planned; you have to learn the rules R plays by.
+**This is a common issue with R -- and many programs, really -- it won't always tell you when somethind didn't go as planned.  This is because it doesn't know something didn't go as planned; you have to learn the rules R plays by.**
+
+
+#### Practice: math in the console
+
+See if you can reproduce the following results
+
+**Division**
+```{r}
+10/3
+```
+
+**The standard deviation**
+```{r}
+sd(c(5,10,15)) # note the use of "c(...)"
+```
+
 
 #### The script editor
 
-While you can interact with R directly within the console, the standard way to work in R is to write what are known as **scripts.**  These are computer code instructions written to R in a **script file.**  These are save with the extension ".R" but area really just a form of **plain text file.**
+While you can interact with R directly within the console, the standard way to work in R is to write what are known as **scripts.**  These are computer code instructions written to R in a **script file.**  These are save with the extension **.R** but area really just a form of **plain text file.**
 
-To work with script, what you do is type the command in the script editor, then tell R to excute the command.  This can be done several ways.  
+To work with scripts, what you do is type commands in the script editor, then tell R to **excute** the command.  This can be done several ways.  
 
 First, you tell RStudio the line of code you want to run by either
-* Placing the cursor at the end a line of code and placing
-* Clicking and dragging over the code you want to run to highlight it.
+* Placing the cursor at the end a line of code, OR
+* Clicking and dragging over the code you want to run in order highlight it.
 
 Second, you tell RStudio to run the code by
-* Clicking the "Run" icon in the upper right hand side of the script editor
-* pressing the control key and then then enter key on the keyboard
+* Clicking the "Run" icon in the upper right hand side of the script editor (a grey box with a green error emerging from it)
+* pressing the control key ("ctrl)" and then then enter key on the keyboard
 
-The code you've chosen to run will be sent by RStudio from the script editor over to the console.  The console will show you the code and then the output.
+The code you've chosen to run will be sent by RStudio from the script editor over to the console.  The console will show you both the code and then the output.
 
-You can run several lines of code if you want; the console will run a line, print hte output, and then run the next line.  First I'll use the command mean(), and then the command sd() for the standard deviation:
+You can run several lines of code if you want; the console will run a line, print the output, and then run the next line.  First I'll use the command mean(), and then the command sd() for the standard deviation:
 ```{r}
 mean(c(1,2,3))
 sd(c(1,2,3))
@@ -165,46 +209,43 @@ sd(c(1,2,3))
 
 #### Comments 
 
-One of the reasons we use script files is that we can combine R code with **comments** that tell us what the R code is doing.  Comments are preceded by the hashtag symbol "#".  Frequently we'll write code like this:
+One of the reasons we use script files is that we can combine R code with **comments** that tell us what the R code is doing.  Comments are preceded by the hashtag symbol **#**.  Frequently we'll write code like this:
 
 ```{r eval = FALSE}
 #The mean of 3 numbers
 mean(c(1,2,3))
 ```
 
-If you highlight all of this code and then click on "run", you'll see that RStudio sends all of the code over console.
+If you highlight all of this code (including the comment) and then click on "run", you'll see that RStudio sends all of the code over console.
 ```{r echo=FALSE}
 #The mean of 3 numbers
 mean(c(1,2,3))
 ```
 
-Comments can also be placed at the end of a line of code
+Comments can also be placed at the *end* of a line of code
 
 ```{r eval = FALSE}
-#The mean of 3 numbers
-mean(c(1,2,3)) #Note that the use of c(...)
+mean(c(1,2,3)) #Note  the use of c(...)
 ```
 
-Sometimes we write code and then don't want R to run it.  We can prevent R from executing the code even if its sent to the console by putting a "#" infront of the code.
+Sometimes we write code and then don't want R to run it.  We can prevent R from executing the code even if its sent to the console by putting a "#" *infront* of the code.
 
-If I run this code,
+If I run this code, I will get just the mean but not the sd.  
+
 ```{r eval = FALSE}
 mean(c(1,2,3))
 #sd(c(1,2,3))
 ```
 
-I will get just the mean but not the sd
-```{r echo=FALSE}
-mean(c(1,2,3))
-sd(c(1,2,3))
-```
+Doing this is called **commenting out** a line of code.
 
 ## Help!
 
 There are many resource for figuring out R and RStudio, including
 
 * R's built in "help" function
-* Q&A websites like stackoverflow.com
+* Q&A websites like **stackoverflow.com**
+* twitter, using the hashtag #rstats
 * blogs
 * online books and course materials
 
@@ -219,39 +260,42 @@ In RStudio the help screen should appear, probably above your console.  If you s
 
 For example, when we load data into R in subsequent lessons we will use a function called "read.csv"
 
-Access the helpfile by typeing "?read.csv" into the console and pressing enter.  Surprisingly, the function that R give you the help file isn't what you asked for, but is read.table().  This is a related function to read.csv, but when you're a beginner thing like this can really throw you off.
+Access the help file by typing "?read.csv" into the console and pressing enter.  Surprisingly, the function that R give you the help file isn't what you asked for, but is read.table().  This is a related function to read.csv, but when you're a beginner thing like this can really throw you off.
+
+Kieran Healy as produced a great cheatsheet for reading R's help pages as part of his forthcoming book.  It should be available online at http://socviz.co/appendix.html#a-little-more-about-r
 
 ### Getting help from the internet
 
-The best way to get help for any topic is to just do an internet seach like this: "R read.csv".  Usually the first thing on the results list will be the R help file, but the second or third will be a blog post or something else where a usually helpful person has discussed how that function works.
+The best way to get help for any topic is to just do an internet search like this: "R read.csv".  Usually the first thing on the results list will be the R help file, but the second or third will be a blog post or something else where a usually helpful person has discussed how that function works.
 
-Sometimes for very basic R commands this might not always be productive but its always work a try.  For but things related to stats, plotting, and programming there is frequently lots of information.  
+Sometimes for very basic R commands like this might not always be productive but its always work a try.  For but things related to stats, plotting, and programming there is frequently lots of information.  Also try searching YouTube.
 
 ### Getting help from online forums
 
 Often when you do an internet search for an R topic you'll see results from the website www.stackoverflow.com, or maybe www.crossvalidated.com if its a statistics topic.  These are excellent resources and many questions that you may have already have answers on them.  Stackoverflow has an internal search function and also suggests potentially relevant posts.
 
-Before posting to one of these sites yourself, however, do some research; there is a particular type and format of question that is most likely to get a useful response.  Saddly, people knew to the site often get "flammed" by impatient pros.
+Before posting to one of these sites yourself, however, do some research; there is a particular type and format of question that is most likely to get a useful response.  Sadly, people new to the site often get "flamed" by impatient pros.
 
 ### Getting help from twitter
 
 Twitter is a surprisingly good place to get information or to find other people knew to R.  Its often most useful to ask people for learning resources or general reference, but you can also post direct questions and see if anyone responds, though usually its more advanced users who engage in twitter-based code discussion.  
 
 A standard tweet might be 
-"Hey #rstats twitter, am knew to #rstats and really stuck on some of the basic.  Any suggestions for good resources for someone starting from scratch?"
+"Hey #rstats twitter, am knew to #rstats and really stuck on some of the basics.  Any suggestions for good resources for someone starting from scratch?"
 
 
 ## Other features of RStudio
 
-### Ajusting pane layout
-You can adjust the locatio of each of the 4 window panes.
+### Ajusting pane the layout
+
+You can adjust the location of each of RStudio 4 window panes, as well as their size.
 
 To set the pane layout go to
 1. ”Tools” on the top menu
 1. ”Global options”
 1. "Pane Layout"
 
-Use the drop down menus to set things up. I recommend
+Use the drop-down menus to set things up. I recommend
 1. Lower left: "Console""
 1. Top right: "Source"
 1. Top left: "Plot, Packages, Help Viewer"
@@ -260,5 +304,57 @@ Use the drop down menus to set things up. I recommend
 
 ### Adjusting size of windows
 
-You can clicke on the edge of a pane and adjust its size.  For most R work we want the console to be big.  For beginners, the "Environment, history, files" panel can be made really small.
+You can clicked on the edge of a pane and adjust its size.  For most R work we want the console to be big.  For beginners, the "Environment, history, files" panel can be made really small.
+
+
+## Practice (OPTIONAL)
+
+Practice the following operations.  Type the directly into the console and execute them.  Also write them in a script in the script editor and run them.
+
+**Square roots**
+```{r}
+sqrt(42)
+```
+
+**The date**
+Some functions in R can be executed within nothing in the parentheses.  
+```{r}
+date()
+```
+
+**Exponents**
+The **^** is used for exponents
+```{r}
+42^2
+```
+
+**A series of numbers**
+A colon between two numbers creates a series of numbers.
+```{r}
+1:42
+```
+
+**logs**
+The default for the log() function is the natural log.
+```{r}
+log(42)
+```
+
+log10() gives the base-10 log.
+```{r}
+log10(42)
+```
+
+**exp() raises e to a power**
+```{r}
+exp(3.73767)
+```
+
+**Multiple commands can be nested**
+```{r echo = F eval = F}
+sqrt(42)^2
+log(sqrt(42)^2)
+exp(log(sqrt(42)^2))
+```
+
 
