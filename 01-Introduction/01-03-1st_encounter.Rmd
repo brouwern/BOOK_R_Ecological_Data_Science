@@ -12,6 +12,7 @@ https://github.com/brouwern
 
 ```{r , include=FALSE}
 rm(list = ls())
+library(here)
 ```
 
 
@@ -78,8 +79,8 @@ This  is a walk-through of a very basic R session. It assumes you have successfu
 
 Most people who use R do not actually use the program itself - they use a GUI (graphical user interface) "front end" that make R a bit easier to use.  However, you will probably run into the icon for the underlying R program on your desktop or elsewhere on your computer.  It usually looks like this:
 
-```{r include=FALSE}
-knitr::include_graphics("images/R_logo_on_desktop.png")
+```{r echo=FALSE, fig.cap = "The R logo"}
+knitr::include_graphics(here::here("images/R_logo_on_desktop.png"))
 ```
 
 The long string of numbers have to do with the version and whether is 32 or 64 bit (not important for what we do).
@@ -94,19 +95,21 @@ Now we'll get started with RStudio.  We'll get to know what it looks like and co
 
 The RStudio logo looks like this.
 ```{r echo=FALSE, fig.cap = "The RSTudio logo"}
-knitr::include_graphics("images/RStudio_logo.png")
+knitr::include_graphics(here::here("images/RStudio_logo.png"))
 ```
 
 When you open up you'll be greeted by a fairly busy array of menus and things.  Don't panic!  A typical fresh starting point in RStudio is shown in Figure 2.
 
 ```{r echo=FALSE , fig.cap = "RStudio when first opened."}
-knitr::include_graphics("images/RStudio_1st_view-800x600.png")
+x <- here::here("images/RStudio_1st_view-800x600.png")
+knitr::include_graphics(x)
 ```
 
 When referring to RStudio, there are two terms that need to be understood.  As shown in Figure 3, there is the **console** section of RStudio and the **script editor** or **source viewer**.  
 
 ```{r echo=FALSE, fig.cap = "RStudio's console & script editor."}
-knitr::include_graphics("images/RStudio_console_vs_script_editor-800x600")
+x <- here::here("images/RStudio_console_vs_script_editor-800x600.png")
+knitr::include_graphics(x)
 ```
 
 An "cheat sheet" called the "RStudio IDE Cheat Sheet" details all of RStudio's many features and is available at https://www.rstudio.com/resources/cheatsheets/
@@ -351,7 +354,7 @@ exp(3.73767)
 ```
 
 **Multiple commands can be nested**
-```{r echo = F eval = F}
+```{r eval = F}
 sqrt(42)^2
 log(sqrt(42)^2)
 exp(log(sqrt(42)^2))

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R for Ecological Data Science: A Gentle Introduction</title>
+  <meta name="description" content="This is a lab manual for learning how to use R for ecological data science and statistics.">
+  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R for Ecological Data Science: A Gentle Introduction" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a lab manual for learning how to use R for ecological data science and statistics." />
+  <meta name="github-repo" content="brouwern/BOOK_R_Ecological_Data_Science" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R for Ecological Data Science: A Gentle Introduction" />
+  
+  <meta name="twitter:description" content="This is a lab manual for learning how to use R for ecological data science and statistics." />
+  
+
+<meta name="author" content="Nathan L. Brouwer">
+
+
+<meta name="date" content="2018-08-17">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="a-first-encounter-with-r-rstudio.html">
+<link rel="next" href="rmarkdown-1.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Ecological Data Science</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="part"><span><b>I Part I: Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html"><a href="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html"><i class="fa fa-check"></i><b>1</b> Introduction: What is Ecological Data Science &amp; How Will this Book Teach It?</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html"><a href="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html#what-is-data-science"><i class="fa fa-check"></i><b>1.1</b> What is data science?</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html"><a href="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html#goals"><i class="fa fa-check"></i><b>1.2</b> Goals</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html"><a href="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html#approach"><i class="fa fa-check"></i><b>1.3</b> Approach</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html"><a href="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html#requirements"><i class="fa fa-check"></i><b>1.4</b> Requirements</a></li>
+<li class="chapter" data-level="1.5" data-path="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html"><a href="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html#refereces"><i class="fa fa-check"></i><b>1.5</b> Refereces</a></li>
+<li class="chapter" data-level="1.6" data-path="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html"><a href="introduction-what-is-ecological-data-science-how-will-this-book-teach-it.html#bibliography"><i class="fa fa-check"></i><b>1.6</b> Bibliography</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="what-is-r-and-why-use-it.html"><a href="what-is-r-and-why-use-it.html"><i class="fa fa-check"></i><b>2</b> What is R and why use it?</a><ul>
+<li class="chapter" data-level="2.1" data-path="what-is-r-and-why-use-it.html"><a href="what-is-r-and-why-use-it.html#how-do-we-typically-use-software-in-science"><i class="fa fa-check"></i><b>2.1</b> How do we typically use software in science?</a></li>
+<li class="chapter" data-level="2.2" data-path="what-is-r-and-why-use-it.html"><a href="what-is-r-and-why-use-it.html#what-does-r-do"><i class="fa fa-check"></i><b>2.2</b> What does R do?</a></li>
+<li class="chapter" data-level="2.3" data-path="what-is-r-and-why-use-it.html"><a href="what-is-r-and-why-use-it.html#why-use-r"><i class="fa fa-check"></i><b>2.3</b> Why use R</a></li>
+<li class="chapter" data-level="2.4" data-path="what-is-r-and-why-use-it.html"><a href="what-is-r-and-why-use-it.html#who-uses-it"><i class="fa fa-check"></i><b>2.4</b> Who uses it?</a></li>
+<li class="chapter" data-level="2.5" data-path="what-is-r-and-why-use-it.html"><a href="what-is-r-and-why-use-it.html#r-and-computational-reproducibility"><i class="fa fa-check"></i><b>2.5</b> R and computational reproducibility</a></li>
+<li class="chapter" data-level="2.6" data-path="what-is-r-and-why-use-it.html"><a href="what-is-r-and-why-use-it.html#alternatives-to-r"><i class="fa fa-check"></i><b>2.6</b> Alternatives to R</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="a-first-encounter-with-r-rstudio.html"><a href="a-first-encounter-with-r-rstudio.html"><i class="fa fa-check"></i><b>3</b> A first encounter with R &amp; RStudio</a><ul>
+<li class="chapter" data-level="" data-path="a-first-encounter-with-r-rstudio.html"><a href="a-first-encounter-with-r-rstudio.html#vocabulary"><i class="fa fa-check"></i>Vocabulary</a></li>
+<li class="chapter" data-level="" data-path="a-first-encounter-with-r-rstudio.html"><a href="a-first-encounter-with-r-rstudio.html#r-commands"><i class="fa fa-check"></i>R commands</a></li>
+<li class="chapter" data-level="3.1" data-path="a-first-encounter-with-r-rstudio.html"><a href="a-first-encounter-with-r-rstudio.html#getting-started-with-r-and-rstudio"><i class="fa fa-check"></i><b>3.1</b> Getting started with R and RStudio</a></li>
+<li class="chapter" data-level="3.2" data-path="a-first-encounter-with-r-rstudio.html"><a href="a-first-encounter-with-r-rstudio.html#getting-r-onto-your-computer"><i class="fa fa-check"></i><b>3.2</b> Getting R onto your computer</a></li>
+<li class="chapter" data-level="3.3" data-path="a-first-encounter-with-r-rstudio.html"><a href="a-first-encounter-with-r-rstudio.html#getting-rstudio-on-to-your-computer"><i class="fa fa-check"></i><b>3.3</b> Getting RStudio on to your computer</a></li>
+<li class="chapter" data-level="3.4" data-path="a-first-encounter-with-r-rstudio.html"><a href="a-first-encounter-with-r-rstudio.html#getting-started-with-r-itself-or-not"><i class="fa fa-check"></i><b>3.4</b> Getting started with R itself (or not)</a></li>
+<li class="chapter" data-level="3.5" data-path="a-first-encounter-with-r-rstudio.html"><a href="a-first-encounter-with-r-rstudio.html#getting-started-with-rstudio"><i class="fa fa-check"></i><b>3.5</b> Getting started with RStudio</a></li>
+<li class="chapter" data-level="3.6" data-path="a-first-encounter-with-r-rstudio.html"><a href="a-first-encounter-with-r-rstudio.html#help"><i class="fa fa-check"></i><b>3.6</b> Help!</a></li>
+<li class="chapter" data-level="3.7" data-path="a-first-encounter-with-r-rstudio.html"><a href="a-first-encounter-with-r-rstudio.html#other-features-of-rstudio"><i class="fa fa-check"></i><b>3.7</b> Other features of RStudio</a></li>
+<li class="chapter" data-level="3.8" data-path="a-first-encounter-with-r-rstudio.html"><a href="a-first-encounter-with-r-rstudio.html#practice-optional"><i class="fa fa-check"></i><b>3.8</b> Practice (OPTIONAL)</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="the-different-faces-of-r-code-the-console-scripts-rmarkdown.html"><a href="the-different-faces-of-r-code-the-console-scripts-rmarkdown.html"><i class="fa fa-check"></i><b>4</b> The different faces of R code: The console, scripts &amp; RMarkdown</a><ul>
+<li class="chapter" data-level="4.1" data-path="the-different-faces-of-r-code-the-console-scripts-rmarkdown.html"><a href="the-different-faces-of-r-code-the-console-scripts-rmarkdown.html#the-console"><i class="fa fa-check"></i><b>4.1</b> The console</a></li>
+<li class="chapter" data-level="4.2" data-path="the-different-faces-of-r-code-the-console-scripts-rmarkdown.html"><a href="the-different-faces-of-r-code-the-console-scripts-rmarkdown.html#scripts"><i class="fa fa-check"></i><b>4.2</b> Scripts</a></li>
+<li class="chapter" data-level="4.3" data-path="the-different-faces-of-r-code-the-console-scripts-rmarkdown.html"><a href="the-different-faces-of-r-code-the-console-scripts-rmarkdown.html#organizing-scripts"><i class="fa fa-check"></i><b>4.3</b> Organizing scripts</a></li>
+<li class="chapter" data-level="4.4" data-path="the-different-faces-of-r-code-the-console-scripts-rmarkdown.html"><a href="the-different-faces-of-r-code-the-console-scripts-rmarkdown.html#rmarkdown"><i class="fa fa-check"></i><b>4.4</b> RMarkdown</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="rmarkdown-1.html"><a href="rmarkdown-1.html"><i class="fa fa-check"></i><b>5</b> RMarkdown</a><ul>
+<li class="chapter" data-level="5.1" data-path="rmarkdown-1.html"><a href="rmarkdown-1.html#the-yaml-header"><i class="fa fa-check"></i><b>5.1</b> The “YAML” Header</a></li>
+<li class="chapter" data-level="5.2" data-path="rmarkdown-1.html"><a href="rmarkdown-1.html#word-processing"><i class="fa fa-check"></i><b>5.2</b> Word processing</a></li>
+<li class="chapter" data-level="5.3" data-path="rmarkdown-1.html"><a href="rmarkdown-1.html#code-chunks"><i class="fa fa-check"></i><b>5.3</b> Code “chunks”</a></li>
+</ul></li>
+<li class="part"><span><b>II SECTION I: Getting software &amp; data into R</b></span></li>
+<li class="chapter" data-level="6" data-path="loading-packages-from-cran.html"><a href="loading-packages-from-cran.html"><i class="fa fa-check"></i><b>6</b> Loading packages from CRAN</a><ul>
+<li class="chapter" data-level="6.1" data-path="loading-packages-from-cran.html"><a href="loading-packages-from-cran.html#introduction"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="loading-packages-from-cran.html"><a href="loading-packages-from-cran.html#loading-packages-that-come-with-base-r"><i class="fa fa-check"></i><b>6.2</b> Loading packages that come with base R</a></li>
+<li class="chapter" data-level="6.3" data-path="loading-packages-from-cran.html"><a href="loading-packages-from-cran.html#load-data-from-an-external-r-package"><i class="fa fa-check"></i><b>6.3</b> Load data from an external R package</a></li>
+<li class="chapter" data-level="6.4" data-path="loading-packages-from-cran.html"><a href="loading-packages-from-cran.html#downloading-packages-using-rstudio"><i class="fa fa-check"></i><b>6.4</b> [ ] Downloading packages using RStudio</a></li>
+<li class="chapter" data-level="6.5" data-path="loading-packages-from-cran.html"><a href="loading-packages-from-cran.html#packages-their-dependencies"><i class="fa fa-check"></i><b>6.5</b> [ ] Packages &amp; their dependencies</a></li>
+<li class="chapter" data-level="6.6" data-path="loading-packages-from-cran.html"><a href="loading-packages-from-cran.html#challenge"><i class="fa fa-check"></i><b>6.6</b> Challenge</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="loading-data-into-r-from-a-package.html"><a href="loading-data-into-r-from-a-package.html"><i class="fa fa-check"></i><b>7</b> Loading data into R from a package</a><ul>
+<li class="chapter" data-level="7.1" data-path="loading-data-into-r-from-a-package.html"><a href="loading-data-into-r-from-a-package.html#introduction-1"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="loading-data-into-r-from-a-package.html"><a href="loading-data-into-r-from-a-package.html#data-pre-loaded-in-r"><i class="fa fa-check"></i><b>7.2</b> Data pre-loaded in R</a></li>
+<li class="chapter" data-level="7.3" data-path="loading-data-into-r-from-a-package.html"><a href="loading-data-into-r-from-a-package.html#loading-data-from-r-packages"><i class="fa fa-check"></i><b>7.3</b> Loading data from R packages</a></li>
+<li class="chapter" data-level="7.4" data-path="loading-data-into-r-from-a-package.html"><a href="loading-data-into-r-from-a-package.html#learning-about-data-in-r"><i class="fa fa-check"></i><b>7.4</b> Learning about data in R</a></li>
+<li class="chapter" data-level="7.5" data-path="loading-data-into-r-from-a-package.html"><a href="loading-data-into-r-from-a-package.html#load-data-from-an-external-r-package-1"><i class="fa fa-check"></i><b>7.5</b> Load data from an external R package</a></li>
+<li class="chapter" data-level="7.6" data-path="loading-data-into-r-from-a-package.html"><a href="loading-data-into-r-from-a-package.html#loading-data-from-an-r-script"><i class="fa fa-check"></i><b>7.6</b> Loading data from an R script</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="loading-packages-data-from-github.html"><a href="loading-packages-data-from-github.html"><i class="fa fa-check"></i><b>8</b> Loading packages &amp; data from GitHub</a><ul>
+<li class="chapter" data-level="8.1" data-path="loading-packages-data-from-github.html"><a href="loading-packages-data-from-github.html#introduction-2"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="loading-packages-data-from-github.html"><a href="loading-packages-data-from-github.html#accessing-github-using-devtools"><i class="fa fa-check"></i><b>8.2</b> [ ] Accessing GitHub using devtools</a></li>
+<li class="chapter" data-level="8.3" data-path="loading-packages-data-from-github.html"><a href="loading-packages-data-from-github.html#downloading-the-wildlifer-package-with-install_github"><i class="fa fa-check"></i><b>8.3</b> [ ] Downloading the wildlifeR package with install_github()</a></li>
+<li class="chapter" data-level="8.4" data-path="loading-packages-data-from-github.html"><a href="loading-packages-data-from-github.html#the-wildlifer-packge-webiste"><i class="fa fa-check"></i><b>8.4</b> [ ] The wildlifeR packge webiste</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="loading-data-from-the-internet.html"><a href="loading-data-from-the-internet.html"><i class="fa fa-check"></i><b>9</b> Loading data from the internet</a></li>
+<li class="chapter" data-level="10" data-path="introduction-3.html"><a href="introduction-3.html"><i class="fa fa-check"></i><b>10</b> Introduction</a><ul>
+<li class="chapter" data-level="10.1" data-path="introduction-3.html"><a href="introduction-3.html#downloading-a-.csv-file-using-geturl"><i class="fa fa-check"></i><b>10.1</b> [ ] Downloading a .csv file using getURL()</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="loading-data-from-csv-files-into-rstudio.html"><a href="loading-data-from-csv-files-into-rstudio.html"><i class="fa fa-check"></i><b>11</b> Loading data from .csv files into RStudio</a><ul>
+<li class="chapter" data-level="11.1" data-path="loading-data-from-csv-files-into-rstudio.html"><a href="loading-data-from-csv-files-into-rstudio.html#introduction-4"><i class="fa fa-check"></i><b>11.1</b> Introduction</a></li>
+<li class="chapter" data-level="11.2" data-path="loading-data-from-csv-files-into-rstudio.html"><a href="loading-data-from-csv-files-into-rstudio.html#preliminary-step-download-a-.csv-file"><i class="fa fa-check"></i><b>11.2</b> Preliminary step: download a .csv file</a></li>
+<li class="chapter" data-level="11.3" data-path="loading-data-from-csv-files-into-rstudio.html"><a href="loading-data-from-csv-files-into-rstudio.html#set-the-working-directory-wd-in-rstudio"><i class="fa fa-check"></i><b>11.3</b> Set the “working directory” (“WD”) in RStudio</a></li>
+<li class="chapter" data-level="11.4" data-path="loading-data-from-csv-files-into-rstudio.html"><a href="loading-data-from-csv-files-into-rstudio.html#check-the-working-directory-with-getwd"><i class="fa fa-check"></i><b>11.4</b> Check the working directory with getwd()</a></li>
+<li class="chapter" data-level="11.5" data-path="loading-data-from-csv-files-into-rstudio.html"><a href="loading-data-from-csv-files-into-rstudio.html#check-for-the-file-you-downloaded-with-list.files"><i class="fa fa-check"></i><b>11.5</b> Check for the file you downloaded with list.files()</a></li>
+<li class="chapter" data-level="11.6" data-path="loading-data-from-csv-files-into-rstudio.html"><a href="loading-data-from-csv-files-into-rstudio.html#loading-data-into-r-using-read.csv"><i class="fa fa-check"></i><b>11.6</b> Loading data into R using read.csv()</a></li>
+<li class="chapter" data-level="11.7" data-path="loading-data-from-csv-files-into-rstudio.html"><a href="loading-data-from-csv-files-into-rstudio.html#loading-.csv-files-using-rstudio"><i class="fa fa-check"></i><b>11.7</b> Loading .csv files using RStudio [ ]</a></li>
+<li class="chapter" data-level="11.8" data-path="loading-data-from-csv-files-into-rstudio.html"><a href="loading-data-from-csv-files-into-rstudio.html#challenge-1"><i class="fa fa-check"></i><b>11.8</b> Challenge</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="loading-excel-spreadsheets-into-rstudio.html"><a href="loading-excel-spreadsheets-into-rstudio.html"><i class="fa fa-check"></i><b>12</b> Loading Excel spreadsheets into RStudio</a><ul>
+<li class="chapter" data-level="12.1" data-path="loading-excel-spreadsheets-into-rstudio.html"><a href="loading-excel-spreadsheets-into-rstudio.html#preparing-a-file-for-loading-into-r"><i class="fa fa-check"></i><b>12.1</b> Preparing a file for loading into R</a></li>
+<li class="chapter" data-level="12.2" data-path="loading-excel-spreadsheets-into-rstudio.html"><a href="loading-excel-spreadsheets-into-rstudio.html#reload-data"><i class="fa fa-check"></i><b>12.2</b> Reload data</a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="plotting-continous-data-in-r-with-ggplot2.html"><a href="plotting-continous-data-in-r-with-ggplot2.html"><i class="fa fa-check"></i><b>13</b> Plotting continous data in R with ggplot2</a><ul>
+<li class="chapter" data-level="13.1" data-path="plotting-continous-data-in-r-with-ggplot2.html"><a href="plotting-continous-data-in-r-with-ggplot2.html#introduction-5"><i class="fa fa-check"></i><b>13.1</b> Introduction</a></li>
+<li class="chapter" data-level="13.2" data-path="plotting-continous-data-in-r-with-ggplot2.html"><a href="plotting-continous-data-in-r-with-ggplot2.html#introduction-to-ggplot-using-qplot"><i class="fa fa-check"></i><b>13.2</b> Introduction to ggplot using qplot</a></li>
+<li class="chapter" data-level="13.3" data-path="plotting-continous-data-in-r-with-ggplot2.html"><a href="plotting-continous-data-in-r-with-ggplot2.html#a-basic-plot-in-ggplot-using-qplot"><i class="fa fa-check"></i><b>13.3</b> A basic plot in ggplot using qplot()</a></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="box-plot-with-labels.html"><a href="box-plot-with-labels.html"><i class="fa fa-check"></i><b>14</b> Box plot with labels</a><ul>
+<li class="chapter" data-level="14.1" data-path="box-plot-with-labels.html"><a href="box-plot-with-labels.html#changing-colors-in-r-plots"><i class="fa fa-check"></i><b>14.1</b> Changing colors in R plots</a></li>
+<li class="chapter" data-level="14.2" data-path="box-plot-with-labels.html"><a href="box-plot-with-labels.html#tweaking-plots-changing-the-point-size"><i class="fa fa-check"></i><b>14.2</b> Tweaking plots: changing the point size</a></li>
+<li class="chapter" data-level="14.3" data-path="box-plot-with-labels.html"><a href="box-plot-with-labels.html#boxplot-with-qplot"><i class="fa fa-check"></i><b>14.3</b> Boxplot with qplot</a></li>
+<li class="chapter" data-level="14.4" data-path="box-plot-with-labels.html"><a href="box-plot-with-labels.html#basic-boxplot-with-colors"><i class="fa fa-check"></i><b>14.4</b> Basic boxplot with colors</a></li>
+<li class="chapter" data-level="14.5" data-path="box-plot-with-labels.html"><a href="box-plot-with-labels.html#basic-boxplot-lables"><i class="fa fa-check"></i><b>14.5</b> Basic boxplot lables</a></li>
+<li class="chapter" data-level="14.6" data-path="box-plot-with-labels.html"><a href="box-plot-with-labels.html#histograms-using-qplot"><i class="fa fa-check"></i><b>14.6</b> Histograms using qplot</a></li>
+<li class="chapter" data-level="14.7" data-path="box-plot-with-labels.html"><a href="box-plot-with-labels.html#modifying-histograms-titles-with-the-main-argument"><i class="fa fa-check"></i><b>14.7</b> Modifying histograms: titles with the main = argument</a></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="scatterplots-in-r-using-qplot.html"><a href="scatterplots-in-r-using-qplot.html"><i class="fa fa-check"></i><b>15</b> Scatterplots in R using qplot()</a><ul>
+<li class="chapter" data-level="15.1" data-path="scatterplots-in-r-using-qplot.html"><a href="scatterplots-in-r-using-qplot.html#introduction-6"><i class="fa fa-check"></i><b>15.1</b> Introduction</a></li>
+<li class="chapter" data-level="15.2" data-path="scatterplots-in-r-using-qplot.html"><a href="scatterplots-in-r-using-qplot.html#scatterplots-2-continuous-variables"><i class="fa fa-check"></i><b>15.2</b> Scatterplots: 2 continuous variables</a></li>
+</ul></li>
+<li class="part"><span><b>III Section II: Plotting data in R with ggplot2 &amp; friends</b></span></li>
+<li class="chapter" data-level="16" data-path="review-loading-examining-data-in-r.html"><a href="review-loading-examining-data-in-r.html"><i class="fa fa-check"></i><b>16</b> Review: Loading &amp; Examining Data in R</a><ul>
+<li class="chapter" data-level="16.1" data-path="review-loading-examining-data-in-r.html"><a href="review-loading-examining-data-in-r.html#introduction-7"><i class="fa fa-check"></i><b>16.1</b> Introduction</a></li>
+<li class="chapter" data-level="16.2" data-path="review-loading-examining-data-in-r.html"><a href="review-loading-examining-data-in-r.html#example-data-for-plotting-fishers-irises"><i class="fa fa-check"></i><b>16.2</b> Example data for plotting: Fisher’s Irises</a></li>
+<li class="chapter" data-level="16.3" data-path="review-loading-examining-data-in-r.html"><a href="review-loading-examining-data-in-r.html#loading-data-into-r-the-easy-way-pre-made-data-in-an-r-package"><i class="fa fa-check"></i><b>16.3</b> Loading data into R the easy way: pre-made data in an R “Package”</a></li>
+<li class="chapter" data-level="16.4" data-path="review-loading-examining-data-in-r.html"><a href="review-loading-examining-data-in-r.html#load-data-that-is-in-another-r-package"><i class="fa fa-check"></i><b>16.4</b> Load data that is in another R package</a></li>
+<li class="chapter" data-level="16.5" data-path="review-loading-examining-data-in-r.html"><a href="review-loading-examining-data-in-r.html#load-data-that-is-in-a-package-on-cran"><i class="fa fa-check"></i><b>16.5</b> Load data that is in a package on CRAN</a></li>
+<li class="chapter" data-level="16.6" data-path="review-loading-examining-data-in-r.html"><a href="review-loading-examining-data-in-r.html#loading-packages-directly-using-code"><i class="fa fa-check"></i><b>16.6</b> Loading packages directly using code</a></li>
+<li class="chapter" data-level="16.7" data-path="review-loading-examining-data-in-r.html"><a href="review-loading-examining-data-in-r.html#troubleshooting-package-downloads"><i class="fa fa-check"></i><b>16.7</b> Troubleshooting package downloads</a></li>
+</ul></li>
+<li class="part"><span><b>IV Section IV: Data analysis: a first encounter</b></span></li>
+<li class="chapter" data-level="17" data-path="data-analysis-case-study-part-i-summary-statistics.html"><a href="data-analysis-case-study-part-i-summary-statistics.html"><i class="fa fa-check"></i><b>17</b> Data analysis case study part I: summary statistics</a><ul>
+<li class="chapter" data-level="17.1" data-path="data-analysis-case-study-part-i-summary-statistics.html"><a href="data-analysis-case-study-part-i-summary-statistics.html#preliminaries-1"><i class="fa fa-check"></i><b>17.1</b> Preliminaries</a></li>
+<li class="chapter" data-level="17.2" data-path="data-analysis-case-study-part-i-summary-statistics.html"><a href="data-analysis-case-study-part-i-summary-statistics.html#a-1st-encounter-with-r-getting-to-know-your-data"><i class="fa fa-check"></i><b>17.2</b> A 1st encounter with R: getting to know your data</a></li>
+<li class="chapter" data-level="17.3" data-path="data-analysis-case-study-part-i-summary-statistics.html"><a href="data-analysis-case-study-part-i-summary-statistics.html#a-1st-encounter-with-r-summary-statistics"><i class="fa fa-check"></i><b>17.3</b> A 1st encounter with R: summary statistics</a></li>
+<li class="chapter" data-level="17.4" data-path="data-analysis-case-study-part-i-summary-statistics.html"><a href="data-analysis-case-study-part-i-summary-statistics.html#a-1st-encounter-with-dplyr"><i class="fa fa-check"></i><b>17.4</b> A 1st encounter with dplyr</a></li>
+<li class="chapter" data-level="17.5" data-path="data-analysis-case-study-part-i-summary-statistics.html"><a href="data-analysis-case-study-part-i-summary-statistics.html#group_by"><i class="fa fa-check"></i><b>17.5</b> group_by</a></li>
+<li class="chapter" data-level="17.6" data-path="data-analysis-case-study-part-i-summary-statistics.html"><a href="data-analysis-case-study-part-i-summary-statistics.html#data-analysis-case-study-part-ii-plotting-your-data"><i class="fa fa-check"></i><b>17.6</b> Data analysis case study part II: plotting your data</a></li>
+<li class="chapter" data-level="17.7" data-path="data-analysis-case-study-part-i-summary-statistics.html"><a href="data-analysis-case-study-part-i-summary-statistics.html#arms"><i class="fa fa-check"></i><b>17.7</b> arms</a></li>
+</ul></li>
+<li class="chapter" data-level="18" data-path="data-analysis-case-study-part-iii-analysis-with-a-t-test.html"><a href="data-analysis-case-study-part-iii-analysis-with-a-t-test.html"><i class="fa fa-check"></i><b>18</b> Data analysis case study part III: analysis with a t-test</a></li>
+<li class="chapter" data-level="" data-path="references-1.html"><a href="references-1.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R for Ecological Data Science: A Gentle Introduction</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="the-different-faces-of-r-code-the-console-scripts-rmarkdown" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> The different faces of R code: The console, scripts &amp; RMarkdown</h1>
+<p>There are a number of ways to interact with R</p>
+<ul>
+<li>Directly in the <strong>console</strong>, like a scientific calculator</li>
+<li>Using <strong>script files</strong> (.R) with</li>
+<li>R code types out and sent over to the console</li>
+<li>notes “commented out” using hastags “#”</li>
+<li><strong>rmarkdown</strong> (.Rmd) files with</li>
+<li>R code in species <strong>code chunks</strong></li>
+<li>notes written like in a word precessor</li>
+<li>formatting using <strong>markdown</strong>, a <strong>markup language</strong></li>
+</ul>
+<p>This chapter will briefly introduce these different ways of working in R</p>
+<div id="the-console" class="section level2">
+<h2><span class="header-section-number">4.1</span> The console</h2>
+<p>In a previous chapter we introduced the <strong>console.</strong> You can interact with the console in a similar manner as a scientific calculator.</p>
+<div class="figure"><span id="fig:unnamed-chunk-28"></span>
+<img src="images/RStudio_console.PNG" alt="The RStudio console" width="403" />
+<p class="caption">
+Figure 4.1: The RStudio console
+</p>
+</div>
+<p>As you execute more commands, the move up the screen. You can scroll back up to see what you’ve done previously.</p>
+</div>
+<div id="scripts" class="section level2">
+<h2><span class="header-section-number">4.2</span> Scripts</h2>
+<p>You can create a record of the commands you have executed in the console, but this isn’t a very efficient way to work. If you want to keep track of the commands you’re running (and often you do) its best to write them in a script file and then send them over to the console to execute the code.</p>
+<div id="creating-scripts" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Creating scripts</h3>
+<p>When you open RStudio a blank script file will be open. Subsequently, RStudio will open files you have worked with previously. To create a new blank script file:</p>
+<ul>
+<li>Click on File</li>
+<li>New File</li>
+<li>R script</li>
+</ul>
+<p>or just type control + shift + N (on a PC) or command + shift + N on (?on mac), which is similar how you make a new document in most programs.</p>
+<div class="figure"><span id="fig:unnamed-chunk-29"></span>
+<img src="images/Rstudio_new_R_script.png" alt="Creating a new R script file" width="335" />
+<p class="caption">
+Figure 4.2: Creating a new R script file
+</p>
+</div>
+You can create or open multiple scripts, which RStudio organizes as tabs like in a web browser.
+<div class="figure"><span id="fig:unnamed-chunk-30"></span>
+<img src="images/Rstudio_scripts.png" alt="R Script file with comments in RStudio" width="657" />
+<p class="caption">
+Figure 4.3: R Script file with comments in RStudio
+</p>
+</div>
+</div>
+<div id="running-code-from-a-script" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Running code from a script</h3>
+<p>To run a code you can either place click to the righ of the line of code and click the “run” button.</p>
+<div class="figure"><span id="fig:unnamed-chunk-31"></span>
+<img src="images/RStudios_RUN_button.png" alt="Running code using RStudios RUN button.  Note cursor to the right of the code" width="694" />
+<p class="caption">
+Figure 4.4: Running code using RStudios RUN button. Note cursor to the right of the code
+</p>
+</div>
+You can also highlight the code by clicking and dragging over it. This is useful when you have multiple lines of code.
+<div class="figure"><span id="fig:unnamed-chunk-32"></span>
+<img src="images/RStudio_script_code_highlighted.png" alt="Highlighted code in an RStudio script" width="328" />
+<p class="caption">
+Figure 4.5: Highlighted code in an RStudio script
+</p>
+</div>
+</div>
+<div id="running-code-with-keyboard-shortcuts" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Running code with keyboard shortcuts</h3>
+<p>Want to look like an R pro? Learn keyboard shortcuts so you don’t have to use the mouse. Both of the above methods work using simple keyboard shortcuts:</p>
+<ul>
+<li>PCs: Control + Enter</li>
+<li>Macs: Command + Enter (?)</li>
+</ul>
+<p>Another handy shortcut is “Control + 2”, which moves your computer’s cursor from the script editor to the console. (Control + 2 moves it from console to editor)</p>
+</div>
+</div>
+<div id="organizing-scripts" class="section level2">
+<h2><span class="header-section-number">4.3</span> Organizing scripts</h2>
+<blockquote>
+<p>“You mostly collaborate with yourself, and me-from-two-months-ago never responds to email.” (<a href="https://twitter.com/kcranstn/statuses/370914072511791104">Karen Cranston</a>, paraphrasing Mark Holder; quoted by Megan Duffy on <a href="https://dynamicecology.wordpress.com/2015/02/18/the-biggest-benefit-of-my-shift-to-r-reproducibility/">dynamicecology</a>)</p>
+</blockquote>
+<p>Script files perform a record of your work so you can</p>
+<ul>
+<li>remember what you did</li>
+<li>re-run it to check things</li>
+<li>re-use your code for new analyses</li>
+<li>track down errors (which will happen!)</li>
+<li>share with collaborators</li>
+</ul>
+<p>Script files are not unique to R, but the R community seems to have built up a particularly good infrasture for their implemenation and ethos encouraging their use. Megan Duffey at <a href="https://dynamicecology.wordpress.com/2015/02/18/the-biggest-benefit-of-my-shift-to-r-reproducibility/">Dynamic Ecology</a> has an excellent post on this.</p>
+<p>When you first start out learning R most of your scripts will be disposable. Quickly you’ll want to start keeping track of the code you write in class to refer back to. When you start doing analyses you’ll want to write comments as you go, and provide details at the top of your file so you can quickly get up to speed when you come back to the file.</p>
+<div id="what-to-include-in-a-script" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> What to include in a script</h3>
+<p>A good R script should be a self-sufficient document that your future self can easily make sense of, or better yet, someone starting from scratch can understand. Depending on the exact purpose, things to include might be</p>
+<ul>
+<li>A general title, such as “R Script: data exploration &amp;t-test for analaysis of frog arm girth”</li>
+<li>Who wrote it and their contact info</li>
+<li>When the script was created</li>
+<li>when it was most recently accessed or created</li>
+<li>What data it uses and where it comes from</li>
+<li>What project or paper it relates to</li>
+</ul>
+<p>A challenge when writing and maintaining R scripts is that you are often actively engaged in learnign R, learning stats, and learning about or exploring your data. So you write a lot of code then erase it, or scratch out code in a script and then move on. While I have written and saved many scripts that I have never re-opened, I have never re-opened a script and said “wow, I went WAY overboard annotating this thing!” ALso, commenting code makes it much easier to read; I often add fairly simple comments to make code easier navigate and to break things up into smaller chunks.</p>
+<p>So, at a minimum I think every script should</p>
+<ul>
+<li>Have some kind of header saying what it is and when it was made</li>
+<li>Have one line of comments or annotations for every 3 to 5 lines of code.</li>
+</ul>
+</div>
+<div id="formatting-sections-in-r-scripts" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Formatting sections in R scripts</h3>
+<p>To make scripts easier to navigate its useful to strong together the comment character “#” to make dividers and boxes. This is very good practice to make code more readable. It can be a bit tedious at times to do this; one advantage of rmarkdown, which we’ll introduce at the end of this chapter and go into further in the next, is that it makes it very easy to format section titles.</p>
+</div>
+<div id="a-sample-r-script" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> A sample R script</h3>
+<p>On the following page are examples of R scripts for a formal analysis of a dataset. First I’ll show what the script might look like as I write it. Then I’ll show how I’ll fix it up once I know its something I am going to look back at in the fugure</p>
+
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">### R Script: Analysis of frog arm girth
+
+## Nathan Brouwer (brouwern@gmail.com)
+## 6/6/2018
+## update: 8/17/2018
+
+## I am re-running analysis from paper by Buzatto  et al 2015
+## I want to compare the results of a t-test with
+## and w/o Welche&#39;s correction for unequal variation
+
+## Packages
+<span class="kw">library</span>(wildlifeR)
+
+## Data set up
+<span class="co"># load frogarm data from Buzatto et al 2015</span>
+<span class="kw">data</span>(<span class="st">&quot;frogarms&quot;</span>)
+
+
+## Data visualization
+<span class="co"># histogram of all data</span>
+<span class="kw">hist</span>(frogarms<span class="op">$</span>sv.length)
+
+
+## Data analysis
+<span class="co"># unpaired t-test NOT using Welch&#39;s correction</span>
+## <span class="al">NOTE</span>: assumes variation within each group EQUAL
+<span class="kw">t.test</span>(sv.length <span class="op">~</span><span class="st"> </span>sex,   <span class="co"># model formula</span>
+       <span class="dt">var.equal =</span> <span class="ot">TRUE</span>,  <span class="co"># set variances to equal </span>
+         <span class="dt">data =</span> frogarms) <span class="co"># data</span>
+
+<span class="co"># unpaired t-test &gt;&gt;using&lt;&lt; Welch&#39;s correctin</span>
+<span class="kw">t.test</span>(sv.length <span class="op">~</span><span class="st"> </span>sex, 
+       <span class="dt">var.equal =</span> <span class="ot">FALSE</span>, <span class="co"># set variances to be unequal </span>
+         <span class="dt">data =</span> frogarms)</code></pre></div>
+
+<p>A polished R script</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">###########################################
+###
+### R Script: Analysis of frog arm girth
+###
+###########################################
+
+## Author:      Nathan Brouwer (brouwern@gmail.com)
+## Creation:    6/6/2018
+## Last update: 8/17/2018
+
+
+###############
+## Introduction
+###############
+
+<span class="co"># This script is an analysis of frog body size and arm girth</span>
+
+## I am re-running analysis from paper by Buzatto  et al 2015
+## I want to compare the results of a t-test with
+## and w/o Welche&#39;s correction for unequal variation
+
+
+<span class="co"># Data were originally from </span>
+<span class="co"># Buzatto  et al 2015. Sperm competition and the evolution of </span>
+<span class="co">#       precopulatory weapons: Increasing male density promotes</span>
+<span class="co">#       sperm competition and reduces selection on arm strength in</span>
+<span class="co">#       a chorusing frog. Evolution 69: 2613-2624. </span>
+<span class="co">#       https://doi.org/10.1111/evo.12766</span>
+
+<span class="co"># Data originally downloaded on  6/6/2018 from</span>
+<span class="co">#   https://figshare.com/articles/Data_Paper_Data_Paper/3554424</span>
+
+<span class="co"># Data are included in the wildlifeR package and load from it</span>
+<span class="co">#     https://github.com/brouwern/wildlifeR</span>
+
+###############
+## Packages
+###############
+
+<span class="kw">library</span>(wildlifeR)
+
+###############
+## Data set up
+###############
+
+<span class="co"># load frogarm data from Buzatto et al 2015</span>
+<span class="kw">data</span>(<span class="st">&quot;frogarms&quot;</span>)
+
+######################
+## Data visualization
+######################
+
+<span class="co"># histogram of all data</span>
+<span class="kw">hist</span>(frogarms<span class="op">$</span>sv.length)
+
+######################
+## Data analysis
+######################
+
+<span class="co"># unpaired t-test NOT using Welch&#39;s correction</span>
+## <span class="al">NOTE</span>: assumes variation within each group EQUAL
+<span class="kw">t.test</span>(sv.length <span class="op">~</span><span class="st"> </span>sex,   <span class="co"># model formula</span>
+       <span class="dt">var.equal =</span> <span class="ot">TRUE</span>,  <span class="co"># set variances to equal </span>
+         <span class="dt">data =</span> frogarms) <span class="co"># data</span>
+
+<span class="co"># unpaired t-test &gt;&gt;using&lt;&lt; Welch&#39;s correctin</span>
+<span class="kw">t.test</span>(sv.length <span class="op">~</span><span class="st"> </span>sex, 
+       <span class="dt">var.equal =</span> <span class="ot">FALSE</span>, <span class="co"># set variances to be unequal </span>
+         <span class="dt">data =</span> frogarms)</code></pre></div>
+<p>For more on organizing scripts see points 4 and 5 of “Eight things I do to make my open research more findable and understandable” at (DataColada](<a href="http://datacolada.org/69" class="uri">http://datacolada.org/69</a>).</p>
+</div>
+</div>
+<div id="rmarkdown" class="section level2">
+<h2><span class="header-section-number">4.4</span> RMarkdown</h2>
+<ul>
+<li>File</li>
+<li>New File</li>
+<li>R Markdown</li>
+</ul>
+<p>A pop up menu will appear with lots of options; just click “ok.”</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="a-first-encounter-with-r-rstudio.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="rmarkdown-1.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-Introduction/01-04-encountering_code_console_scripts_markdown.Rmd",
+"text": "Edit"
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
