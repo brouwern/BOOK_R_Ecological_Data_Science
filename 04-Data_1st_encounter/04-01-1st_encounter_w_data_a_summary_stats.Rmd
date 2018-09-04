@@ -1,7 +1,8 @@
-# (PART) Section IV: Data analysis: a first encounter {-}
+# (PART) Data analysis: a first encounter {-}
 
+In this section we will tackle a typical data analysis problem: determining if two groups of organisms an be considering statistically differnet from each other.  We will use data from a paper titled "Sperm competition and the evolution of precopulatory weapons: Increasing male density promotes sperm competition and reduces selection on arm strength in a chorusing frog" by Buzatto et al (2015).  The end goal is to compare the size of the arms on female and male frogs.  First, though, we will get to know the data by calcualting summary statistics and making exploratory graphs.  We will then carry out a t-test and grabble with with the meaning and interpretation of the output is.  Finally, we'll explore how best to plot the output of your t-test.
 
-# Data analysis case study part I: summary statistics
+# Data Analysis Case Study: Summary Statistics
 
 
 ```{r , include=F, echo = F}
@@ -13,23 +14,70 @@ knitr::opts_chunk$set(echo = TRUE,
                       #cache = TRUE,
                       fig.margin = TRUE,
                       #results="hide",
-                      fig.width = 3,
-                      fig.height = 2)
+                      fig.width = 4,
+                      fig.height = 3)
 ```
 
 | **Nathan Brouwer, Phd**
 | brouwern@gmail.com
 | https://github.com/brouwern
-| @lobrowR
+| Twitter: lobrowR
+
+## Introduction
+
+### Goals and objectives
+
+Get to know the frogarms dataset and learn how to calculat summary statistics using basic R functions (eg summary() ) and also with dplyr.
+
+### Outline
+
+1. Load packages and data
+1. Subset data
+1. Calculate summary stats on columns
+1. Use dplyr
+1. Calcualte summary stats by group using
+
+### Packages
+
+* devtools
+* wildlifeR (from GitHub)
+* ggplot2
+* cowplot
+* ggpubr
+* dplyr
+
+### Functions
+
+* devtools::install_github()
+* wildlifeR::make_my_data2L
+* dim
+* nrow
+* ncol
+* head
+* tail
+* names
+* summary
+* median()
+* min()
+* max()
+* var()
+* sd()
+* range()
+* nrow() or length() (for sample size)
+* dplyr::summarise(), dplyr::summarize()
+* group_by()
+* dplyr::n()
 
 ## Preliminaries
+
+First, we nee to install the necessary packages.  The data are in a package stored on GitHub called wildlifeR.  The devtools package is needed for downloading from github.  We'll use the ggplot2 package for plotting, and the cowplot package for some nice plotting defaults.  We'll also use the ggpubr package for plotting and dplyr for reshaping data.
 
 ### Load packages
 
 You might have to install or re-install wildlifeR using install.packages()
 ```{r eval=F}
 library(devtools)
-install_github("brouwern/wildlifeR")
+install_github("brouwern/")
 ```
 
 ```{r echo = F}
@@ -41,21 +89,30 @@ library(dplyr)
 ```
 
 ### Load data
+
+The data we'll be using is in a dataset called "frogarms" in the wildlifeR package.
+
 ```{r}
 data(frogarms)
+```
+
+You can find out information about these data using the ? command.  Note that there are no parenthese required for this.
+
+```{r echo = F}
+?frogarms
 ```
 
 
 ### Subset your data
 
-The function make_my_data2L() will extact out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.
+The function make_my_data2L() in the wildlfieR will extact out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.
 ```{r}
 my.frogs <- frogarms
-# my.frogs <- make_my_data2L(dat = frogarms, 
-#                            my.code = "nlb24", # <=  change this!
-#                            cat.var = "sex",
-#                            n.sample = 20, 
-#                            with.rep = FALSE)
+my.frogs <- make_my_data2L(dat = frogarms,
+                           my.code = "nlb24", # <=  change this!
+                           cat.var = "sex",
+                           n.sample = 20,
+                           with.rep = FALSE)
 
 ```
 
@@ -66,8 +123,12 @@ dim(my.frogs)
 ```
 
 
+## A 1st encounter with R: getting to know your dataframe
 
-## A 1st encounter with R: getting to know your data
+
+### Dataframe dimension
+
+The following commands tell you the row x column dimension, number of rows, and number of columns.
 
 ```{r}
 dim(my.frogs)
@@ -75,16 +136,76 @@ nrow(my.frogs)
 ncol(my.frogs)
 ```
 
+----------
+
+### Optional: accessing elements of objects
+
+The following section is optional.
+
+The commands dim, nrow and ncol all generate objects that display informatio on the dimension of a dataframe.  dim() produces and object that is a "vector" that is 1 row x 2 elemtns in size.  We can select these individual elements using square brackets
+
+The full dim() output
+```{r}
+dim(my.frogs)
+```
+
+The 1st element of the dim() output
+
+```{r}
+dim(my.frogs)[1]
+```
+
+The 2nd element
+
+```{r}
+dim(my.frogs)[2]
+```
+
+Both elements
+
+```{r}
+dim(my.frogs)[1:2]
+```
+
+
+Another way to get both elements
+
+```{r}
+dim(my.frogs)[c(1,2)]
+```
+
+
+What happens when you execute this command?
+```{r}
+dim(my.frogs)[c(2,1)]
+```
+
+
+**End optional section**
+
+----------
+
+### Dataframe preview
+
+The head() and tail() commands give up short previews of the dataframe
+
+The top few rows
 ```{r}
 head(my.frogs)
+```
+
+The bottom few rows
+```{r}
 tail(my.frogs)
 ```
 
+names() just gives of the names
 ```{r}
 names(my.frogs)
 ```
 
 
+Again, if you want ot know what the column names are, use the ? command
 ```{r eval = F}
 ?my.frogs
 ```
@@ -92,7 +213,7 @@ names(my.frogs)
 
 ## A 1st encounter with R: summary statistics
 
-R is a giant calcualter
+R is a giant calculater.  There are commands for mean, median, standard deviation etc.  The summary() command creates a handy summary of an entire dataframe.
 
 
 ### Overall summary
@@ -102,35 +223,67 @@ Whole dataframe
 summary(my.frogs)
 ```
 
-Just a single column
+We can look at just a single column by specifying it using the syntax "dataframe$column.names" where the dataframe and column are sperated by a dollar sig ($).  (note that it prints it out horizontally, not vertially)
+
 ```{r}
 summary(my.frogs$mass)
 ```
 
-Can compare your subset to the original data
+
+We used the make_my_data2L command to make a unique subset of the data.   compare the mass values in your subset to the original data
+
 ```{r}
 summary(my.frogs$mass)
 summary(frogarms$mass)
 ```
 
-Handy trick: stack up the data with rbind()
+----------
+
+### Optional: stacking things with rbind()
+
+**This is optional**
+
+Handy trick: stack up the summaries with rbind()
 
 ```{r}
 rbind(summary(my.frogs$mass),
       summary(frogarms$mass))
 ```
 
+You can even flip them on their side like this
+
+```{r}
+my.summaries <- rbind(summary(my.frogs$mass),
+                      summary(frogarms$mass))
+```
+
+```{r}
+t(my.summaries)
+```
+
+
+**End optional section**
+
+----------
 
 ### Individual summary stats
+
+You can get individual summary statistics using various commands named after the statistic
+
+The mean of a coulumn
 
 ```{r}
 mean(my.frogs$mass)
 ```
 
+
+The variance
 ```{r}
 var(my.frogs$mass)
 ```
 
+
+Other include: 
 
 * median()
 * min()
@@ -140,33 +293,71 @@ var(my.frogs$mass)
 * range()
 * nrow() or length() (for sample size)
 
-range() returns two values in a vector
+Note that range() returns two values in a vector
 ```{r}
 range(my.frogs$mass)
 ```
 
+### The standard error (SE) in R 
 
-Note that R doesn't return a very common statistic, the standard error (SE).  This can be calcualted by hand.
+Note that R doesn't return a very common statistic, the standard error (SE). The SE is the standard deviation (SD) deivided by the square root of the sample size.  You can get the same size using the length() command.
+
+You can therefore calcualte the SE like this: 
 
 ```{r}
 sd(my.frogs$mass)/sqrt(length(my.frogs$mass))
 ```
 
+
 ----------
 
+In the following two optional sections you can
 
-Write a function
+* try to find a package with an SE fucntion
+* try to write a function that calcualtes the SE for you
 
+### OPTIONAL: Find a package the calcualtes the SE
+
+Since R lacks a an SE function many packages include it.  For example, the plotrix package has a function std.error().  See if you can download the package, install it using library(), and use the std.error().  See the help package for more info (?std.error)
+
+### OPTIONAL: Write your own SD function
+
+Write a function for calculationg the SD
+
+Here's a function that takes a single arguement "dat_column"
 ```{r}
+#NOTE: this is optional
 my_sd1 <- function(dat_column){
   sd(dat_column)/sqrt(length(dat_column))
 }
+```
 
+To use it, you need to give it the dataframe and the column seperated by a $
+
+```{r}
+my_sd1(my.frogs$mass)
+```
+
+Here's a function that takes 2 arguements: the dataframe, and the name of the column  Note that the name of the column needs to be in quotes
+
+
+```{r}
 my_sd2 <- function(dat, column){
   sd(dat[,column])/sqrt(length(dat[,column]))
 }
 
+```
 
+You can use the function like this:
+```{r}
+my_sd2(my.frogs, "mass")
+```
+
+
+
+Here's a fancier function that let's you specify how much to round off the results.  I've set the default rounding to 3 digits.
+
+```{r}
 my_sd3 <- function(dat, column, digits.round = 3){
   se <- sd(dat[,column])/sqrt(length(dat[,column]))
   round(se, digits = digits.round)
@@ -174,10 +365,24 @@ my_sd3 <- function(dat, column, digits.round = 3){
 
 ```
 
-
+The function runs like this.
 ```{r}
-my_sd2(dat = my.frogs, column = "mass")
+my_sd3(my.frogs, "mass")
 ```
+
+
+Note that in all of functions as long as I give the function the arguements in the same order they are set up in the code that defines the function, I don't need to provide the names.  This save typing.  Compare these results
+
+```{r eval=FALSE, echo=FALSE}
+my_sd3(my.frogs, "mass")
+my_sd3(dat = my.frogs, column =  "mass")
+my_sd3(column =  "mass", dat = my.frogs)
+my_sd3("mass", my.frogs)
+```
+
+
+
+**End optional section**
 
 ----------
 
@@ -191,37 +396,42 @@ dplyr is a package that provides numerous functions for manipulating data.  We w
 * summarize() / summarise()
 * group_by()
 
-dplyr can use a handy sytax that involes "pipes".  You can string together R commands using the function %>%
+dplyr can use a handy sytax that involes "pipes".  You can string together R commands using the pipe function %>%
   
-  When using pipes, you start with a dataframe and follow it with an action you want done to it.  So, for example, previously when we wanted the mean of the mass column we did this
+When using pipes, you start with a dataframe and follow it with an action you want done to it.  So, for example, previously when we wanted the mean of the "mass"" column we did this
 
 ```{r eval = F}
 mean(my.frogs$mass)
 ```
 
-Which is kind of read like a normal mathematical equation or function, where you start from inside the parentheses and work out.  R let's you nest as many functions as you wnat.  If i want to round my mean is wrap "mean(my.frogs$mass)" in round(...)
+Which is kind of read like a normal mathematical equation or function, where you start from inside the parentheses and work out.  
+
+Eg, this.is.read.2nd(this.is.read.1st)
+
+R let's you nest as many functions as you wnat.  If i want to round the wrap "mean(my.frogs$mass)" in "round(...)""
 
 ```{r}
 round(mean(my.frogs$mass))
 ```
 
 
+Using pipes to get the mean I write things more like a sentence
 
+Eg, this.is.read.1st %>% this.is.read.2nd
 
-
-Using pipes to get the mean I write things more like a sentence:
 ```{r}
-my.frogs$mass %>% mean() #note parentheses.
+my.frogs$mass %>% mean #note parentheses after mean!
 ```
 
-Which reads kind of like "Take the mass column and the datagrame and apply the mean() function to it."  Note that the parentheses have to be included even though there is nothing in them.
+Which reads kind of like "Take the mass column and the datagrame and apply the mean() function to it."    
 
 To round the mean we would do this
 
 ```{r}
-my.frogs$mass %>% mean() %>% round()
+my.frogs$mass %>% mean %>% round
 ```
-Which read left to right like a sentence is "Take the mass column, calcualte the mean and then rond it."
+
+Which read left to right like a sentence is "Take the mass column, calcualte the mean and then round it."
 
 Note that the rond() command has an arguement for how many digits you want to round to.  You include that in the parantehes
 
@@ -229,40 +439,46 @@ Note that the rond() command has an arguement for how many digits you want to ro
 my.frogs$mass %>% mean() %>% round(digits = 2)
 ```
 
-#### dplyr's summarize() commnad
+#### dplyr's summarize() command
 
-INstead of mean(data$column) we can use summarise()/summarize() and pipes
-Grand mean of mass
+Instead of mean(data$column) we can use summarise() (for the British) or summarize(), plus pipes.
+
+We can get the grand mean of just the mass column
 ```{r}
 my.frogs %>% summarise(mean(mass))
 ```
 
-this is maybe more complicated than "mean(my.frogs$mass)" but overall the pipe framework and summarise pays off  when combined with group_b()
+This is maybe more complicated than "mean(my.frogs$mass)" or my.frogs$mass %>% mean,  but overall the pipe framework and summarise pays off  when combined with group_by() in the next section
 
-## group_by
+## dplyr's group_by() function
 
 For some more info on group_by see
 
-https://www.r-bloggers.com/using-r-quickly-calculating-summary-statistics-with-dplyr/
-  https://www3.nd.edu/~steve/computing_with_data/24_dplyr/dplyr.html
+* https://www.r-bloggers.com/using-r-quickly-calculating-summary-statistics-with-dplyr/
+* https://www3.nd.edu/~steve/computing_with_data/24_dplyr/dplyr.html
 http://www.datacarpentry.org/R-genomics/04-dplyr.html
 
-We can use group_by() to slit things up by a categorical variable.  Here, we can say "take my.frogs, split up the data by the sex column, and apply the mean function to each subset."  
-```{r}
-my.frogs %>% 
-  group_by(sex) %>%
-  summarise(mean(mass))
-```
-note that the column heading in is `mean(mass)`, which is what is in summarise().
+We can use group_by() to split things up by a categorical variable (sex, color, year).  Here, we can say "take my.frogs, split up the data by the sex column, and apply the mean() function to each subset."  
 
-A handy thing about sumarise is you can pass it lables.  Mean mass by sex w/ label
+```{r}
+my.frogs %>%            #the data
+  group_by(sex) %>%     #the group_by() function applied to the sex column
+  summarise(mean(mass)) #the mean() function, applied to mass.
+```
+
+This might be a bit abstract when you first do it.  Again, where starting with our whole datefarme, then its piped over to group_by(), which splits it essentially into a male and a female subset.  Then the mean() function is applied to each of these subsets. 
+
+Note that the column heading in the output `mean(mass)`, which is what is in summarise().
+
+A handy thing about summarise is you can pass it lables.  The following code adds a sensible lable by changing "summarise(mean(mass))" to "summarise(mass.mean = mean(mass))", where "mass.mean = ..." defines the label.
+
 ```{r}
 my.frogs %>% 
   group_by(sex) %>%
   summarise(mass.mean = mean(mass))
 ```
 
-You can lable thigns anything, eg "puppies".
+You can lable things anything, eg "puppies".
 ```{r}
 my.frogs %>% 
   group_by(sex) %>%
@@ -270,7 +486,7 @@ my.frogs %>%
 ```
 
 
-You can pass any summari function to summarise.  We can give it sd to get the sd of mass by sex.
+You can pass any summary function to summarise().  We can give it sd() to get the sd of mass by sex.  Note that I define the column names using "mass.sd = ..."
 
 ```{r}
 my.frogs %>% 
@@ -279,7 +495,7 @@ my.frogs %>%
 ```
 
 
-What makes dplyr::group_by and summarize() really powerful is that you can pass it multiple summary functions at the same time
+What makes dplyr::group_by and summarize() really powerful is that you can pass it *multiple*. summary functions at the same time.  Here, I'll pass mean() and sd(), naming both.
 ```{r}
 my.frogs %>% 
   group_by(sex) %>%
@@ -288,7 +504,7 @@ my.frogs %>%
 ```
 
 
-dplyr has a handy function n() for getting your sample size.
+dplyr also has a handy function n() for getting your sample size.
 ```{r}
 my.frogs %>% 
   group_by(sex) %>%
@@ -298,25 +514,40 @@ my.frogs %>%
 ```
 
 
-
-
 --------------
-  Pass it a novel function
+
+### OPTIONAL: Using novel function with dplyr
+
+**This section is optional**
+
+If you have defined the my_sd1() function above you can pass it to summarise() too.
+
 ```{r}
 my.frogs %>% 
   group_by(sex) %>%
   summarise(mass.mean =  my_sd1(mass))
 
 ```
+
+
+**End optional section**
+
 --------------
   
   
-  ------------
   
-  ## Alternatives
+------------
+
+## OPTIONAL: ALternatives to dplyr 
+
+**This section is optional**
+
+Most everybody is switching to dplyr.  Below are some other idioms you may see others use or encouter in older books.  
   
-  ### doBy::summaryBy
-  The doBy package has a nice syntax.  I don't really see manhy people use it
+### doBy::summaryBy
+
+The doBy package has a nice syntax.  I don't really see many people use it.  Be sure to download it first.
+
 ```{r eval = FALSE}
 library(doBy)
 summaryBy(mass ~ sex,data = my.frogs, FUN = mean)
@@ -326,7 +557,8 @@ summaryBy(mass ~ sex,data = my.frogs, FUN = c(mean,sd))
 
 
 ### tapply()
-tapply is pretty old school
+
+tapply is pretty old school.
 ```{r}
 tapply(X = my.frogs$mass,INDEX = my.frogs$sex, FUN = mean)
 ```
@@ -343,6 +575,8 @@ dcast(data = my.frogs,
       fun.aggregate  = mean)
 ```
 
+
+**End optional section**
 
 ------------
   

@@ -1,4 +1,4 @@
-# (PART) SECTION I: Getting software & data into R {-}
+# (PART) Getting software & data into R {-}
 
 In this we'll discuss two of the most fundamental steps of data analysis: getting your hard-earned data into the @$*%# program you want to do you analysis in.  This is often one of the most frustrating steps for beginners because R, like most data analysis tools that aren't spreadsheets, it seemingly very picky about how it wants to receive data.  Luckily there's a method behind the madness, and also some handy tools in RStudio to help with this.
 
