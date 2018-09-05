@@ -1,9 +1,4 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-# Plotting continous data in R with ggplot2
+# Plotting Continous Data in R With ggplot2
 
 | **Nathan Brouwer, Phd**
 | brouwern@gmail.com
@@ -18,23 +13,16 @@ editor_options:
   + cowplot, which provides some nice defaults
 * We'll use the iris dataset that comes with R
 
-### Learning objectives
+### Learning goals & objectives
 
+Introduce the qplot command from the ggplot2 package
 
-### Learning goals
-
-  
 ### Functions & Arguements
-  
 
 ### Packages 
 
-### Files
-
-
-
-### Potential hangups
-
+* ggplot2
+* cowplot
 
 ### Outline
 
@@ -45,7 +33,7 @@ knitr::opts_chunk$set(tidy = F,
                       warning = F,
                       error = F,
                       message = F,
-                      cache = TRUE,
+                      cache = F,
                       fig.margin = TRUE,
                       results="hide",
                       fig.width = 3,
@@ -56,10 +44,14 @@ knitr::opts_chunk$set(tidy = F,
 
 ## Introduction to ggplot using qplot
 
-
-```{r, echo = F}
+Load the iris data
+```{r}
 data(iris)
+```
 
+
+Load the ggplot2 and cowplot packages
+```{r, echo = F}
 library(ggplot2)
 library(cowplot)
 ```
@@ -67,7 +59,7 @@ library(cowplot)
 
 ## A basic plot in ggplot using qplot()
 
-* Unless told otherwise, qplot plots dots
+Unless told otherwise, qplot plots dots.
 
 ```{r}
 qplot(y = Sepal.Length,
@@ -78,22 +70,19 @@ qplot(y = Sepal.Length,
 
 # Box plot with labels
 
-* R will usually generate labels for the x and y axes based on the command.  
-* These cab be changed by adding another command after the qplot() command
+* R will usually generate labels for the x and y axes based on the command.  * These can be changed by adding another command after the qplot() command
 * Add The command **+ xlab("...")** sets the labels for the x-axis, **+ ylab("...")** for the y axis.
 * Text for the labels goes in quotes (ie, "Iris species"). 
-* THe use of the "+" is different than for most other R packages
+* The use of the "+" is different than for most other R packages
 * Forgetting the quotes will cause the code to fail.  
 * Note that units (mm) are included for the y axis.  
-
-
 
 ```{r}
 qplot(y = Sepal.Length,
       x = Species,    
-        data = iris) +
-  xlab("Iris Species") +      
-  ylab ("Sepal Length (mm)" ) 
+        data = iris) +         # note the "+"
+  xlab("Iris Species") +       # label for x axis
+  ylab ("Sepal Length (mm)" )  # label for y axis
 
 ```
 

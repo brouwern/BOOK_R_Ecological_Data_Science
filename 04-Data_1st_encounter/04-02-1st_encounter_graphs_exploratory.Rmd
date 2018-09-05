@@ -1,0 +1,360 @@
+# Data analysis encounter: Data exploration
+
+
+```{r , include=F, echo = F}
+knitr::opts_chunk$set(tidy = F, 
+                      warning = F,
+                      error = F,
+                      message = F,
+                      #cache = TRUE,
+                      fig.margin = TRUE,
+                      results="hide",
+                      fig.width = 4,
+                      fig.height = 3)
+```
+
+| **Nathan Brouwer, Phd**
+| brouwern@gmail.com
+| https://github.com/brouwern
+| Twitter: lobrowR
+
+## Introduction
+
+### Goals & objectives
+
+
+Create plots to explore variation in the frogarms data.  
+
+
+### Packages 
+
+* ggplot2
+* cowplot
+* ggpubr
+* dplyr
+
+
+### Outline
+
+* load packages if necessary
+* load data and subset data if necessary
+* make data exploration graphs
+  + boxplots, hinged boxplots, boxplots with raw data
+
+
+### Vocab
+
+* jittering
+* boxplot
+* R object
+* categorical variable
+* continuous varible
+
+
+### Preliminaries
+
+#### Load packages
+
+If not already loaded, we need the wildlifeR package, which lives on Github
+```{r eval = F}
+library(devtools)
+install_github("brouwern/wildlifeR")
+
+library(wildlifeR)
+```
+
+We also need several other packages needed for visualization.  We'll use the ggplot2 package for plotting, and the cowplot package for some nice plotting defaults.  
+```{r}
+library(ggplot2)
+library(cowplot)
+library(ggpubr)
+library(dplyr)
+```
+
+#### Load data
+
+Load the frogarms data by Buzatto et al (2015) if its not already loaded.
+```{r}
+data(frogarms)
+```
+
+
+#### Subset your data
+
+The function make_my_data2L() will extact out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.  **This does not need to be done if you did this as part of the previous lesson**
+
+```{r 4.2.make_my_data2L}
+my.frogs <- make_my_data2L(dat = frogarms, 
+                           my.code = "nlb24", # <=  change this!
+                           cat.var = "sex",
+                           n.sample = 20, 
+                           with.rep = FALSE)
+
+```
+
+
+## Data exploration plots
+
+We'll make some plots to look at the overall structure and distribution of the data.
+
+### Boxplots
+
+Basic boxplot with ggpubr's ggboxplot() function.  Note that "mass" and "sex" are in quotes.
+```{r}
+ggboxplot(data = my.frogs, # the data frame
+          y = "mass",      # y-axis: a continous variable
+          x = "sex")       # x-axis: a group
+```
+
+
+
+### Notched boxplot
+
+We'll use the original frogarms dataframe first for this
+These aren't commonly used; the notches work kind of like confidence intervals to determine if medians are different.  
+```{r }
+ggboxplot(data = frogarms,
+          y = "mass",
+          x = "sex",
+          notch  = TRUE) 
+```
+
+Now try your own subset of the data.  The Notch calculations likely get messed up with small samples sizes.  R will likely give you several warnings in red.
+
+```{r}
+ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex",
+          notch  = TRUE)
+```
+
+
+### Filled boxplots
+
+Add colored fill; note that it is "**fill**" not "color".  (Color changes the color of the lines).
+```{r eval = F}
+ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex",
+          notch  = TRUE,
+          fill = "sex")
+```
+
+We can turn off the notching by adding a "#" character before it.  This is called "commenting out" that line of code
+
+```{r eval = F}
+ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex",
+          #notch  = TRUE,
+          fill = "sex")
+```
+
+
+### Boxplots with raw data
+
+Add raw data  This works best with small datasts
+```{r}
+
+ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex",
+          #notch  = TRUE,
+          fill = "sex",
+          add = "point")
+```
+
+
+### Boxplots with jittered raw data
+
+This can be helpfuj, though ggpubr::ggboxplot doesn't allow much control over the "jittering".  Jittering is helpful when you have large datsets and want to avoid overlap in the points.
+```{r}
+ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex",
+          fill = "sex",
+          add = "jitter")
+```
+
+----------
+
+### OPTIONAL: Jittering with ggplot2
+
+**The following section is opptionall**
+
+ggpubr helps simplify ggplot2 code, but in doing so adds some constraitns.  You can combine ggpubr commands with regular ggplot2 code though. We'll use the code we did above and also add "+ geom_jitter()"
+
+This code should produce a plot simliar to the one above.  Note that after " fill = "sex") " there is a "+", ( eg, " fill = "sex") + " ) and that on the next line is "  geom_jitter()"
+
+```{r eval = F}
+ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex",
+          fill = "sex") +  #need the plus!
+  geom_jitter()
+```
+
+
+We can make the jittering less extreme by adding "width = 0.1" wihtin geom_jitter()
+```{r eval = F}
+ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex",
+          fill = "sex") +  #need the plus!
+  geom_jitter(width = 0.1)
+```
+
+
+**End optional section
+
+---------------
+
+### Label ggpubr axes
+
+A graph isn't done until it has labels.  This can get annoying in base R graphics and ggplot2, but is easy in ggpubr.
+
+#### Axes lables
+
+Adding "xlab = ..." and "ylab = ..." adds axes lables.  Always add units (eg "g" for grams) when applicable. 
+
+```{r}
+ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex",
+          fill = "sex",
+          xlab = "Sex",      #x axis (horizontal)
+          ylab = "Mass (g)") #y axis (vertical)
+```
+
+#### Plot  title
+
+The command "main = ..." adds a main title at the top of the graph.  This is not usually done for publication but useful for keeping track of things and for presentations.  
+
+```{r eval = F}
+ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex",
+          fill = "sex",
+          add = "jitter",
+          xlab = "Sex",
+          ylab = "Mass (g)",
+          main = "Mass of Australian frogs by sex") #Main title
+```
+
+
+#### Refining ggpubr pltos
+
+Move the legend to the bottom.
+
+```{r}
+ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex",
+          fill = "sex",
+          xlab = "Sex",
+          ylab = "Mass (g)",
+          main = "Mass of frogs by sex", # main title
+          legend = "bottom")             # location of legend
+```
+
+
+Change the  color pallete
+```{r}
+ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex",
+          fill = "sex",
+          xlab = "Sex",
+          ylab = "Mass (g)",
+          main = "Mass of frogs by sex",
+          legend = "bottom",
+          palette = c("green","blue"))  # change pallete
+```
+
+
+
+### Plotting multple plots with cowplot::plot_grid
+
+We can save a plot to an **R object**.  I will use the **assignment operation** (<-) to assign the output of ggboxplot() to an object called "gg.my.frogs".  Note that here I am using my.frogs.
+```{r}
+gg.my.frogs <- ggboxplot(data = my.frogs,
+          y = "mass",
+          x = "sex")
+
+```
+
+Note that the code runs but nothing happens...
+
+I can call just the object (eg, just type it into the console. or highlight jsut the word)
+```{r}
+gg.my.frogs
+```
+
+
+
+Now, Make an object using the full frogarms data
+```{r}
+gg.frogarms <- ggboxplot(data = frogarms, #use original data
+          y = "mass",
+          x = "sex")
+
+```
+
+
+Now plot both using the plot_grid() function from the handy cowplot package.
+
+```{r}
+plot_grid(gg.my.frogs,
+          gg.frogarms)
+```
+
+
+
+Add labels.  Note that alignment is off sometimes.
+
+```{r eval=F}
+plot_grid(gg.my.frogs, 
+          gg.frogarms,
+          labels = c("a)My fogs","b)All the frogs"))
+```
+
+
+
+----------
+
+### Optional: Histograms
+
+
+**The following is optional**
+
+Histograms are excellent for data exploration.  They generally work best qwith medium to large datasets.  
+
+A basic histogram can be made using gghistogram().  NOte that there is "x = ..." but no "y = ..."; the y-axis is computed by the graphing function.
+
+```{r}
+gghistogram(data = my.frogs, 
+            x = "mass")
+```
+
+
+A key concept for ggplot is "faceting."  Faceting occuring when a two panels of plots are made from a single dataset, and the panels are split by a categorical variable.  We can add "faet.by = sex" to make two panels, one for female and one for male.  Note that because there are only 10 frogs in each group, the graphs aren't very useful.
+
+```{r}
+gghistogram(data = my.frogs, 
+            x = "mass",
+            facet.by = "sex")
+```
+
+
+Just as we did for histograms we can change the fill, add a title, etc.
+
+```{r echo = F}
+gghistogram(data = my.frogs, 
+            x = "mass",
+            facet.by = "sex",
+            fill = "sex")
+```
+
+
+
+----------

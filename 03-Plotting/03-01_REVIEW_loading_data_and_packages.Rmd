@@ -1,0 +1,274 @@
+
+# (PART) Section II: Plotting data in R with ggplot2 & friends {-}
+
+## {-}
+
+In this section we'll focus on basic plotting skills.  The first chapter in this section is a review of the skills needed to get some data into R from a package.  Subsequent chapters will develop plotting skills with a focus on using ggplot2.  
+
+We'll briefly go over all aspects of **ggplot2** and its varients.  This will orient you to the different things you are likely to see other R users use.  For most of this book, however, we'll focus on a package which creates a "wrapper" for ggplot2 called [ggpubr](http://www.sthda.com/english/rpkgs/ggpubr/) which speeds up the process for beginners of making publication-ready graphs.  Even if you are a ggplot2 pro you should know about ggpubr for making quick graphs, and for teaching others about ggplot2.
+
+
+
+# Review: Loading & Examining Data in R
+
+```{r , include=F, echo = F}
+knitr::opts_chunk$set(tidy = F, 
+                      warning = F,
+                      error = F,
+                      message = F,
+                      cache = F,
+                      fig.margin = TRUE,
+                      results="hide",
+                      fig.width = 3,
+                      fig.height = 2)
+```
+
+| **Nathan Brouwer, Phd**
+| brouwern@gmail.com
+| https://github.com/brouwern
+| Twitter: lobrowR
+
+## Introduction
+
+This exercise reviews the basics of loading data from a package into R.  These basic skills are needed for the further tasks of plotting that will be built upon in this section.  If you are familiar with R you can probably skim this or skip it altogether.  If you are brand new then this is an excellent review of the material covered so far in this book.
+
+### Learning Goals & Outcomes
+
+To review the basics of loading packages and data.
+  
+### Functions & Arguements
+
+* data
+* library
+* ls
+* dim
+* names
+* head
+* tail
+* is
+* summary
+* install.packages
+
+
+### Packages 
+
+* MASS
+* cowplot
+
+### Outline
+
+* Intro
+* Fisher's Iris data
+* Loading data: iris
+  + The easy way: from base R w/ data(iris)
+* Loading packages in base R: MASS
+  + command: library(MASS)
+* Loading packages from CRAN: cowplot
+
+
+## Example data for plotting: Fisher's Irises
+
+* Dataset made popular by R.A. Fisher
+* Frequently used to explain/test stats procedures
+* See ?iris for more details
+* See also https://en.wikipedia.org/wiki/Iris_flower_data_set for more info.
+
+
+## Loading data into R the easy way: pre-made data in an R "Package"
+
+* Getting data into R (or SAS, or ArcGIS...) can be a pain!
+* R comes with many datasets that are pre-loaded into it
+* There are also many stat. techniques that can easily be added to R
+* These are contained in "packages"
+
+### Load data that is already in the "base" distribution of R
+
+Fisher's iris data comes automatically with R.  You can load it into R's memory using the command "data()"
+
+```{r}
+data(iris) #Load the iris data
+```
+
+### Look at the iris data
+
+We'll look at the iris data using some commands like ls(), dim(), and names().
+
+You can check that it was loaded using the **ls()** command ("list"). 
+```{r, results = "hide"}
+ls()
+```
+
+You can get info about the nature of the dataframe using commands like **dim()**
+```{r, results = "hide"}
+dim(iris)
+```
+
+This tells us that the iris data is essentially a spreadsheet that has 150 rows and 5 columns.
+
+We can get the column names with names()
+```{r}
+names(iris)
+```
+
+* Note that the first letter of each word is capitalized.  
+* What are the implications of this?  
+
+The top of the data and the bottom of the data can be checked with head() and tail() commands
+
+```{r, results = "hide"}
+head(iris) #top of dataframe
+
+tail(iris) #bottom of dataframe
+```
+
+Another common R command is **is()**, which tells you what something is in R land.
+```{r}
+is(iris)
+```
+
+* R might spew a lot of things out at you when you use **is()**
+* usually the 1st item is most important.  
+* Here, it tells us that the "object" called "iris" in your workspace is 1st and foremost a "data.frame"
+* A dataframe is essentially a spreadsheet of data loaded into R.
+
+You can get basic info about the data themselves using commands like **summary()**.
+
+```{r,results = "hide"}
+summary(iris)
+```
+
+* Which variables are numeric?
+* Which variables are categories/groups (aka "factors")?
+
+If you wanted info on just 1 column, you would tell R to isolate that column like this, using a dollar sign ($).
+
+```{r}
+summary(iris$Sepal.Width)
+```
+
+That is, that name of the dataframe, a dollar sign ($), and the name of the column.
+
+What happens when you don't capitalize something?  Try these intentional  mistakes (but remove the "#" from in front of each one):
+
+```{r, eval = F}
+#all lower case
+summary(iris$sepal.width) # this won't work
+
+#just "s" in "sepal" lower case
+summary(iris$sepal.Width)  #this won't work either
+
+#or what if you capitalize "i" in "Iris"?
+summary(Iris$Sepal.Width) #won't work either
+```
+
+
+The first two error messages are not very informative; the 3rd one ("Error in summary(Iris$Sepal.Width) : object 'Iris' not found") does make a little sense.
+
+
+## Load data that is in another R package 
+
+### Packages that come with R
+
+* Many scientists develop software for R, and they often include datasets to demonstrate how the software works.  
+* Some of this software, called a "package" comes with R already and just needs to be loaded.  
+* This is done with the **library()** command.
+* The **MASS** package comes with R when you download it and has many useful functions and interesting datasets.
+
+```{r}
+library(MASS) #Load the MASS package
+```
+
+
+MASS contains a dataset called called "mammals"
+```{r, results = "hide"}
+data(mammals)
+```
+
+
+You can confirm that the mammals data is in your workspace using **ls()**
+```{r}
+ls()
+```
+
+You should now have both the "iris"" and the "mammals"" data in your R "workspace.""
+
+
+What is in the mammals dataset?  Datasets actually usually have useful help files.  Access help using the **?** function.
+```{r,results = "hide",echo = F, eval = F}
+?mammals
+```
+
+The help screen will pop up either within RStudio, or possibly in your web browser.  It tells us that mammals is 
+
+>"A data frame with average brain and body weights for 62 species of land mammals."  
+
+Since this is someone else's data, the authors of the MASS package need to provide proper citation.  At the bottom we can see that these data come from the paper:
+
+>Allison, T. and Cicchetti, D. V. (1976) Sleep in mammals: ecological and constitutional correlates. Science 194: 732-734.
+
+
+We can learn about the mammals data using the usual commands
+```{r eval = FALSE}
+dim(mammals)
+names(mammals)
+head(mammals)
+tail(mammals)
+summary(mammals)
+```
+
+## Load Data From A package On CRAN
+
+Most packages don't come with R when you download it but are stored in a central site called CRAN.  We'll load data from the **cowplot** package.
+
+### Loading packages using R-Studio
+
+RStudio makes it easy to find and load packages.  Follow these instructions.  
+
+* In the panel of RStudio that has the tabs "Plots", "Packages","Help", "Viewer" click on "Packages""
+* On the next line it says "Install" and "Update".  Click on "Install"
+* A window will pop up.  In the white field in the middle of the window under "Packages" type the name of the package you want.
+* RStudio will automatically bring up potential packages as you type.
+* Finish typing "cowplot"  or click on the name.
+* Click on the "Install" button.
+* In the source viewer some misc. test should show up.  Most of the time this works.  If it doesn't, talk to the professor!
+
+
+If an R packages doesn't load properly, it could be for several reasons. 
+
+1. Your internet connection might be having problems.  
+1. The website where the package is stored might be down for maintenance.  
+1. The version of are you are using is probably newer than the version of R used to make the package.  This is a real pain - ask for help from an expert R user if think you have this problem.
+
+
+## Loading packages directly using code
+
+You can also use the **install.packages()** command to try to load the package. 
+
+```{r eval=F}
+install.packages("cowplot")
+```
+
+## Troubleshooting Package Downloads
+
+### What if you tell R to install a package you already have downloaded?
+
+If you already have the package downloaded to your computer then a window will pop up asking you if you want to restart your computer.  Normally this isn't necessary; just click "no".  You might see a "warning" message pop up in the console such as "Warning in install.packages: package 'cowplot' is in use and will not be installed". This isn't a problem for basic R work.  If you are doing serious work (e.g. for a publication) you should restart R.
+
+
+### What if I can't get a package I need loaded?
+
+* Talk to someone who is good w/R (eg, your professor)
+* Google something like "how to install R package" for general info
+* Google something like "problem loading R package"
+* Copy and paste any error message you might be getting into Google and see if anyone has written about this problem
+
+See above for reasons why a package might not load properly the 1st time you try.
+
+
+### Finding R help with Google
+
+There's lots of info about R on the web, and if you have a problem, then someone else has probably had it before and perhaps written something about it.
+
+
+The website **stackoverflow.com** has lots of info about R.  However, many people who use it are hard-core programmers, who can come across as jerks sometimes when they answer questions if you don't follow the rules and protocols of stackoverflow.
+

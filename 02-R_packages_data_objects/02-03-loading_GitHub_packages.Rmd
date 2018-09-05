@@ -71,11 +71,18 @@ Now we can put it all explicitly into memory
 library(wildlifeR) # [ ] 
 ```
 
+
+--------------
+
 **OPTIONAL:** Accessing data from wildlifeR
 One of the datasets in wildlifeR is called "eggs."  It has data from a paper by Stoddard et al. (2017) in Science called [Avian egg shape: Form, function, and evolution.] (http://science.sciencemag.org/content/356/6344/1249).  We can plot the relationship between egg asymmetry and ellipticity using the base R function scatter.smooth(), which draws a type of regression line through the data for us (Note that the syntax for scatter.smooth() is, sadly, different than plot() and other plotting functions...).
+
 ```{r}
 scatter.smooth(eggs$asymmetry, eggs$ellipticity)
 ```
+
+--------------
+
 
 
 ## [  ] The wildlifeR packge webiste

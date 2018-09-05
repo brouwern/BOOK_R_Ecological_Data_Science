@@ -1,8 +1,17 @@
 # (PART) Data analysis: a first encounter {-}
 
+### {-}
+
 In this section we will tackle a typical data analysis problem: determining if two groups of organisms an be considering statistically differnet from each other.  We will use data from a paper titled "Sperm competition and the evolution of precopulatory weapons: Increasing male density promotes sperm competition and reduces selection on arm strength in a chorusing frog" by Buzatto et al (2015).  The end goal is to compare the size of the arms on female and male frogs.  First, though, we will get to know the data by calcualting summary statistics and making exploratory graphs.  We will then carry out a t-test and grabble with with the meaning and interpretation of the output is.  Finally, we'll explore how best to plot the output of your t-test.
 
-# Data Analysis Case Study: Summary Statistics
+1. Data exploration with summary statistics
+1. Graphical data exploration
+1. Plotting means and measures of variation and precisions
+1. T-test
+1. Plotting the output of a t-test
+
+
+# Data Analysis Encounter: Summary Statistics
 
 
 ```{r , include=F, echo = F}
@@ -41,10 +50,6 @@ Get to know the frogarms dataset and learn how to calculat summary statistics us
 
 * devtools
 * wildlifeR (from GitHub)
-* ggplot2
-* cowplot
-* ggpubr
-* dplyr
 
 ### Functions
 
@@ -70,7 +75,7 @@ Get to know the frogarms dataset and learn how to calculat summary statistics us
 
 ## Preliminaries
 
-First, we nee to install the necessary packages.  The data are in a package stored on GitHub called wildlifeR.  The devtools package is needed for downloading from github.  We'll use the ggplot2 package for plotting, and the cowplot package for some nice plotting defaults.  We'll also use the ggpubr package for plotting and dplyr for reshaping data.
+First, we nee to install the necessary packages.  The data are in a package stored on GitHub called wildlifeR.  The devtools package is needed for downloading from github.  We'll also use dplyr for grouping data and calcualting summary statistics.
 
 ### Load packages
 
@@ -80,12 +85,9 @@ library(devtools)
 install_github("brouwern/")
 ```
 
+Recall that downloiading a package and actually loading it into R's active memory are different things.  To actually use the pakcage you need to use the librar() command
 ```{r echo = F}
 library(wildlifeR)
-library(ggplot2)
-library(cowplot)
-library(ggpubr)
-library(dplyr)
 ```
 
 ### Load data
@@ -443,8 +445,9 @@ my.frogs$mass %>% mean() %>% round(digits = 2)
 
 Instead of mean(data$column) we can use summarise() (for the British) or summarize(), plus pipes.
 
-We can get the grand mean of just the mass column
+We can get the grand mean of just the mass column by loading dplyr using library() and then using the summarise() commnad
 ```{r}
+library(dplyr)
 my.frogs %>% summarise(mean(mass))
 ```
 

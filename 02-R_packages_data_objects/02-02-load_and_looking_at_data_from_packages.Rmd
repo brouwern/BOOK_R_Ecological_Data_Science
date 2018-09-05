@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Loading data into R from a package
 
 
@@ -312,7 +317,7 @@ summary(eagle.df)
 
 Note that in the "eagles" columns it tells you the number of NAs (missing values).  The summary() readout quickly tells us that the eagle population has changed dramatically.
 
-#### Preview: plotting the eagle data
+#### Preview: Plotting the eagle data
 
 We can plot the data in ggplot2 using qplot().  However, there is an excellent package that adds additional functionality to ggplot called ggpubr.  This is fairly common in R: you have packages that add functions to R, and packages that add functions to other packages.
 
@@ -333,7 +338,9 @@ Once we have ggpubr loaded we can plot the eagle data using the handy function
 
 ```{r warning=FALSE}
 #ggscatter is not working for some reason 
-##ggscatter(eagle.df,eagles, year)
-qplot(y = eagles, x = year, data = eagle.df)
+ggscatter(dat = eagle.df,y = "eagles", x= "year")
 ```
+
+
+
 

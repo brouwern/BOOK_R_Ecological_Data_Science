@@ -1,4 +1,6 @@
-# (PART) Introduction 
+# (PART) Introduction {-}
+
+## {-}
 
 In Part I of this book I'll introduce why the role of data science in ecology is important and lay out the scope of this book.  I'll also walk through the basic steps of getting R and RStudio up and running on your comptuer, walk through a basic R section, and discuss the various ways we'll interact with R using **code** and **script files**.  I'll also introduce **rmarkdown**, a way of integrating the R code of scripts with basic capabilities of word processing and web developement.  Scripts organized in rmarkdown are a handy way to organize and **annotate code**, store and disseminate your work, and structure your analyses and data presensations so that the computations behind them are fully **reproducible**. 
 

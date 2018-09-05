@@ -1,5 +1,7 @@
 # (PART) Getting software & data into R {-}
 
+## {-}
+
 In this we'll discuss two of the most fundamental steps of data analysis: getting your hard-earned data into the @$*%# program you want to do you analysis in.  This is often one of the most frustrating steps for beginners because R, like most data analysis tools that aren't spreadsheets, it seemingly very picky about how it wants to receive data.  Luckily there's a method behind the madness, and also some handy tools in RStudio to help with this.
 
 Most data starts off as a spreadsheet before it enters R.  Loading spreadsheet data into R will be our end goal, but as a run up will step through several easier tasks that will highlight the core principles of getting data into R, in particular loading additional software into R (called packages) and loading the data in those packages into R.  We'll also load data directly from the internet into R.  
@@ -33,7 +35,7 @@ This book relies heavily on an R package I've written called "wildlifeR" (https:
 
 Most R packages you'll use are stored on the CRAN website where you download R (https://cran.r-project.org/).  R and RStudio have functions and tools for downloading and managing packages that we'll briefly introduce in this exercise. 
 
-Another place a package can be stored online is a code repository like GitHub.  the wildlifeR package lives on GitHub and can be downloaded directly from there.  Many packages on CRAN also occur on GitHub, especially if programmers are actively developing, updating, and managing the package.  We'll cover downloading packages from GitHub in the next exercise.
+Another place a package can be stored online is a code repository like GitHub.  The wildlifeR package lives on GitHub and can be downloaded directly from there.  Many packages on CRAN also occur on GitHub, especially if programmers are actively developing, updating, and managing the package.  We'll cover downloading packages from GitHub in the next exercise.
 
 ### Learning objectives
 
@@ -147,12 +149,18 @@ The install.packages() functions just saves the package software to R; now you n
 library(ggplot2)
 ```
 
+
+-----------
+
 **OPTIONAL**: making a plot with ggplot
 *Now we can make a plot with ggplot, like using te qplot() function.  (Note that the syntax is different than what we did above with plot() ).*
 
 ```{r}
 qplot(y=FL,x= RW, data = crabs)
 ```
+
+-----------
+
 
 
 ## [ ] Downloading packages using RStudio
@@ -178,6 +186,9 @@ We can then install this
 library(ggpubr)
 ```
 
+
+---------------
+
 **Optional:**Make a plot with ggpubr/
 ggpubr is an add on to ggplot.  (This means that ggpubr has ggplot as a dependency).  Note that the syntax for ggpubr function we use, ggscatter(), has a different syntax (again) than ggplot's qplot() function and base R's plot() function.
 ```{r}
@@ -185,9 +196,12 @@ ggscatter(data = crabs,y = "FL", x = "RW") # use quotes!
 ```
 
 
+---------------
+
+
 ## Challenge
 
-An another add on to ggplot2 is cowplot, which stands for ["Claus O. Wilke Plot"](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html).  Download cowplot from CRAN using either the point-and-click method or **install.packages**, and then load it using **library**. Then run the following R code, which should make the plot below.
+An another add-on to ggplot2 is cowplot, which stands for ["Claus O. Wilke Plot"](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html).  Download cowplot from CRAN using either the point-and-click method or **install.packages**, and then load it using **library**. Then run the following R code, which should make the plot below.
 
 Note that "FL" and "RW" are NOT in quotation marks as they are for ggscatter()! 
 
@@ -196,7 +210,10 @@ qplot(data = crabs, y = FL, x = RW) #no quotes!
 ```
 
 ```{r echo = FALSE}
+#load cowplot
 library(cowplot)
+
+#make the graph
 qplot(data = crabs, y = FL, x = RW)
 ```
 

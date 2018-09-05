@@ -1,8 +1,3 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
 # Loading data from .csv files into RStudio
 
 | **Nathan Brouwer, Phd**
@@ -272,7 +267,9 @@ summary(med98)
 
 ------------------------
 
-**OPTIONAL:**Plot the Mendley 1998 data
+## Optional: Plot the Mendley 1998 data
+
+**The following section is optional**
 
 As we'll discuss in depth in a later section on plotting , one reason why the **ggplot** and **ggpubr** packages are so powerful is because they can easily plot things in good color schemes.  We can make a basic scatter plot like this to show the positive correlation between Diatom species richness (the raw number of species identified in a given sample) on the x axis and species diversity on the y axis.
 
@@ -290,6 +287,9 @@ We can color-code the points by their pH
 ```{r}
 ggscatter(data = med98, y = "spp.div",x = "spp.rich", color = "pH")
 ```
+
+**End optional section**
+
 
 ------------------------
 
