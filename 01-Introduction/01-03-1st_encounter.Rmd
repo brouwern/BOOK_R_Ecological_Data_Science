@@ -1,22 +1,19 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
 # A first encounter with R & RStudio
 
 **Nathan Brouwer, Phd**
-brouwern@gmail.com
+brouwern at gmail.com
 https://github.com/brouwern
+Twitter lobrowR
 
 
-```{r , include=FALSE}
+```{r first.chunk, include=FALSE}
 rm(list = ls())
 library(here)
 ```
 
 
 ## Vocabulary {-}
+
 * console
 * script editor / source viewer
 * interactive programming
@@ -27,7 +24,7 @@ library(here)
 * comments / code comments
 * commenting out / commenting out code
 * stackoverflow.com
-* #rstats
+* the rstats hashtag
 
 ## R commands {-}
 
@@ -37,7 +34,7 @@ library(here)
 * ?
 * read.csv(...)
 
-## Getting started with R and RStudio
+## Getting Started With R and RStudio
 
 * R is a piece of software that does calculations and makes graphs.
 * RStudio is a GUI (graphical user interface) that acts as a front-end to R
@@ -94,25 +91,25 @@ Now we'll get started with RStudio.  We'll get to know what it looks like and co
 ### RStudio at first glance
 
 The RStudio logo looks like this.
-```{r echo=FALSE, fig.cap = "The RSTudio logo"}
+```{r rstudio.logo, echo=FALSE, fig.cap = "The RStudio logo"}
 knitr::include_graphics(here::here("images/RStudio_logo.png"))
 ```
 
 When you open up you'll be greeted by a fairly busy array of menus and things.  Don't panic!  A typical fresh starting point in RStudio is shown in Figure 2.
 
-```{r echo=FALSE , fig.cap = "RStudio when first opened."}
+```{r rstudio.open, echo=FALSE , fig.cap = "RStudio when first opened."}
 x <- here::here("images/RStudio_1st_view-800x600.png")
 knitr::include_graphics(x)
 ```
 
 When referring to RStudio, there are two terms that need to be understood.  As shown in Figure 3, there is the **console** section of RStudio and the **script editor** or **source viewer**.  
 
-```{r echo=FALSE, fig.cap = "RStudio's console & script editor."}
+```{r rstudio.console, echo=FALSE, fig.cap = "RStudio's console and script editor."}
 x <- here::here("images/RStudio_console_vs_script_editor-800x600.png")
 knitr::include_graphics(x)
 ```
 
-An "cheat sheet" called the "RStudio IDE Cheat Sheet" details all of RStudio's many features and is available at https://www.rstudio.com/resources/cheatsheets/
+A "cheat sheet" called the "RStudio IDE Cheat Sheet" details all of RStudio's many features and is available at https://www.rstudio.com/resources/cheatsheets/ .  It very thorough, though a bit dense.
 
 
 ### The console versus the script editor
@@ -123,7 +120,7 @@ You can type and enter text into both the console and the script editor.  The co
 
 The **console** in RStudio act exactly the same way as it does in R.  This is an **interactive programming** situation that is very similar to a scientific calculator.  If you click your mouse inside the console and type "1 + 1" then press enter you will see the following type of output
 
-```{r}
+```{r one.plus.one}
 1 + 1
 ```
 

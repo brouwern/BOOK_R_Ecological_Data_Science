@@ -17,7 +17,7 @@ This chapter will briefly introduce these different ways of working in R
 
 In a previous chapter we introduced the **console.**  You can interact with the console in a similar manner as a scientific calculator.
 
-```{r echo=FALSE, fig.cap = "The RStudio console"}
+```{r,first.chnk.sxn1ch4, echo=FALSE, fig.cap = "The RStudio console"}
 knitr::include_graphics(here::here("images/RStudio_console.PNG"))
 ```
 
@@ -113,11 +113,11 @@ To make scripts easier to navigate its useful to strong together the comment cha
 
 ### A sample R script
 
-On the following page are examples of R scripts for a formal analysis of a dataset.  First I'll show what the script might look like as I write it.  Then I'll show how I'll fix it up once I know its something I am going to look back at in the fugure
+On the following pages are examples of R scripts for a formal analysis of a dataset.  First I'll show what the script might look like as I write it.  Then I'll show how I'll fix it up once I know its something I am going to look back at in the fugure
 
-\pagebreak
 
-```{r eval = F}
+
+```{r sample.script.pt1, eval = F}
 ### R Script: Analysis of frog arm girth
 
 ## Nathan Brouwer (brouwern@gmail.com)
@@ -139,8 +139,9 @@ data("frogarms")
 ## Data visualization
 # histogram of all data
 hist(frogarms$sv.length)
+```
 
-
+```{r sample.script.pt2, eval = F}
 ## Data analysis
 # unpaired t-test NOT using Welch's correction
 ## NOTE: assumes variation within each group EQUAL
@@ -156,11 +157,10 @@ t.test(sv.length ~ sex,
 
 
 
-\pagebreak
 
-A polished R script
+### A polished R script
 
-```{r eval = F}
+```{r polished.script.pt1, eval=F}
 ###########################################
 ###
 ### R Script: Analysis of frog arm girth
@@ -181,8 +181,9 @@ A polished R script
 ## I am re-running analysis from paper by Buzatto  et al 2015
 ## I want to compare the results of a t-test with
 ## and w/o Welche's correction for unequal variation
+```
 
-
+```{r polished.script.pt2, eval=F}
 # Data were originally from 
 # Buzatto  et al 2015. Sperm competition and the evolution of 
 #       precopulatory weapons: Increasing male density promotes
@@ -195,7 +196,9 @@ A polished R script
 
 # Data are included in the wildlifeR package and load from it
 #     https://github.com/brouwern/wildlifeR
+```
 
+```{r polished.script.pt3, eval = F}
 ###############
 ## Packages
 ###############
@@ -215,7 +218,10 @@ data("frogarms")
 
 # histogram of all data
 hist(frogarms$sv.length)
+```
 
+
+```{r polished.script.pt4, eval = F}
 ######################
 ## Data analysis
 ######################
@@ -232,12 +238,11 @@ t.test(sv.length ~ sex,
          data = frogarms)
 ```
 
-
 For more on organizing scripts see points 4 and 5 of "Eight things I do to make my open research more findable and understandable" at (DataColada](http://datacolada.org/69).
 
 ## RMarkdown
 
-
+[this section has not been completed]
 
 * File
 * New File

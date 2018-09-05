@@ -1,7 +1,7 @@
 
-# (PART) Section II: Plotting data in R with ggplot2 & friends {-}
+# (PART) Plotting data in R with ggplot2 & friends {-}
 
-## {-}
+### {-}
 
 In this section we'll focus on basic plotting skills.  The first chapter in this section is a review of the skills needed to get some data into R from a package.  Subsequent chapters will develop plotting skills with a focus on using ggplot2.  
 
@@ -24,7 +24,7 @@ knitr::opts_chunk$set(tidy = F,
 ```
 
 | **Nathan Brouwer, Phd**
-| brouwern@gmail.com
+| brouwern at gmail.com
 | https://github.com/brouwern
 | Twitter: lobrowR
 
@@ -85,7 +85,7 @@ To review the basics of loading packages and data.
 
 Fisher's iris data comes automatically with R.  You can load it into R's memory using the command "data()"
 
-```{r}
+```{r first.chnk.sx4.ch1}
 data(iris) #Load the iris data
 ```
 
@@ -244,7 +244,7 @@ If an R packages doesn't load properly, it could be for several reasons.
 
 You can also use the **install.packages()** command to try to load the package. 
 
-```{r eval=F}
+```{r, last.chnk.sxn3,ch1 , eval=F}
 install.packages("cowplot")
 ```
 

@@ -1,13 +1,4 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
 # Data analysis case study part III: analysis with a t-test
-
-```{r  include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
 
 
 ```{r , include=F, echo = F}
@@ -23,15 +14,15 @@ knitr::opts_chunk$set(tidy = F,
 ```
 
 | **Nathan Brouwer, Phd**
-| brouwern@gmail.com
+| brouwern at gmail.com
 | https://github.com/brouwern
-| @lobrowR
+| Twitter lobrowR
 
 
 ### Preliminaries
 
 #### Load packages
-```{r}
+```{r , first.chnk.sxn4.ch4 }
 library(wildlifeR)
 library(ggplot2)
 library(cowplot)
@@ -190,7 +181,7 @@ There is a **major** flaw in this analysis.  consider the following graph where 
 
 This is ANCOVA.  Sometimes taught as an extension of ANOVA, or as a type of regression.  
 
-```{r}
+```{r, last.chnk.sxn4.ch4}
 ggscatter(data = frogarms,
           y = "arm",
           x = "mass",

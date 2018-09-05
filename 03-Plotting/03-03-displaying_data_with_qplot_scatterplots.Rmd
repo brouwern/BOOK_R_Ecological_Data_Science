@@ -1,6 +1,6 @@
 # Scatterplots in R using qplot()
 
-```{r , include=F, echo = F}
+```{r, first.chnk.sxn3.ch3 , include=F, echo = F}
 knitr::opts_chunk$set(tidy = F, 
                       warning = F,
                       error = F,
@@ -12,34 +12,37 @@ knitr::opts_chunk$set(tidy = F,
 ```
 
 | **Nathan Brouwer, Phd**
-| brouwern@gmail.com
+| brouwern at gmail.com
 | https://github.com/brouwern
-| @lobrowR
+| Twitter: lobrowR
 
 ## Introduction
 
-### Learning objectives
+### Learning goals & outcomes {-}
 
 
-### Learning goals
+### Learning goals {-}
 
   
-### Functions & Arguements
-  
+### Functions & Arguements {-}
 
-### Packages 
+* library
+* names
+* qplot
+* data
+* dim
+* head
+* summary
+* factor
+* log
 
-### Files
+### Packages {-}
+
+* ggplot2
+* cowplot
 
 
-
-### Potential hangups
-
-
-### Outline
-
-
-## Scatterplots: 2 continuous variables
+## Scatterplots: 2 Continuous Variables
 
 In this lab we'll explore how to make scatterplots using the qplot() function in ggplot2.
 
@@ -50,7 +53,7 @@ In this lab we'll explore how to make scatterplots using the qplot() function in
 * We'll use the qplot() function in the *ggplot* package
 * The *cowplot* package provides nice deafults for ggplot IMHO
 
-```{r echo = F}
+```{r, first.chnk.sxn3.ch1, echo = F}
 library(ggplot2)
 library(cowplot)
 ```
@@ -147,9 +150,6 @@ qplot(y = sleep_total,
 ```
 
 That looks really really ugly.  It will work better if we "log transform the axes"
-
-
-
 ```{r, fig.cap = "Mammal sleep, logged data"}
 qplot(y = log(sleep_rem),
       x = log(brainwt), 
@@ -202,7 +202,7 @@ qplot(y = log(sleep_rem),
 
 * Add the geom_smooth() function after the initial qplot() command
 * This works best if we remove the "color = vore" command, but you can see what happens if you leave it
-```{r, fig.cap = "Add trendline with + geom_smooth()"}
+```{r, last.chnk.sxn3.ch3, fig.cap = "Add trendline with + geom_smooth()"}
 qplot(y = log(sleep_rem),
       x = log(brainwt), 
       data = msleep) +
@@ -210,13 +210,13 @@ qplot(y = log(sleep_rem),
 ```
 
 
-### Exercise: Modify mammal brain code to do the following things
+### Challenge: Modify mammal brain code to do the following things
 
-* Change the axes labels
-* Add a title
+* Change the axes labels (eg "+ ylab('y axis')") 
+* Add a title (eg  " + ggtitle('...')")
 * Use names(msleep) to see what other varibles are in the dataset
 * Use summary(msleep) to whether they are continous or categorical
 * Pick another continous variable and plot it instead of sleep_total
-* Try this with and without logging
+* Try this with and without logging using the log() command
 
 

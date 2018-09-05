@@ -1,11 +1,11 @@
 # Loading data from the internet
 
 | **Nathan Brouwer, Phd**
-| brouwern@gmail.com
+| brouwern at gmail.com
 | https://github.com/brouwern
-| @lobrowR
+| Twitter lobrowR
 
-# Introduction
+## Introduction
 
 Its possible to download data directly from the internet, including
 
@@ -16,10 +16,9 @@ Its possible to download data directly from the internet, including
 
 In this short exercise we'll download some data that is stored as a raw .csv file within the inner workings of the widlifeR package.  
 
-### Learning objectives
+### Learning Goals & Outcomes
 
-
-### Learning goals
+By the end of this lesson students should be able to download basic data sources from the internet using getURL() from the RCUrl package.
 
   
 ### Functions & Arguements
@@ -34,6 +33,8 @@ install.packages()
 
 ### Potential hangups
 
+* Bad internet connection
+* Firewall problems
 
 
 
@@ -60,15 +61,17 @@ First, we'll use the "<-" assignment operator to store the shortened URL in an R
 eaglesWV.url <- "https://raw.githubusercontent.com/brouwern/wildlifeR/master/inst/extdata/eaglesWV.csv" # [ ]
 ```
 
-Next we'll use the getURL() function to set things up, storing the info in a new object "eaglesWV.url_2"  (note the "_2" on the end)
+Next we'll use the getURL() function to set things up, storing the info in a new object "eaglesWV.url_2"  (note the "_2" on the end).
+
+First, get the URL from the URL-containing object we just made.
 ```{r}
 eaglesWV.url_2 <- getURL(eaglesWV.url)
 ```
 
+Now use read.csv() to actually get it.
 ```{r}
 eaglesWV_2 <- read.csv(text = eaglesWV.url_2)
 ```
-
 
 We can preview the downloaded dataset using summary() or any other command we want
 
@@ -78,14 +81,19 @@ summary(eaglesWV_2)
 
 
 
-------------
+----------------------
 
-**OPTIONAL:** Plotting West Virginia Eagle Data
+## OPTIONAL: Plotting West Virginia Eagle Data
+
+**This section is optional** 
+
 Thankfully, eagles having been increasing exponentially in West Virginia since the 1980s.
 ```{r}
 scatter.smooth(y = eaglesWV_2$WV,x = eaglesWV_2$year)
 ```
 
-------------
+**End optional section** 
+
+----------------------
 
 

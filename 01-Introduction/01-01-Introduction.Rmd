@@ -1,13 +1,13 @@
 # (PART) Introduction {-}
 
-## {-}
+### {-}
 
 In Part I of this book I'll introduce why the role of data science in ecology is important and lay out the scope of this book.  I'll also walk through the basic steps of getting R and RStudio up and running on your comptuer, walk through a basic R section, and discuss the various ways we'll interact with R using **code** and **script files**.  I'll also introduce **rmarkdown**, a way of integrating the R code of scripts with basic capabilities of word processing and web developement.  Scripts organized in rmarkdown are a handy way to organize and **annotate code**, store and disseminate your work, and structure your analyses and data presensations so that the computations behind them are fully **reproducible**. 
 
 
-# Introduction: What is Ecological Data Science & How Will this Book Teach It?
+# What is Ecological Data Science & How Will this Book Teach It?
 
-**[NOTE: This section is currently underdevelopment.  The paper by Touchon & McCoy (2016) and its references lay out many of the reasons for the statistical focus of this book.]**
+**[NOTE: This section is currently under development.  The paper by Touchon & McCoy (2016) and its references lay out many of the reasons for the statistical focus of this book.]**
 
 >"Ecological questions and data are becoming increasingly complex and as a result we are seeing the development and proliferation of sophisticated statistical approaches in the ecological literature. ... It is no longer sufficient to only ask 'whether' or 'which' experimental manipulations significantly deviate from null expectations. Instead, we are moving toward parameter estimation and asking **'how much'** and in **'what direction'** ecological processes are affected by different mechanisms" ([Touchon & McCoy 2016, Ecosphere](https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1002/ecs2.1394), emphsis mine)
 

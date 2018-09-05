@@ -1,9 +1,9 @@
 # Plotting Continous Data in R With ggplot2
 
 | **Nathan Brouwer, Phd**
-| brouwern@gmail.com
+| brouwern at gmail.com
 | https://github.com/brouwern
-| @lobrowR
+| Twitter: lobrowR
 
 ## Introduction
 
@@ -45,7 +45,7 @@ knitr::opts_chunk$set(tidy = F,
 ## Introduction to ggplot using qplot
 
 Load the iris data
-```{r}
+```{r,  first.chunk.sxn3.ch2}
 data(iris)
 ```
 
@@ -59,7 +59,7 @@ library(cowplot)
 
 ## A basic plot in ggplot using qplot()
 
-Unless told otherwise, qplot plots dots.
+Unless you tell it otherwise, qplot plots dots.
 
 ```{r}
 qplot(y = Sepal.Length,
@@ -261,7 +261,7 @@ qplot(Petal.Length,
 * Titles are good for your own personal use but actually are almost never used in figures published in papers and books. 
 * We can add a title like this using the arguement "main = "
 
-```{r, fig.width = 4, fig.height = 5}
+```{r, last.chunk.sxn3.ch2, fig.width = 4, fig.height = 5}
 qplot(Petal.Length,
       data = iris,
       fill = Species,

@@ -28,7 +28,7 @@ knitr::opts_chunk$set(echo = TRUE,
 ```
 
 | **Nathan Brouwer, Phd**
-| brouwern@gmail.com
+| brouwern at gmail.com
 | https://github.com/brouwern
 | Twitter: lobrowR
 
@@ -80,7 +80,7 @@ First, we nee to install the necessary packages.  The data are in a package stor
 ### Load packages
 
 You might have to install or re-install wildlifeR using install.packages()
-```{r eval=F}
+```{r, first.chnk.sxn4.ch1 , eval=F}
 library(devtools)
 install_github("brouwern/")
 ```
@@ -570,7 +570,7 @@ tapply(X = my.frogs$mass,INDEX = my.frogs$sex, FUN = mean)
 ### reshape2::dcast
 
 What I've used most of my career thus far.  Am slowly switch to dplyr.
-```{r}
+```{r , last.chnk.sxn4.ch1 }
 library(reshape2)
 dcast(data = my.frogs,
       formula = sex ~ .,
