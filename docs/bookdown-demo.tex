@@ -1055,7 +1055,7 @@ the parentheses.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Thu Sep 06 06:26:49 2018"
+## [1] "Thu Sep 06 15:56:10 2018"
 \end{verbatim}
 
 \textbf{Exponents} The \textbf{\^{}} is used for exponents
@@ -2960,7 +2960,7 @@ First we need the package
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{install.packages}\NormalTok{(RCurl, }\DataTypeTok{dependencies =} \OtherTok{TRUE}\NormalTok{) }\CommentTok{# [ ]}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"RCurl"}\NormalTok{, }\DataTypeTok{dependencies =} \OtherTok{TRUE}\NormalTok{) }\CommentTok{# [ ]}
 \end{Highlighting}
 \end{Shaded}
 
@@ -3301,9 +3301,11 @@ by telling R a text pattern to screen for.
 If the file wasn't successful downloaded R will just give you a cryptic
 message like this.
 
-\begin{verbatim}
-## character(0)
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{list.files}\NormalTok{(}\DataTypeTok{pattern =} \StringTok{"xxxx"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
 This means the file isn't' there and you need to redo the download to
 make sure either i)the file actually downloaded and ii)file is saved
