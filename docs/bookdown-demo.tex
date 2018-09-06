@@ -125,7 +125,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-09-05}
+    \date{2018-09-06}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -1055,7 +1055,7 @@ the parentheses.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Wed Sep 05 16:35:48 2018"
+## [1] "Thu Sep 06 06:26:49 2018"
 \end{verbatim}
 
 \textbf{Exponents} The \textbf{\^{}} is used for exponents
@@ -1550,9 +1550,9 @@ The chapters in this section are cover the following:
 \chapter{Loading packages from CRAN}\label{loading-packages-from-cran}
 
 \textbf{Nathan Brouwer, Phd}\\
-\href{mailto:brouwern@gmail.com}{\nolinkurl{brouwern@gmail.com}}\\
+brouwern at gmail.com\\
 \url{https://github.com/brouwern}\\
-\citet{lobrowR}
+Twitter: lobrowR
 
 \section{Introduction}\label{introduction}
 
@@ -1604,9 +1604,15 @@ This exercise will introduce students to
 
 \subsection{Learning goals}\label{learning-goals}
 
-By the end of this exercise students should be able to * locate and
-download packages from the CRAN website using RStudio * recognize the R
-functions used to download and install packages. *
+By the end of this exercise students should be able to
+
+\begin{itemize}
+\tightlist
+\item
+  locate and download packages from the CRAN website using RStudio
+\item
+  recognize the R functions used to download and install packages.
+\end{itemize}
 
 \subsection{Functions \& Arguements}\label{functions-arguements}
 
@@ -1645,12 +1651,19 @@ functions used to download and install packages. *
 \section{Loading packages that come with base
 R}\label{loading-packages-that-come-with-base-r}
 
-What you download from CRAN is \textbf{base R}. Many functions are
-called \textbf{base functions} because they are hard-wired into R.
+What you download from CRAN is \textbf{base R} (also known as the
+\textbf{base distribution}). Many functions are called \textbf{base
+functions} because they are hard-wired into R.
 
-\textbf{OPTIONAL: What functions come with base R?} \textgreater{} If
-for some reason you want to see \emph{all} the functions that come with
-base R, type this into the console and press enter. (ls stands for
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\section{OPTIONAL: What functions come with base
+R?}\label{optional-what-functions-come-with-base-r}
+
+\textbf{The following section is opitonal}
+
+If for some reason you want to see \emph{all} the functions that come
+with base R, type this into the console and press enter. (ls stands for
 ``list'' and is a function we'll use more later).
 
 \begin{Shaded}
@@ -1663,7 +1676,8 @@ As R has been developed there has also built up a cannon of tried and
 true packages that are downloaded automatically when you download R, but
 they aren't brought into R's working memory unless you tell R.
 
-\textbf{OPTIONAL}: What packages come with base R?
+\section{Optional: What packages come with base
+R?}\label{optional-what-packages-come-with-base-r}
 
 \begin{quote}
 If you want to see all of the packages that come with base R, do this.
@@ -1677,11 +1691,15 @@ library() is a function you will use a lot.
 \end{Highlighting}
 \end{Shaded}
 
-On package that is part of this cannon is MASS, which stands for Modern
+One package that is part of this cannon is MASS, which stands for Modern
 Applied Statistics in S. ``S'' is the precursor to R, and MASS is the
 package that accompanies the book of the same name, which is one of the
 original books on S/R.
 (\url{https://www.springer.com/us/book/9780387954578})
+
+\textbf{End optional section}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \subsection{\texorpdfstring{\protect\hyperlink{section-3}{} Loading
 packages with the library()
@@ -1754,14 +1772,25 @@ sometime other things will pop up. Usually there's nothing of interest
 here, but sometimes you need to read things carefully over it for hints
 about why something didn't work.
 
-\textbf{OPTIONAL}:Seeing all of your installed packages \emph{If for
-some reason you want to see everything you've downloaded, do this.}
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\section{Optional: Seeing all of your installed
+packages}\label{optional-seeing-all-of-your-installed-packages}
+
+\textbf{The following section is optional}
+
+If for some reason you want to see everything you've downloaded, do
+this.
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{installed.packages}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
+
+\textbf{End optional section}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \subsection{\texorpdfstring{\protect\hyperlink{section-3}{} Step 2:
 Explicitly loading a package with
@@ -1780,17 +1809,24 @@ for packages is libraries)
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\textbf{OPTIONAL}: making a plot with ggplot \emph{Now we can make a
-plot with ggplot, like using te qplot() function. (Note that the syntax
-is different than what we did above with plot() ).}
+\section{OPTIONAL: Making a plot with
+ggplot}\label{optional-making-a-plot-with-ggplot}
+
+\textbf{This section is optional}
+
+Now we can make a plot with the ggplot2 package we just downloaded, like
+using the qplot() function. (Note that the syntax is different than what
+we did above with plot() ).*
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{qplot}\NormalTok{(}\DataTypeTok{y=}\NormalTok{FL,}\DataTypeTok{x=}\NormalTok{ RW, }\DataTypeTok{data =}\NormalTok{ crabs)}
+\KeywordTok{qplot}\NormalTok{(}\DataTypeTok{y=}\NormalTok{FL, }\DataTypeTok{x=}\NormalTok{ RW, }\DataTypeTok{data =}\NormalTok{ crabs)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-37-1.pdf}
+
+\textbf{End opitional section}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -1842,11 +1878,15 @@ We can then install this
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\textbf{Optional:}Make a plot with ggpubr/ ggpubr is an add on to
-ggplot. (This means that ggpubr has ggplot as a dependency). Note that
-the syntax for ggpubr function we use, ggscatter(), has a different
-syntax (again) than ggplot's qplot() function and base R's plot()
-function.
+\section{Optional: Make a plot with
+ggpubr}\label{optional-make-a-plot-with-ggpubr}
+
+\textbf{This section is optional}
+
+ggpubr is an add on to ggplot. (This means that ggpubr has ggplot as a
+dependency). Note that the syntax for ggpubr function we use,
+ggscatter(), has a different syntax (again) than ggplot's qplot()
+function and base R's plot() function.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1855,6 +1895,8 @@ function.
 \end{Shaded}
 
 \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-40-1.pdf}
+
+\textbf{End optional section}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -1867,8 +1909,8 @@ point-and-click method or \textbf{install.packages}, and then load it
 using \textbf{library}. Then run the following R code, which should make
 the plot below.
 
-Note that ``FL'' and ``RW'' are NOT in quotation marks as they are for
-ggscatter()!
+\textbf{Note that ``FL'' and ``RW'' are NOT in quotation marks as they
+are for ggscatter()!}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1882,8 +1924,9 @@ ggscatter()!
 package}\label{loading-data-into-r-from-a-package}
 
 \textbf{Nathan Brouwer, Phd}\\
-\href{mailto:brouwern@gmail.com}{\nolinkurl{brouwern@gmail.com}}\\
-\url{https://github.com/brouwern}
+brouwern at gmail.com\\
+\url{https://github.com/brouwern}\\
+Twitter: lobrowR
 
 \section{Introduction}\label{introduction-1}
 
@@ -2594,7 +2637,8 @@ We can then turn these two separate R objects into a dataframe
 
 \subsection{Looking at the eagle data}\label{looking-at-the-eagle-data}
 
-We can check that we have this R object by using the ls() command.
+We can check that we have this R object by using the \textbf{ls()}
+command.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2607,7 +2651,7 @@ We can check that we have this R object by using the ls() command.
 ## [7] "my.mean"  "x"        "year"
 \end{verbatim}
 
-And we can confirm that its a dataframe using is()
+And we can confirm that its a dataframe using \textbf{is()}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2619,7 +2663,7 @@ And we can confirm that its a dataframe using is()
 ## [1] "data.frame" "list"       "oldClass"   "vector"
 \end{verbatim}
 
-summary() will give us basic info on PA's eagles
+\textbf{summary()} will give us basic info on PA's eagles
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2642,8 +2686,8 @@ Note that in the ``eagles'' columns it tells you the number of NAs
 (missing values). The summary() readout quickly tells us that the eagle
 population has changed dramatically.
 
-\subsubsection{Preview: Plotting the eagle
-data}\label{preview-plotting-the-eagle-data}
+\subsubsection{Preview: Plotting the Eagle
+D}\label{preview-plotting-the-eagle-d}
 
 We can plot the data in ggplot2 using qplot(). However, there is an
 excellent package that adds additional functionality to ggplot called
@@ -2660,8 +2704,8 @@ the package, ggpubr, is in quotes.
 \end{Shaded}
 
 ggpubr requires \emph{another package}, magrittr, which R tells you
-about in read text. When a package requires another package, its called
-a \textbf{dependency} because one package relies on another. ggpubr has
+about in red text. When a package requires another package, its called a
+\textbf{dependency} because one package relies on another. ggpubr has
 magrittr as a dependency; ggpubr modifies ggplot2, so ggpubr has ggplot2
 as a dependency.
 
@@ -2671,16 +2715,29 @@ downloaded. If this happens with magrittr we would just have to download
 it using ``install.packages(''magrittr``)''.
 
 Once we have ggpubr loaded we can plot the eagle data using the handy
-function
+function \textbf{ggscatter()}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\CommentTok{#ggscatter is not working for some reason }
-\KeywordTok{ggscatter}\NormalTok{(}\DataTypeTok{dat =}\NormalTok{ eagle.df,}\DataTypeTok{y =} \StringTok{"eagles"}\NormalTok{, }\DataTypeTok{x=} \StringTok{"year"}\NormalTok{)}
+\KeywordTok{ggscatter}\NormalTok{(}\DataTypeTok{dat =}\NormalTok{ eagle.df, }\DataTypeTok{y =} \StringTok{"eagles"}\NormalTok{, }\DataTypeTok{x=} \StringTok{"year"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-77-1.pdf}
+
+\section{Challenge}\label{challenge-1}
+
+We can add a \textbf{smoother} to the plot by addin add = ``loess''.
+
+\begin{verbatim}
+## Warning: Removed 18 rows containing non-finite values (stat_smooth).
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 18 rows containing missing values (geom_point).
+\end{verbatim}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-78-1.pdf}
 
 \chapter{Loading packages \& data from
 GitHub}\label{loading-packages-data-from-github}
@@ -2820,7 +2877,7 @@ different than plot() and other plotting functions\ldots{}).
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-82-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-83-1.pdf}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -2840,7 +2897,7 @@ internet}\label{loading-data-from-the-internet}
 \textbf{Nathan Brouwer, Phd}\\
 brouwern at gmail.com\\
 \url{https://github.com/brouwern}\\
-Twitter lobrowR
+Twitter: lobrowR
 
 \section{Introduction}\label{introduction-3}
 
@@ -2988,7 +3045,7 @@ since the 1980s.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-89-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-90-1.pdf}
 
 \textbf{End optional section}
 
@@ -2998,9 +3055,9 @@ since the 1980s.
 RStudio}\label{loading-data-from-.csv-files-into-rstudio}
 
 \textbf{Nathan Brouwer, Phd}\\
-\href{mailto:brouwern@gmail.com}{\nolinkurl{brouwern@gmail.com}}\\
+brouwern at gmail.com\\
 \url{https://github.com/brouwern}\\
-\citet{lobrowR}
+Twitter: lobrowR
 
 \section{Introduction}\label{introduction-4}
 
@@ -3092,13 +3149,13 @@ package)
 Next, locate the file Medley1998.csv
 
 \begin{figure}
-\includegraphics[width=11.11in]{C:/Users/lisanjie/Documents/1_R/git/git-teaching/teaching_2018_2019/2018_fall/biostats_fall_2018/4_biostats_bks_pkg/EDS/EDSbook/./images/Medley1998csv/Medley1998csv-800x1} \caption{A list of files stored on GitHub.}\label{fig:unnamed-chunk-90}
+\includegraphics[width=11.11in]{C:/Users/lisanjie/Documents/1_R/git/git-teaching/teaching_2018_2019/2018_fall/biostats_fall_2018/4_biostats_bks_pkg/EDS/EDSbook/./images/Medley1998csv/Medley1998csv-800x1} \caption{A list of files stored on GitHub.}\label{fig:unnamed-chunk-91}
 \end{figure}
 
 Click on it; a table will show up.
 
 \begin{figure}
-\includegraphics[width=11.11in]{C:/Users/lisanjie/Documents/1_R/git/git-teaching/teaching_2018_2019/2018_fall/biostats_fall_2018/4_biostats_bks_pkg/EDS/EDSbook/images/Medley1998csv/Medley1998csv-800x2} \caption{An HTML .csv datafile store on GitHub.  The raw file can be accessed by clicking on the Raw tab.}\label{fig:unnamed-chunk-91}
+\includegraphics[width=11.11in]{C:/Users/lisanjie/Documents/1_R/git/git-teaching/teaching_2018_2019/2018_fall/biostats_fall_2018/4_biostats_bks_pkg/EDS/EDSbook/images/Medley1998csv/Medley1998csv-800x2} \caption{An HTML .csv datafile store on GitHub.  The raw file can be accessed by clicking on the Raw tab.}\label{fig:unnamed-chunk-92}
 \end{figure}
 
 This table is formatted to look nice on a webpage (using some HTML that
@@ -3106,7 +3163,7 @@ GitHub impose on the file). We want the raw file itself. To get it we
 need to click on the \textbf{``Raw''} tab.
 
 \begin{figure}
-\includegraphics[width=11.11in]{C:/Users/lisanjie/Documents/1_R/git/git-teaching/teaching_2018_2019/2018_fall/biostats_fall_2018/4_biostats_bks_pkg/EDS/EDSbook/images/Medley1998csv/Medley1998csv-800x2} \caption{A raw .csv datafile stored on GitHub.  It can be downloaded By using Crtl+S or right clicking and selecting Save As}\label{fig:unnamed-chunk-92}
+\includegraphics[width=11.11in]{C:/Users/lisanjie/Documents/1_R/git/git-teaching/teaching_2018_2019/2018_fall/biostats_fall_2018/4_biostats_bks_pkg/EDS/EDSbook/images/Medley1998csv/Medley1998csv-800x2} \caption{A raw .csv datafile stored on GitHub.  It can be downloaded By using Crtl+S or right clicking and selecting Save As}\label{fig:unnamed-chunk-93}
 \end{figure}
 
 We will then see what looks like a text document against a white
@@ -3260,8 +3317,10 @@ What we want to see is this
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\textbf{OPTIONAL:}Interacting with R via the console or the source
-viewer
+\section{OPTIONAL Interacting with R via the console or the source
+viewer}\label{optional-interacting-with-r-via-the-console-or-the-source-viewer}
+
+\textbf{This section is optional}
 
 You can enter R commands directly into the console, or type them into a
 \textbf{script file} in the \textbf{source viewer} and then execute.
@@ -3279,6 +3338,8 @@ If you've just been using the console try this:
 \item
   The getwd() command is sent over to the console and executed
 \end{itemize}
+
+\textbf{End optional section}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -3493,7 +3554,7 @@ variables be contained within quotes.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-109-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-110-1.pdf}
 
 We can color-code the points by their pH
 
@@ -3503,7 +3564,7 @@ We can color-code the points by their pH
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-110-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-111-1.pdf}
 
 \textbf{End optional section}
 
@@ -3521,7 +3582,7 @@ the ``Environment, History, Connections, Build, Git'' pane (I think it
 might not have ``Git'' on it if you don't have certain packages loaded).
 
 \begin{figure}
-\includegraphics[width=7.96in]{C:/Users/lisanjie/Documents/1_R/git/git-teaching/teaching_2018_2019/2018_fall/biostats_fall_2018/4_biostats_bks_pkg/EDS/EDSbook/images/Environment_tab_import_dataset_1} \caption{A list of files stored on GitHub.}\label{fig:unnamed-chunk-111}
+\includegraphics[width=7.96in]{C:/Users/lisanjie/Documents/1_R/git/git-teaching/teaching_2018_2019/2018_fall/biostats_fall_2018/4_biostats_bks_pkg/EDS/EDSbook/images/Environment_tab_import_dataset_1} \caption{A list of files stored on GitHub.}\label{fig:unnamed-chunk-112}
 \end{figure}
 
 If you click on the spreadsheet-looking icon ``Import Dataset'' and
@@ -3533,7 +3594,7 @@ look right you can change some of the option in the drop down menus to
 see if things line up.)
 
 \begin{figure}
-\includegraphics[width=11.04in]{C:/Users/lisanjie/Documents/1_R/git/git-teaching/teaching_2018_2019/2018_fall/biostats_fall_2018/4_biostats_bks_pkg/EDS/EDSbook/images/Environment_tab_import_dataset_2} \caption{A list of files stored on GitHub.}\label{fig:unnamed-chunk-112}
+\includegraphics[width=11.04in]{C:/Users/lisanjie/Documents/1_R/git/git-teaching/teaching_2018_2019/2018_fall/biostats_fall_2018/4_biostats_bks_pkg/EDS/EDSbook/images/Environment_tab_import_dataset_2} \caption{A list of files stored on GitHub.}\label{fig:unnamed-chunk-113}
 \end{figure}
 
 When you click ``Import'' RStudio will execute some code in the console
@@ -3543,7 +3604,7 @@ then call the command \textbf{View()} to generate preview of the data in
 a new tab in the script view. (Note that this View panel only lets you
 look at the data; you can't edit it.)
 
-\section{Challenge}\label{challenge-1}
+\section{Challenge}\label{challenge-2}
 
 .csv files are the most common format for sharing data in R. ``csv''
 stands for ``comma seperate volume'', and you will note that each value
@@ -3560,6 +3621,13 @@ not .csv.
 
 \chapter{Loading Excel spreadsheets into
 RStudio}\label{loading-excel-spreadsheets-into-rstudio}
+
+\textbf{Nathan Brouwer, Phd}\\
+brouwern at gmail.com\\
+\url{https://github.com/brouwern}\\
+Twitter: lobrowR
+
+\textbf{THIS CHAPTER HAS NOT BEEN WRITTEN}
 
 re-save as .csv and load
 
@@ -4178,7 +4246,7 @@ Unless you tell it otherwise, qplot plots dots.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-132-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-133-1.pdf}
 
 \chapter{Box plot with labels}\label{box-plot-with-labels}
 
@@ -4211,7 +4279,7 @@ Unless you tell it otherwise, qplot plots dots.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-133-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-134-1.pdf}
 
 \section{Changing colors in R plots}\label{changing-colors-in-r-plots}
 
@@ -4240,7 +4308,7 @@ Unless you tell it otherwise, qplot plots dots.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-134-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-135-1.pdf}
 
 \subsection{Changing colors in R plots part
 2}\label{changing-colors-in-r-plots-part-2}
@@ -4257,7 +4325,7 @@ Unless you tell it otherwise, qplot plots dots.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-135-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-136-1.pdf}
 
 \section{Tweaking plots: changing the point
 size}\label{tweaking-plots-changing-the-point-size}
@@ -4277,7 +4345,7 @@ Run the code below, Can you see what changed?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-136-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-137-1.pdf}
 
 \section{Boxplot with qplot}\label{boxplot-with-qplot}
 
@@ -4298,7 +4366,7 @@ Run the code below, Can you see what changed?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-137-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-138-1.pdf}
 
 \section{Basic boxplot with colors}\label{basic-boxplot-with-colors}
 
@@ -4319,7 +4387,7 @@ Run the code below, Can you see what changed?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-138-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-139-1.pdf}
 
 \section{Basic boxplot lables}\label{basic-boxplot-lables}
 
@@ -4341,7 +4409,7 @@ Run the code below, Can you see what changed?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-139-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-140-1.pdf}
 
 \section{Histograms using qplot}\label{histograms-using-qplot}
 
@@ -4374,7 +4442,7 @@ Run the code below, Can you see what changed?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-140-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-141-1.pdf}
 
 \subsection{Histogram with colors}\label{histogram-with-colors}
 
@@ -4388,7 +4456,7 @@ What does this show?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-141-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-142-1.pdf}
 
 \subsection{Histogram with axes
 labels}\label{histogram-with-axes-labels}
@@ -4402,7 +4470,7 @@ labels}\label{histogram-with-axes-labels}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-142-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-143-1.pdf}
 
 \subsection{\texorpdfstring{Multiple histograms:
 ``Facets''}{Multiple histograms: Facets}}\label{multiple-histograms-facets}
@@ -4418,7 +4486,7 @@ What does this show?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-143-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-144-1.pdf}
 
 Add a label to x-axis
 
@@ -4432,7 +4500,7 @@ Add a label to x-axis
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-144-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-145-1.pdf}
 
 \section{Modifying histograms: titles with the main =
 argument}\label{modifying-histograms-titles-with-the-main-argument}
@@ -4459,7 +4527,24 @@ argument}\label{modifying-histograms-titles-with-the-main-argument}
 
 \includegraphics{bookdown-demo_files/figure-latex/last.chunk.sxn3.ch2-1.pdf}
 
-\chapter{Scatterplots in R using
+\section{Challenge: Make a histogram of the mammals
+data}\label{challenge-make-a-histogram-of-the-mammals-data}
+
+\begin{itemize}
+\tightlist
+\item
+  Load the MASS library using library(MASS)
+\item
+  Load the mammals data using data(mammals)
+\item
+  Make a histogram of the log of body mass
+\item
+  Add labels using xlab() and ylab()
+\end{itemize}
+
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-146-1.pdf}
+
+\chapter{Scatterplots in R Using
 qplot()}\label{scatterplots-in-r-using-qplot}
 
 \textbf{Nathan Brouwer, Phd}\\
@@ -4469,12 +4554,22 @@ Twitter: lobrowR
 
 \section{Introduction}\label{introduction-7}
 
+We'll show how to make \textbf{scatterplots} using the ``quick plot''
+function (\textbf{qplot}) from ggplot2. ggplot2::qplot and ggpubr both
+offer simplified plotting using tools from ggplot2's toolkit. ggpubr
+implements a different syntax, though, while qplot use more standard
+ggplot2 idioms and so is a good way to get a sense for the full power of
+ggploting.
+
 \subsection*{Learning goals \&
 outcomes}\label{learning-goals-outcomes-2}
 \addcontentsline{toc}{subsection}{Learning goals \& outcomes}
 
-\subsection*{Learning goals}\label{learning-goals-3}
-\addcontentsline{toc}{subsection}{Learning goals}
+\begin{itemize}
+\tightlist
+\item
+  Make scatter plots : )
+\end{itemize}
 
 \subsection*{Functions \& Arguements}\label{functions-arguements-5}
 \addcontentsline{toc}{subsection}{Functions \& Arguements}
@@ -4511,6 +4606,14 @@ outcomes}\label{learning-goals-outcomes-2}
 \item
   cowplot
 \end{itemize}
+
+\subsection*{Potential hangups}\label{potential-hangups-4}
+\addcontentsline{toc}{subsection}{Potential hangups}
+
+There are many ways to make plots in R: ggplot, qplot, ggpubr, plot; and
+I'm leaving a few out. Moving between them is meant to give you a sense
+for the different tools so you can recognize them ``in the wild'' on the
+internet and in books. We'll transition to focusing on ggpubr soon.
 
 \section{Scatterplots: 2 Continuous
 Variables}\label{scatterplots-2-continuous-variables}
@@ -4560,8 +4663,8 @@ I'll plot the sepals against the petals
 
 \begin{figure}
 \centering
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-146-1.pdf}
-\caption{\label{fig:unnamed-chunk-146}Sepals vs.~Petals}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-148-1.pdf}
+\caption{\label{fig:unnamed-chunk-148}Sepals vs.~Petals}
 \end{figure}
 
 \subsection{Scatter plot of mammal brain
@@ -4656,8 +4759,8 @@ And ``conservation''
 
 \begin{figure}
 \centering
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-153-1.pdf}
-\caption{\label{fig:unnamed-chunk-153}Mammal sleep, raw data}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-155-1.pdf}
+\caption{\label{fig:unnamed-chunk-155}Mammal sleep, raw data}
 \end{figure}
 
 That looks really really ugly. It will work better if we ``log transform
@@ -4673,8 +4776,8 @@ the axes''
 
 \begin{figure}
 \centering
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-154-1.pdf}
-\caption{\label{fig:unnamed-chunk-154}Mammal sleep, logged data}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-156-1.pdf}
+\caption{\label{fig:unnamed-chunk-156}Mammal sleep, logged data}
 \end{figure}
 
 Things get logged all the time in stats. We'll talk more about that
@@ -4694,8 +4797,8 @@ scatterplot}\label{add-color-coding-to-scatterplot}
 
 \begin{figure}
 \centering
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-155-1.pdf}
-\caption{\label{fig:unnamed-chunk-155}Add colors with color =}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-157-1.pdf}
+\caption{\label{fig:unnamed-chunk-157}Add colors with color =}
 \end{figure}
 
 \subsection{Add color \& shape coding to
@@ -4713,8 +4816,8 @@ scatterplot}\label{add-color-shape-coding-to-scatterplot}
 
 \begin{figure}
 \centering
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-156-1.pdf}
-\caption{\label{fig:unnamed-chunk-156}Add shapes with shape =}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-158-1.pdf}
+\caption{\label{fig:unnamed-chunk-158}Add shapes with shape =}
 \end{figure}
 
 \subsection{\texorpdfstring{Put diffetrent ``vores'' in seperate
@@ -4740,8 +4843,8 @@ panels}{Put diffetrent vores in seperate panels}}\label{put-diffetrent-vores-in-
 
 \begin{figure}
 \centering
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-157-1.pdf}
-\caption{\label{fig:unnamed-chunk-157}Split into different panels w/ facets
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-159-1.pdf}
+\caption{\label{fig:unnamed-chunk-159}Split into different panels w/ facets
 =}
 \end{figure}
 
@@ -4772,8 +4875,10 @@ scatterplot}{Add a trend line" to a scatterplot}}\label{add-a-trend-line-to-a-sc
 \caption{(\#fig:last.chnk.sxn3.ch3)Add trendline with + geom\_smooth()}
 \end{figure}
 
-\subsection{Challenge: Modify mammal brain code to do the following
-things}\label{challenge-modify-mammal-brain-code-to-do-the-following-things}
+\subsection{Challenge: Modify mammal brain
+code}\label{challenge-modify-mammal-brain-code}
+
+Modify the mamal bran code to do the following things
 
 \begin{itemize}
 \tightlist
@@ -5714,7 +5819,7 @@ Basic boxplot with ggpubr's ggboxplot() function. Note that ``mass'' and
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-211-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-213-1.pdf}
 
 \subsection{Notched boxplot}\label{notched-boxplot}
 
@@ -5731,7 +5836,7 @@ determine if medians are different.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-212-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-214-1.pdf}
 
 Now try your own subset of the data. The Notch calculations likely get
 messed up with small samples sizes. R will likely give you several
@@ -5746,7 +5851,7 @@ warnings in red.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-213-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-215-1.pdf}
 
 \subsection{Filled boxplots}\label{filled-boxplots}
 
@@ -5791,7 +5896,7 @@ Add raw data This works best with small datasts
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-216-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-218-1.pdf}
 
 \subsection{Boxplots with jittered raw
 data}\label{boxplots-with-jittered-raw-data}
@@ -5810,7 +5915,7 @@ and want to avoid overlap in the points.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-217-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-219-1.pdf}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -5876,7 +5981,7 @@ Always add units (eg ``g'' for grams) when applicable.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-220-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-222-1.pdf}
 
 \subsubsection{Plot title}\label{plot-title}
 
@@ -5914,7 +6019,7 @@ Move the legend to the bottom.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-222-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-224-1.pdf}
 
 Change the color pallete
 
@@ -5932,7 +6037,7 @@ Change the color pallete
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-223-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-225-1.pdf}
 
 \subsection{Plotting multple plots with
 cowplot::plot\_grid}\label{plotting-multple-plots-with-cowplotplot_grid}
@@ -5961,7 +6066,7 @@ highlight jsut the word)
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-225-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-227-1.pdf}
 
 Now, Make an object using the full frogarms data
 
@@ -5983,7 +6088,7 @@ package.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-227-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-229-1.pdf}
 
 Add labels. Note that alignment is off sometimes.
 
@@ -6015,7 +6120,7 @@ graphing function.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-229-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-231-1.pdf}
 
 A key concept for ggplot is ``faceting.'' Faceting occuring when a two
 panels of plots are made from a single dataset, and the panels are split
@@ -6031,11 +6136,11 @@ only 10 frogs in each group, the graphs aren't very useful.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-230-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-232-1.pdf}
 
 Just as we did for histograms we can change the fill, add a title, etc.
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-231-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-233-1.pdf}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -6323,7 +6428,7 @@ around them. The ggerrorplot() is the main function, and the
 
 If for some reason you just want to plot means use ``desc\_stat =
 `mean'\,'', with mean quoted.
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-244-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-246-1.pdf}
 
 For the standard deviation use ``desc\_stat = `mean\_sd'\,'' (NOte that
 any time you have a plot with errorbarrs -- and if you plot means you
@@ -6339,7 +6444,7 @@ legend what the error bars are.)
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-245-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-247-1.pdf}
 
 Again, the standard deviation is a measure of \textbf{variation}.
 
@@ -6357,7 +6462,7 @@ standard error.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-246-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-248-1.pdf}
 
 Mean and 95\% confidence interval are plotted with ``desc\_stat =
 `mean\_ci'\,''
@@ -6371,7 +6476,7 @@ Mean and 95\% confidence interval are plotted with ``desc\_stat =
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-247-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-249-1.pdf}
 
 Again, the SE and 95\% CI are measure of \textbf{precision}. There can
 be lots of variation in a dataset (SD is high) but if you have collected
@@ -6413,7 +6518,7 @@ variation between the subsamples. What happens to the error bars?.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-249-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-251-1.pdf}
 
 Now, what if instead of the 95\% CI we plotted the SD. What do you think
 that will look like? Adapt the code from above by changing " desc\_stat
@@ -6433,7 +6538,7 @@ Set colors
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-250-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-252-1.pdf}
 
 Add raw data. kinda crazy but worth seeing how it looks.
 
@@ -6449,7 +6554,7 @@ Add raw data. kinda crazy but worth seeing how it looks.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-251-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-253-1.pdf}
 
 Jitter raw data. Even crazier. In general it works best if there are
 less than 10 data points per group.
@@ -6465,7 +6570,7 @@ less than 10 data points per group.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-252-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-254-1.pdf}
 
 Change to the SD. In theory, about 2/3 of the data points should falle
 within +/- 1 SD. Does that look about right?
@@ -6481,7 +6586,7 @@ within +/- 1 SD. Does that look about right?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-253-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-255-1.pdf}
 
 Back to just the means, and increase size.
 
@@ -6496,7 +6601,7 @@ Back to just the means, and increase size.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-254-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-256-1.pdf}
 
 Move legend to the bottom using ``legend =''bottom" "
 
@@ -6514,10 +6619,10 @@ Move legend to the bottom using ``legend =''bottom" "
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-255-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-257-1.pdf}
 
-\chapter{Data analysis case study part III: analysis with a
-t-test}\label{data-analysis-case-study-part-iii-analysis-with-a-t-test}
+\chapter{Data Analysis Case Study Part III:
+T-test}\label{data-analysis-case-study-part-iii-t-test}
 
 \textbf{Nathan Brouwer, Phd}\\
 brouwern at gmail.com\\
@@ -6620,7 +6725,7 @@ What does the CI mean?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-264-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-266-1.pdf}
 
 Make a plot of the means with error bars. Save to an object called
 gg.means
@@ -6652,7 +6757,7 @@ Plot both
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-267-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-269-1.pdf}
 
 A hint
 
@@ -6679,7 +6784,7 @@ A hint
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-269-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-271-1.pdf}
 
 Did anyone get a significant result?
 

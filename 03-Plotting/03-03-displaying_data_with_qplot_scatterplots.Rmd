@@ -1,4 +1,4 @@
-# Scatterplots in R using qplot()
+# Scatterplots in R Using qplot()
 
 ```{r, first.chnk.sxn3.ch3 , include=F, echo = F}
 knitr::opts_chunk$set(tidy = F, 
@@ -18,10 +18,11 @@ knitr::opts_chunk$set(tidy = F,
 
 ## Introduction
 
+We'll show how to make **scatterplots** using the "quick plot" function (**qplot**) from ggplot2.  ggplot2::qplot and ggpubr both offer simplified plotting using tools from ggplot2's toolkit.  ggpubr implements a different syntax, though, while qplot use more standard ggplot2 idioms and so is a good way to get a sense for the full  power of ggploting.
+
 ### Learning goals & outcomes {-}
 
-
-### Learning goals {-}
+* Make scatter plots : )
 
   
 ### Functions & Arguements {-}
@@ -40,6 +41,10 @@ knitr::opts_chunk$set(tidy = F,
 
 * ggplot2
 * cowplot
+
+### Potential hangups {-}
+
+There are many ways to make plots in R: ggplot, qplot, ggpubr, plot; and I'm leaving a few out.  Moving between them is meant to give you a sense for the different tools so you can recognize them "in the wild" on the internet and in books.  We'll transition to focusing on ggpubr soon.
 
 
 ## Scatterplots: 2 Continuous Variables
@@ -94,6 +99,7 @@ data(msleep)
 ```
 
 #### Look at the data
+
 ```{r, results="hide"}
 dim(msleep) #How much data is there?
 
@@ -210,7 +216,9 @@ qplot(y = log(sleep_rem),
 ```
 
 
-### Challenge: Modify mammal brain code to do the following things
+### Challenge: Modify mammal brain code 
+
+Modify the mamal bran code to do the following things
 
 * Change the axes labels (eg "+ ylab('y axis')") 
 * Add a title (eg  " + ggtitle('...')")

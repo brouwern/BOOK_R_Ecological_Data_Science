@@ -1,4 +1,4 @@
-# Data analysis case study part III: analysis with a t-test
+# Data Analysis Case Study Part III: T-test
 
 
 ```{r , include=F, echo = F}

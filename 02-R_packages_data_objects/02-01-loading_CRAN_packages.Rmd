@@ -23,9 +23,9 @@ knitr::opts_chunk$set(warnings = FALSE, message = FALSE,fig.height = 3, fig.widt
 
 
 | **Nathan Brouwer, Phd**
-| brouwern@gmail.com
+| brouwern at gmail.com
 | https://github.com/brouwern
-| @lobrowR
+| Twitter: lobrowR
 
 ## Introduction
 
@@ -49,9 +49,10 @@ This exercise will introduce students to
 ### Learning goals
 
 By the end of this exercise students should be able to 
+
 * locate and download packages from the CRAN website using RStudio
 * recognize the R functions used to download and install packages.
-* 
+
 
 ### Functions & Arguements
 
@@ -73,30 +74,41 @@ By the end of this exercise students should be able to
 
 ## Loading packages that come with base R
 
-What you download from CRAN is **base R**.  Many functions are called **base functions** because they are hard-wired into R.  
+What you download from CRAN is **base R** (also known as the **base distribution**).  Many functions are called **base functions** because they are hard-wired into R.  
 
-**OPTIONAL: What functions come with base R?**
-> If for some reason you want to see *all* the functions that come with base R, type this into the console and press enter.  (ls stands for "list" and is a function we'll use more later).
+
+----------
+
+## OPTIONAL: What functions come with base R?
+
+**The following section is opitonal**
+
+If for some reason you want to see *all* the functions that come with base R, type this into the console and press enter.  (ls stands for "list" and is a function we'll use more later).
 ```{r eval = FALSE}
 ls("package:base")
 ```
 
 As R has been developed there has also built up a cannon of tried and true packages that are downloaded automatically when you download R, but they aren't brought into R's working memory unless you tell R.
 
-**OPTIONAL**: What packages come with base R?
+## Optional: What packages come with base R?
 
-> If you want to see all of the packages that come with base R, do this.  library() is a function you will use a lot.
+>If you want to see all of the packages that come with base R, do this.  library() is a function you will use a lot.
 
 ```{r eval = FALSE}
 .libPaths("") 
 library()
 ```
 
-On package that is part of this cannon is MASS, which stands for Modern Applied Statistics in S.  "S" is the precursor to R, and MASS is the package that accompanies the book of the same name, which is one of the original books on S/R.  (https://www.springer.com/us/book/9780387954578)
+One package that is part of this cannon is MASS, which stands for Modern Applied Statistics in S.  "S" is the precursor to R, and MASS is the package that accompanies the book of the same name, which is one of the original books on S/R.  (https://www.springer.com/us/book/9780387954578)
+
+**End optional section**
+
+------------------
 
 ### [  ] Loading packages with the library() function
 
 When a function is already downloaded to your computer, you explicitly load it into R's working memory using the library() command.
+
 ```{r}
 library(MASS)
 ```
@@ -133,13 +145,21 @@ install.packages("ggplot2")
 
 Often when you download a package you'll see a fair bit of red text, and sometime other things will pop up.  Usually there's nothing of interest here, but sometimes you need to read things carefully over it for hints about why something didn't work.
 
-**OPTIONAL**:Seeing all of your installed packages
-*If for some reason you want to see everything you've downloaded, do this.*
+-------------------
+
+## Optional: Seeing all of your installed packages
+
+**The following section is optional**
+
+If for some reason you want to see everything you've downloaded, do this.
 
 ```{r eval = F}
 installed.packages()
 ```
 
+**End optional section**
+
+---------------------------
 
 ### [ ] Step 2: Explicitly loading a package with library()
 
@@ -152,12 +172,17 @@ library(ggplot2)
 
 -----------
 
-**OPTIONAL**: making a plot with ggplot
-*Now we can make a plot with ggplot, like using te qplot() function.  (Note that the syntax is different than what we did above with plot() ).*
+## OPTIONAL: Making a plot with ggplot
+
+**This section is optional**
+
+Now we can make a plot with the ggplot2 package we just downloaded, like using the qplot() function.  (Note that the syntax is different than what we did above with plot() ).*
 
 ```{r}
-qplot(y=FL,x= RW, data = crabs)
+qplot(y=FL, x= RW, data = crabs)
 ```
+
+**End opitional section**
 
 -----------
 
@@ -189,12 +214,18 @@ library(ggpubr)
 
 ---------------
 
-**Optional:**Make a plot with ggpubr/
+## Optional: Make a plot with ggpubr
+
+**This section is optional**
+
 ggpubr is an add on to ggplot.  (This means that ggpubr has ggplot as a dependency).  Note that the syntax for ggpubr function we use, ggscatter(), has a different syntax (again) than ggplot's qplot() function and base R's plot() function.
+
 ```{r}
 ggscatter(data = crabs,y = "FL", x = "RW") # use quotes!
 ```
 
+
+**End optional section**
 
 ---------------
 
@@ -203,7 +234,7 @@ ggscatter(data = crabs,y = "FL", x = "RW") # use quotes!
 
 An another add-on to ggplot2 is cowplot, which stands for ["Claus O. Wilke Plot"](https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html).  Download cowplot from CRAN using either the point-and-click method or **install.packages**, and then load it using **library**. Then run the following R code, which should make the plot below.
 
-Note that "FL" and "RW" are NOT in quotation marks as they are for ggscatter()! 
+**Note that "FL" and "RW" are NOT in quotation marks as they are for ggscatter()!**
 
 ```{r eval = FALSE}
 qplot(data = crabs, y = FL, x = RW) #no quotes!

@@ -1,9 +1,9 @@
 # Loading data from .csv files into RStudio
 
 | **Nathan Brouwer, Phd**
-| brouwern@gmail.com
+| brouwern at gmail.com
 | https://github.com/brouwern
-| @lobrowR
+| Twitter: lobrowR
 
 
 ```{r setup, include=FALSE}
@@ -164,7 +164,9 @@ list.files(pattern = "csv")
 
 ------------------------
 
-**OPTIONAL:**Interacting with R via the console or the source viewer
+## OPTIONAL Interacting with R via the console or the source viewer
+
+**This section is optional**
 
 You can enter R commands directly into the console, or type them into a **script file** in the **source viewer** and then execute.  
 
@@ -174,6 +176,8 @@ If you've just been using the console try this:
 * Type "getwd()" in the source viewer
 * Click on the "Run" button in the upper Right part of the pane
 * The getwd() command is  sent over to the console and executed
+
+**End optional section**
 
 ------------------------
 
@@ -190,9 +194,6 @@ read.csv(file = "Medley1998.csv")
 med98 <- read.csv(here::here("data/Medley1998.csv"))
 head(med98)
 ```
-
-
-
 
 
 You must have the file name in quotation marks and include the ".csv".  *Any* small error will cause things to not work.

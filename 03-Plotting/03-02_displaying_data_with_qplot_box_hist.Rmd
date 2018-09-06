@@ -269,3 +269,21 @@ qplot(Petal.Length,
       facets = Species ~.) +  
   xlab ("Sepal Length (mm)")
 ```
+
+
+
+## Challenge: Make a histogram of the mammals data
+
+* Load the MASS library using library(MASS)
+* Load the mammals data using data(mammals)
+* Make a histogram of the log of body mass
+* Add labels using xlab() and ylab()
+
+```{r echo = F}
+library(MASS)
+data(mammals)
+qplot(log(body), data = mammals) + 
+  xlab("Log of body mass") +
+  ylab("Count")
+```
+

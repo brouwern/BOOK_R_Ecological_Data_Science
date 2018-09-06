@@ -66,218 +66,226 @@
 \contentsline {subsection}{\numberline {6.1.4}Packages}{46}{subsection.6.1.4}
 \contentsline {subsection}{\numberline {6.1.5}Potential hangups}{46}{subsection.6.1.5}
 \contentsline {section}{\numberline {6.2}Loading packages that come with base R}{46}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}\hyperlink {section-3}{} Loading packages with the library() function}{46}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Preview: loading data from packages}{47}{subsection.6.2.2}
-\contentsline {section}{\numberline {6.3}Load data from an external R package}{47}{section.6.3}
-\contentsline {subsection}{\numberline {6.3.1}\hyperlink {section-3}{} Step 1: Downloading packages with install.packages()}{47}{subsection.6.3.1}
-\contentsline {subsection}{\numberline {6.3.2}\hyperlink {section-3}{} Step 2: Explicitly loading a package with library()}{48}{subsection.6.3.2}
-\contentsline {section}{\numberline {6.4}\hyperlink {section-3}{} Downloading packages using RStudio}{48}{section.6.4}
-\contentsline {section}{\numberline {6.5}\hyperlink {section-3}{} Packages \& their dependencies}{49}{section.6.5}
-\contentsline {section}{\numberline {6.6}Challenge}{49}{section.6.6}
-\contentsline {chapter}{\numberline {7}Loading data into R from a package}{51}{chapter.7}
-\contentsline {section}{\numberline {7.1}Introduction}{51}{section.7.1}
-\contentsline {subsection}{\numberline {7.1.1}Functions}{51}{subsection.7.1.1}
-\contentsline {subsection}{\numberline {7.1.2}Datsets}{51}{subsection.7.1.2}
-\contentsline {subsection}{\numberline {7.1.3}Packages}{51}{subsection.7.1.3}
-\contentsline {subsection}{\numberline {7.1.4}Key terms}{51}{subsection.7.1.4}
-\contentsline {section}{\numberline {7.2}Data pre-loaded in R}{52}{section.7.2}
-\contentsline {subsection}{\numberline {7.2.1}Preview: Plotting boxplots}{53}{subsection.7.2.1}
-\contentsline {section}{\numberline {7.3}Loading data from R packages}{54}{section.7.3}
-\contentsline {subsection}{\numberline {7.3.1}Loading a package contained in base R}{54}{subsection.7.3.1}
-\contentsline {subsection}{\numberline {7.3.2}Preview: Plotting scatter plot}{54}{subsection.7.3.2}
-\contentsline {section}{\numberline {7.4}Learning about data in R}{54}{section.7.4}
-\contentsline {section}{\numberline {7.5}Load data from an external R package}{56}{section.7.5}
-\contentsline {subsection}{\numberline {7.5.1}Step 1: Downloading packages}{56}{subsection.7.5.1}
-\contentsline {subsection}{\numberline {7.5.2}Step 2: Explicitly loading a package}{56}{subsection.7.5.2}
-\contentsline {subsection}{\numberline {7.5.3}Preview: plotting with ggplot2}{57}{subsection.7.5.3}
-\contentsline {section}{\numberline {7.6}Loading data from an R script}{58}{section.7.6}
-\contentsline {subsection}{\numberline {7.6.1}The eagles have landed - in your R workspace}{58}{subsection.7.6.1}
-\contentsline {subsubsection}{\numberline {7.6.1.1}Step one: Build R objects}{58}{subsubsection.7.6.1.1}
-\contentsline {subsubsection}{\numberline {7.6.1.2}Step two: Build dataframe}{59}{subsubsection.7.6.1.2}
-\contentsline {subsection}{\numberline {7.6.2}Looking at the eagle data}{59}{subsection.7.6.2}
-\contentsline {subsubsection}{\numberline {7.6.2.1}Preview: Plotting the eagle data}{59}{subsubsection.7.6.2.1}
-\contentsline {chapter}{\numberline {8}Loading packages \& data from GitHub}{61}{chapter.8}
-\contentsline {section}{\numberline {8.1}Introduction}{61}{section.8.1}
-\contentsline {subsection}{\numberline {8.1.1}Learning objectives}{61}{subsection.8.1.1}
-\contentsline {subsection}{\numberline {8.1.2}Learning goals}{61}{subsection.8.1.2}
-\contentsline {subsection}{\numberline {8.1.3}Functions \& Arguements}{61}{subsection.8.1.3}
-\contentsline {subsection}{\numberline {8.1.4}Packages}{62}{subsection.8.1.4}
-\contentsline {subsection}{\numberline {8.1.5}Potential hangups}{62}{subsection.8.1.5}
-\contentsline {section}{\numberline {8.2}\hyperlink {section-3}{} Accessing GitHub using devtools}{62}{section.8.2}
-\contentsline {section}{\numberline {8.3}\hyperlink {section-3}{} Downloading the wildlifeR package with install\_github()}{62}{section.8.3}
-\contentsline {section}{\numberline {8.4}\hyperlink {section-3}{} The wildlifeR packge webiste}{63}{section.8.4}
-\contentsline {chapter}{\numberline {9}Loading data from the internet}{65}{chapter.9}
-\contentsline {section}{\numberline {9.1}Introduction}{65}{section.9.1}
-\contentsline {subsection}{\numberline {9.1.1}Learning Goals \& Outcomes}{65}{subsection.9.1.1}
-\contentsline {subsection}{\numberline {9.1.2}Functions \& Arguements}{65}{subsection.9.1.2}
-\contentsline {subsection}{\numberline {9.1.3}Packages}{65}{subsection.9.1.3}
-\contentsline {subsection}{\numberline {9.1.4}Potential hangups}{66}{subsection.9.1.4}
-\contentsline {section}{\numberline {9.2}\hyperlink {section-3}{} Downloading a .csv file using getURL()}{66}{section.9.2}
-\contentsline {section}{\numberline {9.3}OPTIONAL: Plotting West Virginia Eagle Data}{66}{section.9.3}
-\contentsline {chapter}{\numberline {10}Loading data from .csv files into RStudio}{69}{chapter.10}
-\contentsline {section}{\numberline {10.1}Introduction}{69}{section.10.1}
-\contentsline {subsection}{\numberline {10.1.1}Learning goals}{69}{subsection.10.1.1}
-\contentsline {subsection}{\numberline {10.1.2}Learning objectives}{69}{subsection.10.1.2}
-\contentsline {subsection}{\numberline {10.1.3}R packageas}{69}{subsection.10.1.3}
-\contentsline {subsection}{\numberline {10.1.4}R commands}{69}{subsection.10.1.4}
-\contentsline {subsection}{\numberline {10.1.5}Files}{70}{subsection.10.1.5}
-\contentsline {subsection}{\numberline {10.1.6}Potential Hangups}{70}{subsection.10.1.6}
-\contentsline {subsection}{\numberline {10.1.7}References}{70}{subsection.10.1.7}
-\contentsline {section}{\numberline {10.2}Preliminary step: download a .csv file}{70}{section.10.2}
-\contentsline {section}{\numberline {10.3}Set the ``working directory'' (``WD'') in RStudio}{73}{section.10.3}
-\contentsline {section}{\numberline {10.4}Check the working directory with getwd()}{73}{section.10.4}
-\contentsline {section}{\numberline {10.5}Check for the file you downloaded with list.files()}{73}{section.10.5}
-\contentsline {section}{\numberline {10.6}Loading data into R using read.csv()}{74}{section.10.6}
-\contentsline {subsection}{\numberline {10.6.1}Load data into an R ``object''}{74}{subsection.10.6.1}
-\contentsline {subsection}{\numberline {10.6.2}The assignment operator ``\textless {}-''}{75}{subsection.10.6.2}
-\contentsline {section}{\numberline {10.7}Optional: Plot the Mendley 1998 data}{76}{section.10.7}
-\contentsline {section}{\numberline {10.8}Loading .csv files using RStudio \hyperlink {section-3}{}}{77}{section.10.8}
-\contentsline {section}{\numberline {10.9}Challenge}{79}{section.10.9}
-\contentsline {chapter}{\numberline {11}Loading Excel spreadsheets into RStudio}{81}{chapter.11}
-\contentsline {subsection}{\numberline {11.0.1}Prepping data in Excel}{81}{subsection.11.0.1}
-\contentsline {subsubsection}{\numberline {11.0.1.1}Save data to your R working directory (WD)}{81}{subsubsection.11.0.1.1}
-\contentsline {subsubsection}{\numberline {11.0.1.2}Re-Save The Excel file as a ``csv'' file}{81}{subsubsection.11.0.1.2}
-\contentsline {section}{\numberline {11.1}Preparing a file for loading into R}{81}{section.11.1}
-\contentsline {section}{\numberline {11.2}Reload data}{82}{section.11.2}
-\contentsline {part}{III\hspace {1em}Plotting data in R with ggplot2 \& friends}{83}{part.3}
-\contentsline {subsection}{}{85}{section*.7}
-\contentsline {chapter}{\numberline {12}Review: Loading \& Examining Data in R}{87}{chapter.12}
-\contentsline {section}{\numberline {12.1}Introduction}{87}{section.12.1}
-\contentsline {subsection}{\numberline {12.1.1}Learning Goals \& Outcomes}{87}{subsection.12.1.1}
-\contentsline {subsection}{\numberline {12.1.2}Functions \& Arguements}{87}{subsection.12.1.2}
-\contentsline {subsection}{\numberline {12.1.3}Packages}{88}{subsection.12.1.3}
-\contentsline {subsection}{\numberline {12.1.4}Outline}{88}{subsection.12.1.4}
-\contentsline {section}{\numberline {12.2}Example data for plotting: Fisher's Irises}{88}{section.12.2}
-\contentsline {section}{\numberline {12.3}Loading data into R the easy way: pre-made data in an R ``Package''}{88}{section.12.3}
-\contentsline {subsection}{\numberline {12.3.1}Load data that is already in the ``base'' distribution of R}{88}{subsection.12.3.1}
-\contentsline {subsection}{\numberline {12.3.2}Look at the iris data}{88}{subsection.12.3.2}
-\contentsline {section}{\numberline {12.4}Load data that is in another R package}{89}{section.12.4}
-\contentsline {subsection}{\numberline {12.4.1}Packages that come with R}{89}{subsection.12.4.1}
-\contentsline {section}{\numberline {12.5}Load Data From A package On CRAN}{90}{section.12.5}
-\contentsline {subsection}{\numberline {12.5.1}Loading packages using R-Studio}{90}{subsection.12.5.1}
-\contentsline {section}{\numberline {12.6}Loading packages directly using code}{91}{section.12.6}
-\contentsline {section}{\numberline {12.7}Troubleshooting Package Downloads}{91}{section.12.7}
-\contentsline {subsection}{\numberline {12.7.1}What if you tell R to install a package you already have downloaded?}{91}{subsection.12.7.1}
-\contentsline {subsection}{\numberline {12.7.2}What if I can't get a package I need loaded?}{91}{subsection.12.7.2}
-\contentsline {subsection}{\numberline {12.7.3}Finding R help with Google}{91}{subsection.12.7.3}
-\contentsline {chapter}{\numberline {13}Plotting Continous Data in R With ggplot2}{93}{chapter.13}
-\contentsline {section}{\numberline {13.1}Introduction}{93}{section.13.1}
-\contentsline {subsection}{\numberline {13.1.1}Learning goals \& objectives}{93}{subsection.13.1.1}
-\contentsline {subsection}{\numberline {13.1.2}Functions \& Arguements}{93}{subsection.13.1.2}
-\contentsline {subsection}{\numberline {13.1.3}Packages}{93}{subsection.13.1.3}
-\contentsline {subsection}{\numberline {13.1.4}Outline}{93}{subsection.13.1.4}
-\contentsline {section}{\numberline {13.2}Introduction to ggplot using qplot}{93}{section.13.2}
-\contentsline {section}{\numberline {13.3}A basic plot in ggplot using qplot()}{94}{section.13.3}
-\contentsline {chapter}{\numberline {14}Box plot with labels}{95}{chapter.14}
-\contentsline {section}{\numberline {14.1}Changing colors in R plots}{95}{section.14.1}
-\contentsline {subsection}{\numberline {14.1.1}Changing colors in R plots part 1}{95}{subsection.14.1.1}
-\contentsline {subsection}{\numberline {14.1.2}Changing colors in R plots part 2}{96}{subsection.14.1.2}
-\contentsline {section}{\numberline {14.2}Tweaking plots: changing the point size}{96}{section.14.2}
-\contentsline {section}{\numberline {14.3}Boxplot with qplot}{97}{section.14.3}
-\contentsline {subsection}{\numberline {14.3.1}Basic boxplot with qplot}{97}{subsection.14.3.1}
-\contentsline {section}{\numberline {14.4}Basic boxplot with colors}{97}{section.14.4}
-\contentsline {section}{\numberline {14.5}Basic boxplot lables}{98}{section.14.5}
-\contentsline {section}{\numberline {14.6}Histograms using qplot}{98}{section.14.6}
-\contentsline {subsection}{\numberline {14.6.1}Histograms of iris data}{99}{subsection.14.6.1}
-\contentsline {subsection}{\numberline {14.6.2}Histogram with colors}{99}{subsection.14.6.2}
-\contentsline {subsection}{\numberline {14.6.3}Histogram with axes labels}{99}{subsection.14.6.3}
-\contentsline {subsection}{\numberline {14.6.4}Multiple histograms: ``Facets''}{100}{subsection.14.6.4}
-\contentsline {section}{\numberline {14.7}Modifying histograms: titles with the main = argument}{101}{section.14.7}
-\contentsline {chapter}{\numberline {15}Scatterplots in R using qplot()}{103}{chapter.15}
-\contentsline {section}{\numberline {15.1}Introduction}{103}{section.15.1}
-\contentsline {subsection}{Learning goals \& outcomes}{103}{section*.8}
-\contentsline {subsection}{Learning goals}{103}{section*.9}
-\contentsline {subsection}{Functions \& Arguements}{103}{section*.10}
-\contentsline {subsection}{Packages}{103}{section*.11}
-\contentsline {section}{\numberline {15.2}Scatterplots: 2 Continuous Variables}{103}{section.15.2}
-\contentsline {subsection}{\numberline {15.2.1}R Preliminaries}{104}{subsection.15.2.1}
-\contentsline {subsection}{\numberline {15.2.2}Scatterplot of Iris data}{104}{subsection.15.2.2}
-\contentsline {subsection}{\numberline {15.2.3}Scatter plot of mammal brain data}{104}{subsection.15.2.3}
-\contentsline {subsubsection}{\numberline {15.2.3.1}Preliminaries}{104}{subsubsection.15.2.3.1}
-\contentsline {subsubsection}{\numberline {15.2.3.2}Look at the data}{104}{subsubsection.15.2.3.2}
-\contentsline {subsection}{\numberline {15.2.4}Make a basic scatterplot}{105}{subsection.15.2.4}
-\contentsline {subsection}{\numberline {15.2.5}Add color coding to scatterplot}{106}{subsection.15.2.5}
-\contentsline {subsection}{\numberline {15.2.6}Add color \& shape coding to scatterplot}{106}{subsection.15.2.6}
-\contentsline {subsection}{\numberline {15.2.7}Put diffetrent ``vores'' in seperate panels}{107}{subsection.15.2.7}
-\contentsline {subsection}{\numberline {15.2.8}Add a ``trend line''" to a scatterplot}{107}{subsection.15.2.8}
-\contentsline {subsection}{\numberline {15.2.9}Challenge: Modify mammal brain code to do the following things}{108}{subsection.15.2.9}
-\contentsline {part}{IV\hspace {1em}Data analysis: a first encounter}{109}{part.4}
-\contentsline {subsection}{}{111}{section*.12}
-\contentsline {chapter}{\numberline {16}Data Analysis Encounter: Summary Statistics}{113}{chapter.16}
-\contentsline {section}{\numberline {16.1}Introduction}{113}{section.16.1}
-\contentsline {subsection}{\numberline {16.1.1}Goals and objectives}{113}{subsection.16.1.1}
-\contentsline {subsection}{\numberline {16.1.2}Outline}{113}{subsection.16.1.2}
-\contentsline {subsection}{\numberline {16.1.3}Packages}{113}{subsection.16.1.3}
-\contentsline {subsection}{\numberline {16.1.4}Functions}{113}{subsection.16.1.4}
-\contentsline {section}{\numberline {16.2}Preliminaries}{114}{section.16.2}
-\contentsline {subsection}{\numberline {16.2.1}Load packages}{114}{subsection.16.2.1}
-\contentsline {subsection}{\numberline {16.2.2}Load data}{114}{subsection.16.2.2}
-\contentsline {subsection}{\numberline {16.2.3}Subset your data}{114}{subsection.16.2.3}
-\contentsline {section}{\numberline {16.3}A 1st encounter with R: getting to know your dataframe}{115}{section.16.3}
-\contentsline {subsection}{\numberline {16.3.1}Dataframe dimension}{115}{subsection.16.3.1}
-\contentsline {subsection}{\numberline {16.3.2}Optional: accessing elements of objects}{115}{subsection.16.3.2}
-\contentsline {subsection}{\numberline {16.3.3}Dataframe preview}{115}{subsection.16.3.3}
-\contentsline {section}{\numberline {16.4}A 1st encounter with R: summary statistics}{116}{section.16.4}
-\contentsline {subsection}{\numberline {16.4.1}Overall summary}{116}{subsection.16.4.1}
-\contentsline {subsection}{\numberline {16.4.2}Optional: stacking things with rbind()}{116}{subsection.16.4.2}
-\contentsline {subsection}{\numberline {16.4.3}Individual summary stats}{117}{subsection.16.4.3}
-\contentsline {subsection}{\numberline {16.4.4}The standard error (SE) in R}{117}{subsection.16.4.4}
-\contentsline {subsection}{\numberline {16.4.5}OPTIONAL: Find a package the calcualtes the SE}{117}{subsection.16.4.5}
-\contentsline {subsection}{\numberline {16.4.6}OPTIONAL: Write your own SD function}{117}{subsection.16.4.6}
-\contentsline {section}{\numberline {16.5}A 1st encounter with dplyr}{118}{section.16.5}
-\contentsline {subsubsection}{\numberline {16.5.0.1}dplyr's summarize() command}{119}{subsubsection.16.5.0.1}
-\contentsline {section}{\numberline {16.6}dplyr's group\_by() function}{119}{section.16.6}
-\contentsline {subsection}{\numberline {16.6.1}OPTIONAL: Using novel function with dplyr}{120}{subsection.16.6.1}
-\contentsline {section}{\numberline {16.7}OPTIONAL: ALternatives to dplyr}{120}{section.16.7}
-\contentsline {subsection}{\numberline {16.7.1}doBy::summaryBy}{121}{subsection.16.7.1}
-\contentsline {subsection}{\numberline {16.7.2}tapply()}{121}{subsection.16.7.2}
-\contentsline {subsection}{\numberline {16.7.3}reshape2::dcast}{121}{subsection.16.7.3}
-\contentsline {chapter}{\numberline {17}Data analysis encounter: Data exploration}{123}{chapter.17}
-\contentsline {section}{\numberline {17.1}Introduction}{123}{section.17.1}
-\contentsline {subsection}{\numberline {17.1.1}Goals \& objectives}{123}{subsection.17.1.1}
-\contentsline {subsection}{\numberline {17.1.2}Packages}{123}{subsection.17.1.2}
-\contentsline {subsection}{\numberline {17.1.3}Outline}{123}{subsection.17.1.3}
-\contentsline {subsection}{\numberline {17.1.4}Vocab}{123}{subsection.17.1.4}
-\contentsline {subsection}{\numberline {17.1.5}Preliminaries}{124}{subsection.17.1.5}
-\contentsline {subsubsection}{\numberline {17.1.5.1}Load packages}{124}{subsubsection.17.1.5.1}
-\contentsline {subsubsection}{\numberline {17.1.5.2}Load data}{124}{subsubsection.17.1.5.2}
-\contentsline {subsubsection}{\numberline {17.1.5.3}Subset your data}{124}{subsubsection.17.1.5.3}
-\contentsline {section}{\numberline {17.2}Data exploration plots}{124}{section.17.2}
-\contentsline {subsection}{\numberline {17.2.1}Boxplots}{124}{subsection.17.2.1}
-\contentsline {subsection}{\numberline {17.2.2}Notched boxplot}{125}{subsection.17.2.2}
-\contentsline {subsection}{\numberline {17.2.3}Filled boxplots}{126}{subsection.17.2.3}
-\contentsline {subsection}{\numberline {17.2.4}Boxplots with raw data}{126}{subsection.17.2.4}
-\contentsline {subsection}{\numberline {17.2.5}Boxplots with jittered raw data}{127}{subsection.17.2.5}
-\contentsline {subsection}{\numberline {17.2.6}OPTIONAL: Jittering with ggplot2}{128}{subsection.17.2.6}
-\contentsline {subsection}{\numberline {17.2.7}Label ggpubr axes}{128}{subsection.17.2.7}
-\contentsline {subsubsection}{\numberline {17.2.7.1}Axes lables}{128}{subsubsection.17.2.7.1}
-\contentsline {subsubsection}{\numberline {17.2.7.2}Plot title}{129}{subsubsection.17.2.7.2}
-\contentsline {subsubsection}{\numberline {17.2.7.3}Refining ggpubr pltos}{129}{subsubsection.17.2.7.3}
-\contentsline {subsection}{\numberline {17.2.8}Plotting multple plots with cowplot::plot\_grid}{130}{subsection.17.2.8}
-\contentsline {subsection}{\numberline {17.2.9}Optional: Histograms}{132}{subsection.17.2.9}
-\contentsline {chapter}{\numberline {18}Data analysis case study part II: plotting your data}{135}{chapter.18}
-\contentsline {section}{\numberline {18.1}Introduction}{135}{section.18.1}
-\contentsline {subsection}{\numberline {18.1.1}Goals \& objectives}{135}{subsection.18.1.1}
-\contentsline {subsection}{\numberline {18.1.2}Packages}{135}{subsection.18.1.2}
-\contentsline {subsection}{\numberline {18.1.3}Outline}{135}{subsection.18.1.3}
-\contentsline {subsection}{\numberline {18.1.4}Vocab}{136}{subsection.18.1.4}
-\contentsline {subsection}{\numberline {18.1.5}Preliminaries}{136}{subsection.18.1.5}
-\contentsline {subsubsection}{\numberline {18.1.5.1}Load packages}{136}{subsubsection.18.1.5.1}
-\contentsline {subsubsection}{\numberline {18.1.5.2}Load data}{136}{subsubsection.18.1.5.2}
-\contentsline {subsubsection}{\numberline {18.1.5.3}Subset your data}{136}{subsubsection.18.1.5.3}
-\contentsline {section}{\numberline {18.2}Background: measures of variation}{137}{section.18.2}
-\contentsline {subsection}{\numberline {18.2.1}Variance}{137}{subsection.18.2.1}
-\contentsline {subsection}{\numberline {18.2.2}Standard deviation (SD)}{137}{subsection.18.2.2}
-\contentsline {subsection}{\numberline {18.2.3}Optional: Testing the equivalence of two values}{138}{subsection.18.2.3}
-\contentsline {subsection}{\numberline {18.2.4}Standard error (SE)}{138}{subsection.18.2.4}
-\contentsline {subsection}{\numberline {18.2.5}Confidence Interval (CI)}{138}{subsection.18.2.5}
-\contentsline {section}{\numberline {18.3}Representing variation with the SD}{139}{section.18.3}
-\contentsline {subsection}{\numberline {18.3.1}Representing precision with the SE}{140}{subsection.18.3.1}
-\contentsline {section}{\numberline {18.4}Refining plots}{141}{section.18.4}
-\contentsline {chapter}{\numberline {19}Data analysis case study part III: analysis with a t-test}{145}{chapter.19}
-\contentsline {subsection}{\numberline {19.0.1}Preliminaries}{145}{subsection.19.0.1}
-\contentsline {subsubsection}{\numberline {19.0.1.1}Load packages}{145}{subsubsection.19.0.1.1}
-\contentsline {subsubsection}{\numberline {19.0.1.2}Load data}{145}{subsubsection.19.0.1.2}
-\contentsline {subsubsection}{\numberline {19.0.1.3}Subset your data}{145}{subsubsection.19.0.1.3}
-\contentsline {subsection}{\numberline {19.0.2}T-test}{146}{subsection.19.0.2}
-\contentsline {subsection}{\numberline {19.0.3}Arm girth}{148}{subsection.19.0.3}
+\contentsline {section}{\numberline {6.3}OPTIONAL: What functions come with base R?}{46}{section.6.3}
+\contentsline {section}{\numberline {6.4}Optional: What packages come with base R?}{46}{section.6.4}
+\contentsline {subsection}{\numberline {6.4.1}\hyperlink {section-3}{} Loading packages with the library() function}{47}{subsection.6.4.1}
+\contentsline {subsection}{\numberline {6.4.2}Preview: loading data from packages}{47}{subsection.6.4.2}
+\contentsline {section}{\numberline {6.5}Load data from an external R package}{47}{section.6.5}
+\contentsline {subsection}{\numberline {6.5.1}\hyperlink {section-3}{} Step 1: Downloading packages with install.packages()}{48}{subsection.6.5.1}
+\contentsline {section}{\numberline {6.6}Optional: Seeing all of your installed packages}{48}{section.6.6}
+\contentsline {subsection}{\numberline {6.6.1}\hyperlink {section-3}{} Step 2: Explicitly loading a package with library()}{48}{subsection.6.6.1}
+\contentsline {section}{\numberline {6.7}OPTIONAL: Making a plot with ggplot}{48}{section.6.7}
+\contentsline {section}{\numberline {6.8}\hyperlink {section-3}{} Downloading packages using RStudio}{49}{section.6.8}
+\contentsline {section}{\numberline {6.9}\hyperlink {section-3}{} Packages \& their dependencies}{49}{section.6.9}
+\contentsline {section}{\numberline {6.10}Optional: Make a plot with ggpubr}{50}{section.6.10}
+\contentsline {section}{\numberline {6.11}Challenge}{50}{section.6.11}
+\contentsline {chapter}{\numberline {7}Loading data into R from a package}{53}{chapter.7}
+\contentsline {section}{\numberline {7.1}Introduction}{53}{section.7.1}
+\contentsline {subsection}{\numberline {7.1.1}Functions}{53}{subsection.7.1.1}
+\contentsline {subsection}{\numberline {7.1.2}Datsets}{53}{subsection.7.1.2}
+\contentsline {subsection}{\numberline {7.1.3}Packages}{53}{subsection.7.1.3}
+\contentsline {subsection}{\numberline {7.1.4}Key terms}{53}{subsection.7.1.4}
+\contentsline {section}{\numberline {7.2}Data pre-loaded in R}{54}{section.7.2}
+\contentsline {subsection}{\numberline {7.2.1}Preview: Plotting boxplots}{55}{subsection.7.2.1}
+\contentsline {section}{\numberline {7.3}Loading data from R packages}{56}{section.7.3}
+\contentsline {subsection}{\numberline {7.3.1}Loading a package contained in base R}{56}{subsection.7.3.1}
+\contentsline {subsection}{\numberline {7.3.2}Preview: Plotting scatter plot}{56}{subsection.7.3.2}
+\contentsline {section}{\numberline {7.4}Learning about data in R}{56}{section.7.4}
+\contentsline {section}{\numberline {7.5}Load data from an external R package}{58}{section.7.5}
+\contentsline {subsection}{\numberline {7.5.1}Step 1: Downloading packages}{58}{subsection.7.5.1}
+\contentsline {subsection}{\numberline {7.5.2}Step 2: Explicitly loading a package}{58}{subsection.7.5.2}
+\contentsline {subsection}{\numberline {7.5.3}Preview: plotting with ggplot2}{59}{subsection.7.5.3}
+\contentsline {section}{\numberline {7.6}Loading data from an R script}{60}{section.7.6}
+\contentsline {subsection}{\numberline {7.6.1}The eagles have landed - in your R workspace}{60}{subsection.7.6.1}
+\contentsline {subsubsection}{\numberline {7.6.1.1}Step one: Build R objects}{60}{subsubsection.7.6.1.1}
+\contentsline {subsubsection}{\numberline {7.6.1.2}Step two: Build dataframe}{61}{subsubsection.7.6.1.2}
+\contentsline {subsection}{\numberline {7.6.2}Looking at the eagle data}{61}{subsection.7.6.2}
+\contentsline {subsubsection}{\numberline {7.6.2.1}Preview: Plotting the Eagle D}{61}{subsubsection.7.6.2.1}
+\contentsline {section}{\numberline {7.7}Challenge}{62}{section.7.7}
+\contentsline {chapter}{\numberline {8}Loading packages \& data from GitHub}{65}{chapter.8}
+\contentsline {section}{\numberline {8.1}Introduction}{65}{section.8.1}
+\contentsline {subsection}{\numberline {8.1.1}Learning objectives}{65}{subsection.8.1.1}
+\contentsline {subsection}{\numberline {8.1.2}Learning goals}{65}{subsection.8.1.2}
+\contentsline {subsection}{\numberline {8.1.3}Functions \& Arguements}{65}{subsection.8.1.3}
+\contentsline {subsection}{\numberline {8.1.4}Packages}{66}{subsection.8.1.4}
+\contentsline {subsection}{\numberline {8.1.5}Potential hangups}{66}{subsection.8.1.5}
+\contentsline {section}{\numberline {8.2}\hyperlink {section-3}{} Accessing GitHub using devtools}{66}{section.8.2}
+\contentsline {section}{\numberline {8.3}\hyperlink {section-3}{} Downloading the wildlifeR package with install\_github()}{66}{section.8.3}
+\contentsline {section}{\numberline {8.4}\hyperlink {section-3}{} The wildlifeR packge webiste}{67}{section.8.4}
+\contentsline {chapter}{\numberline {9}Loading data from the internet}{69}{chapter.9}
+\contentsline {section}{\numberline {9.1}Introduction}{69}{section.9.1}
+\contentsline {subsection}{\numberline {9.1.1}Learning Goals \& Outcomes}{69}{subsection.9.1.1}
+\contentsline {subsection}{\numberline {9.1.2}Functions \& Arguements}{69}{subsection.9.1.2}
+\contentsline {subsection}{\numberline {9.1.3}Packages}{69}{subsection.9.1.3}
+\contentsline {subsection}{\numberline {9.1.4}Potential hangups}{70}{subsection.9.1.4}
+\contentsline {section}{\numberline {9.2}\hyperlink {section-3}{} Downloading a .csv file using getURL()}{70}{section.9.2}
+\contentsline {section}{\numberline {9.3}OPTIONAL: Plotting West Virginia Eagle Data}{70}{section.9.3}
+\contentsline {chapter}{\numberline {10}Loading data from .csv files into RStudio}{73}{chapter.10}
+\contentsline {section}{\numberline {10.1}Introduction}{73}{section.10.1}
+\contentsline {subsection}{\numberline {10.1.1}Learning goals}{73}{subsection.10.1.1}
+\contentsline {subsection}{\numberline {10.1.2}Learning objectives}{73}{subsection.10.1.2}
+\contentsline {subsection}{\numberline {10.1.3}R packageas}{73}{subsection.10.1.3}
+\contentsline {subsection}{\numberline {10.1.4}R commands}{73}{subsection.10.1.4}
+\contentsline {subsection}{\numberline {10.1.5}Files}{74}{subsection.10.1.5}
+\contentsline {subsection}{\numberline {10.1.6}Potential Hangups}{74}{subsection.10.1.6}
+\contentsline {subsection}{\numberline {10.1.7}References}{74}{subsection.10.1.7}
+\contentsline {section}{\numberline {10.2}Preliminary step: download a .csv file}{74}{section.10.2}
+\contentsline {section}{\numberline {10.3}Set the ``working directory'' (``WD'') in RStudio}{77}{section.10.3}
+\contentsline {section}{\numberline {10.4}Check the working directory with getwd()}{77}{section.10.4}
+\contentsline {section}{\numberline {10.5}Check for the file you downloaded with list.files()}{77}{section.10.5}
+\contentsline {section}{\numberline {10.6}OPTIONAL Interacting with R via the console or the source viewer}{78}{section.10.6}
+\contentsline {section}{\numberline {10.7}Loading data into R using read.csv()}{78}{section.10.7}
+\contentsline {subsection}{\numberline {10.7.1}Load data into an R ``object''}{79}{subsection.10.7.1}
+\contentsline {subsection}{\numberline {10.7.2}The assignment operator ``\textless {}-''}{79}{subsection.10.7.2}
+\contentsline {section}{\numberline {10.8}Optional: Plot the Mendley 1998 data}{80}{section.10.8}
+\contentsline {section}{\numberline {10.9}Loading .csv files using RStudio \hyperlink {section-3}{}}{81}{section.10.9}
+\contentsline {section}{\numberline {10.10}Challenge}{82}{section.10.10}
+\contentsline {chapter}{\numberline {11}Loading Excel spreadsheets into RStudio}{85}{chapter.11}
+\contentsline {subsection}{\numberline {11.0.1}Prepping data in Excel}{85}{subsection.11.0.1}
+\contentsline {subsubsection}{\numberline {11.0.1.1}Save data to your R working directory (WD)}{85}{subsubsection.11.0.1.1}
+\contentsline {subsubsection}{\numberline {11.0.1.2}Re-Save The Excel file as a ``csv'' file}{85}{subsubsection.11.0.1.2}
+\contentsline {section}{\numberline {11.1}Preparing a file for loading into R}{86}{section.11.1}
+\contentsline {section}{\numberline {11.2}Reload data}{86}{section.11.2}
+\contentsline {part}{III\hspace {1em}Plotting data in R with ggplot2 \& friends}{87}{part.3}
+\contentsline {subsection}{}{89}{section*.7}
+\contentsline {chapter}{\numberline {12}Review: Loading \& Examining Data in R}{91}{chapter.12}
+\contentsline {section}{\numberline {12.1}Introduction}{91}{section.12.1}
+\contentsline {subsection}{\numberline {12.1.1}Learning Goals \& Outcomes}{91}{subsection.12.1.1}
+\contentsline {subsection}{\numberline {12.1.2}Functions \& Arguements}{91}{subsection.12.1.2}
+\contentsline {subsection}{\numberline {12.1.3}Packages}{92}{subsection.12.1.3}
+\contentsline {subsection}{\numberline {12.1.4}Outline}{92}{subsection.12.1.4}
+\contentsline {section}{\numberline {12.2}Example data for plotting: Fisher's Irises}{92}{section.12.2}
+\contentsline {section}{\numberline {12.3}Loading data into R the easy way: pre-made data in an R ``Package''}{92}{section.12.3}
+\contentsline {subsection}{\numberline {12.3.1}Load data that is already in the ``base'' distribution of R}{92}{subsection.12.3.1}
+\contentsline {subsection}{\numberline {12.3.2}Look at the iris data}{92}{subsection.12.3.2}
+\contentsline {section}{\numberline {12.4}Load data that is in another R package}{93}{section.12.4}
+\contentsline {subsection}{\numberline {12.4.1}Packages that come with R}{93}{subsection.12.4.1}
+\contentsline {section}{\numberline {12.5}Load Data From A package On CRAN}{94}{section.12.5}
+\contentsline {subsection}{\numberline {12.5.1}Loading packages using R-Studio}{94}{subsection.12.5.1}
+\contentsline {section}{\numberline {12.6}Loading packages directly using code}{95}{section.12.6}
+\contentsline {section}{\numberline {12.7}Troubleshooting Package Downloads}{95}{section.12.7}
+\contentsline {subsection}{\numberline {12.7.1}What if you tell R to install a package you already have downloaded?}{95}{subsection.12.7.1}
+\contentsline {subsection}{\numberline {12.7.2}What if I can't get a package I need loaded?}{95}{subsection.12.7.2}
+\contentsline {subsection}{\numberline {12.7.3}Finding R help with Google}{95}{subsection.12.7.3}
+\contentsline {chapter}{\numberline {13}Plotting Continous Data in R With ggplot2}{97}{chapter.13}
+\contentsline {section}{\numberline {13.1}Introduction}{97}{section.13.1}
+\contentsline {subsection}{\numberline {13.1.1}Learning goals \& objectives}{97}{subsection.13.1.1}
+\contentsline {subsection}{\numberline {13.1.2}Functions \& Arguements}{97}{subsection.13.1.2}
+\contentsline {subsection}{\numberline {13.1.3}Packages}{97}{subsection.13.1.3}
+\contentsline {subsection}{\numberline {13.1.4}Outline}{97}{subsection.13.1.4}
+\contentsline {section}{\numberline {13.2}Introduction to ggplot using qplot}{97}{section.13.2}
+\contentsline {section}{\numberline {13.3}A basic plot in ggplot using qplot()}{98}{section.13.3}
+\contentsline {chapter}{\numberline {14}Box plot with labels}{99}{chapter.14}
+\contentsline {section}{\numberline {14.1}Changing colors in R plots}{99}{section.14.1}
+\contentsline {subsection}{\numberline {14.1.1}Changing colors in R plots part 1}{99}{subsection.14.1.1}
+\contentsline {subsection}{\numberline {14.1.2}Changing colors in R plots part 2}{100}{subsection.14.1.2}
+\contentsline {section}{\numberline {14.2}Tweaking plots: changing the point size}{100}{section.14.2}
+\contentsline {section}{\numberline {14.3}Boxplot with qplot}{101}{section.14.3}
+\contentsline {subsection}{\numberline {14.3.1}Basic boxplot with qplot}{101}{subsection.14.3.1}
+\contentsline {section}{\numberline {14.4}Basic boxplot with colors}{101}{section.14.4}
+\contentsline {section}{\numberline {14.5}Basic boxplot lables}{102}{section.14.5}
+\contentsline {section}{\numberline {14.6}Histograms using qplot}{102}{section.14.6}
+\contentsline {subsection}{\numberline {14.6.1}Histograms of iris data}{103}{subsection.14.6.1}
+\contentsline {subsection}{\numberline {14.6.2}Histogram with colors}{103}{subsection.14.6.2}
+\contentsline {subsection}{\numberline {14.6.3}Histogram with axes labels}{103}{subsection.14.6.3}
+\contentsline {subsection}{\numberline {14.6.4}Multiple histograms: ``Facets''}{104}{subsection.14.6.4}
+\contentsline {section}{\numberline {14.7}Modifying histograms: titles with the main = argument}{105}{section.14.7}
+\contentsline {section}{\numberline {14.8}Challenge: Make a histogram of the mammals data}{106}{section.14.8}
+\contentsline {chapter}{\numberline {15}Scatterplots in R Using qplot()}{107}{chapter.15}
+\contentsline {section}{\numberline {15.1}Introduction}{107}{section.15.1}
+\contentsline {subsection}{Learning goals \& outcomes}{107}{section*.8}
+\contentsline {subsection}{Functions \& Arguements}{107}{section*.9}
+\contentsline {subsection}{Packages}{107}{section*.10}
+\contentsline {subsection}{Potential hangups}{108}{section*.11}
+\contentsline {section}{\numberline {15.2}Scatterplots: 2 Continuous Variables}{108}{section.15.2}
+\contentsline {subsection}{\numberline {15.2.1}R Preliminaries}{108}{subsection.15.2.1}
+\contentsline {subsection}{\numberline {15.2.2}Scatterplot of Iris data}{108}{subsection.15.2.2}
+\contentsline {subsection}{\numberline {15.2.3}Scatter plot of mammal brain data}{108}{subsection.15.2.3}
+\contentsline {subsubsection}{\numberline {15.2.3.1}Preliminaries}{109}{subsubsection.15.2.3.1}
+\contentsline {subsubsection}{\numberline {15.2.3.2}Look at the data}{109}{subsubsection.15.2.3.2}
+\contentsline {subsection}{\numberline {15.2.4}Make a basic scatterplot}{109}{subsection.15.2.4}
+\contentsline {subsection}{\numberline {15.2.5}Add color coding to scatterplot}{111}{subsection.15.2.5}
+\contentsline {subsection}{\numberline {15.2.6}Add color \& shape coding to scatterplot}{111}{subsection.15.2.6}
+\contentsline {subsection}{\numberline {15.2.7}Put diffetrent ``vores'' in seperate panels}{111}{subsection.15.2.7}
+\contentsline {subsection}{\numberline {15.2.8}Add a ``trend line''" to a scatterplot}{112}{subsection.15.2.8}
+\contentsline {subsection}{\numberline {15.2.9}Challenge: Modify mammal brain code}{112}{subsection.15.2.9}
+\contentsline {part}{IV\hspace {1em}Data analysis: a first encounter}{115}{part.4}
+\contentsline {subsection}{}{117}{section*.12}
+\contentsline {chapter}{\numberline {16}Data Analysis Encounter: Summary Statistics}{119}{chapter.16}
+\contentsline {section}{\numberline {16.1}Introduction}{119}{section.16.1}
+\contentsline {subsection}{\numberline {16.1.1}Goals and objectives}{119}{subsection.16.1.1}
+\contentsline {subsection}{\numberline {16.1.2}Outline}{119}{subsection.16.1.2}
+\contentsline {subsection}{\numberline {16.1.3}Packages}{119}{subsection.16.1.3}
+\contentsline {subsection}{\numberline {16.1.4}Functions}{119}{subsection.16.1.4}
+\contentsline {section}{\numberline {16.2}Preliminaries}{120}{section.16.2}
+\contentsline {subsection}{\numberline {16.2.1}Load packages}{120}{subsection.16.2.1}
+\contentsline {subsection}{\numberline {16.2.2}Load data}{120}{subsection.16.2.2}
+\contentsline {subsection}{\numberline {16.2.3}Subset your data}{120}{subsection.16.2.3}
+\contentsline {section}{\numberline {16.3}A 1st encounter with R: getting to know your dataframe}{121}{section.16.3}
+\contentsline {subsection}{\numberline {16.3.1}Dataframe dimension}{121}{subsection.16.3.1}
+\contentsline {subsection}{\numberline {16.3.2}Optional: accessing elements of objects}{121}{subsection.16.3.2}
+\contentsline {subsection}{\numberline {16.3.3}Dataframe preview}{121}{subsection.16.3.3}
+\contentsline {section}{\numberline {16.4}A 1st encounter with R: summary statistics}{122}{section.16.4}
+\contentsline {subsection}{\numberline {16.4.1}Overall summary}{122}{subsection.16.4.1}
+\contentsline {subsection}{\numberline {16.4.2}Optional: stacking things with rbind()}{122}{subsection.16.4.2}
+\contentsline {subsection}{\numberline {16.4.3}Individual summary stats}{123}{subsection.16.4.3}
+\contentsline {subsection}{\numberline {16.4.4}The standard error (SE) in R}{123}{subsection.16.4.4}
+\contentsline {subsection}{\numberline {16.4.5}OPTIONAL: Find a package the calcualtes the SE}{123}{subsection.16.4.5}
+\contentsline {subsection}{\numberline {16.4.6}OPTIONAL: Write your own SD function}{123}{subsection.16.4.6}
+\contentsline {section}{\numberline {16.5}A 1st encounter with dplyr}{124}{section.16.5}
+\contentsline {subsubsection}{\numberline {16.5.0.1}dplyr's summarize() command}{125}{subsubsection.16.5.0.1}
+\contentsline {section}{\numberline {16.6}dplyr's group\_by() function}{125}{section.16.6}
+\contentsline {subsection}{\numberline {16.6.1}OPTIONAL: Using novel function with dplyr}{126}{subsection.16.6.1}
+\contentsline {section}{\numberline {16.7}OPTIONAL: ALternatives to dplyr}{126}{section.16.7}
+\contentsline {subsection}{\numberline {16.7.1}doBy::summaryBy}{127}{subsection.16.7.1}
+\contentsline {subsection}{\numberline {16.7.2}tapply()}{127}{subsection.16.7.2}
+\contentsline {subsection}{\numberline {16.7.3}reshape2::dcast}{127}{subsection.16.7.3}
+\contentsline {chapter}{\numberline {17}Data analysis encounter: Data exploration}{129}{chapter.17}
+\contentsline {section}{\numberline {17.1}Introduction}{129}{section.17.1}
+\contentsline {subsection}{\numberline {17.1.1}Goals \& objectives}{129}{subsection.17.1.1}
+\contentsline {subsection}{\numberline {17.1.2}Packages}{129}{subsection.17.1.2}
+\contentsline {subsection}{\numberline {17.1.3}Outline}{129}{subsection.17.1.3}
+\contentsline {subsection}{\numberline {17.1.4}Vocab}{129}{subsection.17.1.4}
+\contentsline {subsection}{\numberline {17.1.5}Preliminaries}{130}{subsection.17.1.5}
+\contentsline {subsubsection}{\numberline {17.1.5.1}Load packages}{130}{subsubsection.17.1.5.1}
+\contentsline {subsubsection}{\numberline {17.1.5.2}Load data}{130}{subsubsection.17.1.5.2}
+\contentsline {subsubsection}{\numberline {17.1.5.3}Subset your data}{130}{subsubsection.17.1.5.3}
+\contentsline {section}{\numberline {17.2}Data exploration plots}{130}{section.17.2}
+\contentsline {subsection}{\numberline {17.2.1}Boxplots}{130}{subsection.17.2.1}
+\contentsline {subsection}{\numberline {17.2.2}Notched boxplot}{131}{subsection.17.2.2}
+\contentsline {subsection}{\numberline {17.2.3}Filled boxplots}{132}{subsection.17.2.3}
+\contentsline {subsection}{\numberline {17.2.4}Boxplots with raw data}{132}{subsection.17.2.4}
+\contentsline {subsection}{\numberline {17.2.5}Boxplots with jittered raw data}{133}{subsection.17.2.5}
+\contentsline {subsection}{\numberline {17.2.6}OPTIONAL: Jittering with ggplot2}{134}{subsection.17.2.6}
+\contentsline {subsection}{\numberline {17.2.7}Label ggpubr axes}{134}{subsection.17.2.7}
+\contentsline {subsubsection}{\numberline {17.2.7.1}Axes lables}{134}{subsubsection.17.2.7.1}
+\contentsline {subsubsection}{\numberline {17.2.7.2}Plot title}{135}{subsubsection.17.2.7.2}
+\contentsline {subsubsection}{\numberline {17.2.7.3}Refining ggpubr pltos}{135}{subsubsection.17.2.7.3}
+\contentsline {subsection}{\numberline {17.2.8}Plotting multple plots with cowplot::plot\_grid}{136}{subsection.17.2.8}
+\contentsline {subsection}{\numberline {17.2.9}Optional: Histograms}{138}{subsection.17.2.9}
+\contentsline {chapter}{\numberline {18}Data analysis case study part II: plotting your data}{141}{chapter.18}
+\contentsline {section}{\numberline {18.1}Introduction}{141}{section.18.1}
+\contentsline {subsection}{\numberline {18.1.1}Goals \& objectives}{141}{subsection.18.1.1}
+\contentsline {subsection}{\numberline {18.1.2}Packages}{141}{subsection.18.1.2}
+\contentsline {subsection}{\numberline {18.1.3}Outline}{141}{subsection.18.1.3}
+\contentsline {subsection}{\numberline {18.1.4}Vocab}{142}{subsection.18.1.4}
+\contentsline {subsection}{\numberline {18.1.5}Preliminaries}{142}{subsection.18.1.5}
+\contentsline {subsubsection}{\numberline {18.1.5.1}Load packages}{142}{subsubsection.18.1.5.1}
+\contentsline {subsubsection}{\numberline {18.1.5.2}Load data}{142}{subsubsection.18.1.5.2}
+\contentsline {subsubsection}{\numberline {18.1.5.3}Subset your data}{142}{subsubsection.18.1.5.3}
+\contentsline {section}{\numberline {18.2}Background: measures of variation}{143}{section.18.2}
+\contentsline {subsection}{\numberline {18.2.1}Variance}{143}{subsection.18.2.1}
+\contentsline {subsection}{\numberline {18.2.2}Standard deviation (SD)}{143}{subsection.18.2.2}
+\contentsline {subsection}{\numberline {18.2.3}Optional: Testing the equivalence of two values}{144}{subsection.18.2.3}
+\contentsline {subsection}{\numberline {18.2.4}Standard error (SE)}{144}{subsection.18.2.4}
+\contentsline {subsection}{\numberline {18.2.5}Confidence Interval (CI)}{144}{subsection.18.2.5}
+\contentsline {section}{\numberline {18.3}Representing variation with the SD}{145}{section.18.3}
+\contentsline {subsection}{\numberline {18.3.1}Representing precision with the SE}{146}{subsection.18.3.1}
+\contentsline {section}{\numberline {18.4}Refining plots}{147}{section.18.4}
+\contentsline {chapter}{\numberline {19}Data Analysis Case Study Part III: T-test}{151}{chapter.19}
+\contentsline {subsection}{\numberline {19.0.1}Preliminaries}{151}{subsection.19.0.1}
+\contentsline {subsubsection}{\numberline {19.0.1.1}Load packages}{151}{subsubsection.19.0.1.1}
+\contentsline {subsubsection}{\numberline {19.0.1.2}Load data}{151}{subsubsection.19.0.1.2}
+\contentsline {subsubsection}{\numberline {19.0.1.3}Subset your data}{151}{subsubsection.19.0.1.3}
+\contentsline {subsection}{\numberline {19.0.2}T-test}{152}{subsection.19.0.2}
+\contentsline {subsection}{\numberline {19.0.3}Arm girth}{154}{subsection.19.0.3}

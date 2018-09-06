@@ -1,5 +1,12 @@
 # Loading Excel spreadsheets into RStudio
 
+| **Nathan Brouwer, Phd**
+| brouwern at gmail.com
+| https://github.com/brouwern
+| Twitter: lobrowR
+
+
+**THIS CHAPTER HAS NOT BEEN WRITTEN**
 
 re-save as .csv and load
 

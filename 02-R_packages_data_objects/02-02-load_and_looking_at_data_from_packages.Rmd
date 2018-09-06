@@ -1,8 +1,3 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
 # Loading data into R from a package
 
 
@@ -12,8 +7,9 @@ knitr::opts_chunk$set(warnings = FALSE, message = FALSE,fig.height = 3, fig.widt
 
 
 | **Nathan Brouwer, Phd**
-| brouwern@gmail.com
+| brouwern at gmail.com
 | https://github.com/brouwern
+| Twitter: lobrowR
 
 
 ## Introduction
@@ -282,6 +278,7 @@ year <- c(1980:2016)
 ```
 
 Second, we'll create an object called "eagles" with the number of breeding pairs (male and females paired up for making baby eagles) recorded each year. Note that most years in the 1980s are skipped because there is not data available. When data are missing we use NA.  (Note that this is just NA, with not quotes around it).
+
 ```{r}
 eagles <-  c(3, NA, NA, NA, NA, NA, NA,NA,NA,NA,
              7,  9, 15, 17, 19, 20, 20,23,29,43,
@@ -292,6 +289,7 @@ eagles <-  c(3, NA, NA, NA, NA, NA, NA,NA,NA,NA,
 #### Step two: Build dataframe
 
 We can then turn these two separate R objects into a dataframe
+
 ```{r}
 eagle.df <-data.frame(year, eagles)
 ```
@@ -299,25 +297,27 @@ eagle.df <-data.frame(year, eagles)
 
 ### Looking at the eagle data
 
-We can check that we have this R object by using the ls() command.
+We can check that we have this R object by using the **ls()** command.
+
 ```{r}
 ls()
 ```
 
-And we can confirm that its a dataframe using is()
+And we can confirm that its a dataframe using **is()**
 ```{r}
 is(eagle.df)
 ```
 
 
-summary() will give us basic info on PA's eagles
+**summary()** will give us basic info on PA's eagles
+
 ```{r}
 summary(eagle.df)
 ```
 
 Note that in the "eagles" columns it tells you the number of NAs (missing values).  The summary() readout quickly tells us that the eagle population has changed dramatically.
 
-#### Preview: Plotting the eagle data
+#### Preview: Plotting the Eagle D
 
 We can plot the data in ggplot2 using qplot().  However, there is an excellent package that adds additional functionality to ggplot called ggpubr.  This is fairly common in R: you have packages that add functions to R, and packages that add functions to other packages.
 
@@ -330,17 +330,23 @@ install.packages("ggpubr")
 library(ggpubr)
 ```
 
-ggpubr requires *another package*, magrittr, which R tells you about in read text.  When a package requires another package, its called a **dependency** because one package relies on another.  ggpubr has magrittr as a dependency; ggpubr modifies ggplot2, so ggpubr has ggplot2 as a dependency.  
+ggpubr requires *another package*, magrittr, which R tells you about in red text.  When a package requires another package, its called a **dependency** because one package relies on another.  ggpubr has magrittr as a dependency; ggpubr modifies ggplot2, so ggpubr has ggplot2 as a dependency.  
 
 Occasionally you might try to load a package and it won't automatically install or download the dependency, usually because its not yet downloaded.  If this happens with magrittr we would just have to download it using "install.packages("magrittr")".
 
-Once we have ggpubr loaded we can plot the eagle data using the handy function 
+Once we have ggpubr loaded we can plot the eagle data using the handy function **ggscatter()**
 
 ```{r warning=FALSE}
-#ggscatter is not working for some reason 
-ggscatter(dat = eagle.df,y = "eagles", x= "year")
+ggscatter(dat = eagle.df, y = "eagles", x= "year")
 ```
 
+## Challenge
+
+We can add a **smoother** to the plot by addin add = "loess".
+
+```{r echo = F}
+ggscatter(dat = eagle.df, y = "eagles", x= "year", add = "loess")
+```
 
 
 
