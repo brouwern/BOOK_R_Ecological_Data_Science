@@ -149,7 +149,7 @@ list.files(pattern = "csv") # [ ]
 
 If the file wasn't successful downloaded R will just give you a cryptic message like this. 
 
-```{r echo=FALSE}
+```{r eval = FALSE}
 list.files(pattern = "xxxx")
 ```
 

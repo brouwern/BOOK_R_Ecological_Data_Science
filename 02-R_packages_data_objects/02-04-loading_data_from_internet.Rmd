@@ -43,7 +43,7 @@ install.packages()
 The package RCurl provides functions for accessing online material.  First we need the package
 
 ```{r eval = FALSE}
-install.packages(RCurl, dependencies = TRUE) # [ ]
+install.packages("RCurl", dependencies = TRUE) # [ ]
 ```
 
 As always, once we install a package we need to **really** install it with library(). (You might see some red text as RCurl loads up some of its **dependencies**)
