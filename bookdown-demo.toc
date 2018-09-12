@@ -209,7 +209,7 @@
 \contentsline {subsection}{\numberline {15.2.7}Put diffetrent ``vores'' in seperate panels}{111}{subsection.15.2.7}
 \contentsline {subsection}{\numberline {15.2.8}Add a ``trend line''" to a scatterplot}{112}{subsection.15.2.8}
 \contentsline {subsection}{\numberline {15.2.9}Challenge: Modify mammal brain code}{112}{subsection.15.2.9}
-\contentsline {part}{IV\hspace {1em}Data analysis: a first encounter}{115}{part.4}
+\contentsline {part}{IV\hspace {1em}Data analysis: A First Encounter}{115}{part.4}
 \contentsline {subsection}{}{117}{section*.12}
 \contentsline {chapter}{\numberline {16}Data Analysis Encounter: Summary Statistics}{119}{chapter.16}
 \contentsline {section}{\numberline {16.1}Introduction}{119}{section.16.1}
@@ -221,71 +221,78 @@
 \contentsline {subsection}{\numberline {16.2.1}Load packages}{120}{subsection.16.2.1}
 \contentsline {subsection}{\numberline {16.2.2}Load data}{120}{subsection.16.2.2}
 \contentsline {subsection}{\numberline {16.2.3}Subset your data}{120}{subsection.16.2.3}
-\contentsline {section}{\numberline {16.3}A 1st encounter with R: getting to know your dataframe}{121}{section.16.3}
-\contentsline {subsection}{\numberline {16.3.1}Dataframe dimension}{121}{subsection.16.3.1}
-\contentsline {subsection}{\numberline {16.3.2}Optional: accessing elements of objects}{121}{subsection.16.3.2}
-\contentsline {subsection}{\numberline {16.3.3}Dataframe preview}{121}{subsection.16.3.3}
-\contentsline {section}{\numberline {16.4}A 1st encounter with R: summary statistics}{122}{section.16.4}
-\contentsline {subsection}{\numberline {16.4.1}Overall summary}{122}{subsection.16.4.1}
-\contentsline {subsection}{\numberline {16.4.2}Optional: stacking things with rbind()}{122}{subsection.16.4.2}
-\contentsline {subsection}{\numberline {16.4.3}Individual summary stats}{123}{subsection.16.4.3}
-\contentsline {subsection}{\numberline {16.4.4}The standard error (SE) in R}{123}{subsection.16.4.4}
-\contentsline {subsection}{\numberline {16.4.5}OPTIONAL: Find a package the calcualtes the SE}{123}{subsection.16.4.5}
-\contentsline {subsection}{\numberline {16.4.6}OPTIONAL: Write your own SD function}{123}{subsection.16.4.6}
-\contentsline {section}{\numberline {16.5}A 1st encounter with dplyr}{124}{section.16.5}
-\contentsline {subsubsection}{\numberline {16.5.0.1}dplyr's summarize() command}{125}{subsubsection.16.5.0.1}
-\contentsline {section}{\numberline {16.6}dplyr's group\_by() function}{125}{section.16.6}
-\contentsline {subsection}{\numberline {16.6.1}OPTIONAL: Using novel function with dplyr}{126}{subsection.16.6.1}
-\contentsline {section}{\numberline {16.7}OPTIONAL: ALternatives to dplyr}{126}{section.16.7}
-\contentsline {subsection}{\numberline {16.7.1}doBy::summaryBy}{127}{subsection.16.7.1}
-\contentsline {subsection}{\numberline {16.7.2}tapply()}{127}{subsection.16.7.2}
-\contentsline {subsection}{\numberline {16.7.3}reshape2::dcast}{127}{subsection.16.7.3}
-\contentsline {chapter}{\numberline {17}Data analysis encounter: Data exploration}{129}{chapter.17}
-\contentsline {section}{\numberline {17.1}Introduction}{129}{section.17.1}
-\contentsline {subsection}{\numberline {17.1.1}Goals \& objectives}{129}{subsection.17.1.1}
-\contentsline {subsection}{\numberline {17.1.2}Packages}{129}{subsection.17.1.2}
-\contentsline {subsection}{\numberline {17.1.3}Outline}{129}{subsection.17.1.3}
-\contentsline {subsection}{\numberline {17.1.4}Vocab}{129}{subsection.17.1.4}
-\contentsline {subsection}{\numberline {17.1.5}Preliminaries}{130}{subsection.17.1.5}
-\contentsline {subsubsection}{\numberline {17.1.5.1}Load packages}{130}{subsubsection.17.1.5.1}
-\contentsline {subsubsection}{\numberline {17.1.5.2}Load data}{130}{subsubsection.17.1.5.2}
-\contentsline {subsubsection}{\numberline {17.1.5.3}Subset your data}{130}{subsubsection.17.1.5.3}
-\contentsline {section}{\numberline {17.2}Data exploration plots}{130}{section.17.2}
-\contentsline {subsection}{\numberline {17.2.1}Boxplots}{130}{subsection.17.2.1}
-\contentsline {subsection}{\numberline {17.2.2}Notched boxplot}{131}{subsection.17.2.2}
-\contentsline {subsection}{\numberline {17.2.3}Filled boxplots}{132}{subsection.17.2.3}
-\contentsline {subsection}{\numberline {17.2.4}Boxplots with raw data}{132}{subsection.17.2.4}
-\contentsline {subsection}{\numberline {17.2.5}Boxplots with jittered raw data}{133}{subsection.17.2.5}
-\contentsline {subsection}{\numberline {17.2.6}OPTIONAL: Jittering with ggplot2}{134}{subsection.17.2.6}
-\contentsline {subsection}{\numberline {17.2.7}Label ggpubr axes}{134}{subsection.17.2.7}
-\contentsline {subsubsection}{\numberline {17.2.7.1}Axes lables}{134}{subsubsection.17.2.7.1}
-\contentsline {subsubsection}{\numberline {17.2.7.2}Plot title}{135}{subsubsection.17.2.7.2}
-\contentsline {subsubsection}{\numberline {17.2.7.3}Refining ggpubr pltos}{135}{subsubsection.17.2.7.3}
-\contentsline {subsection}{\numberline {17.2.8}Plotting multple plots with cowplot::plot\_grid}{136}{subsection.17.2.8}
-\contentsline {subsection}{\numberline {17.2.9}Optional: Histograms}{138}{subsection.17.2.9}
-\contentsline {chapter}{\numberline {18}Data analysis case study part II: plotting your data}{141}{chapter.18}
-\contentsline {section}{\numberline {18.1}Introduction}{141}{section.18.1}
-\contentsline {subsection}{\numberline {18.1.1}Goals \& objectives}{141}{subsection.18.1.1}
-\contentsline {subsection}{\numberline {18.1.2}Packages}{141}{subsection.18.1.2}
-\contentsline {subsection}{\numberline {18.1.3}Outline}{141}{subsection.18.1.3}
-\contentsline {subsection}{\numberline {18.1.4}Vocab}{142}{subsection.18.1.4}
-\contentsline {subsection}{\numberline {18.1.5}Preliminaries}{142}{subsection.18.1.5}
-\contentsline {subsubsection}{\numberline {18.1.5.1}Load packages}{142}{subsubsection.18.1.5.1}
-\contentsline {subsubsection}{\numberline {18.1.5.2}Load data}{142}{subsubsection.18.1.5.2}
-\contentsline {subsubsection}{\numberline {18.1.5.3}Subset your data}{142}{subsubsection.18.1.5.3}
-\contentsline {section}{\numberline {18.2}Background: measures of variation}{143}{section.18.2}
-\contentsline {subsection}{\numberline {18.2.1}Variance}{143}{subsection.18.2.1}
-\contentsline {subsection}{\numberline {18.2.2}Standard deviation (SD)}{143}{subsection.18.2.2}
-\contentsline {subsection}{\numberline {18.2.3}Optional: Testing the equivalence of two values}{144}{subsection.18.2.3}
-\contentsline {subsection}{\numberline {18.2.4}Standard error (SE)}{144}{subsection.18.2.4}
-\contentsline {subsection}{\numberline {18.2.5}Confidence Interval (CI)}{144}{subsection.18.2.5}
-\contentsline {section}{\numberline {18.3}Representing variation with the SD}{145}{section.18.3}
-\contentsline {subsection}{\numberline {18.3.1}Representing precision with the SE}{146}{subsection.18.3.1}
-\contentsline {section}{\numberline {18.4}Refining plots}{147}{section.18.4}
-\contentsline {chapter}{\numberline {19}Data Analysis Case Study Part III: T-test}{151}{chapter.19}
-\contentsline {subsection}{\numberline {19.0.1}Preliminaries}{151}{subsection.19.0.1}
-\contentsline {subsubsection}{\numberline {19.0.1.1}Load packages}{151}{subsubsection.19.0.1.1}
-\contentsline {subsubsection}{\numberline {19.0.1.2}Load data}{151}{subsubsection.19.0.1.2}
-\contentsline {subsubsection}{\numberline {19.0.1.3}Subset your data}{151}{subsubsection.19.0.1.3}
-\contentsline {subsection}{\numberline {19.0.2}T-test}{152}{subsection.19.0.2}
-\contentsline {subsection}{\numberline {19.0.3}Arm girth}{154}{subsection.19.0.3}
+\contentsline {section}{\numberline {16.3}Optional}{121}{section.16.3}
+\contentsline {section}{\numberline {16.4}OPTIONAL (easy): Looking at the code behind a function}{121}{section.16.4}
+\contentsline {section}{\numberline {16.5}OPTIONAL (intermediate): Function defaults}{121}{section.16.5}
+\contentsline {section}{\numberline {16.6}OPTIONAL (advanced): Debugging a function}{122}{section.16.6}
+\contentsline {section}{\numberline {16.7}Getting to know your personalized dataframe}{122}{section.16.7}
+\contentsline {subsection}{\numberline {16.7.1}Dataframe dimension}{122}{subsection.16.7.1}
+\contentsline {section}{\numberline {16.8}Optional: accessing elements of objects}{122}{section.16.8}
+\contentsline {subsection}{\numberline {16.8.1}Dataframe preview}{123}{subsection.16.8.1}
+\contentsline {section}{\numberline {16.9}Summary statistics}{123}{section.16.9}
+\contentsline {subsection}{\numberline {16.9.1}Overall summary}{124}{subsection.16.9.1}
+\contentsline {section}{\numberline {16.10}Optional: stacking things with rbind()}{124}{section.16.10}
+\contentsline {subsection}{\numberline {16.10.1}Individual summary stats}{124}{subsection.16.10.1}
+\contentsline {subsection}{\numberline {16.10.2}The standard error (SE) in R}{125}{subsection.16.10.2}
+\contentsline {section}{\numberline {16.11}OPTIONAL: Find a package the calcualtes the SE}{125}{section.16.11}
+\contentsline {subsection}{\numberline {16.11.1}OPTIONAL: Write your own SD function}{125}{subsection.16.11.1}
+\contentsline {section}{\numberline {16.12}A 1st encounter with dplyr}{126}{section.16.12}
+\contentsline {subsubsection}{\numberline {16.12.0.1}dplyr's summarize() command}{128}{subsubsection.16.12.0.1}
+\contentsline {section}{\numberline {16.13}dplyr's group\_by() function}{128}{section.16.13}
+\contentsline {subsection}{\numberline {16.13.1}OPTIONAL: Using novel functions with dplyr}{129}{subsection.16.13.1}
+\contentsline {section}{\numberline {16.14}OPTIONAL: ALternatives to dplyr}{130}{section.16.14}
+\contentsline {subsection}{\numberline {16.14.1}doBy::summaryBy}{130}{subsection.16.14.1}
+\contentsline {subsection}{\numberline {16.14.2}tapply()}{130}{subsection.16.14.2}
+\contentsline {subsection}{\numberline {16.14.3}reshape2::dcast}{130}{subsection.16.14.3}
+\contentsline {chapter}{\numberline {17}Data analysis encounter: Data exploration}{131}{chapter.17}
+\contentsline {section}{\numberline {17.1}Introduction}{131}{section.17.1}
+\contentsline {subsection}{\numberline {17.1.1}Goals \& objectives}{131}{subsection.17.1.1}
+\contentsline {subsection}{\numberline {17.1.2}Packages}{131}{subsection.17.1.2}
+\contentsline {subsection}{\numberline {17.1.3}Outline}{131}{subsection.17.1.3}
+\contentsline {subsection}{\numberline {17.1.4}Vocab}{131}{subsection.17.1.4}
+\contentsline {subsection}{\numberline {17.1.5}Preliminaries}{132}{subsection.17.1.5}
+\contentsline {subsubsection}{\numberline {17.1.5.1}Load packages}{132}{subsubsection.17.1.5.1}
+\contentsline {subsubsection}{\numberline {17.1.5.2}Load data}{132}{subsubsection.17.1.5.2}
+\contentsline {subsubsection}{\numberline {17.1.5.3}Subset your data}{132}{subsubsection.17.1.5.3}
+\contentsline {section}{\numberline {17.2}Data exploration plots}{132}{section.17.2}
+\contentsline {subsection}{\numberline {17.2.1}Boxplots}{132}{subsection.17.2.1}
+\contentsline {subsection}{\numberline {17.2.2}Notched boxplot}{133}{subsection.17.2.2}
+\contentsline {subsection}{\numberline {17.2.3}Filled boxplots}{134}{subsection.17.2.3}
+\contentsline {subsection}{\numberline {17.2.4}Boxplots with raw data}{134}{subsection.17.2.4}
+\contentsline {subsection}{\numberline {17.2.5}Boxplots with jittered raw data}{135}{subsection.17.2.5}
+\contentsline {subsection}{\numberline {17.2.6}OPTIONAL: Jittering with ggplot2}{136}{subsection.17.2.6}
+\contentsline {subsection}{\numberline {17.2.7}Label ggpubr axes}{136}{subsection.17.2.7}
+\contentsline {subsubsection}{\numberline {17.2.7.1}Axes lables}{136}{subsubsection.17.2.7.1}
+\contentsline {subsubsection}{\numberline {17.2.7.2}Plot title}{137}{subsubsection.17.2.7.2}
+\contentsline {subsubsection}{\numberline {17.2.7.3}Refining ggpubr pltos}{137}{subsubsection.17.2.7.3}
+\contentsline {subsection}{\numberline {17.2.8}Plotting multple plots with cowplot::plot\_grid}{138}{subsection.17.2.8}
+\contentsline {subsection}{\numberline {17.2.9}Optional: Histograms}{140}{subsection.17.2.9}
+\contentsline {chapter}{\numberline {18}Data analysis case study part II: plotting your data}{143}{chapter.18}
+\contentsline {section}{\numberline {18.1}Introduction}{143}{section.18.1}
+\contentsline {subsection}{\numberline {18.1.1}Goals \& objectives}{143}{subsection.18.1.1}
+\contentsline {subsection}{\numberline {18.1.2}Packages}{143}{subsection.18.1.2}
+\contentsline {subsection}{\numberline {18.1.3}Outline}{143}{subsection.18.1.3}
+\contentsline {subsection}{\numberline {18.1.4}Vocab}{144}{subsection.18.1.4}
+\contentsline {subsection}{\numberline {18.1.5}Preliminaries}{144}{subsection.18.1.5}
+\contentsline {subsubsection}{\numberline {18.1.5.1}Load packages}{144}{subsubsection.18.1.5.1}
+\contentsline {subsubsection}{\numberline {18.1.5.2}Load data}{144}{subsubsection.18.1.5.2}
+\contentsline {subsubsection}{\numberline {18.1.5.3}Subset your data}{144}{subsubsection.18.1.5.3}
+\contentsline {section}{\numberline {18.2}Background: measures of variation}{145}{section.18.2}
+\contentsline {subsection}{\numberline {18.2.1}Variance}{145}{subsection.18.2.1}
+\contentsline {subsection}{\numberline {18.2.2}Standard deviation (SD)}{145}{subsection.18.2.2}
+\contentsline {subsection}{\numberline {18.2.3}Optional: Testing the equivalence of two values}{146}{subsection.18.2.3}
+\contentsline {subsection}{\numberline {18.2.4}Standard error (SE)}{146}{subsection.18.2.4}
+\contentsline {subsection}{\numberline {18.2.5}Confidence Interval (CI)}{146}{subsection.18.2.5}
+\contentsline {section}{\numberline {18.3}Representing variation with the SD}{147}{section.18.3}
+\contentsline {subsection}{\numberline {18.3.1}Representing precision with the SE}{148}{subsection.18.3.1}
+\contentsline {section}{\numberline {18.4}Refining plots}{149}{section.18.4}
+\contentsline {chapter}{\numberline {19}Data Analysis Case Study Part III: T-test}{153}{chapter.19}
+\contentsline {subsection}{\numberline {19.0.1}Preliminaries}{153}{subsection.19.0.1}
+\contentsline {subsubsection}{\numberline {19.0.1.1}Load packages}{153}{subsubsection.19.0.1.1}
+\contentsline {subsubsection}{\numberline {19.0.1.2}Load data}{153}{subsubsection.19.0.1.2}
+\contentsline {subsubsection}{\numberline {19.0.1.3}Subset your data}{153}{subsubsection.19.0.1.3}
+\contentsline {subsection}{\numberline {19.0.2}T-test}{154}{subsection.19.0.2}
+\contentsline {subsection}{\numberline {19.0.3}Optional}{154}{subsection.19.0.3}
+\contentsline {subsection}{\numberline {19.0.4}Arm girth}{156}{subsection.19.0.4}
+\contentsline {subsection}{\numberline {19.0.5}Optional}{156}{subsection.19.0.5}
+\contentsline {section}{\numberline {19.1}\textbf {End optional section}}{157}{section.19.1}

@@ -38,7 +38,7 @@ data(frogarms)
 
 #### Subset your data
 
-The function make_my_data2L() will extact out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.
+The function make_my_data2L() will extract out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.
 ```{r}
 my.frogs <- make_my_data2L(dat = frogarms, 
                            my.code = "nlb24", # <=  change this!
@@ -68,11 +68,19 @@ mass.t <-  t.test(mass ~ sex, data = my.frogs)
 
 -----------------
 
-look at w/broom::glance.  relables thiugns a bit odd and would be nice to round.  will stick with original R output
+### Optional
+
+**This section is optional**
+
+look at w/broom::glance.  re-labels things a bit odd and would be nice to round.  will stick with original R output
 ```{r}
 library(broom)
 glance(mass.t)
 ```
+
+
+**End optional section**
+
 ------------------
 
 
@@ -177,7 +185,11 @@ Now we are going to unpack this
 
 ------------------------------
 
-There is a **major** flaw in this analysis.  consider the following graph where the mass is plotted on the x-axis and the arm girth is plottedon the y-axis.  Does arm girth vary just because of sex, or becasuse of sex and mass?
+### Optional
+
+**This section is optional**
+
+There is a **major** flaw in this analysis.  consider the following graph where the mass is plotted on the x-axis and the arm girth is plotted on the y-axis.  Does arm girth vary just because of sex, or because of sex and mass?
 
 This is ANCOVA.  Sometimes taught as an extension of ANOVA, or as a type of regression.  
 
@@ -188,4 +200,6 @@ ggscatter(data = frogarms,
           color = "sex")
 ```
 
+
+**End optional section**
 ------------------------------

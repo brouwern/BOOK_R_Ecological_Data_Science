@@ -48,7 +48,7 @@ Create plots to explore variation in the frogarms data.
 * boxplot
 * R object
 * categorical variable
-* continuous varible
+* continuous variable
 
 
 ### Preliminaries
@@ -81,7 +81,7 @@ data(frogarms)
 
 #### Subset your data
 
-The function make_my_data2L() will extact out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.  **This does not need to be done if you did this as part of the previous lesson**
+The function make_my_data2L() will extract out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.  **This does not need to be done if you did this as part of the previous lesson**
 
 ```{r 4.2.make_my_data2L}
 my.frogs <- make_my_data2L(dat = frogarms, 
@@ -153,7 +153,7 @@ ggboxplot(data = my.frogs,
 
 ### Boxplots with raw data
 
-Add raw data  This works best with small datasts
+Add raw data  This works best with small datasets
 ```{r}
 
 ggboxplot(data = my.frogs,
@@ -167,7 +167,7 @@ ggboxplot(data = my.frogs,
 
 ### Boxplots with jittered raw data
 
-This can be helpfuj, though ggpubr::ggboxplot doesn't allow much control over the "jittering".  Jittering is helpful when you have large datsets and want to avoid overlap in the points.
+This can be helpful, though ggpubr::ggboxplot doesn't allow much control over the "jittering".  Jittering is helpful when you have large datasets and want to avoid overlap in the points.
 ```{r}
 ggboxplot(data = my.frogs,
           y = "mass",
@@ -182,9 +182,9 @@ ggboxplot(data = my.frogs,
 
 **The following section is opptionall**
 
-ggpubr helps simplify ggplot2 code, but in doing so adds some constraitns.  You can combine ggpubr commands with regular ggplot2 code though. We'll use the code we did above and also add "+ geom_jitter()"
+ggpubr helps simplify ggplot2 code, but in doing so adds some constraints.  You can combine ggpubr commands with regular ggplot2 code though. We'll use the code we did above and also add "+ geom_jitter()"
 
-This code should produce a plot simliar to the one above.  Note that after " fill = "sex") " there is a "+", ( eg, " fill = "sex") + " ) and that on the next line is "  geom_jitter()"
+This code should produce a plot similar to the one above.  Note that after " fill = "sex") " there is a "+", ( eg, " fill = "sex") + " ) and that on the next line is "  geom_jitter()"
 
 ```{r eval = F}
 ggboxplot(data = my.frogs,
@@ -195,7 +195,7 @@ ggboxplot(data = my.frogs,
 ```
 
 
-We can make the jittering less extreme by adding "width = 0.1" wihtin geom_jitter()
+We can make the jittering less extreme by adding "width = 0.1" within geom_jitter()
 ```{r eval = F}
 ggboxplot(data = my.frogs,
           y = "mass",
@@ -215,7 +215,7 @@ A graph isn't done until it has labels.  This can get annoying in base R graphic
 
 #### Axes lables
 
-Adding "xlab = ..." and "ylab = ..." adds axes lables.  Always add units (eg "g" for grams) when applicable. 
+Adding "xlab = ..." and "ylab = ..." adds axes labels.  Always add units (eg "g" for grams) when applicable. 
 
 ```{r}
 ggboxplot(data = my.frogs,
@@ -258,7 +258,7 @@ ggboxplot(data = my.frogs,
 ```
 
 
-Change the  color pallete
+Change the  color palette
 ```{r}
 ggboxplot(data = my.frogs,
           y = "mass",
@@ -285,7 +285,7 @@ gg.my.frogs <- ggboxplot(data = my.frogs,
 
 Note that the code runs but nothing happens...
 
-I can call just the object (eg, just type it into the console. or highlight jsut the word)
+I can call just the object (eg, just type it into the console. or highlight just the word)
 ```{r}
 gg.my.frogs
 ```
@@ -327,9 +327,9 @@ plot_grid(gg.my.frogs,
 
 **The following is optional**
 
-Histograms are excellent for data exploration.  They generally work best qwith medium to large datasets.  
+Histograms are excellent for data exploration.  They generally work best with medium to large datasets.  
 
-A basic histogram can be made using gghistogram().  NOte that there is "x = ..." but no "y = ..."; the y-axis is computed by the graphing function.
+A basic histogram can be made using gghistogram().  Note that there is "x = ..." but no "y = ..."; the y-axis is computed by the graphing function.
 
 ```{r}
 gghistogram(data = my.frogs, 
@@ -337,7 +337,7 @@ gghistogram(data = my.frogs,
 ```
 
 
-A key concept for ggplot is "faceting."  Faceting occuring when a two panels of plots are made from a single dataset, and the panels are split by a categorical variable.  We can add "faet.by = sex" to make two panels, one for female and one for male.  Note that because there are only 10 frogs in each group, the graphs aren't very useful.
+A key concept for ggplot is "faceting."  Faceting occurring when a two panels of plots are made from a single dataset, and the panels are split by a categorical variable.  We can add "facet.by.by = sex" to make two panels, one for female and one for male.  Note that because there are only 10 frogs in each group, the graphs aren't very useful.
 
 ```{r}
 gghistogram(data = my.frogs, 

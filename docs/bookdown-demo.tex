@@ -125,7 +125,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-09-06}
+    \date{2018-09-12}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
@@ -1055,7 +1055,7 @@ the parentheses.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "Thu Sep 06 15:56:10 2018"
+## [1] "Wed Sep 12 11:28:25 2018"
 \end{verbatim}
 
 \textbf{Exponents} The \textbf{\^{}} is used for exponents
@@ -4898,23 +4898,24 @@ Modify the mamal bran code to do the following things
   Try this with and without logging using the log() command
 \end{itemize}
 
-\part{Data analysis: a first
-encounter}\label{part-data-analysis-a-first-encounter}
+\part{Data analysis: A First
+Encounter}\label{part-data-analysis-a-first-encounter}
 
 \hypertarget{section-3}{\subsection*{}\label{section-3}}
 \addcontentsline{toc}{subsection}{}
 
 In this section we will tackle a typical data analysis problem:
-determining if two groups of organisms an be considering statistically
-differnet from each other. We will use data from a paper titled ``Sperm
+determining if two groups of organisms an be considered statistically
+different from each other. We will use data from a paper titled ``Sperm
 competition and the evolution of precopulatory weapons: Increasing male
 density promotes sperm competition and reduces selection on arm strength
-in a chorusing frog'' by Buzatto et al (2015). The end goal is to
-compare the size of the arms on female and male frogs. First, though, we
-will get to know the data by calcualting summary statistics and making
-exploratory graphs. We will then carry out a t-test and grabble with
-with the meaning and interpretation of the output is. Finally, we'll
-explore how best to plot the output of your t-test.
+in a chorusing frog'' by Buzatto et al (2015).
+
+The end goal is to compare the size of the arms on female and male
+frogs. First, though, we will get to know the data by calculating
+summary statistics and making exploratory graphs. We will then carry out
+a t-test and grapple with with the meaning and interpretation of the
+output Finally, we'll explore how best to plot the output of a t-test.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -4924,7 +4925,7 @@ explore how best to plot the output of your t-test.
 \item
   Graphical data exploration
 \item
-  Plotting means and measures of variation and precisions
+  Plotting means and measures of variation and precision
 \item
   T-test
 \item
@@ -4943,8 +4944,9 @@ Twitter: lobrowR
 
 \subsection{Goals and objectives}\label{goals-and-objectives}
 
-Get to know the frogarms dataset and learn how to calculat summary
-statistics using basic R functions (eg summary() ) and also with dplyr.
+Get to know the \textbf{frogarms} dataset and learn how to calculate
+summary statistics using basic R functions (eg \textbf{summary()} ) and
+also with the handy tools in the \textbf{dplyr}.
 
 \subsection{Outline}\label{outline-2}
 
@@ -4954,13 +4956,13 @@ statistics using basic R functions (eg summary() ) and also with dplyr.
 \item
   Load packages and data
 \item
-  Subset data
+  Subset unique dataset
 \item
   Calculate summary stats on columns
 \item
   Use dplyr
 \item
-  Calcualte summary stats by group using
+  Calculate summary stats by groups using dplyr
 \end{enumerate}
 
 \subsection{Packages}\label{packages-7}
@@ -4971,6 +4973,8 @@ statistics using basic R functions (eg summary() ) and also with dplyr.
   devtools
 \item
   wildlifeR (from GitHub)
+\item
+  dplyr
 \end{itemize}
 
 \subsection{Functions}\label{functions-1}
@@ -4980,7 +4984,7 @@ statistics using basic R functions (eg summary() ) and also with dplyr.
 \item
   devtools::install\_github()
 \item
-  wildlifeR::make\_my\_data2L
+  wildlifeR::make\_my\_data2L()
 \item
   dim
 \item
@@ -5019,26 +5023,29 @@ statistics using basic R functions (eg summary() ) and also with dplyr.
 
 \section{Preliminaries}\label{preliminaries-1}
 
-First, we nee to install the necessary packages. The data are in a
-package stored on GitHub called wildlifeR. The devtools package is
-needed for downloading from github. We'll also use dplyr for grouping
-data and calcualting summary statistics.
+First, we need to install the necessary packages. The data are in a
+package stored on GitHub called \textbf{wildlifeR}. The
+\textbf{devtools} package is needed for downloading from Github. We'll
+also use \textbf{dplyr} for grouping data and calculating summary
+statistics.
 
 \subsection{Load packages}\label{load-packages}
 
 You might have to install or re-install wildlifeR using
-install.packages()
+install.packages(). \textbf{If you have done this recently you can skip
+this step.}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(devtools)}
-\KeywordTok{install_github}\NormalTok{(}\StringTok{"brouwern/"}\NormalTok{)}
+
+\KeywordTok{install_github}\NormalTok{(}\StringTok{"brouwern/wildlifeR"}\NormalTok{) }\CommentTok{#Note that text is quoted " "}
 \end{Highlighting}
 \end{Shaded}
 
-Recall that downloiading a package and actually loading it into R's
-active memory are different things. To actually use the pakcage you need
-to use the librar() command
+Recall that \emph{downloading} a package and actually \emph{loading} it
+into R's active memory are different things. To actually use the package
+you need to use the \textbf{library()} command to load it into memory.
 
 \subsection{Load data}\label{load-data}
 
@@ -5052,12 +5059,25 @@ wildlifeR package.
 \end{Shaded}
 
 You can find out information about these data using the ? command. Note
-that there are no parenthese required for this.
+that there are no parentheses required for this.
 
 \subsection{Subset your data}\label{subset-your-data}
 
-The function make\_my\_data2L() in the wildlfieR will extact out a
-random subset of the data. Change ``my.code'' to your school email
+In this lesson we'll be primariy working with a personalized subset of
+the data. This will allow us to
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  See the effects of sample size by comparing the larger frogarms data
+  to your subset
+\item
+  See the effects of random variation on things like p-values
+\end{enumerate}
+
+The function \textbf{make\_my\_data2L()} in the wildlfieR will extract
+out a random subset of the data. Change ``my.code'' to your school email
 address, minus the ``\citet{pitt.edu}'' or whatever your affiliation is.
 
 \begin{Shaded}
@@ -5072,8 +5092,8 @@ address, minus the ``\citet{pitt.edu}'' or whatever your affiliation is.
 \end{Shaded}
 
 n.sample is set to 20. This is set up to extract 20 unique individuals
-of each sex. Check that you dataframe is 2*20 = 40 rows using the dim()
-command.
+of each sex (20 male, 20 female). Check that you dataframe is 2*20 = 40
+rows using the dim() command.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5081,8 +5101,125 @@ command.
 \end{Highlighting}
 \end{Shaded}
 
-\section{A 1st encounter with R: getting to know your
-dataframe}\label{a-1st-encounter-with-r-getting-to-know-your-dataframe}
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\section{Optional}\label{optional}
+
+The following sections are optional. The task is easy to wrap your brain
+around (looking at the code behind a funciton); the second is more
+advanced (debugging a function).
+
+\section{OPTIONAL (easy): Looking at the code behind a
+function}\label{optional-easy-looking-at-the-code-behind-a-function}
+
+** This section is optional, and easy for beginners**
+
+Functions in R are typically written using R code. To see the underlying
+code you can type the function name in the console but nothing else,
+then run the command
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{make_my_data2L}
+\end{Highlighting}
+\end{Shaded}
+
+The formatting might be goofy; you can adjusted the conlse size so it
+looks better. This code is fairly long but is mostly fairly basic R
+commands and is a single function. In contrast, many R functions call
+other functions within them..
+
+You can't always see the underlying code for a function thought. Try to
+look at the t.test function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{t.test}
+\end{Highlighting}
+\end{Shaded}
+
+\section{OPTIONAL (intermediate): Function
+defaults}\label{optional-intermediate-function-defaults}
+
+** This section is optional**
+
+See what happens when you run this code; not that there is \textbf{no}
+``my.code = \ldots{}'' bit in it.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{make_my_data2L}\NormalTok{(}\DataTypeTok{dat =}\NormalTok{ frogarms, }\DataTypeTok{cat.var =} \StringTok{"sex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Why does this work? Check out the helpfile using ?make\_my\_data2L, or
+look at the raw code as we just did. Notice that right after the
+function name is listed the following things
+
+\begin{itemize}
+\tightlist
+\item
+  dat
+\item
+  my.code = ``nlb24''
+\item
+  cat.var
+\item
+  n.sample = 20
+\item
+  with.rep = FALSE
+\end{itemize}
+
+THese are the arugements that make\_my\_data2L() takes. When an arugment
+name is followed by an ``= \ldots{}'' that means a default has been set.
+If you call the function and don't specify what you want for a specific
+arguement, R checks for pre-specified defautls and uses those as need.
+Note that the use of defaults can be problematic, since you might use a
+deafult you didn't intend to. Most defaults are sensible, and essential
+things like dataframes that need to be supplied rarely have defaults.
+
+\section{OPTIONAL (advanced): Debugging a
+function}\label{optional-advanced-debugging-a-function}
+
+** This section is optional and not relevant for beginners**
+
+When a function is not working, or you want to understand how it works,
+you can debug it. First, tell R that the next time you run the function
+you want to debug it
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{debugonce}\NormalTok{(make_my_data2L)}
+\end{Highlighting}
+\end{Shaded}
+
+Then run the function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{make_my_data2L}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+This will create a new tab in debugger mode. Every time you press
+``enter'' you will step through the code to the next full line of R code
+(note that a line of R code can span more than one line of code in a
+file or when rendered on a screen). When you get to the end of the
+function you will exit the debugger and go back to normal R mode.
+
+If you want to interact with the function while its debugging you can
+type directly in the console. For example, trying running the ls()
+command after every few lines of code to see what happens. You can call
+dim(), summary(), is() etc on anything you find.
+
+\textbf{END OPTIONAL SECTION}
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\section{Getting to know your personalized
+dataframe}\label{getting-to-know-your-personalized-dataframe}
+
+Let's get to know your personalized subset of the data.
 
 \subsection{Dataframe dimension}\label{dataframe-dimension}
 
@@ -5099,15 +5236,15 @@ rows, and number of columns.
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\subsection{Optional: accessing elements of
+\section{Optional: accessing elements of
 objects}\label{optional-accessing-elements-of-objects}
 
-The following section is optional.
+\textbf{The following section is optional.}
 
-The commands dim, nrow and ncol all generate objects that display
-informatio on the dimension of a dataframe. dim() produces and object
-that is a ``vector'' that is 1 row x 2 elemtns in size. We can select
-these individual elements using square brackets
+The commands dim(), nrow and ncol all generate objects that display
+information on the dimension of a dataframe. dim() produces and object
+that is a ``vector'' that is 1 row x 2 elements in size. We can select
+these individual elements using square brackets ``{[}\ldots{}{]}''
 
 The full dim() output
 
@@ -5149,7 +5286,7 @@ Another way to get both elements
 \end{Highlighting}
 \end{Shaded}
 
-What happens when you execute this command?
+What happens when you execute this command? Why?
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5157,19 +5294,39 @@ What happens when you execute this command?
 \end{Highlighting}
 \end{Shaded}
 
+If you want to know one reason why R can drive you crazy, run this code,
+without the ``c'' before ``(1,2)''
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dim}\NormalTok{(my.frogs)[(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+But then try this; same as above but with ``:'' instead of ``,'' between
+the numbers.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{dim}\NormalTok{(my.frogs)[(}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+Yes, R is that picky.
+
 \textbf{End optional section}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
 \subsection{Dataframe preview}\label{dataframe-preview}
 
-The head() and tail() commands give up short previews of the dataframe
+The head() and tail() commands give us short previews of the dataframe
 
 The top few rows
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{head}\NormalTok{(my.frogs)}
+\KeywordTok{head}\NormalTok{(my.frogs) }\CommentTok{#Note: I've truncated the output that I've actually shown}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5177,11 +5334,11 @@ The bottom few rows
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{tail}\NormalTok{(my.frogs)}
+\KeywordTok{tail}\NormalTok{(my.frogs)[}\OperatorTok{-}\DecValTok{1}\NormalTok{,}\OperatorTok{-}\KeywordTok{ncol}\NormalTok{(my.frogs)]}
 \end{Highlighting}
 \end{Shaded}
 
-names() just gives of the names
+names() just gives of the names of the columns
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5189,7 +5346,7 @@ names() just gives of the names
 \end{Highlighting}
 \end{Shaded}
 
-Again, if you want ot know what the column names are, use the ? command
+Again, if you want to know what the column names are, use the ? command
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5197,10 +5354,12 @@ Again, if you want ot know what the column names are, use the ? command
 \end{Highlighting}
 \end{Shaded}
 
-\section{A 1st encounter with R: summary
-statistics}\label{a-1st-encounter-with-r-summary-statistics}
+\section{Summary statistics}\label{summary-statistics}
 
-R is a giant calculater. There are commands for mean, median, standard
+\textbf{This section is review. If you are familar with R you can skip
+ahead}
+
+R is a giant calculator. There are commands for mean, median, standard
 deviation etc. The summary() command creates a handy summary of an
 entire dataframe.
 
@@ -5216,7 +5375,7 @@ Whole dataframe
 
 We can look at just a single column by specifying it using the syntax
 ``dataframe\(column.names" where the dataframe and column are sperated by a dollar sig (\)).
-(note that it prints it out horizontally, not vertially)
+(note that it prints it out horizontally, not vertically)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5224,7 +5383,7 @@ We can look at just a single column by specifying it using the syntax
 \end{Highlighting}
 \end{Shaded}
 
-We used the make\_my\_data2L command to make a unique subset of the
+We used the make\_my\_data2L() command to make a unique subset of the
 data. compare the mass values in your subset to the original data
 
 \begin{Shaded}
@@ -5234,14 +5393,16 @@ data. compare the mass values in your subset to the original data
 \end{Highlighting}
 \end{Shaded}
 
+\textbf{End review section}
+
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\subsection{Optional: stacking things with
+\section{Optional: stacking things with
 rbind()}\label{optional-stacking-things-with-rbind}
 
-\textbf{This is optional}
+\textbf{This section is optional}
 
-Handy trick: stack up the summaries with rbind()
+Handy trick: stack up summaries with rbind()
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5252,12 +5413,16 @@ Handy trick: stack up the summaries with rbind()
 
 You can even flip them on their side like this
 
+First, make an object with your summaries
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{my.summaries <-}\StringTok{ }\KeywordTok{rbind}\NormalTok{(}\KeywordTok{summary}\NormalTok{(my.frogs}\OperatorTok{$}\NormalTok{mass),}
                       \KeywordTok{summary}\NormalTok{(frogarms}\OperatorTok{$}\NormalTok{mass))}
 \end{Highlighting}
 \end{Shaded}
+
+Flip them with the t() command (``t'' stands for ``transpose'')
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5271,8 +5436,11 @@ You can even flip them on their side like this
 
 \subsection{Individual summary stats}\label{individual-summary-stats}
 
+\textbf{This section is review. If you are familar with R you can skip
+ahead}
+
 You can get individual summary statistics using various commands named
-after the statistic
+after the statistic.
 
 The mean of a coulumn
 
@@ -5297,20 +5465,16 @@ Other include:
 \item
   median()
 \item
-  min()
+  min(), max()
 \item
-  max()
-\item
-  var()
-\item
-  sd()
+  var(), sd()
 \item
   range()
 \item
   nrow() or length() (for sample size)
 \end{itemize}
 
-Note that range() returns two values in a vector
+Note that range() returns 2 values in a \textbf{vector}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5322,11 +5486,11 @@ Note that range() returns two values in a vector
 R}\label{the-standard-error-se-in-r}
 
 Note that R doesn't return a very common statistic, the standard error
-(SE). The SE is the standard deviation (SD) deivided by the square root
+(SE). The SE is the standard deviation (SD) divided by the square root
 of the sample size. You can get the same size using the length()
 command.
 
-You can therefore calcualte the SE like this:
+You can therefore calculate the SE like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5336,30 +5500,35 @@ You can therefore calcualte the SE like this:
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-In the following two optional sections you can
+\section{OPTIONAL: Find a package the calcualtes the
+SE}\label{optional-find-a-package-the-calcualtes-the-se}
+
+\textbf{Note: this section is optional}
+
+In the following 2 optional sections you can
 
 \begin{itemize}
 \tightlist
 \item
-  try to find a package with an SE fucntion
+  try to find a package with an SE function
 \item
-  try to write a function that calcualtes the SE for you
+  try to write a function that calculates the SE for you
 \end{itemize}
 
-\subsection{OPTIONAL: Find a package the calcualtes the
-SE}\label{optional-find-a-package-the-calcualtes-the-se}
-
 Since R lacks a an SE function many packages include it. For example,
-the plotrix package has a function std.error(). See if you can download
-the package, install it using library(), and use the std.error(). See
-the help package for more info (?std.error)
+the \textbf{plotrix} package has a function \textbf{std.error()}. See if
+you can download the package, install it using \textbf{library()}, and
+use \textbf{std.error()}. See the help file for more info (?std.error).
+
+Try to look at the underlying code either in the console or by running
+the debugger using debugonce().
 
 \subsection{OPTIONAL: Write your own SD
 function}\label{optional-write-your-own-sd-function}
 
-Write a function for calculationg the SD
+Write a function for calculating the SD
 
-Here's a function that takes a single arguement ``dat\_column''
+Here's a function that takes a single argument ``dat\_column''
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5370,8 +5539,8 @@ Here's a function that takes a single arguement ``dat\_column''
 \end{Highlighting}
 \end{Shaded}
 
-To use it, you need to give it the dataframe and the column seperated by
-a \$
+To use it, you need to give it the dataframe and the column separated by
+a ``\$''"
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5379,8 +5548,8 @@ a \$
 \end{Highlighting}
 \end{Shaded}
 
-Here's a function that takes 2 arguements: the dataframe, and the name
-of the column Note that the name of the column needs to be in quotes
+Here's a function that takes 2 arguments: the dataframe, and the name of
+the column Note that the name of the column needs to be in quotes
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5394,7 +5563,7 @@ You can use the function like this:
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{my_sd2}\NormalTok{(my.frogs, }\StringTok{"mass"}\NormalTok{)}
+\KeywordTok{my_sd2}\NormalTok{(my.frogs, }\StringTok{"mass"}\NormalTok{) }\CommentTok{#note the use of quotes "..."}
 \end{Highlighting}
 \end{Shaded}
 
@@ -5419,9 +5588,27 @@ The function runs like this.
 \end{Shaded}
 
 Note that in all of functions as long as I give the function the
-arguements in the same order they are set up in the code that defines
-the function, I don't need to provide the names. This save typing.
-Compare these results
+arguments in the same order they are set up in the code that defines the
+function, I don't need to provide the names. This save typing. Compare
+these results
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{my_sd3}\NormalTok{(my.frogs, }\StringTok{"mass"}\NormalTok{)}
+\KeywordTok{my_sd3}\NormalTok{(}\DataTypeTok{dat =}\NormalTok{ my.frogs, }\DataTypeTok{column =}  \StringTok{"mass"}\NormalTok{)}
+\KeywordTok{my_sd3}\NormalTok{(}\DataTypeTok{column =}  \StringTok{"mass"}\NormalTok{, }\DataTypeTok{dat =}\NormalTok{ my.frogs)}
+\end{Highlighting}
+\end{Shaded}
+
+Now try this
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{my_sd3}\NormalTok{(}\StringTok{"mass"}\NormalTok{, my.frogs)}
+\end{Highlighting}
+\end{Shaded}
+
+Can you figure out what has happend with the last one?
 
 \textbf{End optional section}
 
@@ -5429,8 +5616,14 @@ Compare these results
 
 \section{A 1st encounter with dplyr}\label{a-1st-encounter-with-dplyr}
 
-dplyr is a package that provides numerous functions for manipulating
-data. We will use two handy functions
+\textbf{dplyr} is a package that provides numerous functions for
+manipulating data. It is part of the expanding \textbf{tidyverse} of
+packages sponsored in large part by RStudio. Hadley Whickham is the
+primary achitect of the tidyverse; he wrote many of the first packages
+in this framework and laidout the overall conceptual basis that other
+package authors follow.
+
+We will use two dplyr handy functions
 
 \begin{itemize}
 \tightlist
@@ -5440,12 +5633,23 @@ data. We will use two handy functions
   group\_by()
 \end{itemize}
 
-dplyr can use a handy sytax that involes ``pipes''. You can string
-together R commands using the pipe function \%\textgreater{}\%
+dplyr can use a syntax that involves ``pipes''. This is a reltively
+recent innovation in R coding. You can string together R commands using
+the \textbf{pipe function}, \textbf{\%\textgreater{}\%}.
 
-When using pipes, you start with a dataframe and follow it with an
-action you want done to it. So, for example, previously when we wanted
-the mean of the ``mass''" column we did this
+Note that the pipe function actually is implemented by the magrittr
+package. If you haven't loaded ggplot, dplyr, or wildlifeR yet you might
+have to call up magrittr directly.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(magrittr)}
+\end{Highlighting}
+\end{Shaded}
+
+When using \textbf{pipes} from magrittr, you start with data and follow
+it with an action you want done to it. So, for example, previously when
+we wanted the mean of the ``mass''" column we did this
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5458,8 +5662,9 @@ where you start from inside the parentheses and work out.
 
 Eg, this.is.read.2nd(this.is.read.1st)
 
-R let's you nest as many functions as you wnat. If i want to round the
-wrap ``mean(my.frogs\$mass)'' in ``round(\ldots{})''"
+R let's you nest as many functions as you want. If I want to round off
+my calculation I can wrap ``mean(my.frogs\$mass)'' in
+``round(\ldots{})''"
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5467,7 +5672,7 @@ wrap ``mean(my.frogs\$mass)'' in ``round(\ldots{})''"
 \end{Highlighting}
 \end{Shaded}
 
-Using pipes to get the mean I write things more like a sentence
+Using \textbf{pipes} to get the mean I write things more like a sentence
 
 Eg, this.is.read.1st \%\textgreater{}\% this.is.read.2nd
 
@@ -5477,7 +5682,7 @@ Eg, this.is.read.1st \%\textgreater{}\% this.is.read.2nd
 \end{Highlighting}
 \end{Shaded}
 
-Which reads kind of like ``Take the mass column and the datagrame and
+Which reads kind of like ``Take the mass column and the dataframe and
 apply the mean() function to it.''
 
 To round the mean we would do this
@@ -5489,10 +5694,10 @@ To round the mean we would do this
 \end{Shaded}
 
 Which read left to right like a sentence is ``Take the mass column,
-calcualte the mean and then round it.''
+calculate the mean, and then round off the mean''
 
-Note that the rond() command has an arguement for how many digits you
-want to round to. You include that in the parantehes
+Note that the round() command has an argument for how many digits you
+want to round to. You include that in the parentheses
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5500,14 +5705,46 @@ want to round to. You include that in the parantehes
 \end{Highlighting}
 \end{Shaded}
 
+\begin{longtable}[]{@{}l@{}}
+\toprule
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+\#\#\# Optional: piping everything\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+\textbf{This section is optional}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+Most people learn about pipes when doing data summarizing and cleaning
+with dplyr and friends. But pipes can be used in many (most?)
+context.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+Try this\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+\texttt{r\ my.frogs\$mass\ \%\textgreater{}\%\ hist}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+Not everythign works though. For example, I can't figure out how to use
+pipes and t.test(). THere might be a way.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+\texttt{r\ my.frogs\ \%\textgreater{}\%\ t.test(mass\ \textasciitilde{}\ sex)}\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.16\columnwidth}\raggedright\strut
+\textbf{End optional section}\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
 \subsubsection{dplyr's summarize()
 command}\label{dplyrs-summarize-command}
 
-Instead of mean(data\$column) we can use summarise() (for the British)
-or summarize(), plus pipes.
+Instead of mean(data\$column) we can use \textbf{summarise()} (for the
+British) or \textbf{summarize()}, plus pipes.
 
 We can get the grand mean of just the mass column by loading dplyr using
-library() and then using the summarise() commnad
+library() and then using the summarise() command
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5523,7 +5760,7 @@ group\_by() in the next section
 
 \section{dplyr's group\_by() function}\label{dplyrs-group_by-function}
 
-For some more info on group\_by see
+For some more info on group\_by() see
 
 \begin{itemize}
 \tightlist
@@ -5534,9 +5771,10 @@ For some more info on group\_by see
   \url{http://www.datacarpentry.org/R-genomics/04-dplyr.html}
 \end{itemize}
 
-We can use group\_by() to split things up by a categorical variable
-(sex, color, year). Here, we can say ``take my.frogs, split up the data
-by the sex column, and apply the mean() function to each subset.''
+We can use group\_by() to split things up by a \textbf{categorical
+variable} (sex, color, year). Here, we can say ``take my.frogs, split up
+the data by the sex column, and apply the mean() function to each
+subset.''
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5547,15 +5785,21 @@ by the sex column, and apply the mean() function to each subset.''
 \end{Shaded}
 
 This might be a bit abstract when you first do it. Again, where starting
-with our whole datefarme, then its piped over to group\_by(), which
-splits it essentially into a male and a female subset. Then the mean()
-function is applied to each of these subsets.
+with our whole dataframe (my.frogs), then its piped with
+\%\textgreater{}\% over to group\_by() function, which splits it
+essentially into a male and a female sub-dataset. Then these two subsets
+are piped again to mean(). Then the mean() function is applied to the
+mass column in each of these subsets.
 
 Note that the column heading in the output \texttt{mean(mass)}, which is
 what is in summarise().
 
-A handy thing about summarise is you can pass it lables. The following
-code adds a sensible lable by changing ``summarise(mean(mass))'' to
+Also note that the output is a ``tibble'', which is a common feature of
+the tidyverse. One thing that tibbles do is some reasonable rounding for
+you automatically.
+
+A handy thing about summarise() is you can pass it labels. The following
+code adds a sensible label by changing ``summarise(mean(mass))'' to
 ``summarise(mass.mean = mean(mass))'', where ``mass.mean = \ldots{}''
 defines the label.
 
@@ -5567,7 +5811,7 @@ defines the label.
 \end{Highlighting}
 \end{Shaded}
 
-You can lable things anything, eg ``puppies''.
+You can label things anything, eg ``puppies''.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5577,9 +5821,27 @@ You can lable things anything, eg ``puppies''.
 \end{Highlighting}
 \end{Shaded}
 
-You can pass any summary function to summarise(). We can give it sd() to
-get the sd of mass by sex. Note that I define the column names using
-``mass.sd = \ldots{}''
+When I first started using dplyr I found this syntax confusing because
+people often use the name of the function for the name of the column
+heading, like this
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my.frogs }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(sex) }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{mean =} \KeywordTok{mean}\NormalTok{(mass))}
+\end{Highlighting}
+\end{Shaded}
+
+For some reason this trips me up because the word ``mean'' as a label
+here is not quoted; to me the word mean should be reserved for the
+function mean(). Also, in general you should always make both input and
+output output self-lableing. If you just look at the output, its not
+obvious what the ``mean'' being shown is.
+
+You can pass any summary function to summarise(). We can give it
+\textbf{sd()} to get the sd of mass by sex. Note that I define the
+column names using ``mass.sd = \ldots{}''
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5597,12 +5859,13 @@ I'll pass mean() and sd(), naming both.
 \begin{Highlighting}[]
 \NormalTok{my.frogs }\OperatorTok{%>%}\StringTok{ }
 \StringTok{  }\KeywordTok{group_by}\NormalTok{(sex) }\OperatorTok{%>%}
-\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{mass.mean =} \KeywordTok{mean}\NormalTok{(mass),}
-            \DataTypeTok{mass.sd =} \KeywordTok{sd}\NormalTok{(mass))}
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{mass.mean =} \KeywordTok{mean}\NormalTok{(mass), }\CommentTok{#give me the mean!}
+            \DataTypeTok{mass.sd =} \KeywordTok{sd}\NormalTok{(mass))     }\CommentTok{#give me the sd!}
 \end{Highlighting}
 \end{Shaded}
 
-dplyr also has a handy function n() for getting your sample size.
+dplyr also has a handy function \textbf{n()} for getting your sample
+size.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5616,8 +5879,8 @@ dplyr also has a handy function n() for getting your sample size.
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-\subsection{OPTIONAL: Using novel function with
-dplyr}\label{optional-using-novel-function-with-dplyr}
+\subsection{OPTIONAL: Using novel functions with
+dplyr}\label{optional-using-novel-functions-with-dplyr}
 
 \textbf{This section is optional}
 
@@ -5644,12 +5907,12 @@ dplyr}\label{optional-alternatives-to-dplyr}
 \textbf{This section is optional}
 
 Most everybody is switching to dplyr. Below are some other idioms you
-may see others use or encouter in older books.
+may see others use or encounter in older books.
 
 \subsection{doBy::summaryBy}\label{dobysummaryby}
 
-The doBy package has a nice syntax. I don't really see many people use
-it. Be sure to download it first.
+The \textbf{doBy} package has a nice syntax. I don't really see many
+people use it. Be sure to download it first.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5662,7 +5925,8 @@ it. Be sure to download it first.
 
 \subsection{tapply()}\label{tapply}
 
-tapply is pretty old school.
+tapply is pretty old school. You might see people working with big dat
+get into arguements about whether its faster than dplyr.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5743,7 +6007,7 @@ Create plots to explore variation in the frogarms data.
 \item
   categorical variable
 \item
-  continuous varible
+  continuous variable
 \end{itemize}
 
 \subsection{Preliminaries}\label{preliminaries-2}
@@ -5788,7 +6052,7 @@ loaded.
 
 \subsubsection{Subset your data}\label{subset-your-data-1}
 
-The function make\_my\_data2L() will extact out a random subset of the
+The function make\_my\_data2L() will extract out a random subset of the
 data. Change ``my.code'' to your school email address, minus the
 ``\citet{pitt.edu}'' or whatever your affiliation is. \textbf{This does
 not need to be done if you did this as part of the previous lesson}
@@ -5821,7 +6085,7 @@ Basic boxplot with ggpubr's ggboxplot() function. Note that ``mass'' and
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-213-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-225-1.pdf}
 
 \subsection{Notched boxplot}\label{notched-boxplot}
 
@@ -5838,7 +6102,7 @@ determine if medians are different.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-214-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-226-1.pdf}
 
 Now try your own subset of the data. The Notch calculations likely get
 messed up with small samples sizes. R will likely give you several
@@ -5853,7 +6117,7 @@ warnings in red.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-215-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-227-1.pdf}
 
 \subsection{Filled boxplots}\label{filled-boxplots}
 
@@ -5885,7 +6149,7 @@ This is called ``commenting out'' that line of code
 
 \subsection{Boxplots with raw data}\label{boxplots-with-raw-data}
 
-Add raw data This works best with small datasts
+Add raw data This works best with small datasets
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5898,14 +6162,14 @@ Add raw data This works best with small datasts
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-218-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-230-1.pdf}
 
 \subsection{Boxplots with jittered raw
 data}\label{boxplots-with-jittered-raw-data}
 
-This can be helpfuj, though ggpubr::ggboxplot doesn't allow much control
-over the ``jittering''. Jittering is helpful when you have large datsets
-and want to avoid overlap in the points.
+This can be helpful, though ggpubr::ggboxplot doesn't allow much control
+over the ``jittering''. Jittering is helpful when you have large
+datasets and want to avoid overlap in the points.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5917,7 +6181,7 @@ and want to avoid overlap in the points.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-219-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-231-1.pdf}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -5927,11 +6191,11 @@ ggplot2}\label{optional-jittering-with-ggplot2}
 \textbf{The following section is opptionall}
 
 ggpubr helps simplify ggplot2 code, but in doing so adds some
-constraitns. You can combine ggpubr commands with regular ggplot2 code
+constraints. You can combine ggpubr commands with regular ggplot2 code
 though. We'll use the code we did above and also add ``+
 geom\_jitter()''
 
-This code should produce a plot simliar to the one above. Note that
+This code should produce a plot similar to the one above. Note that
 after " fill = ``sex'') " there is a ``+'', ( eg, " fill = ``sex'') + "
 ) and that on the next line is " geom\_jitter()"
 
@@ -5945,7 +6209,7 @@ after " fill = ``sex'') " there is a ``+'', ( eg, " fill = ``sex'') + "
 \end{Highlighting}
 \end{Shaded}
 
-We can make the jittering less extreme by adding ``width = 0.1'' wihtin
+We can make the jittering less extreme by adding ``width = 0.1'' within
 geom\_jitter()
 
 \begin{Shaded}
@@ -5969,7 +6233,7 @@ graphics and ggplot2, but is easy in ggpubr.
 
 \subsubsection{Axes lables}\label{axes-lables}
 
-Adding ``xlab = \ldots{}'' and ``ylab = \ldots{}'' adds axes lables.
+Adding ``xlab = \ldots{}'' and ``ylab = \ldots{}'' adds axes labels.
 Always add units (eg ``g'' for grams) when applicable.
 
 \begin{Shaded}
@@ -5983,7 +6247,7 @@ Always add units (eg ``g'' for grams) when applicable.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-222-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-234-1.pdf}
 
 \subsubsection{Plot title}\label{plot-title}
 
@@ -6021,9 +6285,9 @@ Move the legend to the bottom.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-224-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-236-1.pdf}
 
-Change the color pallete
+Change the color palette
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6039,7 +6303,7 @@ Change the color pallete
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-225-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-237-1.pdf}
 
 \subsection{Plotting multple plots with
 cowplot::plot\_grid}\label{plotting-multple-plots-with-cowplotplot_grid}
@@ -6060,7 +6324,7 @@ using my.frogs.
 Note that the code runs but nothing happens\ldots{}
 
 I can call just the object (eg, just type it into the console. or
-highlight jsut the word)
+highlight just the word)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -6068,7 +6332,7 @@ highlight jsut the word)
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-227-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-239-1.pdf}
 
 Now, Make an object using the full frogarms data
 
@@ -6090,7 +6354,7 @@ package.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-229-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-241-1.pdf}
 
 Add labels. Note that alignment is off sometimes.
 
@@ -6109,9 +6373,9 @@ Add labels. Note that alignment is off sometimes.
 \textbf{The following is optional}
 
 Histograms are excellent for data exploration. They generally work best
-qwith medium to large datasets.
+with medium to large datasets.
 
-A basic histogram can be made using gghistogram(). NOte that there is
+A basic histogram can be made using gghistogram(). Note that there is
 ``x = \ldots{}'' but no ``y = \ldots{}''; the y-axis is computed by the
 graphing function.
 
@@ -6122,11 +6386,11 @@ graphing function.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-231-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-243-1.pdf}
 
-A key concept for ggplot is ``faceting.'' Faceting occuring when a two
+A key concept for ggplot is ``faceting.'' Faceting occurring when a two
 panels of plots are made from a single dataset, and the panels are split
-by a categorical variable. We can add ``faet.by = sex'' to make two
+by a categorical variable. We can add ``facet.by.by = sex'' to make two
 panels, one for female and one for male. Note that because there are
 only 10 frogs in each group, the graphs aren't very useful.
 
@@ -6138,11 +6402,11 @@ only 10 frogs in each group, the graphs aren't very useful.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-232-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-244-1.pdf}
 
 Just as we did for histograms we can change the fill, add a title, etc.
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-233-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-245-1.pdf}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -6430,7 +6694,7 @@ around them. The ggerrorplot() is the main function, and the
 
 If for some reason you just want to plot means use ``desc\_stat =
 `mean'\,'', with mean quoted.
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-246-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-258-1.pdf}
 
 For the standard deviation use ``desc\_stat = `mean\_sd'\,'' (NOte that
 any time you have a plot with errorbarrs -- and if you plot means you
@@ -6446,7 +6710,7 @@ legend what the error bars are.)
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-247-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-259-1.pdf}
 
 Again, the standard deviation is a measure of \textbf{variation}.
 
@@ -6464,7 +6728,7 @@ standard error.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-248-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-260-1.pdf}
 
 Mean and 95\% confidence interval are plotted with ``desc\_stat =
 `mean\_ci'\,''
@@ -6478,7 +6742,7 @@ Mean and 95\% confidence interval are plotted with ``desc\_stat =
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-249-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-261-1.pdf}
 
 Again, the SE and 95\% CI are measure of \textbf{precision}. There can
 be lots of variation in a dataset (SD is high) but if you have collected
@@ -6520,7 +6784,7 @@ variation between the subsamples. What happens to the error bars?.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-251-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-263-1.pdf}
 
 Now, what if instead of the 95\% CI we plotted the SD. What do you think
 that will look like? Adapt the code from above by changing " desc\_stat
@@ -6540,7 +6804,7 @@ Set colors
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-252-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-264-1.pdf}
 
 Add raw data. kinda crazy but worth seeing how it looks.
 
@@ -6556,7 +6820,7 @@ Add raw data. kinda crazy but worth seeing how it looks.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-253-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-265-1.pdf}
 
 Jitter raw data. Even crazier. In general it works best if there are
 less than 10 data points per group.
@@ -6572,7 +6836,7 @@ less than 10 data points per group.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-254-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-266-1.pdf}
 
 Change to the SD. In theory, about 2/3 of the data points should falle
 within +/- 1 SD. Does that look about right?
@@ -6588,7 +6852,7 @@ within +/- 1 SD. Does that look about right?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-255-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-267-1.pdf}
 
 Back to just the means, and increase size.
 
@@ -6603,7 +6867,7 @@ Back to just the means, and increase size.
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-256-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-268-1.pdf}
 
 Move legend to the bottom using ``legend =''bottom" "
 
@@ -6621,7 +6885,7 @@ Move legend to the bottom using ``legend =''bottom" "
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-257-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-269-1.pdf}
 
 \chapter{Data Analysis Case Study Part III:
 T-test}\label{data-analysis-case-study-part-iii-t-test}
@@ -6655,7 +6919,7 @@ Twitter lobrowR
 
 \subsubsection{Subset your data}\label{subset-your-data-3}
 
-The function make\_my\_data2L() will extact out a random subset of the
+The function make\_my\_data2L() will extract out a random subset of the
 data. Change ``my.code'' to your school email address, minus the
 ``\citet{pitt.edu}'' or whatever your affiliation is.
 
@@ -6685,7 +6949,11 @@ Save to object
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
-look at w/broom::glance. relables thiugns a bit odd and would be nice to
+\subsection{Optional}\label{optional-1}
+
+\textbf{This section is optional}
+
+look at w/broom::glance. re-labels things a bit odd and would be nice to
 round. will stick with original R output
 
 \begin{Shaded}
@@ -6694,6 +6962,8 @@ round. will stick with original R output
 \KeywordTok{glance}\NormalTok{(mass.t)}
 \end{Highlighting}
 \end{Shaded}
+
+\textbf{End optional section}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
@@ -6727,7 +6997,7 @@ What does the CI mean?
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-266-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-278-1.pdf}
 
 Make a plot of the means with error bars. Save to an object called
 gg.means
@@ -6759,7 +7029,7 @@ Plot both
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-269-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-281-1.pdf}
 
 A hint
 
@@ -6786,7 +7056,7 @@ A hint
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-271-1.pdf}
+\includegraphics{bookdown-demo_files/figure-latex/unnamed-chunk-283-1.pdf}
 
 Did anyone get a significant result?
 
@@ -6798,10 +7068,14 @@ Now we are going to unpack this
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
 
+\subsection{Optional}\label{optional-2}
+
+\textbf{This section is optional}
+
 There is a \textbf{major} flaw in this analysis. consider the following
 graph where the mass is plotted on the x-axis and the arm girth is
-plottedon the y-axis. Does arm girth vary just because of sex, or
-becasuse of sex and mass?
+plotted on the y-axis. Does arm girth vary just because of sex, or
+because of sex and mass?
 
 This is ANCOVA. Sometimes taught as an extension of ANOVA, or as a type
 of regression.
@@ -6817,7 +7091,8 @@ of regression.
 
 \includegraphics{bookdown-demo_files/figure-latex/last.chnk.sxn4.ch4-1.pdf}
 
-\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+\section{\texorpdfstring{\textbf{End optional
+section}}{End optional section}}\label{end-optional-section}
 
 \bibliography{book.bib,packages.bib}
 

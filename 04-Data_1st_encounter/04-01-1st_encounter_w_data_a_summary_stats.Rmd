@@ -1,12 +1,14 @@
-# (PART) Data analysis: a first encounter {-}
+# (PART) Data analysis: A First Encounter {-}
 
 ### {-}
 
-In this section we will tackle a typical data analysis problem: determining if two groups of organisms an be considering statistically differnet from each other.  We will use data from a paper titled "Sperm competition and the evolution of precopulatory weapons: Increasing male density promotes sperm competition and reduces selection on arm strength in a chorusing frog" by Buzatto et al (2015).  The end goal is to compare the size of the arms on female and male frogs.  First, though, we will get to know the data by calcualting summary statistics and making exploratory graphs.  We will then carry out a t-test and grabble with with the meaning and interpretation of the output is.  Finally, we'll explore how best to plot the output of your t-test.
+In this section we will tackle a typical data analysis problem: determining if two groups of organisms an be considered statistically different from each other.  We will use data from a paper titled "Sperm competition and the evolution of precopulatory weapons: Increasing male density promotes sperm competition and reduces selection on arm strength in a chorusing frog" by Buzatto et al (2015).  
+
+The end goal is to compare the size of the arms on female and male frogs.  First, though, we will get to know the data by calculating summary statistics and making exploratory graphs.  We will then carry out a t-test and grapple with with the meaning and interpretation of the output  Finally, we'll explore how best to plot the output of a t-test.
 
 1. Data exploration with summary statistics
 1. Graphical data exploration
-1. Plotting means and measures of variation and precisions
+1. Plotting means and measures of variation and precision
 1. T-test
 1. Plotting the output of a t-test
 
@@ -36,25 +38,26 @@ knitr::opts_chunk$set(echo = TRUE,
 
 ### Goals and objectives
 
-Get to know the frogarms dataset and learn how to calculat summary statistics using basic R functions (eg summary() ) and also with dplyr.
+Get to know the **frogarms** dataset and learn how to calculate summary statistics using basic R functions (eg **summary()** ) and also with the handy tools in the **dplyr**.
 
 ### Outline
 
 1. Load packages and data
-1. Subset data
+1. Subset unique dataset
 1. Calculate summary stats on columns
 1. Use dplyr
-1. Calcualte summary stats by group using
+1. Calculate summary stats by groups using dplyr
 
 ### Packages
 
 * devtools
 * wildlifeR (from GitHub)
+* dplyr
 
 ### Functions
 
 * devtools::install_github()
-* wildlifeR::make_my_data2L
+* wildlifeR::make_my_data2L()
 * dim
 * nrow
 * ncol
@@ -75,17 +78,18 @@ Get to know the frogarms dataset and learn how to calculat summary statistics us
 
 ## Preliminaries
 
-First, we nee to install the necessary packages.  The data are in a package stored on GitHub called wildlifeR.  The devtools package is needed for downloading from github.  We'll also use dplyr for grouping data and calcualting summary statistics.
+First, we need to install the necessary packages.  The data are in a package stored on GitHub called **wildlifeR**.  The **devtools** package is needed for downloading from Github.  We'll also use **dplyr** for grouping data and calculating summary statistics.
 
 ### Load packages
 
-You might have to install or re-install wildlifeR using install.packages()
+You might have to install or re-install wildlifeR using install.packages().  **If you have done this recently you can skip this step.**
 ```{r, first.chnk.sxn4.ch1 , eval=F}
 library(devtools)
-install_github("brouwern/")
+
+install_github("brouwern/wildlifeR") #Note that text is quoted " "
 ```
 
-Recall that downloiading a package and actually loading it into R's active memory are different things.  To actually use the pakcage you need to use the librar() command
+Recall that *downloading* a package and actually *loading* it into R's active memory are different things.  To actually use the package you need to use the **library()** command to load it into memory.
 ```{r echo = F}
 library(wildlifeR)
 ```
@@ -98,7 +102,7 @@ The data we'll be using is in a dataset called "frogarms" in the wildlifeR packa
 data(frogarms)
 ```
 
-You can find out information about these data using the ? command.  Note that there are no parenthese required for this.
+You can find out information about these data using the ? command.  Note that there are no parentheses required for this.
 
 ```{r echo = F}
 ?frogarms
@@ -107,7 +111,12 @@ You can find out information about these data using the ? command.  Note that th
 
 ### Subset your data
 
-The function make_my_data2L() in the wildlfieR will extact out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.
+In this lesson we'll be primariy working with a personalized subset of the data.  This will allow us to 
+
+1. See the effects of sample size by comparing the larger frogarms data to your subset
+1. See the effects of random variation on things like p-values
+
+The function **make_my_data2L()** in the wildlfieR will extract out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.
 ```{r}
 my.frogs <- frogarms
 my.frogs <- make_my_data2L(dat = frogarms,
@@ -118,21 +127,92 @@ my.frogs <- make_my_data2L(dat = frogarms,
 
 ```
 
-n.sample is set to 20.  This is set up to extract 20 unique individuals of each sex.  Check that you dataframe is 2*20 = 40 rows using the dim() command.
+n.sample is set to 20.  This is set up to extract 20 unique individuals of each sex (20 male, 20 female).  Check that you dataframe is 2*20 = 40 rows using the dim() command.
 
 ```{r}
 dim(my.frogs)
 ```
 
 
-## A 1st encounter with R: getting to know your dataframe
+------------
 
+## Optional
+
+The following sections are optional.  The task is easy to wrap your brain around (looking at the code behind a funciton); the second is more advanced (debugging a function).
+
+## OPTIONAL (easy): Looking at the code behind a function
+
+** This section is optional, and easy for beginners**
+
+Functions in R are typically written using R code.  To see the underlying code you can type the function name in the console but nothing else, then run the command
+
+```{r echo = T, eval = F}
+make_my_data2L
+```
+
+The formatting might be goofy; you can adjusted the conlse size so it looks better.  This code is fairly long but is mostly fairly basic R commands and is a single function.  In contrast, many R functions call other functions within them..
+
+You can't always see the underlying code for a function thought.  Try to look at the t.test function
+
+```{r echo = T, eval = F}
+t.test
+```
+
+## OPTIONAL (intermediate): Function defaults
+
+** This section is optional**
+
+See what happens when you run this code; not that there is **no** "my.code = ..." bit in it.
+```{r echo = T, eval = F}
+make_my_data2L(dat = frogarms, cat.var = "sex")
+```
+
+Why does this work?  Check out the helpfile using ?make_my_data2L, or look at the raw code as we just did.  Notice that right after the function name is listed the following things
+
+* dat
+* my.code = "nlb24"
+* cat.var
+* n.sample = 20
+* with.rep = FALSE
+
+THese are the arugements that make_my_data2L() takes.  When an arugment name is followed by an "= ..." that means a default has been set.  If you call the function and don't specify what you want for a specific arguement, R checks for pre-specified defautls and uses those as need.  Note that the use of defaults can be problematic, since you might use a deafult you didn't intend to.   Most defaults are sensible, and essential things like dataframes that need to be supplied rarely have defaults.
+
+
+## OPTIONAL (advanced): Debugging a function
+
+** This section is optional and not relevant for beginners**
+
+When a function is not working, or you want to understand how it works, you can debug it.  First, tell R that the next time you run the function you want to debug it
+
+```{r echo = T, eval = F}
+debugonce(make_my_data2L)
+```
+
+Then run the function
+
+```{r echo = T, eval = F }
+make_my_data2L()
+```
+
+This will create a new tab in debugger mode.  Every time you press "enter" you will step through the code to the next full line of R code (note that a line of R code can span more than one line of code in a file or when rendered on a screen).  When you get to the end of the function you will exit the debugger and go back to normal R mode.
+
+If you want to interact with the function while its debugging you can type directly in the console.  For example, trying running the ls() command after every few lines of code to see what happens.  You can call dim(), summary(), is() etc on anything you find.
+
+
+
+**END OPTIONAL SECTION**
+
+-----------
+
+## Getting to know your personalized dataframe
+
+Let's get to know your personalized subset of the data.
 
 ### Dataframe dimension
 
 The following commands tell you the row x column dimension, number of rows, and number of columns.
 
-```{r}
+```{r eval = F}
 dim(my.frogs)
 nrow(my.frogs)
 ncol(my.frogs)
@@ -140,11 +220,11 @@ ncol(my.frogs)
 
 ----------
 
-### Optional: accessing elements of objects
+## Optional: accessing elements of objects
 
-The following section is optional.
+**The following section is optional.**
 
-The commands dim, nrow and ncol all generate objects that display informatio on the dimension of a dataframe.  dim() produces and object that is a "vector" that is 1 row x 2 elemtns in size.  We can select these individual elements using square brackets
+The commands dim(), nrow and ncol all generate objects that display information on the dimension of a dataframe.  dim() produces and object that is a "vector" that is 1 row x 2 elements in size.  We can select these individual elements using square brackets "[...]"
 
 The full dim() output
 ```{r}
@@ -177,11 +257,24 @@ dim(my.frogs)[c(1,2)]
 ```
 
 
-What happens when you execute this command?
+What happens when you execute this command?  Why?
 ```{r}
 dim(my.frogs)[c(2,1)]
 ```
 
+
+If you want to know one reason why R can drive you crazy, run this code, without the "c" before "(1,2)"
+
+```{r eval = F}
+dim(my.frogs)[(1,2)]
+```
+
+But then try this; same as above but with ":" instead of "," between the numbers.
+```{r eval = F}
+dim(my.frogs)[(1:2)]
+```
+
+Yes, R is that picky.
 
 **End optional section**
 
@@ -189,33 +282,40 @@ dim(my.frogs)[c(2,1)]
 
 ### Dataframe preview
 
-The head() and tail() commands give up short previews of the dataframe
+The head() and tail() commands give us short previews of the dataframe
 
 The top few rows
-```{r}
-head(my.frogs)
+```{r eval = F}
+head(my.frogs) #Note: I've truncated the output that I've actually shown
 ```
+
+```{r echo = F}
+head(my.frogs)[-1,-ncol(my.frogs)]
+```
+
 
 The bottom few rows
 ```{r}
-tail(my.frogs)
+tail(my.frogs)[-1,-ncol(my.frogs)]
 ```
 
-names() just gives of the names
+names() just gives of the names of the columns
 ```{r}
 names(my.frogs)
 ```
 
 
-Again, if you want ot know what the column names are, use the ? command
+Again, if you want to know what the column names are, use the ? command
 ```{r eval = F}
 ?my.frogs
 ```
 
 
-## A 1st encounter with R: summary statistics
+## Summary statistics
 
-R is a giant calculater.  There are commands for mean, median, standard deviation etc.  The summary() command creates a handy summary of an entire dataframe.
+**This section is review.  If you are familar with R you can skip ahead**
+
+R is a giant calculator.  There are commands for mean, median, standard deviation etc.  The summary() command creates a handy summary of an entire dataframe.
 
 
 ### Overall summary
@@ -225,27 +325,30 @@ Whole dataframe
 summary(my.frogs)
 ```
 
-We can look at just a single column by specifying it using the syntax "dataframe$column.names" where the dataframe and column are sperated by a dollar sig ($).  (note that it prints it out horizontally, not vertially)
+We can look at just a single column by specifying it using the syntax "dataframe$column.names" where the dataframe and column are sperated by a dollar sig ($).  (note that it prints it out horizontally, not vertically)
 
 ```{r}
 summary(my.frogs$mass)
 ```
 
 
-We used the make_my_data2L command to make a unique subset of the data.   compare the mass values in your subset to the original data
+We used the make_my_data2L() command to make a unique subset of the data.   compare the mass values in your subset to the original data
 
 ```{r}
 summary(my.frogs$mass)
 summary(frogarms$mass)
 ```
 
+**End review section**
+
+
 ----------
 
-### Optional: stacking things with rbind()
+## Optional: stacking things with rbind()
 
-**This is optional**
+**This section is optional**
 
-Handy trick: stack up the summaries with rbind()
+Handy trick: stack up  summaries with rbind()
 
 ```{r}
 rbind(summary(my.frogs$mass),
@@ -254,11 +357,13 @@ rbind(summary(my.frogs$mass),
 
 You can even flip them on their side like this
 
+First, make an object with your summaries
 ```{r}
 my.summaries <- rbind(summary(my.frogs$mass),
                       summary(frogarms$mass))
 ```
 
+Flip them with the t() command ("t" stands for "transpose")
 ```{r}
 t(my.summaries)
 ```
@@ -270,7 +375,9 @@ t(my.summaries)
 
 ### Individual summary stats
 
-You can get individual summary statistics using various commands named after the statistic
+**This section is review.  If you are familar with R you can skip ahead**
+
+You can get individual summary statistics using various commands named after the statistic.
 
 The mean of a coulumn
 
@@ -288,23 +395,21 @@ var(my.frogs$mass)
 Other include: 
 
 * median()
-* min()
-* max()
-* var()
-* sd()
+* min(), max()
+* var(), sd()
 * range()
 * nrow() or length() (for sample size)
 
-Note that range() returns two values in a vector
+Note that range() returns 2 values in a **vector**
 ```{r}
 range(my.frogs$mass)
 ```
 
 ### The standard error (SE) in R 
 
-Note that R doesn't return a very common statistic, the standard error (SE). The SE is the standard deviation (SD) deivided by the square root of the sample size.  You can get the same size using the length() command.
+Note that R doesn't return a very common statistic, the standard error (SE). The SE is the standard deviation (SD) divided by the square root of the sample size.  You can get the same size using the length() command.
 
-You can therefore calcualte the SE like this: 
+You can therefore calculate the SE like this: 
 
 ```{r}
 sd(my.frogs$mass)/sqrt(length(my.frogs$mass))
@@ -313,20 +418,25 @@ sd(my.frogs$mass)/sqrt(length(my.frogs$mass))
 
 ----------
 
-In the following two optional sections you can
+## OPTIONAL: Find a package the calcualtes the SE
 
-* try to find a package with an SE fucntion
-* try to write a function that calcualtes the SE for you
+**Note: this section is optional**
 
-### OPTIONAL: Find a package the calcualtes the SE
+In the following 2 optional sections you can
 
-Since R lacks a an SE function many packages include it.  For example, the plotrix package has a function std.error().  See if you can download the package, install it using library(), and use the std.error().  See the help package for more info (?std.error)
+* try to find a package with an SE function
+* try to write a function that calculates the SE for you
+
+
+Since R lacks a an SE function many packages include it.  For example, the **plotrix** package has a function **std.error()**.  See if you can download the package, install it using **library()**, and use **std.error()**.  See the help file for more info (?std.error).
+
+Try to look at the underlying code either in the console or by running the debugger using debugonce().
 
 ### OPTIONAL: Write your own SD function
 
-Write a function for calculationg the SD
+Write a function for calculating the SD
 
-Here's a function that takes a single arguement "dat_column"
+Here's a function that takes a single argument "dat_column"
 ```{r}
 #NOTE: this is optional
 my_sd1 <- function(dat_column){
@@ -334,13 +444,13 @@ my_sd1 <- function(dat_column){
 }
 ```
 
-To use it, you need to give it the dataframe and the column seperated by a $
+To use it, you need to give it the dataframe and the column separated by a "$""
 
 ```{r}
 my_sd1(my.frogs$mass)
 ```
 
-Here's a function that takes 2 arguements: the dataframe, and the name of the column  Note that the name of the column needs to be in quotes
+Here's a function that takes 2 arguments: the dataframe, and the name of the column  Note that the name of the column needs to be in quotes
 
 
 ```{r}
@@ -352,9 +462,8 @@ my_sd2 <- function(dat, column){
 
 You can use the function like this:
 ```{r}
-my_sd2(my.frogs, "mass")
+my_sd2(my.frogs, "mass") #note the use of quotes "..."
 ```
-
 
 
 Here's a fancier function that let's you specify how much to round off the results.  I've set the default rounding to 3 digits.
@@ -373,34 +482,46 @@ my_sd3(my.frogs, "mass")
 ```
 
 
-Note that in all of functions as long as I give the function the arguements in the same order they are set up in the code that defines the function, I don't need to provide the names.  This save typing.  Compare these results
+Note that in all of functions as long as I give the function the arguments in the same order they are set up in the code that defines the function, I don't need to provide the names.  This save typing.  Compare these results
 
-```{r eval=FALSE, echo=FALSE}
+```{r eval=FALSE, echo=T}
 my_sd3(my.frogs, "mass")
 my_sd3(dat = my.frogs, column =  "mass")
 my_sd3(column =  "mass", dat = my.frogs)
+
+```
+
+Now try this
+```{r make.my_sd3.fail, eval = F}
 my_sd3("mass", my.frogs)
 ```
 
 
+Can you figure out what has happend with the last one?
 
 **End optional section**
 
 ----------
 
-
-
   
 ## A 1st encounter with dplyr
   
-dplyr is a package that provides numerous functions for manipulating data.  We will use two handy functions
+**dplyr** is a package that provides numerous functions for manipulating data.  It is part of the expanding **tidyverse** of packages sponsored in large part by RStudio.  Hadley Whickham is the primary achitect of the tidyverse; he wrote many of the first packages in this framework and laidout the overall conceptual basis that other package authors follow.
+
+We will use two dplyr handy functions
 
 * summarize() / summarise()
 * group_by()
 
-dplyr can use a handy sytax that involes "pipes".  You can string together R commands using the pipe function %>%
+dplyr can use a syntax that involves "pipes".  This is a reltively recent innovation in R coding.  You can string together R commands using the **pipe function**, **%>%**.
+
+Note that the pipe function actually is implemented by the magrittr package. If you haven't loaded ggplot, dplyr, or wildlifeR yet you might have to call up magrittr directly.
+```{r eval = F}
+library(magrittr)
+```
+
   
-When using pipes, you start with a dataframe and follow it with an action you want done to it.  So, for example, previously when we wanted the mean of the "mass"" column we did this
+When using **pipes** from magrittr, you start with data and follow it with an action you want done to it.  So, for example, previously when we wanted the mean of the "mass"" column we did this
 
 ```{r eval = F}
 mean(my.frogs$mass)
@@ -410,14 +531,14 @@ Which is kind of read like a normal mathematical equation or function, where you
 
 Eg, this.is.read.2nd(this.is.read.1st)
 
-R let's you nest as many functions as you wnat.  If i want to round the wrap "mean(my.frogs$mass)" in "round(...)""
+R let's you nest as many functions as you want.  If I want to round off my calculation I can  wrap "mean(my.frogs$mass)" in "round(...)""
 
 ```{r}
 round(mean(my.frogs$mass))
 ```
 
 
-Using pipes to get the mean I write things more like a sentence
+Using **pipes** to get the mean I write things more like a sentence
 
 Eg, this.is.read.1st %>% this.is.read.2nd
 
@@ -425,7 +546,7 @@ Eg, this.is.read.1st %>% this.is.read.2nd
 my.frogs$mass %>% mean #note parentheses after mean!
 ```
 
-Which reads kind of like "Take the mass column and the datagrame and apply the mean() function to it."    
+Which reads kind of like "Take the mass column and the dataframe and apply the mean() function to it."    
 
 To round the mean we would do this
 
@@ -433,19 +554,44 @@ To round the mean we would do this
 my.frogs$mass %>% mean %>% round
 ```
 
-Which read left to right like a sentence is "Take the mass column, calcualte the mean and then round it."
+Which read left to right like a sentence is "Take the mass column, calculate the mean, and then round off the mean"
 
-Note that the rond() command has an arguement for how many digits you want to round to.  You include that in the parantehes
+Note that the round() command has an argument for how many digits you want to round to.  You include that in the parentheses
 
 ```{r}
 my.frogs$mass %>% mean() %>% round(digits = 2)
 ```
 
+
+
+------------
+### Optional: piping everything
+
+**This section is optional**
+
+Most people learn about pipes when doing data summarizing and cleaning with dplyr and friends.  But pipes can be used in many (most?) context. 
+
+Try this
+
+```{r eval = F}
+my.frogs$mass %>% hist
+```
+
+Not everythign works though.  For example, I can't figure out how to use pipes and t.test().  THere might be a way.
+```{r eval = F}
+my.frogs %>% t.test(mass ~ sex)
+```
+
+
+**End optional section**
+
+-----------
+
 #### dplyr's summarize() command
 
-Instead of mean(data$column) we can use summarise() (for the British) or summarize(), plus pipes.
+Instead of mean(data$column) we can use **summarise()** (for the British) or **summarize()**, plus pipes.
 
-We can get the grand mean of just the mass column by loading dplyr using library() and then using the summarise() commnad
+We can get the grand mean of just the mass column by loading dplyr using library() and then using the summarise() command
 ```{r}
 library(dplyr)
 my.frogs %>% summarise(mean(mass))
@@ -455,13 +601,13 @@ This is maybe more complicated than "mean(my.frogs$mass)" or my.frogs$mass %>% m
 
 ## dplyr's group_by() function
 
-For some more info on group_by see
+For some more info on group_by() see
 
 * https://www.r-bloggers.com/using-r-quickly-calculating-summary-statistics-with-dplyr/
 * https://www3.nd.edu/~steve/computing_with_data/24_dplyr/dplyr.html
 http://www.datacarpentry.org/R-genomics/04-dplyr.html
 
-We can use group_by() to split things up by a categorical variable (sex, color, year).  Here, we can say "take my.frogs, split up the data by the sex column, and apply the mean() function to each subset."  
+We can use group_by() to split things up by a **categorical variable** (sex, color, year).  Here, we can say "take my.frogs, split up the data by the sex column, and apply the mean() function to each subset."  
 
 ```{r}
 my.frogs %>%            #the data
@@ -469,11 +615,13 @@ my.frogs %>%            #the data
   summarise(mean(mass)) #the mean() function, applied to mass.
 ```
 
-This might be a bit abstract when you first do it.  Again, where starting with our whole datefarme, then its piped over to group_by(), which splits it essentially into a male and a female subset.  Then the mean() function is applied to each of these subsets. 
+This might be a bit abstract when you first do it.  Again, where starting with our whole dataframe (my.frogs), then its piped with %>% over to group_by() function, which splits it essentially into a male and a female sub-dataset.  Then these two subsets are piped again to mean().  Then the mean() function is applied to the mass column in each of these subsets. 
 
 Note that the column heading in the output `mean(mass)`, which is what is in summarise().
 
-A handy thing about summarise is you can pass it lables.  The following code adds a sensible lable by changing "summarise(mean(mass))" to "summarise(mass.mean = mean(mass))", where "mass.mean = ..." defines the label.
+Also note that the output is a "tibble", which is a common feature of the tidyverse.  One thing that tibbles do is some reasonable rounding for you automatically.
+
+A handy thing about summarise() is you can pass it labels.  The following code adds a sensible label by changing "summarise(mean(mass))" to "summarise(mass.mean = mean(mass))", where "mass.mean = ..." defines the label.
 
 ```{r}
 my.frogs %>% 
@@ -481,15 +629,26 @@ my.frogs %>%
   summarise(mass.mean = mean(mass))
 ```
 
-You can lable things anything, eg "puppies".
+You can label things anything, eg "puppies".
 ```{r}
 my.frogs %>% 
   group_by(sex) %>%
   summarise(puppies = mean(mass))
 ```
 
+When I first started using dplyr I found this syntax confusing because people often use the name of the function for the name of the column heading, like this
 
-You can pass any summary function to summarise().  We can give it sd() to get the sd of mass by sex.  Note that I define the column names using "mass.sd = ..."
+```{r eval = F}
+my.frogs %>% 
+  group_by(sex) %>%
+  summarise(mean = mean(mass))
+```
+
+
+For some reason this trips me up because the word "mean" as a label here is not quoted; to me the word mean should be reserved for the function mean().  Also, in general you should always make both input and output output self-lableing.  If you just look at the output, its not obvious what the "mean" being shown is.
+
+
+You can pass any summary function to summarise().  We can give it **sd()** to get the sd of mass by sex.  Note that I define the column names using "mass.sd = ..."
 
 ```{r}
 my.frogs %>% 
@@ -502,12 +661,12 @@ What makes dplyr::group_by and summarize() really powerful is that you can pass 
 ```{r}
 my.frogs %>% 
   group_by(sex) %>%
-  summarise(mass.mean = mean(mass),
-            mass.sd = sd(mass))
+  summarise(mass.mean = mean(mass), #give me the mean!
+            mass.sd = sd(mass))     #give me the sd!
 ```
 
 
-dplyr also has a handy function n() for getting your sample size.
+dplyr also has a handy function **n()** for getting your sample size.
 ```{r}
 my.frogs %>% 
   group_by(sex) %>%
@@ -519,7 +678,7 @@ my.frogs %>%
 
 --------------
 
-### OPTIONAL: Using novel function with dplyr
+### OPTIONAL: Using novel functions with dplyr
 
 **This section is optional**
 
@@ -545,11 +704,11 @@ my.frogs %>%
 
 **This section is optional**
 
-Most everybody is switching to dplyr.  Below are some other idioms you may see others use or encouter in older books.  
+Most everybody is switching to dplyr.  Below are some other idioms you may see others use or encounter in older books.  
   
 ### doBy::summaryBy
 
-The doBy package has a nice syntax.  I don't really see many people use it.  Be sure to download it first.
+The **doBy** package has a nice syntax.  I don't really see many people use it.  Be sure to download it first.
 
 ```{r eval = FALSE}
 library(doBy)
@@ -561,8 +720,8 @@ summaryBy(mass ~ sex,data = my.frogs, FUN = c(mean,sd))
 
 ### tapply()
 
-tapply is pretty old school.
-```{r}
+tapply is pretty old school.  You might see people working with big dat get into arguements about whether its faster than dplyr.  
+```{r eval = F}
 tapply(X = my.frogs$mass,INDEX = my.frogs$sex, FUN = mean)
 ```
 
@@ -570,7 +729,8 @@ tapply(X = my.frogs$mass,INDEX = my.frogs$sex, FUN = mean)
 ### reshape2::dcast
 
 What I've used most of my career thus far.  Am slowly switch to dplyr.
-```{r , last.chnk.sxn4.ch1 }
+
+```{r , last.chnk.sxn4.ch1, eval = F }
 library(reshape2)
 dcast(data = my.frogs,
       formula = sex ~ .,
