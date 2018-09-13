@@ -1,4 +1,4 @@
-# Data analysis encounter: Data exploration
+# Data analysis encounter: Graphical Data Exploration with Boxplots Using ggpubr
 
 
 ```{r , include=F, echo = F}
@@ -20,10 +20,14 @@ knitr::opts_chunk$set(tidy = F,
 
 ## Introduction
 
+* In the 1st few sections we explored several graphing approachs (plot, ggpubr, ggplot::qplot, ggplot)
+* Now we will focus on the ggpubr extension of ggplot
+* We'll use ggpubr::ggboxplot to graphically explore our data
+
+
 ### Goals & objectives
 
-
-Create plots to explore variation in the frogarms data.  
+Create plots to explore variation in the frogarms data, with an emphasis on boxplots using ggpubr::ggboxplot().  
 
 
 ### Packages 
@@ -49,13 +53,14 @@ Create plots to explore variation in the frogarms data.
 * R object
 * categorical variable
 * continuous variable
+* faceting
 
 
 ### Preliminaries
 
 #### Load packages
 
-If not already loaded, we need the wildlifeR package, which lives on Github
+If not already loaded, we need the **wildlifeR** package, which lives on Github
 ```{r eval = F}
 library(devtools)
 install_github("brouwern/wildlifeR")
@@ -63,7 +68,7 @@ install_github("brouwern/wildlifeR")
 library(wildlifeR)
 ```
 
-We also need several other packages needed for visualization.  We'll use the ggplot2 package for plotting, and the cowplot package for some nice plotting defaults.  
+We also need several other packages for visualization.  We'll use the **ggplot2** package for plotting, and the **cowplot** package for some nice plotting defaults.  **cowplot** also has a hand function for putting two plots into the same graph.  
 ```{r}
 library(ggplot2)
 library(cowplot)
@@ -81,7 +86,7 @@ data(frogarms)
 
 #### Subset your data
 
-The function make_my_data2L() will extract out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.  **This does not need to be done if you did this as part of the previous lesson**
+The function make_my_data2L() will extract out a random subset of the data.  Change "my.code" to your school email address, minus the "@ pitt.edu" or whatever your affiliation is.  **This does not need to be done if you did this as part of the previous lesson**
 
 ```{r 4.2.make_my_data2L}
 my.frogs <- make_my_data2L(dat = frogarms, 
@@ -95,25 +100,39 @@ my.frogs <- make_my_data2L(dat = frogarms,
 
 ## Data exploration plots
 
-We'll make some plots to look at the overall structure and distribution of the data.
+We'll make some plots to look at the overall structure and distribution of the data.  After first looking at a **Cleveland dotplot**, we'll focus on **boxplots** but also consider some others, including **violin** plots.
+
+### Cleveland dot plot
+
+A useful tool for looking at your data is a **Clevand dot plot.** This is just the variable you are interested in (eg mass) plotted against its rank in the data set or some other organization scheme.  This allows you to quickly spot an values that are really weird, such as typos.
+
+```{r}
+ggdotchart(data = my.frogs, 
+           x= "i.row", 
+           y = "mass", 
+           rotate = T)
+```
+
+For more on Cleveland dotplots and data exploraiton see
+
+Zuur et al 2010.  A protocol for data exploration to avoid common statistical problems.  Methods in E&E.  https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210X.2009.00001.x
 
 ### Boxplots
 
-Basic boxplot with ggpubr's ggboxplot() function.  Note that "mass" and "sex" are in quotes.
+Basic boxplots are easy to make with ggpubr's **ggboxplot()** function.  **Note that "mass" and "sex" are in quotes.**
 ```{r}
 ggboxplot(data = my.frogs, # the data frame
-          y = "mass",      # y-axis: a continous variable
-          x = "sex")       # x-axis: a group
+          y = "mass",      # y-axis: a continous variable; in quotes!
+          x = "sex")       # x-axis: a group; in quotes!
 ```
 
 
 
 ### Notched boxplot
 
-We'll use the original frogarms dataframe first for this
-These aren't commonly used; the notches work kind of like confidence intervals to determine if medians are different.  
+We'll use the original frogarms dataframe first for this.  These aren't commonly used; the notches work kind of like confidence intervals to determine if medians are different.  
 ```{r }
-ggboxplot(data = frogarms,
+ggboxplot(data = frogarms, #full dataset
           y = "mass",
           x = "sex",
           notch  = TRUE) 
@@ -121,8 +140,8 @@ ggboxplot(data = frogarms,
 
 Now try your own subset of the data.  The Notch calculations likely get messed up with small samples sizes.  R will likely give you several warnings in red.
 
-```{r}
-ggboxplot(data = my.frogs,
+```{r eval = F}
+ggboxplot(data = my.frogs, #my subset
           y = "mass",
           x = "sex",
           notch  = TRUE)
@@ -131,16 +150,16 @@ ggboxplot(data = my.frogs,
 
 ### Filled boxplots
 
-Add colored fill; note that it is "**fill**" not "color".  (Color changes the color of the lines).
+Its good practice to accent plot elements that relate to different groups.  **ggplot** and **ggpubr** make this really eas.  We can add colored fill to the box plots using fill = "..."; note that it is "**fill**" not "color".  (Color changes the color of the lines).
 ```{r eval = F}
 ggboxplot(data = my.frogs,
-          y = "mass",
+          y = "mass",      # quotes!
           x = "sex",
           notch  = TRUE,
           fill = "sex")
 ```
 
-We can turn off the notching by adding a "#" character before it.  This is called "commenting out" that line of code
+We can turn off the notching by adding a "#" character before it.  This is called **commenting out** that line of code
 
 ```{r eval = F}
 ggboxplot(data = my.frogs,
@@ -153,36 +172,40 @@ ggboxplot(data = my.frogs,
 
 ### Boxplots with raw data
 
-Add raw data  This works best with small datasets
+Its best to plot your raw data whenever possible.  This works best with small datasets.  We'll do this by appending add = "point".
 ```{r}
-
 ggboxplot(data = my.frogs,
           y = "mass",
           x = "sex",
           #notch  = TRUE,
           fill = "sex",
-          add = "point")
+          add = "point")   # add = "point", with quotes!
 ```
 
 
+For more best practices in plotting data see
+
+* Weissgerber et al.  2017.  Data visualization, bar naked: A free tool for creating interactive graphics.  Journal of Biological Chemistry.  http://www.jbc.org/content/292/50/20592.full
+* Weissgerber et al.  2015.  Beyond bar and line graphs: time for a new data presentation paradigm.  PLoS.  https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002128&fullSite
+
 ### Boxplots with jittered raw data
 
-This can be helpful, though ggpubr::ggboxplot doesn't allow much control over the "jittering".  Jittering is helpful when you have large datasets and want to avoid overlap in the points.
+This can be helpful, though ggpubr::ggboxplot doesn't allow much control over the **jittering**.  Jittering is helpful when you have large datasets and want to avoid overlap in the points.  We'll append add = "jitter".
 ```{r}
 ggboxplot(data = my.frogs,
           y = "mass",
           x = "sex",
           fill = "sex",
-          add = "jitter")
+          add = "jitter") # add = "jitter"
 ```
 
 ----------
 
-### OPTIONAL: Jittering with ggplot2
+### OPTIONAL: Jittering with ggplot2 [O]
 
-**The following section is opptionall**
+**The following section is opptional**
 
-ggpubr helps simplify ggplot2 code, but in doing so adds some constraints.  You can combine ggpubr commands with regular ggplot2 code though. We'll use the code we did above and also add "+ geom_jitter()"
+**ggpubr** helps simplify ggplot2 code, but in doing so adds some constraints.  You can combine ggpubr commands with regular ggplot2 code though. We'll use the code we did above and also add "+ geom_jitter()"
 
 This code should produce a plot similar to the one above.  Note that after " fill = "sex") " there is a "+", ( eg, " fill = "sex") + " ) and that on the next line is "  geom_jitter()"
 
@@ -190,8 +213,8 @@ This code should produce a plot similar to the one above.  Note that after " fil
 ggboxplot(data = my.frogs,
           y = "mass",
           x = "sex",
-          fill = "sex") +  #need the plus!
-  geom_jitter()
+          fill = "sex") +  # need the plus!
+  geom_jitter()            # the jitter command 
 ```
 
 
@@ -201,34 +224,34 @@ ggboxplot(data = my.frogs,
           y = "mass",
           x = "sex",
           fill = "sex") +  #need the plus!
-  geom_jitter(width = 0.1)
+  geom_jitter(width = 0.1) #reduce the magnitude of the jitter
 ```
 
 
-**End optional section
+**End optional section**
 
 ---------------
 
 ### Label ggpubr axes
 
-A graph isn't done until it has labels.  This can get annoying in base R graphics and ggplot2, but is easy in ggpubr.
+A graph isn't done until it has labels.  This can get annoying in base R (eg plot()) graphics and ggplot2, but is easy in ggpubr.
 
-#### Axes lables
+#### Adding Axes lables
 
-Adding "xlab = ..." and "ylab = ..." adds axes labels.  Always add units (eg "g" for grams) when applicable. 
+Adding the arguements "xlab = ..." and "ylab = ..." adds axes labels.  Always add units (eg "g" for grams) when applicable. 
 
 ```{r}
 ggboxplot(data = my.frogs,
           y = "mass",
           x = "sex",
           fill = "sex",
-          xlab = "Sex",      #x axis (horizontal)
+          xlab = "Sex",      #x axis (horizontal); quotes!
           ylab = "Mass (g)") #y axis (vertical)
 ```
 
-#### Plot  title
+#### Plot title
 
-The command "main = ..." adds a main title at the top of the graph.  This is not usually done for publication but useful for keeping track of things and for presentations.  
+The command "main = ..." adds a main title at the top of the graph.  This is not usually done for publications but useful for keeping track of things and for presentations.  
 
 ```{r eval = F}
 ggboxplot(data = my.frogs,
@@ -242,9 +265,9 @@ ggboxplot(data = my.frogs,
 ```
 
 
-#### Refining ggpubr pltos
+#### Refining ggpubr plots
 
-Move the legend to the bottom.
+Move the legend to the bottom using **legend = "bottom"**.
 
 ```{r}
 ggboxplot(data = my.frogs,
@@ -258,7 +281,7 @@ ggboxplot(data = my.frogs,
 ```
 
 
-Change the  color palette
+Change the  color palette; Note that the colors are within **c(...)**.
 ```{r}
 ggboxplot(data = my.frogs,
           y = "mass",
@@ -275,7 +298,7 @@ ggboxplot(data = my.frogs,
 
 ### Plotting multple plots with cowplot::plot_grid
 
-We can save a plot to an **R object**.  I will use the **assignment operation** (<-) to assign the output of ggboxplot() to an object called "gg.my.frogs".  Note that here I am using my.frogs.
+You can save just about anything as an R object, and we can save a plot to an **R object**.  I will use the **assignment operation** (<-) to assign the output of ggboxplot() to an object called "gg.my.frogs".  Note that here I am using my.frogs.
 ```{r}
 gg.my.frogs <- ggboxplot(data = my.frogs,
           y = "mass",
@@ -285,7 +308,14 @@ gg.my.frogs <- ggboxplot(data = my.frogs,
 
 Note that the code runs but nothing happens...
 
-I can call just the object (eg, just type it into the console. or highlight just the word)
+We can see what we just made using is()
+```{r}
+is(gg.my.frogs)
+```
+
+This indicates 1) gg.my.frogs is there and 2) it is a "gg" type R object.
+
+I can get the graph if I call just the object gg.my.frogs (eg, just type "gg.my.frogs" into the console and press enter, or highlight just the word "gg.my.frogs" in a script and execute the command)
 ```{r}
 gg.my.frogs
 ```
@@ -319,10 +349,18 @@ plot_grid(gg.my.frogs,
 ```
 
 
+### Violin plots
+
+An interesting alternative to boxplot that works well with large data is the violin plot
+```{r}
+ggviolin(data = frogarms, #use original data
+          y = "mass",
+          x = "sex")
+```
 
 ----------
 
-### Optional: Histograms
+### Optional: Histograms [0]
 
 
 **The following is optional**
@@ -337,7 +375,7 @@ gghistogram(data = my.frogs,
 ```
 
 
-A key concept for ggplot is "faceting."  Faceting occurring when a two panels of plots are made from a single dataset, and the panels are split by a categorical variable.  We can add "facet.by.by = sex" to make two panels, one for female and one for male.  Note that because there are only 10 frogs in each group, the graphs aren't very useful.
+A key concept for **ggplot** is **faceting**.  Faceting occurring when a two panels of plots are made from a single dataset, and the panels are split by a **categorical variable**.  We can add the arguement **"facet.by.by = sex"** to make 2 panels, one for female and one for male.  Note that because there are only 10 frogs in each group, the graphs aren't very useful.
 
 ```{r}
 gghistogram(data = my.frogs, 
@@ -355,6 +393,10 @@ gghistogram(data = my.frogs,
             fill = "sex")
 ```
 
-
-
 ----------
+
+## Challenge: Compare a boxplot and violin plot [_]
+
+Using ggboxplot, ggviolin, and plot_grid, make a 2-panel plot that compare a boxplot to a violin plot.  Add the raw jittered raw data to both plots.
+
+

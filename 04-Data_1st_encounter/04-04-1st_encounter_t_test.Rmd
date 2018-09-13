@@ -1,4 +1,4 @@
-# Data Analysis Case Study Part III: T-test
+#  Data analysis encounter: T-test
 
 
 ```{r , include=F, echo = F}
@@ -50,14 +50,18 @@ my.frogs <- make_my_data2L(dat = frogarms,
 
 
 
-t-test used to tell if two groups are different
+t-test used to tell if 2 groups are different
 
 
 ### T-test
+
+Use the t.test() function.  The **reponse variable** (aka the **y variable**) is **mass** and goes to the left of the **~**.  The **predictor** variable (**x-variable**) goes on teh right.  The arguement **data = ...** is used to tell the function where the response and predictor columns are found.
 ```{r echo  = F}
 t.test(mass ~ sex, data = my.frogs)
 ```
-spits out R's standard t.test table
+
+This spits out R's standard t.test table
+
 
 Save to object
 ```{r}
@@ -68,7 +72,7 @@ mass.t <-  t.test(mass ~ sex, data = my.frogs)
 
 -----------------
 
-### Optional
+### Optional: cleaning up output with broom() [O]
 
 **This section is optional**
 
@@ -166,8 +170,6 @@ plot_grid(gg.means,gg.ES)
 ```
 
 
-
-
 Did anyone get a significant result?
 
 
@@ -202,4 +204,5 @@ ggscatter(data = frogarms,
 
 
 **End optional section**
+
 ------------------------------

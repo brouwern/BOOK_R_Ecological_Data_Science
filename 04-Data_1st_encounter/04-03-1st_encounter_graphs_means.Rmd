@@ -1,9 +1,4 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-# Data analysis case study part II: plotting your data
+# Data analysis encounter: Plotting means and measures of variation and precision
 
 
 ```{r , include=F, echo = F}
@@ -19,17 +14,17 @@ knitr::opts_chunk$set(tidy = F,
 ```
 
 | **Nathan Brouwer, Phd**
-| brouwern@gmail.com
+| brouwern at gmail.com
 | https://github.com/brouwern
 | Twitter: lobrowR
 
 ## Introduction
 
-In the previous lesson we made boxplot to explore the distribution of the data.  In this lessons we'll focus on plotting the mean with error bars.  Different kinds of error bars are possible, including the standard deviation,  standard error, and confidence intervals.  Norms for what to plot vary between fields; generally speaking standard error are most common in biology, but 95% CIs are what are recommended by statisticians.  As we'll explain, standard deviations convey one time of information, while standard errors and confidence intervals convey a very different kind.
+In the previous lesson we made **boxplots** to explore the distribution of the data.  In this lessons we'll focus on plotting the mean with error bars.  Different kinds of error bars are possible, including the **standard deviation**,  **standard error**, and **confidence intervals**.  Norms for what to plot vary between fields; generally speaking standard error are most common in biology, but 95% CIs are what are recommended by statisticians.  As we'll explain, standard deviations convey one kind of information, while standard errors and confidence intervals convey a very different kind.
 
 ### Goals & objectives
 
-Create plots to explore the wildlifeR::frogarms data and visualize both variation within the groups using the standard deviation, and how precisely the mean can be estimated using standard errors (SE) and confidence intervals.
+Create plots to explore the **wildlifeR::frogarms** data and visualize both **variation within** the groups using the standard deviation, and **how precisely the mean can be estimated** using standard errors (SE) and confidence intervals.
 
 
 ### Packages 
@@ -56,13 +51,13 @@ Create plots to explore the wildlifeR::frogarms data and visualize both variatio
 
 ### Preliminaries
 
->The following code doesn't need to be run if the previous exercises in this section were alread run.
+**Note: The following code doesn't need to be run if the previous exercises in this section were already run.**
 
 #### Load packages
 
 If not already loaded, we need the wildlifeR package, which lives on Github
 ```{r eval = F}
-library(devtools)
+library(devtools)                    #[P]
 install_github("brouwern/wildlifeR")
 
 library(wildlifeR)
@@ -70,7 +65,7 @@ library(wildlifeR)
 
 We also need several other packages needed for visualization.  We'll use the ggplot2 package for plotting, and the cowplot package for some nice plotting defaults.  
 ```{r}
-library(ggplot2)
+library(ggplot2) #[P]
 library(cowplot)
 library(ggpubr)
 library(dplyr)
@@ -80,7 +75,7 @@ library(dplyr)
 
 Load the frogarms data by Buzatto et al (2015) if its not already loaded.
 ```{r}
-data(frogarms)
+data(frogarms) #[P]
 ```
 
 
@@ -89,7 +84,7 @@ data(frogarms)
 The function make_my_data2L() will extact out a random subset of the data.  Change "my.code" to your school email address, minus the "@pitt.edu" or whatever your affiliation is.  **This does not need to be done if you did this as part of the previous lesson**
 
 ```{r }
-my.frogs <- make_my_data2L(dat = frogarms, 
+my.frogs <- make_my_data2L(dat = frogarms,    #[P]
                            my.code = "nlb24", # <=  change this!
                            cat.var = "sex",
                            n.sample = 20, 
@@ -98,7 +93,7 @@ my.frogs <- make_my_data2L(dat = frogarms,
 ```
 
 
-## Background: measures of variation
+## Background: measures of variation [_]
 
 ### Variance
 
@@ -114,13 +109,14 @@ $(Y_{i} - \bar{Y})^{2}$ indicates that each difference between a value and the m
 
 So, the upshot is: we take each value in the dataset, subtract the mean from each value, square each of those differences, add them up, and divide them by the sample size minus 1.
 
-The variance shows up everywhere in stats, but mostly as part of calculations; less frequently is it reported, though it plays an important role in, among other things, genetics and stochastic demography.  The bigger the variance, the more variability.  However, its "dimensionless." That is, it doesn't have units like meters, pounds, etc.  This is because of the squaring that occurs in the numerator.  The variance is therefore never plotted alongside the datae; this would be meaningless.
+The variance shows up *everywhere* in stats, but mostly behind the scenes in  calculations; less frequently is it reported, though it plays an important role in, among other things, genetics and stochastic demography.  
+
+The bigger the variance, the more variability.  However, because of the squaring that occurs in the numerator the variance is on scale all its own.  The variance is therefore never plotted alongside the datae; this would be meaningless.
 
 The variance of the frogarm mass data is
 ```{r}
 var(frogarms$mass)
 ```
-
 
 
 ### Standard deviation (SD)
@@ -145,15 +141,15 @@ sd(frogarms$mass)
 
 Since the standard deviation is the square root of the variance, it is always smaller than the variance (Eg s < s^2)
 
-The standard error (and the variance) are both measures of **variation**.  They indicate the amount of variation that occurs in the raw data.  
+The standard error (and the variance) are both measures of **variation**.  They indicate the amount of variation that occurs in the **raw data.** 
 
 -------------
 
-### Optional: Testing the equivalence of two values
+### Optional: Testing the numerical equivalence of 2 values
 
-**THe following is optional**
+**The following is optional**
 
-We can confirm that two values are equivalent like this:
+We can confirm that 2 values are numerically equivalent using the **==** operator:
 
 ```{r}
 sqrt(var(frogarms$mass)) == sd(frogarms$mass)
@@ -165,25 +161,24 @@ sqrt(var(frogarms$mass)) == sd(frogarms$mass)
 --------------
 
 
-
 ### Standard error (SE)
 
-The standard error is often neglected in elementary stats work but it is a central concept.  The standard deviation is the standard deviation divided by the square root of the same size.
+The **standard error** is often neglected in elementary stats work but it is a central concept.  The standard error is the standard deviation divided by the square root of the same size.
 
 \[SE = \frac{SD}{\sqrt{N}}\]
 
 A very important thing about the standard error: it is **not** a measure of variation.  It does **not** indicate how much variation there is in the raw data.  The SE is an indication of **precision**.  Specifically, it indicates how confident we are about our estimate of mean from the data.  The SE does depend on the amount of variation in the data, but also depends on the sample size (n).
 
-Base R does not have a function for the SD.  We can calculate it like this
+Base R does not have a function for the SE.  We can calculate it like this
 
 ```{r}
 sd(frogarms$mass)/sqrt(length(frogarms$mass))
 ```
 
-THis is a bit complicated, so we can break it up.  First, assign the numerator and denominator to seperate **R objects**.
+This is a bit dense, so we can break it up.  First, assign the numerator and denominator to seperate **R objects** using the assignment operator **<-**.
 ```{r}
 frog.sd <- sd(frogarms$mass)
-frog.n <- sqrt(length(frogarms$mass))
+frog.n  <- sqrt(length(frogarms$mass))
 ```
 
 Then do the division
@@ -191,30 +186,31 @@ Then do the division
 frog.sd/frog.n
 ```
 
-The standard error is frequently used as error bars for plots of means.
+The standard error is frequently used as **error bars** for plots of means.
 
 ### Confidence Interval (CI)
 
-Confidence intervals are a deep topic in stats.  We'll just toch on them briefly.  If you have calcualted the standard error (SE) you can approximate the 95% CI for a mean as
+Confidence intervals are a deep topic in stats.  We'll just touch on them briefly.  If you have calcualted the standard error (SE) you can *approximate* the 95% CI for a mean as
 
 \[CI = 1.96*SE\]
 
-That is, 1.96 (sometimes rounded just to 2.0) multipled by the SE.  The 95% is argueably a better choice for an error bar around a mean than that SE (better yet plot both, which down the row we'll show how to do)
+That is, 1.96 (sometimes rounded just to 2.0) multipled by the SE.  The 95% CI is argueably a better choice for an error bar around a mean than the SE (better yet plot both, which down the road we'll show how to do).
 
 
 ## Representing variation with the SD
 
-ggpubr has a hand function for calcualting means and plotting error bars around them.  The ggerrorplot() is the main function, and the "desc_stat = ..." arguement defines what exactly to plot.
+**ggpubr** has a very hand function for calcualting means and plotting error bars around them. **ggerrorplot()** (gg error plot) is the main function, and the "**desc_stat = ...**" arguement defines what exactly to plot.
 
-If for some reason you just want to plot means use "desc_stat = 'mean'", with mean quoted.
+If for some reason you just want to plot means use "**desc_stat = 'mean'**", with mean quoted.
 ```{r echo = F}
-ggerrorplot(data = my.frogs,
+ggerrorplot(data = my.frogs,    #[_]
             desc_stat = "mean",
-          y = "mass",
-          x = "sex")
+            y = "mass",
+            x = "sex")
 ```
 
-For the standard deviation use "desc_stat = 'mean_sd'" (NOte that any time you have a plot with errorbarrs -- and if you plot means you should have error bars -- you need to define at least in the figure legend what the error bars are.)
+For the standard deviation use "**desc_stat = 'mean_sd'**" (Note that any time you have a plot with errorbarrs -- and if you plot means you should have error bars -- you need to define at least in the figure legend what the error bars are.)
+
 ```{r}
 ggerrorplot(data = my.frogs,
             desc_stat = "mean_sd",
@@ -225,11 +221,9 @@ ggerrorplot(data = my.frogs,
 Again, the standard deviation is a measure of **variation**.
 
 
-
-
 ### Representing precision with the SE
 
-ggerrorplot() actually defaults to making a plot of the mean +/- 1 standard error.
+ggerrorplot() actually defaults to making a plot of the mean +/- 1 standard error (SE).
 ```{r}
 ggerrorplot(data = my.frogs,
           y = "mass",
@@ -237,8 +231,7 @@ ggerrorplot(data = my.frogs,
 ```
 
 
-
-Mean and 95% confidence interval are plotted with "desc_stat = 'mean_ci' "
+The means and 95% confidence interval are plotted with "**desc_stat = 'mean_ci'**"
 ```{r}
 ggerrorplot(data = my.frogs,
           y = "mass",
@@ -246,9 +239,9 @@ ggerrorplot(data = my.frogs,
           desc_stat = "mean_ci")
 ```
 
-Again, the SE and 95%  CI are measure of **precision**.  There can be lots of variation in a dataset (SD is high) but if you have collected a lot of data, you should be able to estimate the mean with precision.  In general, the more data you have, the more precise your estimate will be.  
+Again, the SE and 95%  CI are measure of **precision**.  There can be lots of variation in a dataset (SD is high) but if you have collected a lot of data (N is arge), you should be able to estimate the mean with precision.  In general, the more data you have, the more precise your estimate will be.  
 
-You can see how more data increases precision by comparing the entire frogarms dataset against your personal subset.  We can assign each plot to an object using the assignment operator "<-" and then plot them side by side with plot_grid() from cowplot.
+You can see how more data increases precision by comparing the entire frogarms dataset against your personal subset.  We can assign each plot to an object using the assignment operator "<-" and then plot them side by side with **plot_grid()** from **cowplot**.
 
 ```{r}
 #your data
@@ -258,8 +251,8 @@ gg.my.frogs <- ggerrorplot(data = my.frogs,
           desc_stat = "mean_ci",
           ylim = c(1.25,3.75))
 
-#all of the data
-gg.all.frogs <- ggerrorplot(data = frogarms, #change data
+#all of the forgm data
+gg.all.frogs <- ggerrorplot(data = frogarms, #changed data = ...
           y = "mass",
           x = "sex",
           desc_stat = "mean_ci",
@@ -268,7 +261,7 @@ gg.all.frogs <- ggerrorplot(data = frogarms, #change data
 ```
 
 
-Now plot them together.  Then means will be different because of random variation between the subsamples.  What happens to the error bars?.
+Now plot them together using **cowplot::plot_grid()**.  Then means will be different because of random variation between the subsamples.  What happens to the error bars?.
 ```{r}
 plot_grid(gg.my.frogs, 
           gg.all.frogs,
@@ -276,19 +269,20 @@ plot_grid(gg.my.frogs,
 ```
 
 
-Now, what if instead of the 95% CI we plotted the SD.  What do you think that will look like?  Adapt the code from above by changing " desc_stat = "mean_ci"" to " desc_stat = "mean_sd"".  
+Now, what if instead of the 95% CI we plotted the SD?  What do you think that will look like?  Adapt the code from above by changing "**desc_stat = 'mean_ci'**" to "**desc_stat = 'mean_sd'**".  
 
 
 
 ## Refining plots
 
 Set colors
+
 ```{r}
 ggerrorplot(data = my.frogs,
           y = "mass",
           x = "sex",
           desc_stat = "mean_ci",
-          color = "sex")
+          color = "sex")         # color = ....
 ```
 
 
@@ -300,7 +294,7 @@ ggerrorplot(data = my.frogs,
           desc_stat = "mean_ci",
           color = "sex",
           shape = "sex",
-          add = "point")
+          add = "point")  # add = "point"
 ```
 
 
@@ -311,37 +305,35 @@ ggerrorplot(data = my.frogs,
           x = "sex",
           desc_stat = "mean_ci",
           color = "sex",
-          add = "jitter")
+          add = "jitter")        # add = "jitter"
 ```
 
 
-
-
-Change to the SD.  In theory, about 2/3 of the data points should falle within +/- 1 SD.  Does that look about right?
+Change to the SD.  In theory, about 2/3 of the data points should fall within +/- 1 SD.  Does that look about right?
 ```{r }
 ggerrorplot(data = my.frogs,
           y = "mass",
           x = "sex",
-          desc_stat = "mean_sd",
+          desc_stat = "mean_sd",  # desc_stat = "mean_sd"
           color = "sex",
           add = "jitter")
 ```
 
 
 
-Back to just the means, and increase size.
+Back to the means and CIs, and increase size of the points.
 ```{r}
 ggerrorplot(data = my.frogs,
           y = "mass",
           x = "sex",
           desc_stat = "mean_ci",
           color = "sex",
-          size = 1.5) #
+          size = 1.5)           #increase point size
 ```
 
 
 
-Move legend to the bottom using "legend = "bottom" "
+Move legend to the bottom using "legend = "bottom" ".  Add some labels using xlab and ylab.
 
 ```{r}
 ggerrorplot(data = my.frogs,
